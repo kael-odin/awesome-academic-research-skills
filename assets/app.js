@@ -207,15 +207,17 @@
     items.forEach((item) => {
       const row = document.createElement("tr");
       const trendClass = item.trend.id === "hot" ? "trend-pill hot" : "trend-pill";
-      const delta = item.star_delta_1d ? `+${formatNumber(item.star_delta_1d)}` : "0";
+      const delta7 = item.star_delta_7d || item.star_delta_1d || 0;
+      const delta = delta7 ? `+${formatNumber(delta7)}` : "0";
+      const topics = (item.topics || []).slice(0, 3).join(", ");
       row.innerHTML = `
         <td class="rank-cell">${item.rank}</td>
         <td class="repo-cell">
           <a href="${item.url}" target="_blank" rel="noreferrer">${item.repo}</a>
-          <span class="repo-meta">${item.language || "GitHub"} · ${item.topics.slice(0, 3).join(", ")}</span>
+          <span class="repo-meta">${item.language || "GitHub"}${topics ? " · " + topics : ""}</span>
         </td>
         <td class="stars">${formatNumber(item.stars)}</td>
-        <td><span class="${trendClass}">${trendName(item)} · ${delta}</span></td>
+        <td><span class="${trendClass}">${trendName(item)} · 7d:${delta}</span></td>
         <td><span class="category-pill">${categoryName(item)}</span></td>
         <td class="description-cell">${item.description || ""}</td>
         <td>${item.last_push_date || ""}</td>

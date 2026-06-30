@@ -1,0 +1,29 @@
+---
+name: 推荐新仓库
+about: 推荐一个学术/科研 Agent Skill 仓库加入榜单
+title: "[推荐] <owner/repo>"
+labels: recommendation
+---
+
+## 仓库
+
+<!-- 例如 Imbad0202/academic-research-skills -->
+
+- 仓库链接：
+- GitHub Stars（大约）：
+- 主要语言：
+
+## 分类
+
+<!-- 选一个最贴近的：深度研究 / 论文写作 / 文献综述 / 评审反馈 / 实验复现 / 学科专项 / 综合研究 -->
+
+## 推荐理由
+
+<!-- 一句话说明它如何服务学术/科研/论文场景，以及它具备哪些 Skill/Agent/Workflow 信号 -->
+
+## 信号自检
+
+- [ ] 明确服务学术/科研/论文/文献/评审/实验复现
+- [ ] 具备 Skill/Agent/Workflow/Claude Code/Codex/OpenCode 信号
+- [ ] Stars ≥ 100
+- [ ] 非 fork、未归档

@@ -1,11 +1,13 @@
 import unittest
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 from scripts.update_rankings import (
     classify_repo,
     compute_trend_score,
+    find_window_snapshot,
     is_academic_skill_repo,
     rank_repositories,
+    render_readme,
 )
 
 
@@ -183,6 +185,131 @@ class RankingRulesTest(unittest.TestCase):
 
         self.assertEqual([item["repo"] for item in ranked], ["example/b-paper-skill", "example/a-paper-skill"])
         self.assertEqual([item["rank"] for item in ranked], [1, 2])
+
+    def test_seven_day_delta_uses_window_snapshot(self):
+        """star_delta_7d should reflect growth since the 7-day-ago snapshot."""
+        repos = [
+            {
+                "nameWithOwner": "example/growing-skill",
+                "description": "Academic research skill",
+                "repositoryTopics": {"nodes": []},
+                "stargazerCount": 500,
+                "pushedAt": "2026-06-29T00:00:00Z",
+                "createdAt": "2026-01-01T00:00:00Z",
+                "url": "https://github.com/example/growing-skill",
+            },
+        ]
+        # 7 days ago the repo had 420 stars; previous run saw 498.
+        window_snapshot = {"example/growing-skill": {"stars": 420}}
+        previous_snapshot = {"example/growing-skill": {"stars": 498}}
+
+        ranked = rank_repositories(
+            repos,
+            min_stars=100,
+            previous_snapshot=previous_snapshot,
+            window_snapshot=window_snapshot,
+        )
+
+        self.assertEqual(ranked[0]["star_delta_7d"], 80)
+        self.assertEqual(ranked[0]["star_delta_1d"], 2)
+        # 80 stars in a week should mark it as rising at minimum.
+        self.assertIn(ranked[0]["trend"]["id"], ("rising", "hot"))
+
+    def test_seven_day_delta_falls_back_to_one_day_when_no_history(self):
+        repos = [
+            {
+                "nameWithOwner": "example/skill",
+                "description": "Academic research skill",
+                "repositoryTopics": {"nodes": []},
+                "stargazerCount": 150,
+                "pushedAt": "2026-06-29T00:00:00Z",
+                "createdAt": "2026-01-01T00:00:00Z",
+                "url": "https://github.com/example/skill",
+            },
+        ]
+        previous_snapshot = {"example/skill": {"stars": 140}}
+
+        ranked = rank_repositories(
+            repos,
+            min_stars=100,
+            previous_snapshot=previous_snapshot,
+            window_snapshot=None,
+        )
+
+        # No window snapshot → fall back to the 1-day delta.
+        self.assertEqual(ranked[0]["star_delta_7d"], 10)
+
+    def test_find_window_snapshot_tolerates_missing_days(self):
+        today = datetime(2026, 6, 30, tzinfo=timezone.utc)
+        # History has a snapshot from 9 days ago but nothing at exactly 7.
+        history = {
+            (today - timedelta(days=9)).date().isoformat(): {"example/skill": {"stars": 100}},
+        }
+
+        snapshot = find_window_snapshot(history, today, window_days=7)
+
+        self.assertIsNotNone(snapshot)
+        self.assertIn("example/skill", snapshot)
+
+    def test_render_readme_shows_all_categories_in_fixed_order(self):
+        """The category overview must list every category, even zero-count ones,
+        in the fixed CATEGORIES order — not a sorted/partial list."""
+        repos = [
+            {
+                "nameWithOwner": "example/deep-research-skill",
+                "description": "Deep research skill for source validation",
+                "repositoryTopics": {"nodes": []},
+                "stargazerCount": 200,
+                "pushedAt": "2026-06-29T00:00:00Z",
+                "createdAt": "2026-01-01T00:00:00Z",
+                "url": "https://github.com/example/deep-research-skill",
+            },
+        ]
+        ranked = rank_repositories(repos, min_stars=100, previous_snapshot={})
+        data = {
+            "metadata": {"generated_at": "2026-06-30T00:00:00Z", "min_stars": 100, "total": 1},
+            "items": ranked,
+        }
+
+        readme = render_readme(data)
+
+        # Every category label must appear, so counts always add up.
+        for label in ["深度研究", "论文写作", "文献综述", "评审反馈", "实验复现", "学科专项", "综合研究"]:
+            self.assertIn(label, readme)
+        # The overview line itself must be in fixed order: extract just that line
+        # and check the labels appear there in the CATEGORIES sequence.
+        overview_line = next(line for line in readme.splitlines() if "分类概览" in line)
+        positions = [overview_line.index(label) for label in ["深度研究", "论文写作", "文献综述", "评审反馈", "实验复现", "学科专项", "综合研究"]]
+        self.assertEqual(positions, sorted(positions))
+
+    def test_render_readme_newcomers_only_when_history_exists(self):
+        """Newcomers block should appear only when a 7-day-ago snapshot exists
+        and the repo was not in it. No history → no block (avoid a first-run flood)."""
+        repos = [
+            {
+                "nameWithOwner": "example/new-skill",
+                "description": "Academic research skill",
+                "repositoryTopics": {"nodes": []},
+                "stargazerCount": 150,
+                "pushedAt": "2026-06-29T00:00:00Z",
+                "createdAt": "2026-01-01T00:00:00Z",
+                "url": "https://github.com/example/new-skill",
+            },
+        ]
+        ranked = rank_repositories(repos, min_stars=100, previous_snapshot={})
+        data = {
+            "metadata": {"generated_at": "2026-06-30T00:00:00Z", "min_stars": 100, "total": 1},
+            "items": ranked,
+        }
+
+        # No history at all → no newcomers section.
+        self.assertNotIn("## 本周新收录", render_readme(data, window_snapshot=None))
+
+        # A non-empty 7-day-ago snapshot that lacks this repo → newcomer.
+        window_snapshot = {"example/other-skill": {"stars": 100}}
+        readme = render_readme(data, window_snapshot=window_snapshot)
+        self.assertIn("## 本周新收录", readme)
+        self.assertIn("example/new-skill", readme)
 
 
 if __name__ == "__main__":
