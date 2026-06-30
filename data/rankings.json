@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-06-30T03:58:02Z",
+    "generated_at": "2026-06-30T04:07:57Z",
     "min_stars": 100,
     "total": 21,
     "source": "GitHub REST Search API",
@@ -11,8 +11,8 @@
       "rank": 1,
       "repo": "Imbad0202/academic-research-skills",
       "stars": 35388,
-      "star_delta_1d": 1,
-      "trend_score": 60.03,
+      "star_delta_1d": 0,
+      "trend_score": 58.83,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -53,9 +53,9 @@
     {
       "rank": 2,
       "repo": "K-Dense-AI/scientific-agent-skills",
-      "stars": 29615,
-      "star_delta_1d": 0,
-      "trend_score": 55.68,
+      "stars": 29617,
+      "star_delta_1d": 2,
+      "trend_score": 58.08,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -104,9 +104,9 @@
     {
       "rank": 3,
       "repo": "Yuan1z0825/nature-skills",
-      "stars": 24382,
-      "star_delta_1d": 0,
-      "trend_score": 62.61,
+      "stars": 24383,
+      "star_delta_1d": 1,
+      "trend_score": 63.81,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -196,8 +196,8 @@
       "rank": 5,
       "repo": "Orchestra-Research/AI-Research-SKILLs",
       "stars": 10232,
-      "star_delta_1d": 1,
-      "trend_score": 50.15,
+      "star_delta_1d": 0,
+      "trend_score": 48.95,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -241,9 +241,9 @@
     {
       "rank": 6,
       "repo": "Imbad0202/academic-research-skills-codex",
-      "stars": 5060,
-      "star_delta_1d": 0,
-      "trend_score": 57.02,
+      "stars": 5061,
+      "star_delta_1d": 1,
+      "trend_score": 58.22,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -286,8 +286,8 @@
       "rank": 7,
       "repo": "Master-cai/Research-Paper-Writing-Skills",
       "stars": 4523,
-      "star_delta_1d": 1,
-      "trend_score": 53.09,
+      "star_delta_1d": 0,
+      "trend_score": 51.88,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -568,7 +568,7 @@
       "repo": "LigphiDonk/Oh-my--paper",
       "stars": 673,
       "star_delta_1d": 0,
-      "trend_score": 30.33,
+      "trend_score": 30.32,
       "trend": {
         "id": "steady",
         "zh": "稳定",
@@ -729,7 +729,7 @@
       "repo": "hanlulong/econ-writing-skill",
       "stars": 419,
       "star_delta_1d": 0,
-      "trend_score": 37.35,
+      "trend_score": 37.34,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -824,7 +824,7 @@
       "repo": "fcakyon/phd-skills",
       "stars": 302,
       "star_delta_1d": 0,
-      "trend_score": 32.99,
+      "trend_score": 32.98,
       "trend": {
         "id": "steady",
         "zh": "稳定",

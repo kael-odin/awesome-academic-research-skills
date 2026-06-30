@@ -10,7 +10,7 @@
 
 ## 今日榜单
 
-- 更新时间：`2026-06-30T03:58:02Z`
+- 更新时间：`2026-06-30T04:07:57Z`
 - 收录门槛：GitHub Stars >= `100`，排除 fork、归档仓库和明显非学术项目。
 - 精准规则：必须同时命中 Skill/Agent/Workflow 信号和 Academic/Research/Paper 信号。
 - 趋势指标：综合最近新增 stars、最近 push 时间、新仓库加权和总体 stars 规模。
@@ -18,13 +18,13 @@
 
 | # | 仓库 | Stars | 趋势 | 分类 | 简介 | 最近更新 |
 |---:|---|---:|---|---|---|---|
-| 1 | [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) | 35,388 | 持续增长 (+1) | 论文写作 | Academic Research Skills for Claude Code: research → write → review → revise → finalize | 2026-06-24 |
-| 2 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 29,615 | 持续增长 (0) | 学科专项 | Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 160,000+ scientists… | 2026-06-29 |
-| 3 | [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills) | 24,382 | 持续增长 (0) | 深度研究 | 符合nature论文学术表达和科研绘图的Skill | 2026-06-30 |
+| 1 | [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) | 35,388 | 持续增长 (0) | 论文写作 | Academic Research Skills for Claude Code: research → write → review → revise → finalize | 2026-06-24 |
+| 2 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | 29,617 | 持续增长 (+2) | 学科专项 | Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 160,000+ scientists… | 2026-06-29 |
+| 3 | [Yuan1z0825/nature-skills](https://github.com/Yuan1z0825/nature-skills) | 24,383 | 持续增长 (+1) | 深度研究 | 符合nature论文学术表达和科研绘图的Skill | 2026-06-30 |
 | 4 | [wanshuiyin/Auto-claude-code-research-in-sleep](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep) | 12,797 | 持续增长 (0) | 深度研究 | ARIS ⚔️ (Auto-Research-In-Sleep) — Lightweight Markdown-only skills for autonomous ML research: cross-model r… | 2026-06-28 |
-| 5 | [Orchestra-Research/AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs) | 10,232 | 持续增长 (+1) | 深度研究 | Comprehensive open-source library of AI research and engineering skills for any AI model. Package the skills… | 2026-06-16 |
-| 6 | [Imbad0202/academic-research-skills-codex](https://github.com/Imbad0202/academic-research-skills-codex) | 5,060 | 持续增长 (0) | 综合研究 | Codex-native Academic Research Skills suite for human-in-the-loop academic research workflows | 2026-06-29 |
-| 7 | [Master-cai/Research-Paper-Writing-Skills](https://github.com/Master-cai/Research-Paper-Writing-Skills) | 4,523 | 持续增长 (+1) | 学科专项 | Skill package for ML/CV/NLP paper writing, curated and adapted from Prof. Peng Sida's open notes for Codex, C… | 2026-06-23 |
+| 5 | [Orchestra-Research/AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs) | 10,232 | 持续增长 (0) | 深度研究 | Comprehensive open-source library of AI research and engineering skills for any AI model. Package the skills… | 2026-06-16 |
+| 6 | [Imbad0202/academic-research-skills-codex](https://github.com/Imbad0202/academic-research-skills-codex) | 5,061 | 持续增长 (+1) | 综合研究 | Codex-native Academic Research Skills suite for human-in-the-loop academic research workflows | 2026-06-29 |
+| 7 | [Master-cai/Research-Paper-Writing-Skills](https://github.com/Master-cai/Research-Paper-Writing-Skills) | 4,523 | 持续增长 (0) | 学科专项 | Skill package for ML/CV/NLP paper writing, curated and adapted from Prof. Peng Sida's open notes for Codex, C… | 2026-06-23 |
 | 8 | [HKUSTDial/Supervisor-Skills](https://github.com/HKUSTDial/Supervisor-Skills) | 3,380 | 持续增长 (0) | 学科专项 | 将博导十年科研经验炼化为可直接调用的 AI 技能。从 Idea 构思到论文投稿，你的 AI 科研副导师。 | 2026-06-26 |
 | 9 | [Weizhena/Deep-Research-skills](https://github.com/Weizhena/Deep-Research-skills) | 1,393 | 稳定 (0) | 深度研究 | Structured deep research skill for Claude Code/Open Code/Codex with human-in-the-loop control | 2026-05-07 |
 | 10 | [pedrohcgs/claude-code-my-workflow](https://github.com/pedrohcgs/claude-code-my-workflow) | 1,326 | 持续增长 (0) | 论文写作 | A ready-to-fork Claude Code template for academics using LaTeX/Beamer + R. Multi-agent review, quality gates,… | 2026-06-10 |
