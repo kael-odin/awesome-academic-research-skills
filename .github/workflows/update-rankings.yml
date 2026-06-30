@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   issues: write
+  actions: write
 
 jobs:
   update:
@@ -30,10 +31,26 @@ jobs:
         run: python -m unittest discover -s tests -v
 
       - name: Commit updated rankings
+        id: commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update academic research skill rankings"
           file_pattern: README.md data/rankings.json data/rankings.js data/rankings.csv data/history/*.json
+
+      - name: Redeploy GitHub Pages
+        # The auto-commit uses GITHUB_TOKEN, whose pushes do NOT trigger other
+        # `on: push` workflows — so Pages would otherwise serve stale data.
+        # Re-trigger the Pages deploy explicitly when data changed.
+        if: steps.commit.outputs.changes_detected == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'pages.yml',
+              ref: 'main',
+            });
 
       - name: Notify on failure
         if: failure()
