@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Daily ranking of academic paper, deep research, literature review, and research agent skills on GitHub."
+    />
+    <title>Academic Research Skills Ranking</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="./" aria-label="Academic Research Skills">
+          <span class="brand-mark">ARS</span>
+          <span class="brand-text">Academic Research Skills</span>
+        </a>
+        <div class="nav-actions" aria-label="Language switch">
+          <button class="lang-button active" type="button" data-lang="zh">中文</button>
+          <button class="lang-button" type="button" data-lang="en">EN</button>
+          <a class="github-link" href="https://github.com/kael-odin/awesome-academic-research-skills">GitHub</a>
+        </div>
+      </nav>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <h1 data-i18n="heroTitle">学术论文 Skill 排行</h1>
+          <p data-i18n="heroSubtitle">
+            每天自动发现、过滤并排名 GitHub 上服务论文写作、文献综述、深度研究、评审反馈和实验复现的 Agent Skill 仓库。
+          </p>
+        </div>
+        <div class="hero-panel" aria-label="Ranking summary">
+          <div>
+            <span class="metric-value" id="totalRepos">0</span>
+            <span class="metric-label" data-i18n="repos">收录仓库</span>
+          </div>
+          <div>
+            <span class="metric-value" id="minStars">100</span>
+            <span class="metric-label" data-i18n="minStars">最低 Stars</span>
+          </div>
+          <div>
+            <span class="metric-value" id="updatedAt">-</span>
+            <span class="metric-label" data-i18n="updated">最近更新</span>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="controls" aria-label="Ranking controls">
+        <label class="search-field">
+          <span data-i18n="searchLabel">搜索仓库、简介、分类</span>
+          <input id="searchInput" type="search" placeholder="paper writing, literature, review..." />
+        </label>
+        <label class="select-field">
+          <span data-i18n="categoryLabel">分类</span>
+          <select id="categoryFilter">
+            <option value="all" data-i18n="allCategories">全部分类</option>
+          </select>
+        </label>
+        <label class="select-field">
+          <span data-i18n="sortLabel">排序</span>
+          <select id="sortSelect">
+            <option value="rank" data-i18n="sortRank">综合排名</option>
+            <option value="trend" data-i18n="sortTrend">趋势优先</option>
+            <option value="stars" data-i18n="sortStars">Stars 优先</option>
+            <option value="updated" data-i18n="sortUpdated">最近更新</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="category-strip" id="categoryStrip" aria-label="Category summary"></section>
+
+      <section class="table-section">
+        <div class="table-header">
+          <div>
+            <h2 data-i18n="tableTitle">完整榜单</h2>
+            <p data-i18n="tableHint">精准过滤：必须同时命中学术研究信号与 Skill/Agent/Workflow 信号。</p>
+          </div>
+          <a class="data-link" href="data/rankings.json" data-i18n="downloadJson">下载 JSON</a>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th data-i18n="repo">仓库</th>
+                <th>Stars</th>
+                <th data-i18n="trend">趋势</th>
+                <th data-i18n="category">分类</th>
+                <th data-i18n="description">简介</th>
+                <th data-i18n="updatedCol">更新</th>
+              </tr>
+            </thead>
+            <tbody id="rankingBody"></tbody>
+          </table>
+        </div>
+        <p class="empty-state" id="emptyState" hidden data-i18n="empty">没有匹配当前筛选条件的仓库。</p>
+      </section>
+
+      <section class="method-section">
+        <div>
+          <h2 data-i18n="methodTitle">排名方法</h2>
+          <p data-i18n="methodCopy">
+            榜单按 Stars 主排序，并展示趋势分。趋势分综合近期新增 Stars、最近 push、新仓库加权和总体规模；低星、fork、归档及明显非学术仓库会被排除。
+          </p>
+        </div>
+        <div class="method-grid">
+          <div>
+            <strong data-i18n="methodA">精准信号</strong>
+            <span data-i18n="methodADetail">academic/research/paper + skill/agent/workflow</span>
+          </div>
+          <div>
+            <strong data-i18n="methodB">每日更新</strong>
+            <span data-i18n="methodBDetail">GitHub Actions UTC 定时运行</span>
+          </div>
+          <div>
+            <strong data-i18n="methodC">双语视图</strong>
+            <span data-i18n="methodCDetail">中文优先，支持英文切换</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>MIT</span>
+      <span>kael-odin/awesome-academic-research-skills</span>
+    </footer>
+
+    <script src="data/rankings.js"></script>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+name: Update rankings
+
+on:
+  schedule:
+    - cron: "20 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Update ranking data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/update_rankings.py
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Commit updated rankings
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update academic research skill rankings"
+          file_pattern: README.md data/rankings.json data/rankings.js data/rankings.csv
