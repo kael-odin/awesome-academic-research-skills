@@ -1,6 +1,6 @@
 window.ACADEMIC_SKILLS_RANKINGS = {
   "metadata": {
-    "generated_at": "2026-07-01T06:45:49Z",
+    "generated_at": "2026-07-02T06:11:00Z",
     "min_stars": 100,
     "total": 21,
     "source": "GitHub REST Search API",
@@ -12,10 +12,10 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 1,
       "repo": "Imbad0202/academic-research-skills",
-      "stars": 35616,
-      "star_delta_1d": 212,
-      "star_delta_7d": 212,
-      "trend_score": 312.93,
+      "stars": 35804,
+      "star_delta_1d": 188,
+      "star_delta_7d": 188,
+      "trend_score": 285.61,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -39,7 +39,7 @@ window.ACADEMIC_SKILLS_RANKINGS = {
         "prompt-engineering"
       ],
       "created_date": "2026-02-26",
-      "last_push_date": "2026-06-24",
+      "last_push_date": "2026-07-02",
       "url": "https://github.com/Imbad0202/academic-research-skills",
       "homepage": "https://buymeacoffee.com/crucify020v",
       "precision_signals": [
@@ -56,10 +56,10 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 2,
       "repo": "K-Dense-AI/scientific-agent-skills",
-      "stars": 29690,
-      "star_delta_1d": 68,
-      "star_delta_7d": 68,
-      "trend_score": 137.04,
+      "stars": 29840,
+      "star_delta_1d": 150,
+      "star_delta_7d": 150,
+      "trend_score": 235.74,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -92,7 +92,7 @@ window.ACADEMIC_SKILLS_RANKINGS = {
         "scientific-visualization"
       ],
       "created_date": "2025-10-19",
-      "last_push_date": "2026-06-29",
+      "last_push_date": "2026-07-01",
       "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
       "homepage": "https://k-dense.ai",
       "precision_signals": [
@@ -108,10 +108,10 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 3,
       "repo": "Yuan1z0825/nature-skills",
-      "stars": 24789,
-      "star_delta_1d": 384,
-      "star_delta_7d": 384,
-      "trend_score": 523.15,
+      "stars": 25098,
+      "star_delta_1d": 309,
+      "star_delta_7d": 309,
+      "trend_score": 433.32,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -130,7 +130,7 @@ window.ACADEMIC_SKILLS_RANKINGS = {
         "nature-skills"
       ],
       "created_date": "2026-04-24",
-      "last_push_date": "2026-06-30",
+      "last_push_date": "2026-07-01",
       "url": "https://github.com/Yuan1z0825/nature-skills",
       "homepage": "",
       "precision_signals": [
@@ -145,10 +145,10 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 4,
       "repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
-      "stars": 12863,
-      "star_delta_1d": 62,
-      "star_delta_7d": 62,
-      "trend_score": 131.56,
+      "stars": 12904,
+      "star_delta_1d": 41,
+      "star_delta_7d": 41,
+      "trend_score": 106.48,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -184,7 +184,7 @@ window.ACADEMIC_SKILLS_RANKINGS = {
         "research-automation"
       ],
       "created_date": "2026-03-10",
-      "last_push_date": "2026-06-30",
+      "last_push_date": "2026-07-02",
       "url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep",
       "homepage": "",
       "precision_signals": [
@@ -201,10 +201,10 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 5,
       "repo": "Orchestra-Research/AI-Research-SKILLs",
-      "stars": 10269,
-      "star_delta_1d": 33,
-      "star_delta_7d": 33,
-      "trend_score": 88.31,
+      "stars": 10298,
+      "star_delta_1d": 29,
+      "star_delta_7d": 29,
+      "trend_score": 83.3,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -248,10 +248,10 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 6,
       "repo": "Imbad0202/academic-research-skills-codex",
-      "stars": 5163,
-      "star_delta_1d": 98,
-      "star_delta_7d": 98,
-      "trend_score": 174.37,
+      "stars": 5257,
+      "star_delta_1d": 94,
+      "star_delta_7d": 94,
+      "trend_score": 170.04,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -277,7 +277,7 @@ window.ACADEMIC_SKILLS_RANKINGS = {
         "research-assistant"
       ],
       "created_date": "2026-04-25",
-      "last_push_date": "2026-06-29",
+      "last_push_date": "2026-07-02",
       "url": "https://github.com/Imbad0202/academic-research-skills-codex",
       "homepage": "https://github.com/Imbad0202/academic-research-skills",
       "precision_signals": [
@@ -293,10 +293,10 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 7,
       "repo": "Master-cai/Research-Paper-Writing-Skills",
-      "stars": 4573,
-      "star_delta_1d": 48,
-      "star_delta_7d": 48,
-      "trend_score": 109.2,
+      "stars": 4609,
+      "star_delta_1d": 36,
+      "star_delta_7d": 36,
+      "trend_score": 94.55,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -326,10 +326,10 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 8,
       "repo": "HKUSTDial/Supervisor-Skills",
-      "stars": 3434,
-      "star_delta_1d": 50,
-      "star_delta_7d": 50,
-      "trend_score": 114.27,
+      "stars": 3467,
+      "star_delta_1d": 33,
+      "star_delta_7d": 33,
+      "trend_score": 94.76,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -353,7 +353,7 @@ window.ACADEMIC_SKILLS_RANKINGS = {
         "vibe-research"
       ],
       "created_date": "2026-04-19",
-      "last_push_date": "2026-06-26",
+      "last_push_date": "2026-07-01",
       "url": "https://github.com/HKUSTDial/Supervisor-Skills",
       "homepage": "",
       "precision_signals": [
@@ -368,14 +368,14 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 9,
       "repo": "Weizhena/Deep-Research-skills",
-      "stars": 1434,
-      "star_delta_1d": 34,
-      "star_delta_7d": 34,
-      "trend_score": 73.92,
+      "stars": 1449,
+      "star_delta_1d": 15,
+      "star_delta_7d": 15,
+      "trend_score": 50.94,
       "trend": {
-        "id": "hot",
-        "zh": "热门上升",
-        "en": "Hot"
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
       },
       "category": {
         "id": "deep-research",
@@ -409,10 +409,10 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 10,
       "repo": "pedrohcgs/claude-code-my-workflow",
-      "stars": 1332,
-      "star_delta_1d": 6,
-      "star_delta_7d": 6,
-      "trend_score": 50.0,
+      "stars": 1339,
+      "star_delta_1d": 7,
+      "star_delta_7d": 7,
+      "trend_score": 50.94,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -454,10 +454,10 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 11,
       "repo": "aipoch/medical-research-skills",
-      "stars": 1277,
-      "star_delta_1d": 12,
-      "star_delta_7d": 12,
-      "trend_score": 59.71,
+      "stars": 1280,
+      "star_delta_1d": 3,
+      "star_delta_7d": 3,
+      "trend_score": 48.64,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -508,10 +508,10 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 12,
       "repo": "lishix520/academic-paper-skills",
-      "stars": 971,
-      "star_delta_1d": 3,
-      "star_delta_7d": 3,
-      "trend_score": 27.62,
+      "stars": 979,
+      "star_delta_1d": 8,
+      "star_delta_7d": 8,
+      "trend_score": 33.59,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -550,13 +550,13 @@ window.ACADEMIC_SKILLS_RANKINGS = {
       "rank": 13,
       "repo": "199-biotechnologies/claude-deep-research-skill",
       "stars": 806,
-      "star_delta_1d": 1,
-      "star_delta_7d": 1,
-      "trend_score": 26.6,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "trend_score": 25.18,
       "trend": {
-        "id": "rising",
-        "zh": "持续增长",
-        "en": "Rising"
+        "id": "steady",
+        "zh": "稳定",
+        "en": "Steady"
       },
       "category": {
         "id": "deep-research",
@@ -581,14 +581,14 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 14,
       "repo": "LigphiDonk/Oh-my--paper",
-      "stars": 672,
-      "star_delta_1d": 0,
-      "star_delta_7d": 0,
-      "trend_score": 30.0,
+      "stars": 673,
+      "star_delta_1d": 1,
+      "star_delta_7d": 1,
+      "trend_score": 30.92,
       "trend": {
-        "id": "steady",
-        "zh": "稳定",
-        "en": "Steady"
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
       },
       "category": {
         "id": "paper-writing",
@@ -617,9 +617,9 @@ window.ACADEMIC_SKILLS_RANKINGS = {
       "rank": 15,
       "repo": "Ar9av/PaperOrchestra",
       "stars": 601,
-      "star_delta_1d": 2,
-      "star_delta_7d": 2,
-      "trend_score": 47.21,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "trend_score": 44.53,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -671,14 +671,14 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 16,
       "repo": "jimmc414/Kosmos",
-      "stars": 545,
-      "star_delta_1d": 0,
-      "star_delta_7d": 0,
-      "trend_score": 22.35,
+      "stars": 546,
+      "star_delta_1d": 1,
+      "star_delta_7d": 1,
+      "trend_score": 23.34,
       "trend": {
-        "id": "steady",
-        "zh": "稳定",
-        "en": "Steady"
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
       },
       "category": {
         "id": "deep-research",
@@ -702,10 +702,10 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 17,
       "repo": "hkcanan/katmer-code",
-      "stars": 456,
-      "star_delta_1d": 0,
-      "star_delta_7d": 0,
-      "trend_score": 38.61,
+      "stars": 458,
+      "star_delta_1d": 2,
+      "star_delta_7d": 2,
+      "trend_score": 40.74,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -746,10 +746,10 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 18,
       "repo": "hanlulong/econ-writing-skill",
-      "stars": 423,
-      "star_delta_1d": 3,
-      "star_delta_7d": 3,
-      "trend_score": 40.66,
+      "stars": 427,
+      "star_delta_1d": 4,
+      "star_delta_7d": 4,
+      "trend_score": 41.61,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -778,10 +778,10 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 19,
       "repo": "claesbackman/AI-research-feedback",
-      "stars": 398,
+      "stars": 400,
       "star_delta_1d": 2,
       "star_delta_7d": 2,
-      "trend_score": 30.27,
+      "trend_score": 30.0,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -812,14 +812,14 @@ window.ACADEMIC_SKILLS_RANKINGS = {
     {
       "rank": 20,
       "repo": "LimHyungTae/awesome-claudecode-paper-proofreading",
-      "stars": 391,
-      "star_delta_1d": 0,
-      "star_delta_7d": 0,
-      "trend_score": 29.01,
+      "stars": 392,
+      "star_delta_1d": 1,
+      "star_delta_7d": 1,
+      "trend_score": 29.93,
       "trend": {
-        "id": "steady",
-        "zh": "稳定",
-        "en": "Steady"
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
       },
       "category": {
         "id": "paper-writing",
@@ -845,13 +845,13 @@ window.ACADEMIC_SKILLS_RANKINGS = {
       "rank": 21,
       "repo": "fcakyon/phd-skills",
       "stars": 304,
-      "star_delta_1d": 2,
-      "star_delta_7d": 2,
-      "trend_score": 35.09,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "trend_score": 32.41,
       "trend": {
-        "id": "rising",
-        "zh": "持续增长",
-        "en": "Rising"
+        "id": "steady",
+        "zh": "稳定",
+        "en": "Steady"
       },
       "category": {
         "id": "general-research",
