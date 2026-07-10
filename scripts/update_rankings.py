@@ -837,7 +837,7 @@ def render_readme(data: dict[str, Any], window_snapshot: dict[str, Any] | None =
 
 > 面向中文用户的学术论文与科研 Agent Skill 每日排行榜。自动搜索、过滤并排名 GitHub 上与论文写作、文献综述、深度研究、评审反馈、实验复现相关的 Skill / Agent / Workflow 仓库。
 
-[![Last update](https://img.shields.io/badge/updated-{metadata['generated_at'][:10]}-0f766e)](#今日榜单)
+[![Last update](https://img.shields.io/badge/updated-{metadata['generated_at'][:10].replace('-', '--')}-0f766e)](#今日榜单)
 [![Repositories](https://img.shields.io/badge/repositories-{metadata['total']}-2563eb)](#今日榜单)
 [![Min stars](https://img.shields.io/badge/min%20stars-{metadata['min_stars']}-334155)](#收录标准)
 [![License: MIT](https://img.shields.io/badge/license-MIT-22c55e)](LICENSE)
