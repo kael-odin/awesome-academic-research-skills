@@ -6,3 +6,4 @@ Thumbs.db
 .env
 .venv/
 node_modules/
+.claude/

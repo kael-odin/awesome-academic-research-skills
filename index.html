@@ -1,26 +1,73 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Daily ranking of academic paper, deep research, literature review, and research agent skills on GitHub."
+      content="面向中文用户的学术论文与科研 Agent Skill 每日排行榜 — 自动发现、过滤并排名 GitHub 上的 Claude Code / Codex / OpenCode 科研 Skill 仓库。A daily ranking of academic & research agent skills on GitHub."
     />
-    <title>Academic Research Skills Ranking</title>
+    <meta name="author" content="kael-odin" />
+    <meta
+      name="keywords"
+      content="academic research skills, agent skills, claude code, codex, opencode, paper writing, literature review, deep research, peer review, 科研 skill, 论文, 学术, awesome list"
+    />
+    <link rel="canonical" href="https://kael-odin.github.io/awesome-academic-research-skills/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:url" content="https://kael-odin.github.io/awesome-academic-research-skills/" />
+    <meta property="og:site_name" content="Awesome Academic Research Skills" />
+    <meta property="og:title" content="学术论文 Skill 排行 · Awesome Academic Research Skills" />
+    <meta
+      property="og:description"
+      content="每天自动发现、过滤并排名 GitHub 上服务论文写作、文献综述、深度研究、评审反馈和实验复现的 Agent Skill 仓库。"
+    />
+    <meta property="og:image" content="https://kael-odin.github.io/awesome-academic-research-skills/assets/og-cover.svg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="学术论文 Skill 排行 · Awesome Academic Research Skills" />
+    <meta
+      name="twitter:description"
+      content="每天自动发现、过滤并排名 GitHub 上服务论文写作、文献综述、深度研究、评审反馈和实验复现的 Agent Skill 仓库。"
+    />
+    <meta name="twitter:image" content="https://kael-odin.github.io/awesome-academic-research-skills/assets/og-cover.svg" />
+
+    <title>学术论文 Skill 排行 · Awesome Academic Research Skills</title>
+
+    <!-- JSON-LD: structured data for search engines -->
+    <script type="application/ld+json" id="ld-json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Awesome Academic Research Skills",
+        "description": "Daily ranking of academic & research agent skills on GitHub.",
+        "itemListElement": []
+      }
+    </script>
+
     <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main" data-i18n="skipToContent">跳到主内容</a>
     <header class="site-header">
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary">
         <a class="brand" href="./" aria-label="Academic Research Skills">
-          <span class="brand-mark">ARS</span>
+          <span class="brand-mark" aria-hidden="true">ARS</span>
           <span class="brand-text">Academic Research Skills</span>
         </a>
-        <div class="nav-actions" aria-label="Language switch">
-          <button class="lang-button active" type="button" data-lang="zh">中文</button>
-          <button class="lang-button" type="button" data-lang="en">EN</button>
-          <a class="github-link" href="https://github.com/kael-odin/awesome-academic-research-skills">GitHub</a>
+        <div class="nav-actions">
+          <div class="seg" role="group" aria-label="Language switch">
+            <button class="lang-button active" type="button" data-lang="zh" aria-pressed="true">中文</button>
+            <button class="lang-button" type="button" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+          <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle dark mode" title="主题 / Theme">
+            <span class="ico ico-sun" aria-hidden="true">◐</span>
+          </button>
+          <a class="github-link" href="https://github.com/kael-odin/awesome-academic-research-skills" aria-label="GitHub repository">GitHub</a>
         </div>
       </nav>
 
@@ -30,6 +77,7 @@
           <p data-i18n="heroSubtitle">
             每天自动发现、过滤并排名 GitHub 上服务论文写作、文献综述、深度研究、评审反馈和实验复现的 Agent Skill 仓库。
           </p>
+          <p class="hero-hint" data-i18n="heroHint">提示：按 / 聚焦搜索 · t 切换主题 · l 切语言 · v 切视图</p>
         </div>
         <div class="hero-panel" aria-label="Ranking summary">
           <div>
@@ -46,13 +94,15 @@
           </div>
         </div>
       </section>
+
+      <section class="stat-strip" id="statStrip" aria-label="Aggregate statistics"></section>
     </header>
 
-    <main>
+    <main id="main">
       <section class="controls" aria-label="Ranking controls">
         <label class="search-field">
           <span data-i18n="searchLabel">搜索仓库、简介、分类</span>
-          <input id="searchInput" type="search" placeholder="paper writing, literature, review..." />
+          <input id="searchInput" type="search" placeholder="paper writing, literature, review..." aria-label="Search" />
         </label>
         <label class="select-field">
           <span data-i18n="categoryLabel">分类</span>
@@ -67,8 +117,22 @@
             <option value="trend" data-i18n="sortTrend">趋势优先</option>
             <option value="stars" data-i18n="sortStars">Stars 优先</option>
             <option value="updated" data-i18n="sortUpdated">最近更新</option>
+            <option value="delta30" data-i18n="sortDelta30">30 天增量</option>
           </select>
         </label>
+        <div class="seg seg-view" role="group" aria-label="View mode">
+          <button class="view-button active" type="button" data-view="table" aria-pressed="true" title="表格 / Table">
+            <span aria-hidden="true">≣</span><span class="sr-only" data-i18n="viewTable">表格</span>
+          </button>
+          <button class="view-button" type="button" data-view="card" aria-pressed="false" title="卡片 / Cards">
+            <span aria-hidden="true">▦</span><span class="sr-only" data-i18n="viewCard">卡片</span>
+          </button>
+        </div>
+        <button class="fav-toggle" id="favToggle" type="button" aria-pressed="false">
+          <span aria-hidden="true">★</span>
+          <span data-i18n="favoritesOnly">仅看收藏</span>
+          <span class="fav-count" id="favCount">0</span>
+        </button>
       </section>
 
       <section class="category-strip" id="categoryStrip" aria-label="Category summary"></section>
@@ -77,25 +141,32 @@
         <div class="table-header">
           <div>
             <h2 data-i18n="tableTitle">完整榜单</h2>
-            <p data-i18n="tableHint">精准过滤：必须同时命中学术研究信号与 Skill/Agent/Workflow 信号。</p>
+            <p data-i18n="tableHint">精准过滤：必须同时命中学术研究信号与 Skill/Agent/Workflow 信号。点击任意行查看详情。</p>
           </div>
-          <a class="data-link" href="data/rankings.json" data-i18n="downloadJson">下载 JSON</a>
+          <div class="table-actions">
+            <button class="data-link" id="exportFav" type="button" data-i18n="exportFav">导出收藏</button>
+            <a class="data-link" href="data/rankings.json" data-i18n="downloadJson">下载 JSON</a>
+            <a class="data-link" href="data/rankings.csv" data-i18n="downloadCsv">下载 CSV</a>
+          </div>
         </div>
-        <div class="table-wrap">
-          <table>
+        <div class="table-wrap" id="rankingView">
+          <table id="rankingTable">
             <thead>
               <tr>
                 <th>#</th>
                 <th data-i18n="repo">仓库</th>
                 <th>Stars</th>
                 <th data-i18n="trend">趋势</th>
+                <th data-i18n="spark">7d 趋势</th>
                 <th data-i18n="category">分类</th>
                 <th data-i18n="description">简介</th>
                 <th data-i18n="updatedCol">更新</th>
+                <th><span aria-hidden="true">★</span></th>
               </tr>
             </thead>
             <tbody id="rankingBody"></tbody>
           </table>
+          <div class="card-grid" id="cardGrid" hidden></div>
         </div>
         <p class="empty-state" id="emptyState" hidden data-i18n="empty">没有匹配当前筛选条件的仓库。</p>
       </section>
@@ -124,12 +195,25 @@
       </section>
     </main>
 
+    <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" hidden>
+      <div class="drawer-inner">
+        <div class="drawer-head">
+          <h3 id="drawerTitle">—</h3>
+          <button class="icon-button" id="drawerClose" type="button" aria-label="Close">✕</button>
+        </div>
+        <div class="drawer-body" id="drawerBody"></div>
+        <div class="drawer-foot" id="drawerFoot"></div>
+      </div>
+      <div class="drawer-scrim" id="drawerScrim"></div>
+    </aside>
+
     <footer class="footer">
-      <span>MIT</span>
-      <span>kael-odin/awesome-academic-research-skills</span>
+      <span>MIT · <a href="https://github.com/kael-odin/awesome-academic-research-skills">kael-odin/awesome-academic-research-skills</a></span>
+      <span data-i18n="shortcuts">快捷键：/ 搜索 · t 主题 · l 语言 · v 视图 · f 收藏 · Esc 关闭</span>
     </footer>
 
     <script src="data/rankings.js"></script>
+    <script src="data/history.js" onerror="window.ACADEMIC_SKILLS_HISTORY=null;"></script>
     <script src="assets/app.js"></script>
   </body>
 </html>
