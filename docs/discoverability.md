@@ -41,7 +41,7 @@ https://kael-odin.github.io/awesome-academic-research-skills/
 
 ## 3. Releases
 
-虽然是数据型仓库，但建议打一个 `v1.0` tag 并发布 Release，描述"首个稳定版：21 个仓库、7 天趋势、双语可视化"。Release 会出现在 GitHub 的 explore / email digest 里。
+虽然是数据型仓库，但建议打 tag 并发布 Release。当前已有 `v1.0.0`。本次大版本（深色模式 / 卡片视图 / sparkline / 收藏夹 / 详情抽屉 / URL 状态 / 快捷键 / SEO & RSS）建议打 `v2.0` tag，描述"v2.0：可视化重做 + 数据增强 + SEO 订阅"。Release 会出现在 GitHub 的 explore / email digest 里。
 
 ## 4. 默认分支保护（可选但推荐）
 
@@ -51,9 +51,17 @@ Settings → Branches → 给 `main` 加规则：要求 PR 通过测试再合并
 
 `.github/ISSUE_TEMPLATE/recommend-repo.yml` 已创建。用户点 New Issue 时会看到"推荐新仓库"模板，降低贡献门槛。
 
-## 6. SEO 元数据
+## 6. SEO 元数据（已自动化）
 
-`index.html` 已包含 `<meta name="description">`。如需进一步 SEO，可在 Pages 页面根目录加 `robots.txt` 和 `sitemap.xml`（可选）。
+以下资产由 `scripts/update_rankings.py` 每日自动生成 / 维护，无需手动操作：
+
+- `index.html`：`<meta name="description">`、`keywords`、`author`、canonical、Open Graph（`og:title/description/url/image/locale`）、Twitter Card、RSS `<link rel="alternate">`、`<link rel="sitemap">`、内联 SVG favicon、JSON-LD `ItemList`（前端动态填充前 20 名）。
+- `sitemap.xml`：首页 + README + 数据端点 + 文档。
+- `robots.txt`：允许全部抓取，指向 sitemap。
+- `feed.xml`：RSS 2.0 订阅源（每日新收录 + 趋势上升）。
+- `assets/og-cover.svg`：1200×630 社交分享封面（每日刷新数字）。
+
+如需进一步 SEO，可在 Pages 页面根目录加自定义域名（Settings → Pages → Custom domain）。
 
 ## 7. 推广（设置完成后）
 

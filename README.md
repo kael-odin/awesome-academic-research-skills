@@ -8,17 +8,20 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-22c55e)](LICENSE)
 [![Auto update](https://img.shields.io/badge/auto%20update-daily-6366f1)](.github/workflows/update-rankings.yml)
 
-[English](#english) · [可视化页面](https://kael-odin.github.io/awesome-academic-research-skills/) · [JSON](data/rankings.json) · [CSV](data/rankings.csv) · [排名方法](docs/methodology.md) · [贡献指南](CONTRIBUTING.md)
+[English](#english) · [可视化页面](https://kael-odin.github.io/awesome-academic-research-skills/) · [JSON](data/rankings.json) · [CSV](data/rankings.csv) · [RSS](feed.xml) · [Sitemap](sitemap.xml) · [排名方法](docs/methodology.md) · [更新日志](docs/changelog.md) · [贡献指南](CONTRIBUTING.md)
 
 ## 项目特色
 
 - 🔄 **每日自动更新** — GitHub Actions 每天 02:20 UTC 运行，自动搜索、过滤、排名并提交。
 - 🎯 **精准双重信号过滤** — 必须同时命中"Skill/Agent/Workflow"与"Academic/Research/Paper"信号，挡住泛 AI 项目。
-- 📈 **7 天趋势窗口** — 基于历史快照计算一周 Stars 增长，告别单日抖动导致的"全稳定"假象。
+- 📈 **7 天 / 30 天趋势窗口** — 基于历史快照计算一周 Stars 增量，并展示 30 天 sparkline 趋势曲线，告别单日抖动假象。
 - 🆕 **本周新收录** — 自动识别近 7 天新进入榜单的仓库。
-- 🏷️ **适用 Agent 标签** — 推断每个仓库面向 Claude Code / Codex / OpenCode / MCP。
+- 🏷️ **适用 Agent 标签** — 推断每个仓库面向 Claude Code / Codex / OpenCode / Cursor / Gemini / MCP。
 - 🌐 **双语可视化** — 中文优先，支持英文切换、搜索、分类筛选与多维度排序。
-- 📦 **机器可读** — 提供 JSON / CSV 数据文件，方便二次开发与订阅。
+- 🎨 **深色模式 & 卡片视图** — 一键切换明暗主题，表格 / 卡片双视图，仓库详情抽屉，收藏夹与 URL 状态分享。
+- ⌨️ **键盘快捷键** — `/` 搜索 · `t` 主题 · `l` 语言 · `v` 视图 · `f` 收藏 · `Esc` 关闭。
+- 🔍 **SEO & 订阅** — 提供 sitemap、Open Graph、JSON-LD 结构化数据与 RSS 订阅源，方便被搜索引擎和 RSS 阅读器发现。
+- 📦 **机器可读** — 提供 JSON / CSV 数据文件（含 license、forks、open issues 等字段），方便二次开发与订阅。
 
 ## 今日榜单
 
@@ -97,9 +100,17 @@ python -m unittest discover -s tests -v
 
 ## English
 
-**Awesome Academic Research Skills** is a daily-updated ranking of GitHub repositories that provide academic, paper-writing, literature-review, deep-research, peer-review, and experiment-reproducibility skills for AI coding agents (Claude Code, Codex, OpenCode, …).
+**Awesome Academic Research Skills** is a daily-updated ranking of GitHub repositories that provide academic, paper-writing, literature-review, deep-research, peer-review, and experiment-reproducibility skills for AI coding agents (Claude Code, Codex, OpenCode, Cursor, Gemini, …).
 
-The ranking requires **both** a skill/agent/workflow signal **and** an academic/research/paper signal. Low-star, archived, forked, and clearly unrelated repositories are excluded. The trend column shows 7-day star growth. A bilingual static dashboard is available at the link above.
+The ranking requires **both** a skill/agent/workflow signal **and** an academic/research/paper signal. Low-star, archived, forked, and clearly unrelated repositories are excluded. The trend column shows 7-day star growth, with a 30-day sparkline in the dashboard.
+
+### Dashboard features
+
+- Bilingual (Chinese-first, English switch), **dark mode**, and a responsive **table / card** dual view.
+- Per-repo **trend sparkline**, **detail drawer**, **favorites** (with JSON export), and **shareable URL state** (filters/sort/view/lang/theme persisted in `#hash`).
+- **Keyboard shortcuts**: `/` search · `t` theme · `l` language · `v` view · `f` favorites · `Esc` close.
+- **SEO & subscription**: sitemap, Open Graph cover, JSON-LD `ItemList`, and an **RSS feed** of daily newcomers + trending repos.
+- Machine-readable **JSON** / **CSV** (incl. license, forks, open issues, 30-day delta).
 
 ## License
 

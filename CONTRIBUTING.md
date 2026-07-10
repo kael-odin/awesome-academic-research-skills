@@ -38,6 +38,23 @@ python -m unittest discover -s tests -v
 
 任何规则改动请补充对应测试（[`tests/test_ranking.py`](tests/test_ranking.py)）。
 
+## 贡献前端 / 可视化
+
+可视化页面是纯原生 HTML / CSS / JS（无构建步骤、无依赖），便于直接修改：
+
+- 结构：[`index.html`](index.html)
+- 样式：[`assets/styles.css`](assets/styles.css)（顶部 `:root` 与 `[data-theme="dark"]` 集中管理所有 design token）
+- 逻辑：[`assets/app.js`](assets/app.js)（状态 / 过滤 / 渲染 / 抽屉 / 收藏 / URL hash / 快捷键 / i18n）
+
+本地预览：
+
+```bash
+python -m http.server 8765
+# 打开 http://localhost:8765
+```
+
+新增 UI 文案时，请同时在 `translations.zh` 与 `translations.en` 中补齐对应 key。新增字段若来自后端，请保持**只新增不删除**并加缺失降级（如 `item.license?.name || '-'`），避免破坏旧快照。
+
 ## 历史快照说明
 
 每日运行会在 `data/history/` 下生成日期命名的快照（保留近 60 天），用于计算 7 天 Stars 增量和"本周新收录"。PR 不需要手动维护这些文件，由 GitHub Actions 自动生成。详见 [`docs/methodology.md`](docs/methodology.md)。

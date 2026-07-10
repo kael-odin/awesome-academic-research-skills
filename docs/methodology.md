@@ -40,9 +40,11 @@
 每日运行会把当天榜单保存到 `data/history/YYYY-MM-DD.json`（保留近 60 天）。趋势分和"本周新收录"都基于这些快照计算：
 
 - `star_delta_7d` = 今日 Stars − 7 天前快照中的 Stars（容忍缺失天数，向前查找最近可用快照）。
+- `star_delta_30d` = 今日 Stars − 30 天前快照中的 Stars（同样容忍缺失；无更长历史时退化为 7 天值）。
+- `data/history.js` = 近 60 天每仓库的 `[{date, stars}]` 序列，供前端 sparkline 渲染（缺失天数自动跳过，曲线连接可用点）。
 - "本周新收录" = 当前榜单中、但 7 天前快照中没有的仓库。
 
-首次运行（无历史快照）时，`star_delta_7d` 退化为 `star_delta_1d`，且不显示新收录区块——避免首日刷屏。
+首次运行（无历史快照）时，`star_delta_7d` 退化为 `star_delta_1d`，`star_delta_30d` 退化为 `star_delta_7d`，且不显示新收录区块——避免首日刷屏。
 
 ## 主排序
 
@@ -51,3 +53,25 @@
 ## 分类
 
 每个仓库按关键词命中数归入 7 个分类之一（见 README）。分类按固定优先级匹配，确保结果稳定。
+
+## 数据字段
+
+`data/rankings.json` 中每个仓库包含：
+
+- 基础：`repo`、`stars`、`star_delta_1d` / `star_delta_7d` / `star_delta_30d`、`trend_score`、`trend`、`category`、`description`、`language`、`topics`、`url`、`homepage`。
+- 丰富：`forks`、`open_issues`、`watchers`、`size_kb`、`default_branch`、`has_issues`、`has_wiki`、`has_discussions`、`license`（含 `key` / `name` / `spdx_id`）。
+- 审计：`precision_signals`（命中的精准过滤信号，便于复现与调试）。
+
+所有字段均为**只新增不删除**，旧消费者向前兼容。CSV（`data/rankings.csv`）包含上述基础 + 丰富字段的扁平子集。
+
+## SEO 与订阅资产
+
+每次更新同步生成（见 `scripts/update_rankings.py` 的 `write_seo_assets`）：
+
+- `sitemap.xml` — 首页 + README + 数据端点 + 文档，带 `lastmod` / `changefreq` / `priority`。
+- `feed.xml` — RSS 2.0，每日条目 = 本周新收录 + 7 天趋势前 10，含 `atom:self` 自引用。
+- `assets/og-cover.svg` — 1200×630 Open Graph 封面，展示当日总量、总 Stars、更新日期与榜首仓库。
+- `robots.txt` — 允许全部抓取并指向 sitemap。
+- `index.html` 内嵌 JSON-LD `ItemList`（前端动态填充前 20 名）。
+
+这些资产让搜索引擎、社交平台与 RSS 阅读器都能稳定发现并展示榜单。
