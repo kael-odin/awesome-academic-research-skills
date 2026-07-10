@@ -7,6 +7,7 @@ from scripts.update_rankings import (
     find_window_snapshot,
     is_academic_skill_repo,
     rank_repositories,
+    render_history_series,
     render_readme,
 )
 
@@ -310,6 +311,129 @@ class RankingRulesTest(unittest.TestCase):
         readme = render_readme(data, window_snapshot=window_snapshot)
         self.assertIn("## 本周新收录", readme)
         self.assertIn("example/new-skill", readme)
+
+    def test_extracts_enrichment_fields(self):
+        """rank_repositories must surface the enrichment fields (license,
+        forks, open_issues, ...) added to rest_to_repo, alongside the new
+        star_delta_30d."""
+        repo = {
+            "nameWithOwner": "example/enriched-skill",
+            "description": "Academic paper writing skill",
+            "repositoryTopics": {"nodes": []},
+            "stargazerCount": 110,
+            "pushedAt": "2026-06-29T00:00:00Z",
+            "createdAt": "2026-01-01T00:00:00Z",
+            "url": "https://github.com/example/enriched-skill",
+            "forksCount": 7,
+            "openIssuesCount": 3,
+            "sizeKb": 42,
+            "defaultBranch": "main",
+            "hasIssues": True,
+            "hasWiki": False,
+            "hasDiscussions": True,
+            "watchersCount": 9,
+            "license": {"key": "mit", "name": "MIT License", "spdx_id": "MIT"},
+        }
+
+        ranked = rank_repositories([repo], min_stars=100, previous_snapshot={})
+
+        item = ranked[0]
+        for key in ("forks", "open_issues", "watchers", "size_kb", "default_branch",
+                    "has_issues", "has_wiki", "has_discussions", "license", "star_delta_30d"):
+            self.assertIn(key, item, f"missing enrichment field {key!r}")
+        self.assertEqual(item["forks"], 7)
+        self.assertEqual(item["open_issues"], 3)
+        self.assertEqual(item["license"]["spdx_id"], "MIT")
+        self.assertEqual(item["default_branch"], "main")
+        self.assertTrue(item["has_discussions"])
+
+    def test_thirty_day_delta_uses_long_window_snapshot(self):
+        """star_delta_30d should reflect growth since the 30-day-ago snapshot
+        and fall back to the 7-day value when no older snapshot exists."""
+        repos = [
+            {
+                "nameWithOwner": "example/growing-skill",
+                "description": "Academic research skill",
+                "repositoryTopics": {"nodes": []},
+                "stargazerCount": 500,
+                "pushedAt": "2026-06-29T00:00:00Z",
+                "createdAt": "2026-01-01T00:00:00Z",
+                "url": "https://github.com/example/growing-skill",
+            },
+        ]
+        # 30 days ago: 300 stars; 7 days ago: 420; previous run: 498.
+        long_window = {"example/growing-skill": {"stars": 300}}
+        window = {"example/growing-skill": {"stars": 420}}
+        previous = {"example/growing-skill": {"stars": 498}}
+
+        ranked = rank_repositories(
+            repos,
+            min_stars=100,
+            previous_snapshot=previous,
+            window_snapshot=window,
+            long_window_snapshot=long_window,
+        )
+
+        self.assertEqual(ranked[0]["star_delta_30d"], 200)
+        self.assertEqual(ranked[0]["star_delta_7d"], 80)
+
+        # No long-window snapshot → fall back to the 7-day delta.
+        ranked_fallback = rank_repositories(
+            repos,
+            min_stars=100,
+            previous_snapshot=previous,
+            window_snapshot=window,
+            long_window_snapshot=None,
+        )
+        self.assertEqual(ranked_fallback[0]["star_delta_30d"], 80)
+
+    def test_accepts_cursor_academic_skill(self):
+        """A repo naming a non-Claude agent (cursor) plus an academic signal
+        should be accepted under the expanded skill terms."""
+        repo = {
+            "nameWithOwner": "example/cursor-paper-skill",
+            "description": "Cursor rules + academic paper writing skill with bibtex citation",
+            "repositoryTopics": {"nodes": [{"topic": {"name": "cursor-rules"}}]},
+            "stargazerCount": 250,
+        }
+
+        accepted, reasons = is_academic_skill_repo(repo, min_stars=100)
+
+        self.assertTrue(accepted)
+        self.assertIn("cursor", reasons)
+
+    def test_rejects_cheatsheet_repositry(self):
+        """The expanded negative list should keep cheatsheets out even if they
+        happen to mention 'skill' and 'paper'."""
+        repo = {
+            "nameWithOwner": "example/cs-cheatsheet",
+            "description": "A cheatsheet skill summarizing machine learning papers",
+            "repositoryTopics": {"nodes": [{"topic": {"name": "skill"}}]},
+            "stargazerCount": 500,
+        }
+
+        accepted, reasons = is_academic_skill_repo(repo, min_stars=100)
+
+        self.assertFalse(accepted)
+        self.assertTrue(any(r.startswith("negative:") for r in reasons))
+
+    def test_history_series_built_from_snapshots(self):
+        """render_history_series must turn the {date: {repo: {stars}}} map into
+        a per-repo list of {date, stars} points sorted by date."""
+        history = {
+            "2026-06-28": {"example/a": {"stars": 100}, "example/b": {"stars": 50}},
+            "2026-06-29": {"example/a": {"stars": 110}},
+        }
+
+        payload = render_history_series(history)
+
+        self.assertEqual(payload["series"]["example/a"], [
+            {"date": "2026-06-28", "stars": 100},
+            {"date": "2026-06-29", "stars": 110},
+        ])
+        self.assertEqual(payload["series"]["example/b"], [{"date": "2026-06-28", "stars": 50}])
+        self.assertEqual(payload["metadata"]["repos"], 2)
+        self.assertEqual(payload["metadata"]["series_points"], 3)
 
 
 if __name__ == "__main__":

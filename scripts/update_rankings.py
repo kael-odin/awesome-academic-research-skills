@@ -27,6 +27,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "config" / "ranking.json"
 DATA_PATH = ROOT / "data" / "rankings.json"
 DATA_JS_PATH = ROOT / "data" / "rankings.js"
+HISTORY_JS_PATH = ROOT / "data" / "history.js"
 CSV_PATH = ROOT / "data" / "rankings.csv"
 README_PATH = ROOT / "README.md"
 HISTORY_DIR = ROOT / "data" / "history"
@@ -37,6 +38,9 @@ HISTORY_RETENTION_DAYS = 60
 # Window used for the mid-term star delta. A 7-day window smooths out the
 # single-day noise that made the previous `star_delta_1d` almost always zero.
 DELTA_WINDOW_DAYS = 7
+# Longer-horizon window used for the auxiliary `star_delta_30d` and the
+# sparkline series. Kept inside the retention window so the data exists.
+LONG_WINDOW_DAYS = 30
 
 
 DEFAULT_MIN_STARS = 100
@@ -55,6 +59,18 @@ SKILL_TERMS = [
     "pipeline",
     "plugin",
     "assistant",
+    # Mainstream AI coding agent / editor names that signal "this is a
+    # reusable agent capability" rather than a generic library.
+    "cursor",
+    "gemini",
+    "copilot",
+    "antigravity",
+    "auggie",
+    "roo",
+    "cline",
+    "continue",
+    "agent skill standard",
+    "agent skills standard",
 ]
 
 STRONG_SKILL_TERMS = [
@@ -69,6 +85,11 @@ STRONG_SKILL_TERMS = [
     "workflow",
     "pipeline",
     "plugin",
+    "cursor rules",
+    "gemini",
+    "antigravity",
+    "agent skill standard",
+    "agent skills standard",
 ]
 
 ACADEMIC_TERMS = [
@@ -98,12 +119,30 @@ ACADEMIC_TERMS = [
     "proofreading",
     "scholar",
     "source validation",
+    # Retrieval / reasoning / publishing-flow signals that still indicate an
+    # academic context when combined with a skill signal.
+    "retrieval",
+    "grounding",
+    "reasoning",
+    "systematic review",
+    "meta-analysis",
+    "preprint",
+    "doi",
+    "bibtex",
+    "referee",
+    "学者",
     "科研",
     "论文",
     "学术",
     "文献",
     "投稿",
     "实验",
+    "综述",
+    "复现",
+    "审稿",
+    "引用",
+    "课题",
+    "基金",
 ]
 
 STRONG_ACADEMIC_TERMS = [
@@ -132,12 +171,22 @@ STRONG_ACADEMIC_TERMS = [
     "scholar",
     "source validation",
     "autonomous discovery",
+    "systematic review",
+    "meta-analysis",
+    "preprint",
+    "doi",
+    "bibtex",
+    "referee",
     "科研",
     "论文",
     "学术",
     "文献",
     "投稿",
     "实验",
+    "综述",
+    "复现",
+    "审稿",
+    "引用",
 ]
 
 HIGH_CONFIDENCE_ACADEMIC_TERMS = [
@@ -175,6 +224,7 @@ NEGATIVE_TERMS = [
     "leetcode",
     "interview",
     "wallpaper",
+    "screensaver",
     "theme",
     "portfolio",
     "resume",
@@ -193,6 +243,13 @@ NEGATIVE_TERMS = [
     "developer-tools",
     "game mod",
     "minecraft",
+    "game",
+    "cheatsheet",
+    "flashcard",
+    "recipe",
+    "fitness",
+    "meal",
+    "travel",
 ]
 
 CATEGORIES = [
@@ -206,31 +263,31 @@ CATEGORIES = [
         "id": "paper-writing",
         "zh": "论文写作",
         "en": "Paper Writing",
-        "keywords": ["paper writing", "manuscript", "latex", "proofreading", "revise", "abstract", "writing"],
+        "keywords": ["paper writing", "manuscript", "latex", "beamer", "overleaf", "bibtex", "proofreading", "revise", "abstract", "introduction", "writing"],
     },
     {
         "id": "literature-review",
         "zh": "文献综述",
         "en": "Literature Review",
-        "keywords": ["literature review", "literature survey", "citation", "bibliography", "zotero"],
+        "keywords": ["literature review", "literature survey", "systematic review", "citation", "bibliography", "zotero"],
     },
     {
         "id": "peer-review",
         "zh": "评审反馈",
         "en": "Peer Review",
-        "keywords": ["peer review", "reviewer", "feedback", "critique", "referee"],
+        "keywords": ["peer review", "reviewer", "feedback", "critique", "referee", "审稿"],
     },
     {
         "id": "experiment-reproducibility",
         "zh": "实验复现",
         "en": "Experiments",
-        "keywords": ["experiment", "experiments", "benchmark", "reproduce", "reproducibility", "evaluation"],
+        "keywords": ["experiment", "experiments", "benchmark", "reproduce", "reproducibility", "evaluation", "复现"],
     },
     {
         "id": "discipline-specific",
         "zh": "学科专项",
         "en": "Discipline Specific",
-        "keywords": ["economics", "biology", "biotech", "chemistry", "medicine", "phd", "cv", "nlp", "ml"],
+        "keywords": ["economics", "biology", "biotech", "chemistry", "medicine", "phd", "physics", "math", "statistics", "law", "education", "psychology", "sociology", "cv", "nlp", "ml", "drug discovery"],
     },
     {
         "id": "general-research",
@@ -418,11 +475,13 @@ def rank_repositories(
     previous_snapshot: dict[str, Any] | None = None,
     trusted_repositories: set[str] | None = None,
     window_snapshot: dict[str, Any] | None = None,
+    long_window_snapshot: dict[str, Any] | None = None,
     now: datetime | None = None,
 ) -> list[dict[str, Any]]:
     previous_snapshot = previous_snapshot or {}
     trusted_repositories = trusted_repositories or set()
     window_snapshot = window_snapshot or {}
+    long_window_snapshot = long_window_snapshot or {}
     now = now or utc_now()
     ranked: list[dict[str, Any]] = []
 
@@ -446,6 +505,13 @@ def rank_repositories(
         window_stars = previous_stars(window_prev)
         star_delta_7d = max(0, stars - window_stars) if window_stars is not None else star_delta_1d
 
+        # 30-day window delta — an auxiliary, longer-horizon signal for the
+        # sparkline / drawer. Falls back to the 7-day value when no older
+        # snapshot exists (e.g. first weeks of operation).
+        long_prev = long_window_snapshot.get(name, {}) if isinstance(long_window_snapshot, dict) else {}
+        long_stars = previous_stars(long_prev)
+        star_delta_30d = max(0, stars - long_stars) if long_stars is not None else star_delta_7d
+
         score = compute_trend_score(
             repo,
             previous,
@@ -468,6 +534,7 @@ def rank_repositories(
                 "stars": stars,
                 "star_delta_1d": star_delta_1d,
                 "star_delta_7d": star_delta_7d,
+                "star_delta_30d": star_delta_30d,
                 "trend_score": score,
                 "trend": trend,
                 "category": category,
@@ -479,6 +546,16 @@ def rank_repositories(
                 "url": repo.get("url") or repo.get("html_url") or "",
                 "homepage": repo.get("homepageUrl") or repo.get("homepage") or "",
                 "precision_signals": sorted(set(reasons)),
+                # Enrichment (only added, never removed from the legacy set).
+                "forks": int(repo.get("forksCount") or 0),
+                "open_issues": int(repo.get("openIssuesCount") or 0),
+                "watchers": int(repo.get("watchersCount") or 0),
+                "size_kb": int(repo.get("sizeKb") or 0),
+                "default_branch": repo.get("defaultBranch") or "",
+                "has_issues": bool(repo.get("hasIssues", False)),
+                "has_wiki": bool(repo.get("hasWiki", False)),
+                "has_discussions": bool(repo.get("hasDiscussions", False)),
+                "license": repo.get("license") or {"key": "", "name": "", "spdx_id": ""},
             }
         )
 
@@ -585,6 +662,7 @@ def github_request(path: str, token: str | None, params: dict[str, Any] | None =
 
 def rest_to_repo(item: dict[str, Any]) -> dict[str, Any]:
     topics = item.get("topics") or []
+    license_node = item.get("license") or {}
     return {
         "nameWithOwner": item["full_name"],
         "name": item.get("name") or item["full_name"].split("/")[-1],
@@ -599,6 +677,20 @@ def rest_to_repo(item: dict[str, Any]) -> dict[str, Any]:
         "isFork": item.get("fork", False),
         "primaryLanguage": {"name": item.get("language") or ""},
         "repositoryTopics": {"nodes": [{"topic": {"name": topic}} for topic in topics]},
+        # Enrichment fields (only added, never removed from the legacy set).
+        "forksCount": item.get("forks_count") or 0,
+        "openIssuesCount": item.get("open_issues_count") or 0,
+        "sizeKb": item.get("size") or 0,
+        "defaultBranch": item.get("default_branch") or "",
+        "hasIssues": bool(item.get("has_issues", False)),
+        "hasWiki": bool(item.get("has_wiki", False)),
+        "hasDiscussions": bool(item.get("has_discussions", False)),
+        "watchersCount": item.get("watchers_count") or 0,
+        "license": {
+            "key": license_node.get("key") or "",
+            "name": license_node.get("name") or "",
+            "spdx_id": license_node.get("spdx_id") or "",
+        } if isinstance(license_node, dict) else {"key": "", "name": "", "spdx_id": ""},
     }
 
 
@@ -834,16 +926,22 @@ def render_csv(items: list[dict[str, Any]]) -> None:
                 "stars",
                 "star_delta_1d",
                 "star_delta_7d",
+                "star_delta_30d",
                 "trend_score",
                 "trend",
                 "category",
                 "description",
+                "language",
+                "license",
+                "forks",
+                "open_issues",
                 "last_push_date",
                 "url",
             ],
         )
         writer.writeheader()
         for item in items:
+            license_name = (item.get("license") or {}).get("name", "") if isinstance(item.get("license"), dict) else ""
             writer.writerow(
                 {
                     "rank": item["rank"],
@@ -851,10 +949,15 @@ def render_csv(items: list[dict[str, Any]]) -> None:
                     "stars": item["stars"],
                     "star_delta_1d": item["star_delta_1d"],
                     "star_delta_7d": item["star_delta_7d"],
+                    "star_delta_30d": item["star_delta_30d"],
                     "trend_score": item["trend_score"],
                     "trend": item["trend"]["en"],
                     "category": item["category"]["en"],
                     "description": item["description"],
+                    "language": item.get("language", ""),
+                    "license": license_name,
+                    "forks": item.get("forks", 0),
+                    "open_issues": item.get("open_issues", 0),
                     "last_push_date": item["last_push_date"],
                     "url": item["url"],
                 }
@@ -866,19 +969,27 @@ def render_data_js(data: dict[str, Any]) -> str:
     return f"window.ACADEMIC_SKILLS_RANKINGS = {payload};\n"
 
 
+def render_history_js(history_payload: dict[str, Any]) -> str:
+    payload = json.dumps(history_payload, ensure_ascii=False, indent=2)
+    return f"window.ACADEMIC_SKILLS_HISTORY = {payload};\n"
+
+
 def write_outputs(data: dict[str, Any], window_snapshot: dict[str, Any] | None = None) -> None:
     DATA_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     DATA_JS_PATH.write_text(render_data_js(data), encoding="utf-8")
+    history = load_history_snapshots()
+    HISTORY_JS_PATH.write_text(render_history_js(render_history_series(history)), encoding="utf-8")
     render_csv(data["items"])
     README_PATH.write_text(render_readme(data, window_snapshot=window_snapshot), encoding="utf-8")
 
 
-def build_dataset(config: dict[str, Any], repos: list[dict[str, Any]]) -> dict[str, Any]:
+def build_dataset(config: dict[str, Any], repos: list[dict[str, Any]]) -> tuple[dict[str, Any], dict[str, Any] | None]:
     min_stars = int(config.get("min_stars", DEFAULT_MIN_STARS))
     now = utc_now()
     previous = load_previous_snapshot()
     history = load_history_snapshots()
     window_snapshot = find_window_snapshot(history, now, DELTA_WINDOW_DAYS)
+    long_window_snapshot = find_window_snapshot(history, now, LONG_WINDOW_DAYS)
     trusted_repositories = set(config.get("seed_repositories", []))
     items = rank_repositories(
         repos,
@@ -886,6 +997,7 @@ def build_dataset(config: dict[str, Any], repos: list[dict[str, Any]]) -> dict[s
         previous_snapshot=previous,
         trusted_repositories=trusted_repositories,
         window_snapshot=window_snapshot,
+        long_window_snapshot=long_window_snapshot,
         now=now,
     )
     max_results = int(config.get("max_results", 100))
@@ -902,6 +1014,7 @@ def build_dataset(config: dict[str, Any], repos: list[dict[str, Any]]) -> dict[s
             "source": "GitHub REST Search API",
             "ranking": "stars_desc_then_trend_score",
             "trend_window_days": DELTA_WINDOW_DAYS,
+            "long_window_days": LONG_WINDOW_DAYS,
             "history_retention_days": HISTORY_RETENTION_DAYS,
         },
         "items": items,
@@ -910,6 +1023,37 @@ def build_dataset(config: dict[str, Any], repos: list[dict[str, Any]]) -> dict[s
     # Persist today's snapshot so future runs can compute the 7-day delta.
     save_history_snapshot(data, now)
     return data, window_snapshot
+
+
+def render_history_series(history: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    """Build a compact per-repo star history series for the frontend sparkline.
+
+    Returns ``{metadata: {...}, series: {repo: [{date, stars}, ...]}}``. Each
+    point is a daily snapshot we have on disk; missing days are simply absent
+    (the sparkline renderer connects the available points). Only ``stars`` is
+    kept per point to keep payload size well under 100 KB for ~100 repos × 30 d.
+    """
+    series: dict[str, list[dict[str, Any]]] = {}
+    for date_key in sorted(history.keys()):
+        snapshot = history[date_key]
+        if not isinstance(snapshot, dict):
+            continue
+        for repo, item in snapshot.items():
+            if not isinstance(item, dict) or "repo" not in item and "stars" not in item:
+                # Need a stars figure to plot; skip entries without one.
+                continue
+            stars = item.get("stars") or item.get("stargazerCount")
+            if stars is None:
+                continue
+            series.setdefault(repo, []).append({"date": date_key, "stars": int(stars)})
+    return {
+        "metadata": {
+            "series_points": sum(len(points) for points in series.values()),
+            "repos": len(series),
+            "window_days": HISTORY_RETENTION_DAYS,
+        },
+        "series": series,
+    }
 
 
 def main() -> int:

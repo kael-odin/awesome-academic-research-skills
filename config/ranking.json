@@ -31,6 +31,14 @@
     "academic paper agent in:name,description,readme",
     "phd research skills in:name,description,readme",
     "arxiv agent research in:name,description,readme",
-    "research paper workflow in:name,description,readme"
+    "research paper workflow in:name,description,readme",
+    "research agent skill in:name,description,readme",
+    "paper review skill in:name,description,readme",
+    "experiment reproduction skill in:name,description,readme",
+    "systematic review agent in:name,description,readme",
+    "academic writing agent in:name,description,readme",
+    "科研 skill in:name,description,readme",
+    "论文 skill in:name,description,readme",
+    "文献综述 skill in:name,description,readme"
   ]
 }

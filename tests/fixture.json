@@ -1,0 +1,45 @@
+[
+  {
+    "nameWithOwner": "example/academic-paper-skills",
+    "name": "academic-paper-skills",
+    "description": "Claude Code skill for literature review, paper writing, and peer review",
+    "stargazerCount": 240,
+    "createdAt": "2026-02-26T00:00:00Z",
+    "updatedAt": "2026-06-24T00:00:00Z",
+    "pushedAt": "2026-06-24T00:00:00Z",
+    "url": "https://github.com/example/academic-paper-skills",
+    "homepageUrl": "",
+    "isArchived": false,
+    "isFork": false,
+    "primaryLanguage": {
+      "name": "Python"
+    },
+    "repositoryTopics": {
+      "nodes": [
+        {
+          "topic": {
+            "name": "academic-writing"
+          }
+        },
+        {
+          "topic": {
+            "name": "peer-review"
+          }
+        }
+      ]
+    },
+    "forksCount": 12,
+    "openIssuesCount": 3,
+    "sizeKb": 88,
+    "defaultBranch": "main",
+    "hasIssues": true,
+    "hasWiki": true,
+    "hasDiscussions": false,
+    "watchersCount": 15,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT"
+    }
+  }
+]
