@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Awesome Academic Research Skills</title>
+    <link>https://kael-odin.github.io/awesome-academic-research-skills/</link>
+    <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>
+    <language>zh-CN</language>
+    <lastBuildDate>2026-07-09T06:21:37Z</lastBuildDate>
+    <atom:link href="https://kael-odin.github.io/awesome-academic-research-skills/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Yuan1z0825/nature-skills (27,224★, +2126/7d)</title>
+      <link>https://github.com/Yuan1z0825/nature-skills</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Yuan1z0825/nature-skills</guid>
+      <description>符合nature论文学术表达和科研绘图的Skill</description>
+      <category>Deep Research</category>
+      <pubDate>2026-07-09T06:21:37Z</pubDate>
+    </item>
+    <item>
+      <title>Imbad0202/academic-research-skills (37,000★, +1196/7d)</title>
+      <link>https://github.com/Imbad0202/academic-research-skills</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Imbad0202/academic-research-skills</guid>
+      <description>Academic Research Skills for Claude Code: research → write → review → revise → finalize</description>
+      <category>Paper Writing</category>
+      <pubDate>2026-07-09T06:21:37Z</pubDate>
+    </item>
+    <item>
+      <title>K-Dense-AI/scientific-agent-skills (30,524★, +684/7d)</title>
+      <link>https://github.com/K-Dense-AI/scientific-agent-skills</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#K-Dense-AI/scientific-agent-skills</guid>
+      <description>Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 160,000+ scientists worldwide. 140 ready-to-use skills plus 100+ scientific databases covering biology, chemis…</description>
+      <category>Discipline Specific</category>
+      <pubDate>2026-07-09T06:21:37Z</pubDate>
+    </item>
+    <item>
+      <title>Imbad0202/academic-research-skills-codex (5,812★, +555/7d)</title>
+      <link>https://github.com/Imbad0202/academic-research-skills-codex</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Imbad0202/academic-research-skills-codex</guid>
+      <description>Codex-native Academic Research Skills suite for human-in-the-loop academic research workflows</description>
+      <category>General Research</category>
+      <pubDate>2026-07-09T06:21:37Z</pubDate>
+    </item>
+    <item>
+      <title>HKUSTDial/Supervisor-Skills (3,759★, +292/7d)</title>
+      <link>https://github.com/HKUSTDial/Supervisor-Skills</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#HKUSTDial/Supervisor-Skills</guid>
+      <description>将博导十年科研经验炼化为可直接调用的 AI 技能。从 Idea 构思到论文投稿，你的 AI 科研副导师。</description>
+      <category>Discipline Specific</category>
+      <pubDate>2026-07-09T06:21:37Z</pubDate>
+    </item>
+    <item>
+      <title>Master-cai/Research-Paper-Writing-Skills (4,895★, +286/7d)</title>
+      <link>https://github.com/Master-cai/Research-Paper-Writing-Skills</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Master-cai/Research-Paper-Writing-Skills</guid>
+      <description>Skill package for ML/CV/NLP paper writing, curated and adapted from Prof. Peng Sida&apos;s open notes for Codex, Claude Code, and Gemini.</description>
+      <category>Discipline Specific</category>
+      <pubDate>2026-07-09T06:21:37Z</pubDate>
+    </item>
+    <item>
+      <title>wanshuiyin/Auto-claude-code-research-in-sleep (13,161★, +257/7d)</title>
+      <link>https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#wanshuiyin/Auto-claude-code-research-in-sleep</guid>
+      <description>ARIS ⚔️ (Auto-Research-In-Sleep) — Lightweight Markdown-only skills for autonomous ML research: cross-model review loops, idea discovery, and experiment automation. No framework, no lock-in — works w…</description>
+      <category>Deep Research</category>
+      <pubDate>2026-07-09T06:21:37Z</pubDate>
+    </item>
+    <item>
+      <title>Orchestra-Research/AI-Research-SKILLs (10,521★, +223/7d)</title>
+      <link>https://github.com/Orchestra-Research/AI-Research-SKILLs</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Orchestra-Research/AI-Research-SKILLs</guid>
+      <description>Comprehensive open-source library of AI research and engineering skills for any AI model. Package the skills and your claude code/codex/gemini agent will be an AI research agent with full horsepower.…</description>
+      <category>Deep Research</category>
+      <pubDate>2026-07-09T06:21:37Z</pubDate>
+    </item>
+    <item>
+      <title>Weizhena/Deep-Research-skills (1,571★, +122/7d)</title>
+      <link>https://github.com/Weizhena/Deep-Research-skills</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Weizhena/Deep-Research-skills</guid>
+      <description>Structured deep research skill for Claude Code/Open Code/Codex with human-in-the-loop control</description>
+      <category>Deep Research</category>
+      <pubDate>2026-07-09T06:21:37Z</pubDate>
+    </item>
+    <item>
+      <title>pedrohcgs/claude-code-my-workflow (1,385★, +46/7d)</title>
+      <link>https://github.com/pedrohcgs/claude-code-my-workflow</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#pedrohcgs/claude-code-my-workflow</guid>
+      <description>A ready-to-fork Claude Code template for academics using LaTeX/Beamer + R. Multi-agent review, quality gates, adversarial QA, and replication protocols.</description>
+      <category>Paper Writing</category>
+      <pubDate>2026-07-09T06:21:37Z</pubDate>
+    </item>
+  </channel>
+</rss>

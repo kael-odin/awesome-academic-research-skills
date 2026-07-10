@@ -31,6 +31,12 @@ HISTORY_JS_PATH = ROOT / "data" / "history.js"
 CSV_PATH = ROOT / "data" / "rankings.csv"
 README_PATH = ROOT / "README.md"
 HISTORY_DIR = ROOT / "data" / "history"
+SITEMAP_PATH = ROOT / "sitemap.xml"
+FEED_PATH = ROOT / "feed.xml"
+OG_COVER_PATH = ROOT / "assets" / "og-cover.svg"
+
+# Canonical public URL (GitHub Pages). Used for sitemap / RSS / Open Graph.
+SITE_URL = "https://kael-odin.github.io/awesome-academic-research-skills"
 
 # How many days of history to retain on disk. Older snapshots are pruned so the
 # repo does not grow unboundedly over time.
@@ -981,6 +987,7 @@ def write_outputs(data: dict[str, Any], window_snapshot: dict[str, Any] | None =
     HISTORY_JS_PATH.write_text(render_history_js(render_history_series(history)), encoding="utf-8")
     render_csv(data["items"])
     README_PATH.write_text(render_readme(data, window_snapshot=window_snapshot), encoding="utf-8")
+    write_seo_assets(data, window_snapshot=window_snapshot)
 
 
 def build_dataset(config: dict[str, Any], repos: list[dict[str, Any]]) -> tuple[dict[str, Any], dict[str, Any] | None]:
@@ -1054,6 +1061,131 @@ def render_history_series(history: dict[str, dict[str, Any]]) -> dict[str, Any]:
         },
         "series": series,
     }
+
+
+def xml_escape(value: str) -> str:
+    return (
+        (value or "")
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+        .replace("'", "&apos;")
+    )
+
+
+def render_sitemap(data: dict[str, Any]) -> str:
+    """Generate sitemap.xml covering the dashboard, README, and data endpoints."""
+    lastmod = (data.get("metadata", {}).get("generated_at") or "")[:10]
+    urls = [
+        ("", lastmod, "1.0", "daily"),
+        ("#english", lastmod, "0.6", "weekly"),
+        ("data/rankings.json", lastmod, "0.5", "daily"),
+        ("data/rankings.csv", lastmod, "0.4", "daily"),
+        ("docs/methodology.md", lastmod, "0.4", "monthly"),
+        ("docs/discoverability.md", lastmod, "0.3", "monthly"),
+        ("CONTRIBUTING.md", lastmod, "0.3", "monthly"),
+    ]
+    entries = []
+    for path, lm, prio, freq in urls:
+        loc = f"{SITE_URL}/{path}".rstrip("/") if path else SITE_URL + "/"
+        entries.append(
+            "  <url>\n"
+            f"    <loc>{xml_escape(loc)}</loc>\n"
+            f"    <lastmod>{lm}</lastmod>\n"
+            f"    <changefreq>{freq}</changefreq>\n"
+            f"    <priority>{prio}</priority>\n"
+            "  </url>"
+        )
+    return '<?xml version="1.0" encoding="UTF-8"?>\n' \
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' \
+        + "\n".join(entries) + "\n</urlset>\n"
+
+
+def render_feed(data: dict[str, Any], window_snapshot: dict[str, Any] | None = None) -> str:
+    """Generate an RSS 2.0 feed of newcomers + top trending repos for daily订阅."""
+    items = data.get("items", [])
+    metadata = data.get("metadata", {})
+    generated = metadata.get("generated_at", "")
+    newcomers = [it for it in items if is_newcomer(it, window_snapshot)]
+    trending = sorted(items, key=lambda i: -(i.get("star_delta_7d") or 0))[:10]
+    featured = newcomers[:8] + [it for it in trending if it not in newcomers][: (10 - len(newcomers))]
+    featured = featured[:12]
+
+    entries = []
+    for it in featured:
+        title = f"{it['repo']} ({it['stars']:,}★, +{it.get('star_delta_7d') or 0}/7d)"
+        link = it.get("url") or ""
+        desc = truncate(it.get("description") or "", 200)
+        cat = it.get("category", {}).get("en", "")
+        guid = f"{SITE_URL}/#{it['repo']}"
+        entries.append(
+            "    <item>\n"
+            f"      <title>{xml_escape(title)}</title>\n"
+            f"      <link>{xml_escape(link)}</link>\n"
+            f"      <guid isPermaLink=\"false\">{xml_escape(guid)}</guid>\n"
+            f"      <description>{xml_escape(desc)}</description>\n"
+            f"      <category>{xml_escape(cat)}</category>\n"
+            f"      <pubDate>{xml_escape(generated)}</pubDate>\n"
+            "    </item>"
+        )
+    return (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+        "  <channel>\n"
+        f"    <title>Awesome Academic Research Skills</title>\n"
+        f"    <link>{SITE_URL}/</link>\n"
+        "    <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>\n"
+        f"    <language>{'zh-CN'}</language>\n"
+        f"    <lastBuildDate>{xml_escape(generated)}</lastBuildDate>\n"
+        f"    <atom:link href=\"{SITE_URL}/feed.xml\" rel=\"self\" type=\"application/rss+xml\"/>\n"
+        + "\n".join(entries) + "\n"
+        "  </channel>\n</rss>\n"
+    )
+
+
+def render_og_cover(data: dict[str, Any]) -> str:
+    """Generate a simple SVG Open Graph cover showing the day's headline stats."""
+    metadata = data.get("metadata", {})
+    items = data.get("items", [])
+    total = metadata.get("total", len(items))
+    generated = (metadata.get("generated_at") or "")[:10]
+    total_stars = sum(it.get("stars", 0) for it in items)
+    top = items[0] if items else None
+    top_name = truncate(top["repo"], 42) if top else "—"
+    top_stars = f"{top['stars']:,}★" if top else ""
+
+    return f"""<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e1521"/>
+      <stop offset="55%" stop-color="#13233a"/>
+      <stop offset="100%" stop-color="#0f3a36"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="8" fill="url(#accent)"/>
+  <text x="80" y="150" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="34" fill="#8a94a6" font-weight="600">Awesome Academic Research Skills</text>
+  <text x="78" y="260" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="84" fill="#e6ebf2" font-weight="800">学术论文 Skill 排行</text>
+  <text x="80" y="330" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="30" fill="#9ee7d8" font-weight="600">{total} repos · {total_stars:,} stars · updated {generated}</text>
+  <rect x="80" y="390" width="1040" height="160" rx="20" fill="#161f30" stroke="#25304a" stroke-width="1"/>
+  <text x="112" y="450" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="24" fill="#8a94a6" font-weight="600">#1 TOP</text>
+  <text x="112" y="505" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="42" fill="#e6ebf2" font-weight="700">{xml_escape(top_name)}</text>
+  <text x="1080" y="505" font-family="Inter, Segoe UI, sans-serif" font-size="42" fill="#fbbf24" font-weight="800" text-anchor="end">{xml_escape(top_stars)}</text>
+</svg>
+"""
+
+
+def write_seo_assets(data: dict[str, Any], window_snapshot: dict[str, Any] | None = None) -> None:
+    SITEMAP_PATH.write_text(render_sitemap(data), encoding="utf-8")
+    FEED_PATH.write_text(render_feed(data, window_snapshot=window_snapshot), encoding="utf-8")
+    OG_COVER_PATH.parent.mkdir(parents=True, exist_ok=True)
+    OG_COVER_PATH.write_text(render_og_cover(data), encoding="utf-8")
 
 
 def main() -> int:

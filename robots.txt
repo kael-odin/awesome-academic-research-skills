@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kael-odin.github.io/awesome-academic-research-skills/sitemap.xml
