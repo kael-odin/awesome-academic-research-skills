@@ -5,71 +5,71 @@
     <link>https://kael-odin.github.io/awesome-academic-research-skills/</link>
     <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>
     <language>zh-CN</language>
-    <lastBuildDate>2026-07-11T05:23:40Z</lastBuildDate>
+    <lastBuildDate>2026-07-12T05:39:45Z</lastBuildDate>
     <atom:link href="https://kael-odin.github.io/awesome-academic-research-skills/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>WUBING2023/PaperSpine (3,926★, +18/7d)</title>
+      <title>WUBING2023/PaperSpine (3,940★, +14/7d)</title>
       <link>https://github.com/WUBING2023/PaperSpine</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#WUBING2023/PaperSpine</guid>
       <description>PaperSpine is a motivation-driven skill for learning from strong academic papers, building a paper’s central argument, and rewriting manuscripts through evidence-aware blueprints, revision matrices,…</description>
       <category>Paper Writing</category>
-      <pubDate>2026-07-11T05:23:40Z</pubDate>
+      <pubDate>2026-07-12T05:39:45Z</pubDate>
     </item>
     <item>
-      <title>Norman-bury/research-writing-skill (2,741★, +5/7d)</title>
+      <title>Norman-bury/research-writing-skill (2,758★, +17/7d)</title>
       <link>https://github.com/Norman-bury/research-writing-skill</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Norman-bury/research-writing-skill</guid>
       <description>科研写作助手 (Research Writing Assistant)</description>
       <category>Paper Writing</category>
-      <pubDate>2026-07-11T05:23:40Z</pubDate>
+      <pubDate>2026-07-12T05:39:45Z</pubDate>
     </item>
     <item>
-      <title>jihe520/MathModelAgent (2,634★, +20/7d)</title>
+      <title>jihe520/MathModelAgent (2,647★, +13/7d)</title>
       <link>https://github.com/jihe520/MathModelAgent</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#jihe520/MathModelAgent</guid>
       <description>🤖📐专为数学建模设计的 Agent &amp; skills ,自动完成数学建模，生成一份完整的可以直接提交的论文。 An Agent Designed for Mathematical Modeling ,Automatically complete mathmodel and generate a complete paper ready for submission.</description>
       <category>Discipline Specific</category>
-      <pubDate>2026-07-11T05:23:40Z</pubDate>
+      <pubDate>2026-07-12T05:39:45Z</pubDate>
     </item>
     <item>
-      <title>huangwb8/ChineseResearchLaTeX (2,491★, +1/7d)</title>
+      <title>huangwb8/ChineseResearchLaTeX (2,495★, +4/7d)</title>
       <link>https://github.com/huangwb8/ChineseResearchLaTeX</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#huangwb8/ChineseResearchLaTeX</guid>
       <description>中国科研常用LaTeX模板集</description>
       <category>Paper Writing</category>
-      <pubDate>2026-07-11T05:23:40Z</pubDate>
+      <pubDate>2026-07-12T05:39:45Z</pubDate>
     </item>
     <item>
-      <title>HughYau/AcademicForge (2,267★, +12/7d)</title>
+      <title>HughYau/AcademicForge (2,278★, +11/7d)</title>
       <link>https://github.com/HughYau/AcademicForge</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#HughYau/AcademicForge</guid>
       <description>One Forge, All Skills: A curated skill collection for academic writing and research. 点开即用，按需配置的一站式学术研究skills平台。</description>
       <category>General Research</category>
-      <pubDate>2026-07-11T05:23:40Z</pubDate>
+      <pubDate>2026-07-12T05:39:45Z</pubDate>
     </item>
     <item>
-      <title>zLanqing/codex-claude-academic-skills (1,752★, +44/7d)</title>
+      <title>zLanqing/codex-claude-academic-skills (1,773★, +21/7d)</title>
       <link>https://github.com/zLanqing/codex-claude-academic-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#zLanqing/codex-claude-academic-skills</guid>
       <description>本仓库包含三个面向学术科研人员的Skills，覆盖从文献阅读、论文写作到科学计算的完整研究工作流。office-academic-skill 负责论文阅读报告与学术 PPT/Word 文档生成；research-writing-skill 提供论文写作、润色与审稿回复辅助；scientific-toolkit-skill 整合 MATLAB/Python 科学计算与期刊级图表生成。三个 Skil…</description>
       <category>General Research</category>
-      <pubDate>2026-07-11T05:23:40Z</pubDate>
+      <pubDate>2026-07-12T05:39:45Z</pubDate>
     </item>
     <item>
-      <title>LigphiDonk/academic-figure-generator (1,619★, +26/7d)</title>
+      <title>LigphiDonk/academic-figure-generator (1,635★, +16/7d)</title>
       <link>https://github.com/LigphiDonk/academic-figure-generator</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#LigphiDonk/academic-figure-generator</guid>
       <description>AI 驱动的学术论文配图生成平台。上传论文 → AI 分析内容生成 Prompt → 一键生成高质量科研配图，还有配套的skill可在主流agent中使用</description>
       <category>General Research</category>
-      <pubDate>2026-07-11T05:23:40Z</pubDate>
+      <pubDate>2026-07-12T05:39:45Z</pubDate>
     </item>
     <item>
-      <title>VoltAgent/awesome-ai-agent-papers (1,557★, +7/7d)</title>
+      <title>VoltAgent/awesome-ai-agent-papers (1,562★, +5/7d)</title>
       <link>https://github.com/VoltAgent/awesome-ai-agent-papers</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#VoltAgent/awesome-ai-agent-papers</guid>
       <description>A curated collection of AI agent research papers released in 2026, covering agent engineering, memory, evaluation, workflows, and autonomous systems.</description>
       <category>Experiments</category>
-      <pubDate>2026-07-11T05:23:40Z</pubDate>
+      <pubDate>2026-07-12T05:39:45Z</pubDate>
     </item>
   </channel>
 </rss>
