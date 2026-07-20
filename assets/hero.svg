@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460" role="img" aria-labelledby="t d">
+  <title id="t">Awesome Academic Research Skills</title>
+  <desc id="d">每日自动更新的 GitHub 学术科研 Agent Skill 排行榜:42 仓库,177,946 stars,榜首 38,520 stars。</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e1521"/>
+      <stop offset="55%" stop-color="#13233a"/>
+      <stop offset="100%" stop-color="#0f3a36"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+    <linearGradient id="spark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2dd4bf" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+    </linearGradient>
+    <!-- sparkline path: 7 pts (real top-repo star series 2026-07-14..07-20), x step 60, base y=210, peak up = smaller y -->
+    <path id="spark-path" d="M0,210 L60,195.3 L120,180.8 L180,167.6 L240,153.8 L300,143.1 L360,130"/>
+  </defs>
+
+  <!-- canvas -->
+  <rect width="1200" height="460" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="8" fill="url(#accent)"/>
+
+  <!-- LEFT: title block -->
+  <g font-family="Inter, 'Segoe UI', 'Microsoft YaHei', sans-serif">
+    <text x="80" y="92" font-size="22" font-weight="600" fill="#8a94a6" letter-spacing="1.5">每日自动更新 · DAILY RANKING</text>
+    <text x="76" y="172" font-size="76" font-weight="800" fill="#e6ebf2">学术论文 Skill 排行</text>
+    <text x="78" y="232" font-size="22" font-weight="500" fill="#9ee7d8">面向中文用户的 Agent Skill / Workflow 仓库榜单</text>
+
+    <!-- stat row -->
+    <g font-size="16" fill="#c6ced9">
+      <text x="80" y="284" font-weight="600">
+        <tspan fill="#e6ebf2" font-size="26" font-weight="800">42</tspan>
+        <tspan dx="8" fill="#8a94a6">repos</tspan>
+        <tspan dx="28" fill="#25304a">·</tspan>
+        <tspan dx="28" fill="#e6ebf2" font-size="26" font-weight="800">177,946</tspan>
+        <tspan dx="8" fill="#8a94a6">stars</tspan>
+        <tspan dx="28" fill="#25304a">·</tspan>
+        <tspan dx="28" fill="#fbbf24" font-size="26" font-weight="800">+967</tspan>
+        <tspan dx="8" fill="#8a94a6">7d / top repo</tspan>
+      </text>
+    </g>
+  </g>
+
+  <!-- RIGHT: today's #1 card -->
+  <g transform="translate(720,60)">
+    <rect width="400" height="340" rx="20" fill="#161f30" stroke="#25304a" stroke-width="1"/>
+    <text x="28" y="48" font-family="Inter, 'Segoe UI', sans-serif" font-size="18" font-weight="600" fill="#8a94a6" letter-spacing="1.2">TODAY #1</text>
+
+    <!-- rank ribbon -->
+    <g transform="translate(28,70)">
+      <rect width="48" height="48" rx="12" fill="url(#accent)"/>
+      <text x="24" y="33" font-family="Inter, sans-serif" font-size="26" font-weight="800" fill="#0e1521" text-anchor="middle">1</text>
+    </g>
+
+    <text x="92" y="100" font-family="Inter, 'Segoe UI', sans-serif" font-size="22" font-weight="700" fill="#e6ebf2">academic-research-skills</text>
+    <text x="92" y="122" font-family="Inter, 'Segoe UI', sans-serif" font-size="14" font-weight="500" fill="#8a94a6">Imbad0202 · 论文写作 · Claude</text>
+
+    <!-- big star -->
+    <text x="372" y="100" font-family="Inter, sans-serif" font-size="34" font-weight="800" fill="#fbbf24" text-anchor="end">38,520★</text>
+
+    <!-- sparkline block -->
+    <g transform="translate(28,160)">
+      <text x="0" y="0" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#8a94a6">7-DAY TREND</text>
+      <text x="344" y="0" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#9ee7d8" text-anchor="end">+967 ★</text>
+      <use href="#spark-path" x="0" y="20" fill="url(#spark)"/>
+      <use href="#spark-path" x="0" y="20" fill="none" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- last point dot -->
+      <circle cx="360" cy="150" r="5" fill="#2dd4bf"/>
+      <circle cx="360" cy="150" r="9" fill="#2dd4bf" opacity="0.25"/>
+    </g>
+
+    <!-- footer tag -->
+    <text x="28" y="316" font-family="Inter, sans-serif" font-size="14" fill="#667085">research → write → review → revise → finalize</text>
+  </g>
+
+  <!-- bottom divider rule -->
+  <rect x="80" y="410" width="1040" height="1" fill="#25304a"/>
+  <text x="80" y="438" font-family="Inter, sans-serif" font-size="14" fill="#667085">updated 2026-07-20 · filter: Skill/Agent/Workflow AND Academic/Research/Paper · min 100★</text>
+</svg>

@@ -1,14 +1,20 @@
-# Awesome Academic Research Skills
+<p align="center">
+  <img src="assets/hero.svg" alt="Awesome Academic Research Skills — 每日自动更新的 GitHub 学术科研 Agent Skill 排行榜,42 仓库,177,946 stars,榜首 38,520 stars" width="900" />
+</p>
 
 > 面向中文用户的学术论文与科研 Agent Skill 每日排行榜。自动搜索、过滤并排名 GitHub 上与论文写作、文献综述、深度研究、评审反馈、实验复现相关的 Skill / Agent / Workflow 仓库。
 
-[![Last update](https://img.shields.io/badge/updated-2026--07--20-0f766e)](#今日榜单)
-[![Repositories](https://img.shields.io/badge/repositories-42-2563eb)](#今日榜单)
-[![Min stars](https://img.shields.io/badge/min%20stars-100-334155)](#收录标准)
-[![License: MIT](https://img.shields.io/badge/license-MIT-22c55e)](LICENSE)
-[![Auto update](https://img.shields.io/badge/auto%20update-daily-6366f1)](.github/workflows/update-rankings.yml)
+<p align="center">
+  <a href="#今日榜单"><img src="https://img.shields.io/badge/updated-2026--07--20-0f766e" alt="Last update" /></a>
+  <a href="#今日榜单"><img src="https://img.shields.io/badge/repositories-42-2563eb" alt="Repositories" /></a>
+  <a href="#收录标准"><img src="https://img.shields.io/badge/min%20stars-100-334155" alt="Min stars" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-22c55e" alt="License: MIT" /></a>
+  <a href=".github/workflows/update-rankings.yml"><img src="https://img.shields.io/badge/auto%20update-daily-6366f1" alt="Auto update" /></a>
+</p>
 
-[English](#english) · [可视化页面](https://kael-odin.github.io/awesome-academic-research-skills/) · [JSON](data/rankings.json) · [CSV](data/rankings.csv) · [RSS](feed.xml) · [Sitemap](sitemap.xml) · [排名方法](docs/methodology.md) · [更新日志](docs/changelog.md) · [贡献指南](CONTRIBUTING.md)
+<p align="center">
+  <a href="#english">English</a> · <a href="https://kael-odin.github.io/awesome-academic-research-skills/">可视化页面</a> · <a href="data/rankings.json">JSON</a> · <a href="data/rankings.csv">CSV</a> · <a href="feed.xml">RSS</a> · <a href="sitemap.xml">Sitemap</a> · <a href="docs/methodology.md">排名方法</a> · <a href="docs/changelog.md">更新日志</a> · <a href="CONTRIBUTING.md">贡献指南</a>
+</p>
 
 ## 项目特色
 
