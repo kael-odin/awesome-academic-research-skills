@@ -53,6 +53,9 @@
     </script>
 
     <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" />
   </head>
   <body>
     <a class="skip-link" href="#main" data-i18n="skipToContent">跳到主内容</a>
@@ -76,24 +79,26 @@
 
       <section class="hero">
         <div class="hero-copy">
-          <h1 data-i18n="heroTitle">学术论文 Skill 排行</h1>
+          <div class="masthead-eyebrow">
+            <span class="vol" data-i18n="mastheadVol">Vol.1</span>
+            <span class="sep">·</span>
+            <span id="mastheadIssue">No.—</span>
+            <span class="sep">·</span>
+            <span id="mastheadDate">—</span>
+          </div>
+          <h1 data-i18n-html="heroTitle">学术论文 Skill <em>排行</em></h1>
           <p data-i18n="heroSubtitle">
             每天自动发现、过滤并排名 GitHub 上服务论文写作、文献综述、深度研究、评审反馈和实验复现的 Agent Skill 仓库。
           </p>
-          <p class="hero-hint" data-i18n="heroHint">提示：按 / 聚焦搜索 · t 切换主题 · l 切语言 · v 切视图</p>
+          <p class="hero-hint" data-i18n-html="heroHint">提示：按 / 聚焦搜索 · t 切换主题 · l 切语言 · v 切视图</p>
         </div>
-        <div class="hero-panel" aria-label="Ranking summary">
-          <div>
-            <span class="metric-value" id="totalRepos">0</span>
-            <span class="metric-label" data-i18n="repos">收录仓库</span>
-          </div>
-          <div>
-            <span class="metric-value" id="minStars">100</span>
-            <span class="metric-label" data-i18n="minStars">最低 Stars</span>
-          </div>
-          <div>
-            <span class="metric-value" id="updatedAt">-</span>
-            <span class="metric-label" data-i18n="updated">最近更新</span>
+        <div class="hero-panel" aria-label="In this issue">
+          <div class="toc-title" data-i18n="tocTitle">本期目录</div>
+          <div class="toc-list" id="tocList"></div>
+          <div class="toc-foot">
+            <span><b id="tocRepos">0</b> repos</span>
+            <span><b id="tocStars">0</b> ★ total</span>
+            <span><b id="tocUpdated">—</b></span>
           </div>
         </div>
       </section>
@@ -111,6 +116,12 @@
           <span data-i18n="categoryLabel">分类</span>
           <select id="categoryFilter">
             <option value="all" data-i18n="allCategories">全部分类</option>
+          </select>
+        </label>
+        <label class="select-field">
+          <span data-i18n="agentLabel">平台</span>
+          <select id="agentFilter">
+            <option value="all" data-i18n="allAgents">全部平台</option>
           </select>
         </label>
         <label class="select-field">
@@ -199,16 +210,21 @@
     </main>
 
     <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" hidden>
+      <div class="drawer-scrim" id="drawerScrim"></div>
       <div class="drawer-inner">
         <div class="drawer-head">
-          <h3 id="drawerTitle">—</h3>
+          <div>
+            <div class="eyebrow" id="drawerEyebrow">—</div>
+            <h3 id="drawerTitle">—</h3>
+          </div>
           <button class="icon-button" id="drawerClose" type="button" aria-label="Close">✕</button>
         </div>
         <div class="drawer-body" id="drawerBody"></div>
         <div class="drawer-foot" id="drawerFoot"></div>
       </div>
-      <div class="drawer-scrim" id="drawerScrim"></div>
     </aside>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <footer class="footer">
       <span>MIT · <a href="https://github.com/kael-odin/awesome-academic-research-skills">kael-odin/awesome-academic-research-skills</a></span>

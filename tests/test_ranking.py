@@ -4,6 +4,8 @@ from datetime import datetime, timedelta, timezone
 from scripts.update_rankings import (
     classify_repo,
     compute_trend_score,
+    detect_agents,
+    agents_to_label,
     find_window_snapshot,
     is_academic_skill_repo,
     rank_repositories,
@@ -434,6 +436,45 @@ class RankingRulesTest(unittest.TestCase):
         self.assertEqual(payload["series"]["example/b"], [{"date": "2026-06-28", "stars": 50}])
         self.assertEqual(payload["metadata"]["repos"], 2)
         self.assertEqual(payload["metadata"]["series_points"], 3)
+
+    def test_detect_agents_from_corpus(self):
+        """detect_agents should surface every matching platform id from the
+        repo's text corpus, in the canonical catalog order."""
+        repo = {
+            "nameWithOwner": "example/claude-codex-skill",
+            "description": "A Claude Code + Codex skill for academic paper writing, with MCP",
+            "repositoryTopics": {"nodes": [{"topic": {"name": "mcp"}}]},
+        }
+        self.assertEqual(detect_agents(repo), ["claude-code", "codex", "mcp"])
+
+    def test_detect_agents_empty_for_general_repo(self):
+        repo = {
+            "nameWithOwner": "example/general",
+            "description": "A generic research skill",
+            "repositoryTopics": {"nodes": []},
+        }
+        self.assertEqual(detect_agents(repo), [])
+
+    def test_agents_field_in_ranked_output(self):
+        """rank_repositories must include the structured `agents` list on each
+        item so the frontend can filter without re-inferring from text."""
+        repos = [
+            {
+                "nameWithOwner": "example/claude-paper-skill",
+                "description": "Academic paper writing skill for Claude Code",
+                "repositoryTopics": {"nodes": []},
+                "stargazerCount": 150,
+                "pushedAt": "2026-06-29T00:00:00Z",
+                "createdAt": "2026-01-01T00:00:00Z",
+                "url": "https://github.com/example/claude-paper-skill",
+            },
+        ]
+        ranked = rank_repositories(repos, min_stars=100, previous_snapshot={})
+        self.assertEqual(ranked[0]["agents"], ["claude-code"])
+
+    def test_agents_to_label_renders_human_labels(self):
+        self.assertEqual(agents_to_label(["claude-code", "mcp"]), "Claude/MCP")
+        self.assertEqual(agents_to_label([]), "通用")
 
 
 if __name__ == "__main__":

@@ -527,6 +527,7 @@ def rank_repositories(
         # Trend label is driven by the (less noisy) 7-day delta.
         trend = trend_label(star_delta_7d, score)
         category = classify_repo(repo)
+        agents = detect_agents(repo)
         topics = [
             node.get("topic", {}).get("name")
             for node in repo.get("repositoryTopics", {}).get("nodes", [])
@@ -551,6 +552,7 @@ def rank_repositories(
                 "last_push_date": date_only(repo.get("pushedAt") or repo.get("updatedAt")),
                 "url": repo.get("url") or repo.get("html_url") or "",
                 "homepage": repo.get("homepageUrl") or repo.get("homepage") or "",
+                "agents": agents,
                 "precision_signals": sorted(set(reasons)),
                 # Enrichment (only added, never removed from the legacy set).
                 "forks": int(repo.get("forksCount") or 0),
@@ -767,11 +769,54 @@ def agent_badge(corpus: str) -> str:
         badges.append("Claude")
     if "codex" in corpus:
         badges.append("Codex")
-    if "opencode" in corpus or "open code" in corpus:
+    if "opencode" in corpus or "open code" in corpus or "open-code" in corpus:
         badges.append("OpenCode")
     if "mcp" in corpus:
         badges.append("MCP")
     return "/".join(badges) if badges else "通用"
+
+
+# Canonical platform catalog — mirrors the frontend AGENT_PLATFORMS list.
+# Each entry: (backend_id, match_terms). The backend_id is written to the
+# JSON `agents` field and CSV `agents` column; the frontend maps it to a
+# human label. Keeping the ids stable lets old snapshots filter correctly.
+AGENT_PLATFORMS = [
+    ("claude-code", ["claude code", "claude-code", "claude code skill"]),
+    ("codex", ["codex"]),
+    ("opencode", ["opencode", "open code", "open-code"]),
+    ("cursor", ["cursor"]),
+    ("gemini", ["gemini"]),
+    ("cline", ["cline"]),
+    ("mcp", ["mcp"]),
+]
+
+
+def detect_agents(repo: dict[str, Any]) -> list[str]:
+    """Return the list of target-agent platform ids inferred from the repo corpus."""
+    corpus = text_corpus(repo)
+    found: list[str] = []
+    for platform_id, terms in AGENT_PLATFORMS:
+        if any(term in corpus for term in terms):
+            found.append(platform_id)
+    return found
+
+
+# Map a backend platform id to a short human label for README / display.
+_AGENT_LABELS = {
+    "claude-code": "Claude",
+    "codex": "Codex",
+    "opencode": "OpenCode",
+    "cursor": "Cursor",
+    "gemini": "Gemini",
+    "cline": "Cline",
+    "mcp": "MCP",
+}
+
+
+def agents_to_label(agent_ids: list[str]) -> str:
+    """Render the structured agents list as a /-joined label (通用 when empty)."""
+    labels = [_AGENT_LABELS.get(aid, aid) for aid in agent_ids if aid]
+    return "/".join(labels) if labels else "通用"
 
 
 def is_newcomer(item: dict[str, Any], window_snapshot: dict[str, Any] | None) -> bool:
@@ -796,7 +841,7 @@ def render_readme(data: dict[str, Any], window_snapshot: dict[str, Any] | None =
         delta_7d = item.get("star_delta_7d", 0)
         delta_str = f"+{delta_7d}" if delta_7d else "0"
         trend = f"{item['trend']['zh']} (7d:{delta_str})"
-        agent = agent_badge(f"{item['repo']} {item['description']} {' '.join(item.get('topics') or [])}".lower())
+        agent = agents_to_label(item.get("agents", []))
         rows.append(
             "| {rank} | {repo} | {stars:,} | {trend} | {category} | {agent} | {desc} | {date} |".format(
                 rank=item["rank"],
@@ -840,6 +885,7 @@ def render_readme(data: dict[str, Any], window_snapshot: dict[str, Any] | None =
 [![Last update](https://img.shields.io/badge/updated-{metadata['generated_at'][:10].replace('-', '--')}-0f766e)](#今日榜单)
 [![Repositories](https://img.shields.io/badge/repositories-{metadata['total']}-2563eb)](#今日榜单)
 [![Min stars](https://img.shields.io/badge/min%20stars-{metadata['min_stars']}-334155)](#收录标准)
+[![Online dashboard](https://img.shields.io/badge/online-dashboard-b3552a)](https://kael-odin.github.io/awesome-academic-research-skills/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-22c55e)](LICENSE)
 [![Auto update](https://img.shields.io/badge/auto%20update-daily-6366f1)](.github/workflows/update-rankings.yml)
 
@@ -952,6 +998,7 @@ def render_csv(items: list[dict[str, Any]]) -> None:
                 "license",
                 "forks",
                 "open_issues",
+                "agents",
                 "last_push_date",
                 "url",
             ],
@@ -975,6 +1022,7 @@ def render_csv(items: list[dict[str, Any]]) -> None:
                     "license": license_name,
                     "forks": item.get("forks", 0),
                     "open_issues": item.get("open_issues", 0),
+                    "agents": "|".join(item.get("agents", [])),
                     "last_push_date": item["last_push_date"],
                     "url": item["url"],
                 }
