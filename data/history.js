@@ -1,7 +1,7 @@
 window.ACADEMIC_SKILLS_HISTORY = {
   "metadata": {
-    "series_points": 1426,
-    "repos": 46,
+    "series_points": 1471,
+    "repos": 47,
     "window_days": 60
   },
   "series": {
@@ -161,6 +161,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 41200
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 41311
       }
     ],
     "K-Dense-AI/scientific-agent-skills": [
@@ -319,6 +323,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 32852
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 32933
       }
     ],
     "Yuan1z0825/nature-skills": [
@@ -477,6 +485,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 33819
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 33976
       }
     ],
     "wanshuiyin/Auto-claude-code-research-in-sleep": [
@@ -635,6 +647,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 14345
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 14386
       }
     ],
     "Orchestra-Research/AI-Research-SKILLs": [
@@ -793,6 +809,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 11473
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 11498
       }
     ],
     "Imbad0202/academic-research-skills-codex": [
@@ -951,6 +971,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 7989
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 8049
       }
     ],
     "Master-cai/Research-Paper-Writing-Skills": [
@@ -1109,6 +1133,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 5858
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 5876
       }
     ],
     "HKUSTDial/Supervisor-Skills": [
@@ -1267,6 +1295,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 5165
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 5195
       }
     ],
     "Weizhena/Deep-Research-skills": [
@@ -1425,6 +1457,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 1889
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 1901
       }
     ],
     "pedrohcgs/claude-code-my-workflow": [
@@ -1583,6 +1619,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 1450
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 1461
       }
     ],
     "aipoch/medical-research-skills": [
@@ -1741,6 +1781,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 1654
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 1660
       }
     ],
     "lishix520/academic-paper-skills": [
@@ -1899,6 +1943,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 1141
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 1144
       }
     ],
     "199-biotechnologies/claude-deep-research-skill": [
@@ -2057,6 +2105,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 970
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 971
       }
     ],
     "LigphiDonk/Oh-my--paper": [
@@ -2214,6 +2266,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       },
       {
         "date": "2026-08-07",
+        "stars": 707
+      },
+      {
+        "date": "2026-08-08",
         "stars": 707
       }
     ],
@@ -2373,6 +2429,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 633
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 634
       }
     ],
     "jimmc414/Kosmos": [
@@ -2530,6 +2590,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       },
       {
         "date": "2026-08-07",
+        "stars": 557
+      },
+      {
+        "date": "2026-08-08",
         "stars": 557
       }
     ],
@@ -2689,6 +2753,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 470
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 470
       }
     ],
     "hanlulong/econ-writing-skill": [
@@ -2847,6 +2915,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 515
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 516
       }
     ],
     "claesbackman/AI-research-feedback": [
@@ -3004,6 +3076,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       },
       {
         "date": "2026-08-07",
+        "stars": 463
+      },
+      {
+        "date": "2026-08-08",
         "stars": 463
       }
     ],
@@ -3163,6 +3239,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 409
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 409
       }
     ],
     "fcakyon/phd-skills": [
@@ -3321,6 +3401,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 360
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 361
       }
     ],
     "WUBING2023/PaperSpine": [
@@ -3439,6 +3523,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 4679
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 4692
       }
     ],
     "Norman-bury/research-writing-skill": [
@@ -3557,6 +3645,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 2984
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 2998
       }
     ],
     "jihe520/MathModelAgent": [
@@ -3675,6 +3767,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 3247
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 3289
       }
     ],
     "huangwb8/ChineseResearchLaTeX": [
@@ -3793,6 +3889,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 2596
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 2597
       }
     ],
     "HughYau/AcademicForge": [
@@ -3911,6 +4011,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 2434
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 2439
       }
     ],
     "zLanqing/codex-claude-academic-skills": [
@@ -4029,6 +4133,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 2635
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 2663
       }
     ],
     "LigphiDonk/academic-figure-generator": [
@@ -4147,6 +4255,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 2016
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 2020
       }
     ],
     "VoltAgent/awesome-ai-agent-papers": [
@@ -4265,6 +4377,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 1661
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 1664
       }
     ],
     "alephpi/Texo": [
@@ -4477,6 +4593,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 923
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 926
       }
     ],
     "LeonChaoX/qinyan-academic-skills": [
@@ -4625,6 +4745,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 386
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 386
       }
     ],
     "alfonso0512/research-writing-skill": [
@@ -4743,6 +4867,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 360
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 361
       }
     ],
     "ganzhi-black/humanities-thesis-skill": [
@@ -4861,6 +4989,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 409
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 411
       }
     ],
     "yipng05-max/-skills": [
@@ -4979,6 +5111,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 262
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 263
       }
     ],
     "yanlin-cheng/skill-thesis-writer": [
@@ -5097,6 +5233,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 184
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 187
       }
     ],
     "ShZhao27208/Aut_Sci_Write": [
@@ -5214,6 +5354,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       },
       {
         "date": "2026-08-07",
+        "stars": 176
+      },
+      {
+        "date": "2026-08-08",
         "stars": 176
       }
     ],
@@ -5333,6 +5477,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 196
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 199
       }
     ],
     "Lupynow/math-modeling-skills": [
@@ -5451,6 +5599,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 177
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 181
       }
     ],
     "ThisIsLittleSky/WaterPaper": [
@@ -5569,6 +5721,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 106
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 106
       }
     ],
     "Boom5426/Nature-Paper-Skills": [
@@ -5679,6 +5835,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 414
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 415
       }
     ],
     "brycewang-stanford/Auto-Empirical-Research-Skills": [
@@ -5761,6 +5921,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 3295
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 3312
       }
     ],
     "congcongwang0122/zotero-skill": [
@@ -5775,6 +5939,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 127
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 131
       }
     ],
     "brycewang-stanford/Auto-Research-Skills": [
@@ -5789,6 +5957,10 @@ window.ACADEMIC_SKILLS_HISTORY = {
       {
         "date": "2026-08-07",
         "stars": 108
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 109
       }
     ],
     "Jesseovo/PaperCash": [
@@ -5798,6 +5970,16 @@ window.ACADEMIC_SKILLS_HISTORY = {
       },
       {
         "date": "2026-08-07",
+        "stars": 101
+      },
+      {
+        "date": "2026-08-08",
+        "stars": 102
+      }
+    ],
+    "stephenlzc/AI-Powered-Literature-Review-Skills": [
+      {
+        "date": "2026-08-08",
         "stars": 101
       }
     ]
