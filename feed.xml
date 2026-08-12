@@ -5,31 +5,15 @@
     <link>https://kael-odin.github.io/awesome-academic-research-skills/</link>
     <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>
     <language>zh-CN</language>
-    <lastBuildDate>2026-08-11T03:56:03Z</lastBuildDate>
+    <lastBuildDate>2026-08-12T04:18:40Z</lastBuildDate>
     <atom:link href="https://kael-odin.github.io/awesome-academic-research-skills/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>congcongwang0122/zotero-skill (139★, +2/7d)</title>
-      <link>https://github.com/congcongwang0122/zotero-skill</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#congcongwang0122/zotero-skill</guid>
-      <description>「帮我整理总结一下 Zotero 中 XXX 栏所有的文献，并生成一个一万字的综述」**—— 这句话，现在真的可以被实现了。</description>
-      <category>Literature Review</category>
-      <pubDate>2026-08-11T03:56:03Z</pubDate>
-    </item>
-    <item>
-      <title>brycewang-stanford/Auto-Research-Skills (116★, +2/7d)</title>
-      <link>https://github.com/brycewang-stanford/Auto-Research-Skills</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#brycewang-stanford/Auto-Research-Skills</guid>
-      <description>A curated hub of autonomous-research skills &amp; agents — from idea to paper, on autopilot. | 自主科研技能与智能体精选库 —— 从灵感到论文全文，全程自动完成。</description>
-      <category>General Research</category>
-      <pubDate>2026-08-11T03:56:03Z</pubDate>
-    </item>
-    <item>
-      <title>stephenlzc/AI-Powered-Literature-Review-Skills (107★, +0/7d)</title>
+      <title>stephenlzc/AI-Powered-Literature-Review-Skills (108★, +1/7d)</title>
       <link>https://github.com/stephenlzc/AI-Powered-Literature-Review-Skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#stephenlzc/AI-Powered-Literature-Review-Skills</guid>
       <description>AI驱动的系统性学术文献回顾工具 | AI-Powered Literature Survey Tool with 8-Phase Workflow &amp; Agent Swarm Architecture</description>
       <category>Literature Review</category>
-      <pubDate>2026-08-11T03:56:03Z</pubDate>
+      <pubDate>2026-08-12T04:18:40Z</pubDate>
     </item>
     <item>
       <title>csmar432/finai-research (106★, +0/7d)</title>
@@ -37,55 +21,71 @@
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#csmar432/finai-research</guid>
       <description>Evidence-first AI workflow for economic and financial research: literature → identification → data → econometrics → verifiable LaTeX. 43 data sources, 58 method modules, 18 AI skills, 30 journal temp…</description>
       <category>General Research</category>
-      <pubDate>2026-08-11T03:56:03Z</pubDate>
+      <pubDate>2026-08-12T04:18:40Z</pubDate>
     </item>
     <item>
-      <title>Jesseovo/PaperCash (104★, +0/7d)</title>
+      <title>Jesseovo/PaperCash (105★, +1/7d)</title>
       <link>https://github.com/Jesseovo/PaperCash</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Jesseovo/PaperCash</guid>
       <description>📄 论文全流程辅助 AI Skill — 检索 2 亿+论文、文献综述生成、写作润色、查重预检、降 AI 率改写、参考文献管理，4 源免费即用</description>
       <category>Deep Research</category>
-      <pubDate>2026-08-11T03:56:03Z</pubDate>
+      <pubDate>2026-08-12T04:18:40Z</pubDate>
     </item>
     <item>
-      <title>Yuan1z0825/nature-skills (34,481★, +1345/7d)</title>
+      <title>Yuan1z0825/nature-skills (34,684★, +1300/7d)</title>
       <link>https://github.com/Yuan1z0825/nature-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Yuan1z0825/nature-skills</guid>
       <description>符合nature论文学术表达和科研绘图的Skill</description>
       <category>Deep Research</category>
-      <pubDate>2026-08-11T03:56:03Z</pubDate>
+      <pubDate>2026-08-12T04:18:40Z</pubDate>
     </item>
     <item>
-      <title>Imbad0202/academic-research-skills (41,790★, +1029/7d)</title>
+      <title>Imbad0202/academic-research-skills (42,014★, +1084/7d)</title>
       <link>https://github.com/Imbad0202/academic-research-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Imbad0202/academic-research-skills</guid>
       <description>Academic Research Skills for Claude Code: research → write → review → revise → finalize</description>
       <category>Paper Writing</category>
-      <pubDate>2026-08-11T03:56:03Z</pubDate>
+      <pubDate>2026-08-12T04:18:40Z</pubDate>
     </item>
     <item>
-      <title>K-Dense-AI/scientific-agent-skills (33,168★, +617/7d)</title>
+      <title>K-Dense-AI/scientific-agent-skills (33,257★, +592/7d)</title>
       <link>https://github.com/K-Dense-AI/scientific-agent-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#K-Dense-AI/scientific-agent-skills</guid>
       <description>Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 170,000+ scientists worldwide. 158 ready-to-use skills plus 100+ scientific databases covering biology, chemis…</description>
       <category>Discipline Specific</category>
-      <pubDate>2026-08-11T03:56:03Z</pubDate>
+      <pubDate>2026-08-12T04:18:40Z</pubDate>
     </item>
     <item>
-      <title>Imbad0202/academic-research-skills-codex (8,269★, +530/7d)</title>
+      <title>Imbad0202/academic-research-skills-codex (8,354★, +523/7d)</title>
       <link>https://github.com/Imbad0202/academic-research-skills-codex</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Imbad0202/academic-research-skills-codex</guid>
       <description>Codex-native Academic Research Skills suite for human-in-the-loop academic research workflows</description>
       <category>General Research</category>
-      <pubDate>2026-08-11T03:56:03Z</pubDate>
+      <pubDate>2026-08-12T04:18:40Z</pubDate>
     </item>
     <item>
-      <title>HKUSTDial/Supervisor-Skills (5,345★, +390/7d)</title>
+      <title>HKUSTDial/Supervisor-Skills (5,398★, +364/7d)</title>
       <link>https://github.com/HKUSTDial/Supervisor-Skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#HKUSTDial/Supervisor-Skills</guid>
       <description>将博导十年科研经验炼化为可直接调用的 AI 技能。从 Idea 构思到论文投稿，你的 AI 科研副导师。</description>
       <category>Discipline Specific</category>
-      <pubDate>2026-08-11T03:56:03Z</pubDate>
+      <pubDate>2026-08-12T04:18:40Z</pubDate>
+    </item>
+    <item>
+      <title>wanshuiyin/Auto-claude-code-research-in-sleep (14,574★, +326/7d)</title>
+      <link>https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#wanshuiyin/Auto-claude-code-research-in-sleep</guid>
+      <description>ARIS ⚔️ (Auto-Research-In-Sleep) — Lightweight Markdown-only skills for autonomous ML research: cross-model review loops, idea discovery, and experiment automation. No framework, no lock-in — works w…</description>
+      <category>Discipline Specific</category>
+      <pubDate>2026-08-12T04:18:40Z</pubDate>
+    </item>
+    <item>
+      <title>Orchestra-Research/AI-Research-SKILLs (11,618★, +213/7d)</title>
+      <link>https://github.com/Orchestra-Research/AI-Research-SKILLs</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Orchestra-Research/AI-Research-SKILLs</guid>
+      <description>Comprehensive open-source library of AI research and engineering skills for any AI model. Package the skills and your claude code/codex/gemini agent will be an AI research agent with full horsepower.…</description>
+      <category>Deep Research</category>
+      <pubDate>2026-08-12T04:18:40Z</pubDate>
     </item>
   </channel>
 </rss>
