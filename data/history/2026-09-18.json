@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "generated_at": "2026-07-20T05:50:34Z",
+    "generated_at": "2026-09-18T07:25:45Z",
     "min_stars": 100,
-    "total": 42,
+    "total": 49,
     "source": "GitHub REST Search API",
     "ranking": "stars_desc_then_trend_score",
     "trend_window_days": 7,
@@ -13,11 +13,11 @@
     {
       "rank": 1,
       "repo": "Imbad0202/academic-research-skills",
-      "stars": 38520,
-      "star_delta_1d": 133,
-      "star_delta_7d": 967,
-      "star_delta_30d": 967,
-      "trend_score": 1219.45,
+      "stars": 48578,
+      "star_delta_1d": 177,
+      "star_delta_7d": 996,
+      "star_delta_30d": 5624,
+      "trend_score": 1252.21,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -41,9 +41,12 @@
         "prompt-engineering"
       ],
       "created_date": "2026-02-26",
-      "last_push_date": "2026-07-20",
+      "last_push_date": "2026-09-16",
       "url": "https://github.com/Imbad0202/academic-research-skills",
       "homepage": "https://buymeacoffee.com/crucify020v",
+      "agents": [
+        "claude-code"
+      ],
       "precision_signals": [
         "academic",
         "claude code",
@@ -54,10 +57,10 @@
         "skills",
         "trusted_seed"
       ],
-      "forks": 3118,
-      "open_issues": 8,
-      "watchers": 38520,
-      "size_kb": 12125,
+      "forks": 3774,
+      "open_issues": 35,
+      "watchers": 48578,
+      "size_kb": 21753,
       "default_branch": "main",
       "has_issues": true,
       "has_wiki": false,
@@ -71,11 +74,11 @@
     {
       "rank": 2,
       "repo": "K-Dense-AI/scientific-agent-skills",
-      "stars": 31244,
-      "star_delta_1d": 81,
-      "star_delta_7d": 469,
-      "star_delta_30d": 469,
-      "trend_score": 617.76,
+      "stars": 45416,
+      "star_delta_1d": 118,
+      "star_delta_7d": 1051,
+      "star_delta_30d": 11574,
+      "trend_score": 1317.59,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -86,7 +89,7 @@
         "zh": "学科专项",
         "en": "Discipline Specific"
       },
-      "description": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 160,000+ scientists worldwide. 148 ready-to-use skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.",
+      "description": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 190,000+ scientists worldwide. 165 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.",
       "language": "Python",
       "topics": [
         "agent-skills",
@@ -108,9 +111,14 @@
         "scientific-visualization"
       ],
       "created_date": "2025-10-19",
-      "last_push_date": "2026-07-15",
+      "last_push_date": "2026-09-14",
       "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
-      "homepage": "https://k-dense.ai",
+      "homepage": "https://arxiv.org/abs/2609.00065",
+      "agents": [
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
       "precision_signals": [
         "agent skill",
         "research",
@@ -120,10 +128,10 @@
         "skills",
         "trusted_seed"
       ],
-      "forks": 3123,
-      "open_issues": 38,
-      "watchers": 31244,
-      "size_kb": 37052,
+      "forks": 4122,
+      "open_issues": 12,
+      "watchers": 45416,
+      "size_kb": 258530,
       "default_branch": "main",
       "has_issues": true,
       "has_wiki": false,
@@ -137,11 +145,11 @@
     {
       "rank": 3,
       "repo": "Yuan1z0825/nature-skills",
-      "stars": 29846,
-      "star_delta_1d": 247,
-      "star_delta_7d": 1730,
-      "star_delta_30d": 1730,
-      "trend_score": 2137.97,
+      "stars": 42944,
+      "star_delta_1d": 273,
+      "star_delta_7d": 2182,
+      "star_delta_30d": 7043,
+      "trend_score": 2677.22,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -160,9 +168,12 @@
         "nature-skills"
       ],
       "created_date": "2026-04-24",
-      "last_push_date": "2026-07-20",
+      "last_push_date": "2026-09-16",
       "url": "https://github.com/Yuan1z0825/nature-skills",
       "homepage": "",
+      "agents": [
+        "codex"
+      ],
       "precision_signals": [
         "codex",
         "skill",
@@ -171,10 +182,10 @@
         "科研",
         "论文"
       ],
-      "forks": 1770,
-      "open_issues": 7,
-      "watchers": 29846,
-      "size_kb": 38561,
+      "forks": 2281,
+      "open_issues": 4,
+      "watchers": 42944,
+      "size_kb": 39756,
       "default_branch": "main",
       "has_issues": true,
       "has_wiki": true,
@@ -188,11 +199,11 @@
     {
       "rank": 4,
       "repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
-      "stars": 13596,
-      "star_delta_1d": 35,
-      "star_delta_7d": 272,
-      "star_delta_30d": 272,
-      "trend_score": 381.45,
+      "stars": 16302,
+      "star_delta_1d": 66,
+      "star_delta_7d": 302,
+      "star_delta_30d": 1434,
+      "trend_score": 415.86,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -228,9 +239,14 @@
         "research-automation"
       ],
       "created_date": "2026-03-10",
-      "last_push_date": "2026-07-14",
+      "last_push_date": "2026-09-17",
       "url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep",
       "homepage": "",
+      "agents": [
+        "claude-code",
+        "codex",
+        "mcp"
+      ],
       "precision_signals": [
         "claude code",
         "experiment",
@@ -241,10 +257,10 @@
         "skills",
         "trusted_seed"
       ],
-      "forks": 1223,
-      "open_issues": 59,
-      "watchers": 13596,
-      "size_kb": 35035,
+      "forks": 1387,
+      "open_issues": 69,
+      "watchers": 16302,
+      "size_kb": 35212,
       "default_branch": "main",
       "has_issues": true,
       "has_wiki": true,
@@ -258,11 +274,11 @@
     {
       "rank": 5,
       "repo": "Orchestra-Research/AI-Research-SKILLs",
-      "stars": 10868,
-      "star_delta_1d": 30,
-      "star_delta_7d": 218,
-      "star_delta_30d": 218,
-      "trend_score": 306.29,
+      "stars": 12805,
+      "star_delta_1d": 41,
+      "star_delta_7d": 271,
+      "star_delta_30d": 990,
+      "trend_score": 358.06,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -295,6 +311,11 @@
       "last_push_date": "2026-06-16",
       "url": "https://github.com/Orchestra-Research/AI-Research-SKILLs",
       "homepage": "http://orchestra-research.com",
+      "agents": [
+        "claude-code",
+        "codex",
+        "gemini"
+      ],
       "precision_signals": [
         "claude code",
         "research",
@@ -302,9 +323,9 @@
         "skills",
         "trusted_seed"
       ],
-      "forks": 803,
-      "open_issues": 16,
-      "watchers": 10868,
+      "forks": 917,
+      "open_issues": 21,
+      "watchers": 12805,
       "size_kb": 21295,
       "default_branch": "main",
       "has_issues": true,
@@ -319,11 +340,11 @@
     {
       "rank": 6,
       "repo": "Imbad0202/academic-research-skills-codex",
-      "stars": 6626,
-      "star_delta_1d": 53,
-      "star_delta_7d": 536,
-      "star_delta_30d": 536,
-      "trend_score": 699.69,
+      "stars": 11144,
+      "star_delta_1d": 85,
+      "star_delta_7d": 595,
+      "star_delta_30d": 2320,
+      "trend_score": 768.21,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -349,9 +370,12 @@
         "research-assistant"
       ],
       "created_date": "2026-04-25",
-      "last_push_date": "2026-07-18",
+      "last_push_date": "2026-09-16",
       "url": "https://github.com/Imbad0202/academic-research-skills-codex",
       "homepage": "https://github.com/Imbad0202/academic-research-skills",
+      "agents": [
+        "codex"
+      ],
       "precision_signals": [
         "academic",
         "codex",
@@ -361,10 +385,10 @@
         "skill",
         "skills"
       ],
-      "forks": 332,
+      "forks": 486,
       "open_issues": 0,
-      "watchers": 6626,
-      "size_kb": 5068,
+      "watchers": 11144,
+      "size_kb": 13577,
       "default_branch": "main",
       "has_issues": true,
       "has_wiki": false,
@@ -377,12 +401,12 @@
     },
     {
       "rank": 7,
-      "repo": "Master-cai/Research-Paper-Writing-Skills",
-      "stars": 5312,
-      "star_delta_1d": 38,
-      "star_delta_7d": 263,
-      "star_delta_30d": 263,
-      "trend_score": 362.25,
+      "repo": "hoochanlon/hamuleite",
+      "stars": 9712,
+      "star_delta_1d": 23,
+      "star_delta_7d": 47,
+      "star_delta_30d": 47,
+      "trend_score": 108.16,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -393,89 +417,51 @@
         "zh": "学科专项",
         "en": "Discipline Specific"
       },
-      "description": "Skill package for ML/CV/NLP paper writing, curated and adapted from Prof. Peng Sida's open notes for Codex, Claude Code, and Gemini.",
-      "language": "",
-      "topics": [],
-      "created_date": "2026-03-05",
-      "last_push_date": "2026-06-23",
-      "url": "https://github.com/Master-cai/Research-Paper-Writing-Skills",
+      "description": "🌊深度整合全球顶尖学术、金融与教育资源：学术板块汇聚 JSTOR、Taylor & Francis、剑桥大学出版社等权威平台的论文，并接入 Z-Library 影子图书馆的海量电子书；教育板块收录香港、新加坡从小学到高中以及大学学科教科书；金融板块则聚合香橼、摩根、野村等顶级机构的深度研报，只为打破信息孤岛，构建知识平权普惠知识库。",
+      "language": "Jupyter Notebook",
+      "topics": [
+        "academic",
+        "economics",
+        "humanities",
+        "research",
+        "skills",
+        "sociology"
+      ],
+      "created_date": "2018-02-15",
+      "last_push_date": "2026-09-17",
+      "url": "https://github.com/hoochanlon/hamuleite",
       "homepage": "",
+      "agents": [],
       "precision_signals": [
-        "claude code",
-        "paper",
+        "academic",
         "research",
         "skill",
         "skills",
-        "trusted_seed"
+        "学术",
+        "论文"
       ],
-      "forks": 263,
+      "forks": 1894,
       "open_issues": 0,
-      "watchers": 5312,
-      "size_kb": 40,
-      "default_branch": "main",
-      "has_issues": true,
+      "watchers": 9712,
+      "size_kb": 76689,
+      "default_branch": "master",
+      "has_issues": false,
       "has_wiki": true,
-      "has_discussions": true,
+      "has_discussions": false,
       "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "spdx_id": "MIT"
+        "key": "",
+        "name": "",
+        "spdx_id": ""
       }
     },
     {
       "rank": 8,
-      "repo": "WUBING2023/PaperSpine",
-      "stars": 4202,
-      "star_delta_1d": 26,
-      "star_delta_7d": 234,
-      "star_delta_30d": 234,
-      "trend_score": 333.4,
-      "trend": {
-        "id": "hot",
-        "zh": "热门上升",
-        "en": "Hot"
-      },
-      "category": {
-        "id": "paper-writing",
-        "zh": "论文写作",
-        "en": "Paper Writing"
-      },
-      "description": "PaperSpine is a motivation-driven skill for learning from strong academic papers, building a paper’s central argument, and rewriting manuscripts through evidence-aware blueprints, revision matrices, and LaTeX-safe audits.",
-      "language": "Python",
-      "topics": [],
-      "created_date": "2026-05-17",
-      "last_push_date": "2026-07-01",
-      "url": "https://github.com/WUBING2023/PaperSpine",
-      "homepage": "",
-      "precision_signals": [
-        "academic",
-        "latex",
-        "paper",
-        "papers",
-        "skill"
-      ],
-      "forks": 172,
-      "open_issues": 0,
-      "watchers": 4202,
-      "size_kb": 41678,
-      "default_branch": "main",
-      "has_issues": true,
-      "has_wiki": true,
-      "has_discussions": false,
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "spdx_id": "MIT"
-      }
-    },
-    {
-      "rank": 9,
       "repo": "HKUSTDial/Supervisor-Skills",
-      "stars": 4134,
-      "star_delta_1d": 31,
-      "star_delta_7d": 257,
-      "star_delta_30d": 257,
-      "trend_score": 362.39,
+      "stars": 7183,
+      "star_delta_1d": 76,
+      "star_delta_7d": 354,
+      "star_delta_30d": 1479,
+      "trend_score": 474.65,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -499,9 +485,10 @@
         "vibe-research"
       ],
       "created_date": "2026-04-19",
-      "last_push_date": "2026-07-16",
+      "last_push_date": "2026-09-05",
       "url": "https://github.com/HKUSTDial/Supervisor-Skills",
       "homepage": "",
+      "agents": [],
       "precision_signals": [
         "phd",
         "research",
@@ -510,10 +497,10 @@
         "科研",
         "论文"
       ],
-      "forks": 289,
-      "open_issues": 1,
-      "watchers": 4134,
-      "size_kb": 44432,
+      "forks": 455,
+      "open_issues": 2,
+      "watchers": 7183,
+      "size_kb": 64667,
       "default_branch": "main",
       "has_issues": true,
       "has_wiki": true,
@@ -525,13 +512,168 @@
       }
     },
     {
+      "rank": 9,
+      "repo": "Master-cai/Research-Paper-Writing-Skills",
+      "stars": 6921,
+      "star_delta_1d": 38,
+      "star_delta_7d": 212,
+      "star_delta_30d": 787,
+      "trend_score": 285.74,
+      "trend": {
+        "id": "hot",
+        "zh": "热门上升",
+        "en": "Hot"
+      },
+      "category": {
+        "id": "discipline-specific",
+        "zh": "学科专项",
+        "en": "Discipline Specific"
+      },
+      "description": "Skill package for ML/CV/NLP paper writing, curated and adapted from Prof. Peng Sida's open notes for Codex, Claude Code, and Gemini.",
+      "language": "",
+      "topics": [],
+      "created_date": "2026-03-05",
+      "last_push_date": "2026-06-23",
+      "url": "https://github.com/Master-cai/Research-Paper-Writing-Skills",
+      "homepage": "",
+      "agents": [
+        "claude-code",
+        "codex",
+        "gemini"
+      ],
+      "precision_signals": [
+        "claude code",
+        "paper",
+        "research",
+        "skill",
+        "skills",
+        "trusted_seed"
+      ],
+      "forks": 328,
+      "open_issues": 1,
+      "watchers": 6921,
+      "size_kb": 40,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": true,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      }
+    },
+    {
       "rank": 10,
+      "repo": "jihe520/MathModelAgent",
+      "stars": 5665,
+      "star_delta_1d": 36,
+      "star_delta_7d": 965,
+      "star_delta_30d": 2105,
+      "trend_score": 1207.87,
+      "trend": {
+        "id": "hot",
+        "zh": "热门上升",
+        "en": "Hot"
+      },
+      "category": {
+        "id": "discipline-specific",
+        "zh": "学科专项",
+        "en": "Discipline Specific"
+      },
+      "description": "🤖📐专为数学建模设计的 Agent & skills ,自动完成数学建模，生成一份完整的可以直接提交的论文。 An Agent Designed for Mathematical Modeling ,Automatically complete mathmodel and generate a complete paper ready for submission.",
+      "language": "Python",
+      "topics": [
+        "agent",
+        "llm",
+        "mathmodel",
+        "skills"
+      ],
+      "created_date": "2025-01-30",
+      "last_push_date": "2026-09-17",
+      "url": "https://github.com/jihe520/MathModelAgent",
+      "homepage": "https://mathmodel.top/home",
+      "agents": [],
+      "precision_signals": [
+        "paper",
+        "skill",
+        "skills",
+        "论文"
+      ],
+      "forks": 424,
+      "open_issues": 42,
+      "watchers": 5665,
+      "size_kb": 99679,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "",
+        "name": "",
+        "spdx_id": ""
+      }
+    },
+    {
+      "rank": 11,
+      "repo": "zLanqing/codex-claude-academic-skills",
+      "stars": 4027,
+      "star_delta_1d": 47,
+      "star_delta_7d": 280,
+      "star_delta_30d": 1027,
+      "trend_score": 368.37,
+      "trend": {
+        "id": "hot",
+        "zh": "热门上升",
+        "en": "Hot"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "本仓库包含三个面向学术科研人员的Skills，覆盖从文献阅读、论文写作到科学计算的完整研究工作流。office-academic-skill 负责论文阅读报告与学术 PPT/Word 文档生成；research-writing-skill 提供论文写作、润色与审稿回复辅助；scientific-toolkit-skill 整合 MATLAB/Python 科学计算与期刊级图表生成。三个 Skill 专为中文科研用户设计，可在 Claude Code 和 codex 中一键调用。",
+      "language": "Python",
+      "topics": [],
+      "created_date": "2026-05-14",
+      "last_push_date": "2026-05-14",
+      "url": "https://github.com/zLanqing/codex-claude-academic-skills",
+      "homepage": "",
+      "agents": [
+        "claude-code",
+        "codex"
+      ],
+      "precision_signals": [
+        "academic",
+        "claude code",
+        "research",
+        "scientific",
+        "skill",
+        "skills",
+        "科研"
+      ],
+      "forks": 224,
+      "open_issues": 2,
+      "watchers": 4027,
+      "size_kb": 2674,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "rank": 12,
       "repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
-      "stars": 2933,
-      "star_delta_1d": 19,
-      "star_delta_7d": 19,
-      "star_delta_30d": 19,
-      "trend_score": 75.32,
+      "stars": 3861,
+      "star_delta_1d": 24,
+      "star_delta_7d": 111,
+      "star_delta_30d": 409,
+      "trend_score": 181.85,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -564,9 +706,10 @@
         "sociology"
       ],
       "created_date": "2026-04-03",
-      "last_push_date": "2026-07-20",
+      "last_push_date": "2026-09-14",
       "url": "https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills",
       "homepage": "https://copaper.ai",
+      "agents": [],
       "precision_signals": [
         "academic",
         "agent skill",
@@ -576,10 +719,10 @@
         "skill",
         "skills"
       ],
-      "forks": 393,
-      "open_issues": 4,
-      "watchers": 2933,
-      "size_kb": 40928,
+      "forks": 481,
+      "open_issues": 1,
+      "watchers": 3861,
+      "size_kb": 41936,
       "default_branch": "main",
       "has_issues": true,
       "has_wiki": true,
@@ -591,13 +734,13 @@
       }
     },
     {
-      "rank": 11,
+      "rank": 13,
       "repo": "Norman-bury/research-writing-skill",
-      "stars": 2846,
-      "star_delta_1d": 10,
-      "star_delta_7d": 80,
-      "star_delta_30d": 80,
-      "trend_score": 137.52,
+      "stars": 3233,
+      "star_delta_1d": 9,
+      "star_delta_7d": 43,
+      "star_delta_30d": 176,
+      "trend_score": 79.68,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -615,15 +758,16 @@
       "last_push_date": "2026-06-10",
       "url": "https://github.com/Norman-bury/research-writing-skill",
       "homepage": "",
+      "agents": [],
       "precision_signals": [
         "assistant",
         "research",
         "skill",
         "科研"
       ],
-      "forks": 194,
+      "forks": 214,
       "open_issues": 5,
-      "watchers": 2846,
+      "watchers": 3233,
       "size_kb": 23724,
       "default_branch": "main",
       "has_issues": true,
@@ -636,45 +780,63 @@
       }
     },
     {
-      "rank": 12,
-      "repo": "jihe520/MathModelAgent",
-      "stars": 2796,
-      "star_delta_1d": 17,
-      "star_delta_7d": 138,
-      "star_delta_30d": 138,
-      "trend_score": 213.14,
+      "rank": 14,
+      "repo": "OpenNSWM-Lab/FAROS",
+      "stars": 3034,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "star_delta_30d": 0,
+      "trend_score": 48.38,
       "trend": {
-        "id": "hot",
-        "zh": "热门上升",
-        "en": "Hot"
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
       },
       "category": {
-        "id": "discipline-specific",
-        "zh": "学科专项",
-        "en": "Discipline Specific"
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
       },
-      "description": "🤖📐专为数学建模设计的 Agent & skills ,自动完成数学建模，生成一份完整的可以直接提交的论文。 An Agent Designed for Mathematical Modeling ,Automatically complete mathmodel and generate a complete paper ready for submission.",
+      "description": "A blueprint-driven AutoResearch runtime for orchestrating AI research workflows from idea generation and experiments to paper writing and peer review.",
       "language": "Python",
       "topics": [
-        "agent",
-        "llm",
-        "mathmodel",
-        "skills"
+        "academic-research",
+        "academic-writing",
+        "agentic-workflow",
+        "ai-for-science",
+        "ai-scientist",
+        "ai4science",
+        "automated-research",
+        "autonomous-research",
+        "autoresearch",
+        "llm-agents",
+        "multi-agent",
+        "paper-generation",
+        "paper-writing",
+        "research-agent",
+        "research-automation",
+        "research-orchestration",
+        "research-workflow",
+        "scientific-discovery",
+        "scientific-workflow",
+        "workflow-orchestration"
       ],
-      "created_date": "2025-01-30",
-      "last_push_date": "2026-07-20",
-      "url": "https://github.com/jihe520/MathModelAgent",
-      "homepage": "https://mathmodel.top/home",
+      "created_date": "2026-05-13",
+      "last_push_date": "2026-09-05",
+      "url": "https://github.com/OpenNSWM-Lab/FAROS",
+      "homepage": "",
+      "agents": [],
       "precision_signals": [
+        "academic",
         "paper",
-        "skill",
-        "skills",
-        "论文"
+        "research",
+        "review",
+        "workflow"
       ],
-      "forks": 307,
-      "open_issues": 26,
-      "watchers": 2796,
-      "size_kb": 99673,
+      "forks": 390,
+      "open_issues": 147,
+      "watchers": 3034,
+      "size_kb": 7486,
       "default_branch": "main",
       "has_issues": true,
       "has_wiki": true,
@@ -686,13 +848,13 @@
       }
     },
     {
-      "rank": 13,
+      "rank": 15,
       "repo": "huangwb8/ChineseResearchLaTeX",
-      "stars": 2541,
-      "star_delta_1d": 4,
+      "stars": 2765,
+      "star_delta_1d": 9,
       "star_delta_7d": 41,
-      "star_delta_30d": 41,
-      "trend_score": 96.03,
+      "star_delta_30d": 137,
+      "trend_score": 96.11,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -717,9 +879,13 @@
         "vibe-codng"
       ],
       "created_date": "2024-02-12",
-      "last_push_date": "2026-07-18",
+      "last_push_date": "2026-09-15",
       "url": "https://github.com/huangwb8/ChineseResearchLaTeX",
       "homepage": "",
+      "agents": [
+        "claude-code",
+        "codex"
+      ],
       "precision_signals": [
         "codex",
         "latex",
@@ -727,10 +893,10 @@
         "papers",
         "research"
       ],
-      "forks": 245,
-      "open_issues": 1,
-      "watchers": 2541,
-      "size_kb": 241948,
+      "forks": 256,
+      "open_issues": 0,
+      "watchers": 2765,
+      "size_kb": 254444,
       "default_branch": "main",
       "has_issues": true,
       "has_wiki": true,
@@ -742,13 +908,13 @@
       }
     },
     {
-      "rank": 14,
+      "rank": 16,
       "repo": "HughYau/AcademicForge",
-      "stars": 2347,
-      "star_delta_1d": 14,
-      "star_delta_7d": 63,
-      "star_delta_30d": 63,
-      "trend_score": 121.02,
+      "stars": 2557,
+      "star_delta_1d": 6,
+      "star_delta_7d": 31,
+      "star_delta_30d": 91,
+      "trend_score": 80.31,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -769,9 +935,10 @@
         "skills"
       ],
       "created_date": "2026-02-03",
-      "last_push_date": "2026-07-09",
+      "last_push_date": "2026-08-30",
       "url": "https://github.com/HughYau/AcademicForge",
       "homepage": "http://hughyau.com/AcademicForge/",
+      "agents": [],
       "precision_signals": [
         "academic",
         "research",
@@ -780,10 +947,10 @@
         "skills",
         "学术"
       ],
-      "forks": 138,
+      "forks": 152,
       "open_issues": 2,
-      "watchers": 2347,
-      "size_kb": 1161,
+      "watchers": 2557,
+      "size_kb": 1225,
       "default_branch": "site-first",
       "has_issues": true,
       "has_wiki": true,
@@ -795,61 +962,13 @@
       }
     },
     {
-      "rank": 15,
-      "repo": "zLanqing/codex-claude-academic-skills",
-      "stars": 2057,
-      "star_delta_1d": 27,
-      "star_delta_7d": 248,
-      "star_delta_30d": 248,
-      "trend_score": 336.78,
-      "trend": {
-        "id": "hot",
-        "zh": "热门上升",
-        "en": "Hot"
-      },
-      "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
-      },
-      "description": "本仓库包含三个面向学术科研人员的Skills，覆盖从文献阅读、论文写作到科学计算的完整研究工作流。office-academic-skill 负责论文阅读报告与学术 PPT/Word 文档生成；research-writing-skill 提供论文写作、润色与审稿回复辅助；scientific-toolkit-skill 整合 MATLAB/Python 科学计算与期刊级图表生成。三个 Skill 专为中文科研用户设计，可在 Claude Code 和 codex 中一键调用。",
-      "language": "Python",
-      "topics": [],
-      "created_date": "2026-05-14",
-      "last_push_date": "2026-05-14",
-      "url": "https://github.com/zLanqing/codex-claude-academic-skills",
-      "homepage": "",
-      "precision_signals": [
-        "academic",
-        "claude code",
-        "research",
-        "scientific",
-        "skill",
-        "skills",
-        "科研"
-      ],
-      "forks": 139,
-      "open_issues": 1,
-      "watchers": 2057,
-      "size_kb": 2674,
-      "default_branch": "main",
-      "has_issues": true,
-      "has_wiki": true,
-      "has_discussions": false,
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "spdx_id": "MIT"
-      }
-    },
-    {
-      "rank": 16,
+      "rank": 17,
       "repo": "LigphiDonk/academic-figure-generator",
-      "stars": 1784,
-      "star_delta_1d": 21,
-      "star_delta_7d": 133,
-      "star_delta_30d": 133,
-      "trend_score": 188.23,
+      "stars": 2377,
+      "star_delta_1d": 18,
+      "star_delta_7d": 75,
+      "star_delta_30d": 252,
+      "trend_score": 117.01,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -867,6 +986,7 @@
       "last_push_date": "2026-03-27",
       "url": "https://github.com/LigphiDonk/academic-figure-generator",
       "homepage": "",
+      "agents": [],
       "precision_signals": [
         "academic",
         "skill",
@@ -874,9 +994,9 @@
         "科研",
         "论文"
       ],
-      "forks": 103,
+      "forks": 122,
       "open_issues": 6,
-      "watchers": 1784,
+      "watchers": 2377,
       "size_kb": 34606,
       "default_branch": "main",
       "has_issues": true,
@@ -889,13 +1009,13 @@
       }
     },
     {
-      "rank": 17,
+      "rank": 18,
       "repo": "Weizhena/Deep-Research-skills",
-      "stars": 1692,
-      "star_delta_1d": 7,
-      "star_delta_7d": 69,
-      "star_delta_30d": 69,
-      "trend_score": 112.28,
+      "stars": 2185,
+      "star_delta_1d": 13,
+      "star_delta_7d": 46,
+      "star_delta_30d": 209,
+      "trend_score": 96.1,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -919,9 +1039,14 @@
         "research"
       ],
       "created_date": "2025-12-29",
-      "last_push_date": "2026-05-07",
+      "last_push_date": "2026-08-23",
       "url": "https://github.com/Weizhena/Deep-Research-skills",
       "homepage": "",
+      "agents": [
+        "claude-code",
+        "codex",
+        "opencode"
+      ],
       "precision_signals": [
         "claude code",
         "research",
@@ -929,10 +1054,10 @@
         "skills",
         "trusted_seed"
       ],
-      "forks": 137,
-      "open_issues": 2,
-      "watchers": 1692,
-      "size_kb": 6961,
+      "forks": 177,
+      "open_issues": 0,
+      "watchers": 2185,
+      "size_kb": 6956,
       "default_branch": "master",
       "has_issues": true,
       "has_wiki": true,
@@ -944,13 +1069,134 @@
       }
     },
     {
-      "rank": 18,
-      "repo": "VoltAgent/awesome-ai-agent-papers",
-      "stars": 1598,
-      "star_delta_1d": 2,
+      "rank": 19,
+      "repo": "bohyy/academic-ai-prompt",
+      "stars": 1922,
+      "star_delta_1d": 9,
+      "star_delta_7d": 69,
+      "star_delta_30d": 69,
+      "trend_score": 125.53,
+      "trend": {
+        "id": "hot",
+        "zh": "热门上升",
+        "en": "Hot"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "一套为研究生和学术研究者设计的完整AI Prompt库  📖 包含内容： ✨ 40+ 精心设计的AI Prompt ✨ 论文选题系统方法（生成、评估、论证） ✨ 论文查找快速方案（8个不同方案） ✨ 文献综述框架和工具 ✨ Excel自动评估表格 ✨ 3个完整的论证模板  🚀 核心优势： ⚡ 节省时间 50-70%（选题3-5天而不是2-3周） 🎯 科学方法（基于系统的5维度评估体系） 💡 即插即用（所有Prompt直接复制可用） 📚 全流程覆盖（从选题到出版的完整方案）  🎓 适用人群： 👨‍🎓 硕士研究生 | 博士研究生 | 本科毕业设计 | 学术研究者 | 内容创作者  ",
+      "language": "",
+      "topics": [
+        "academic-research",
+        "ai",
+        "ai-prompts",
+        "ailearning",
+        "knowledge-base",
+        "open-source",
+        "paper-writing",
+        "productivity",
+        "prompt-engineering",
+        "research-tools",
+        "research-workflows"
+      ],
+      "created_date": "2026-02-12",
+      "last_push_date": "2026-09-02",
+      "url": "https://github.com/bohyy/academic-ai-prompt",
+      "homepage": "",
+      "agents": [],
+      "precision_signals": [
+        "academic",
+        "paper",
+        "research",
+        "workflow",
+        "论文"
+      ],
+      "forks": 124,
+      "open_issues": 0,
+      "watchers": 1922,
+      "size_kb": 1732,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "rank": 20,
+      "repo": "aipoch/medical-research-skills",
+      "stars": 1890,
+      "star_delta_1d": 3,
       "star_delta_7d": 33,
-      "star_delta_30d": 33,
-      "trend_score": 82.79,
+      "star_delta_30d": 160,
+      "trend_score": 85.57,
+      "trend": {
+        "id": "hot",
+        "zh": "热门上升",
+        "en": "Hot"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "Hundreds of agent skills for medical research, including protocol design, data analysis, evidence insights, and academic writing.",
+      "language": "Python",
+      "topics": [
+        "ai",
+        "bioinformatics",
+        "biology",
+        "cancer-genomics",
+        "computational-biology",
+        "data-analysis",
+        "data-visualization",
+        "differential-expression",
+        "genomics",
+        "medical",
+        "medical-research",
+        "science",
+        "single-cell"
+      ],
+      "created_date": "2026-02-04",
+      "last_push_date": "2026-09-17",
+      "url": "https://github.com/aipoch/medical-research-skills",
+      "homepage": "https://aipoch.com/agent-skills",
+      "agents": [],
+      "precision_signals": [
+        "academic",
+        "agent skill",
+        "research",
+        "science",
+        "skill",
+        "skills"
+      ],
+      "forks": 175,
+      "open_issues": 8,
+      "watchers": 1890,
+      "size_kb": 260457,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": false,
+      "has_discussions": true,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "rank": 21,
+      "repo": "VoltAgent/awesome-ai-agent-papers",
+      "stars": 1792,
+      "star_delta_1d": 2,
+      "star_delta_7d": 24,
+      "star_delta_30d": 100,
+      "trend_score": 73.53,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -974,19 +1220,20 @@
         "research-paper"
       ],
       "created_date": "2026-02-10",
-      "last_push_date": "2026-07-03",
+      "last_push_date": "2026-09-12",
       "url": "https://github.com/VoltAgent/awesome-ai-agent-papers",
-      "homepage": "https://github.com/VoltAgent/voltagent",
+      "homepage": "https://starterkit.getdesign.md/",
+      "agents": [],
       "precision_signals": [
         "paper",
         "papers",
         "research",
         "workflow"
       ],
-      "forks": 166,
+      "forks": 187,
       "open_issues": 0,
-      "watchers": 1598,
-      "size_kb": 521,
+      "watchers": 1792,
+      "size_kb": 473,
       "default_branch": "main",
       "has_issues": true,
       "has_wiki": false,
@@ -998,85 +1245,77 @@
       }
     },
     {
-      "rank": 19,
-      "repo": "aipoch/medical-research-skills",
-      "stars": 1481,
-      "star_delta_1d": 9,
-      "star_delta_7d": 70,
-      "star_delta_30d": 70,
-      "trend_score": 129.26,
+      "rank": 22,
+      "repo": "XiaoMaColtAI/math-modeling-skill",
+      "stars": 1594,
+      "star_delta_1d": 17,
+      "star_delta_7d": 129,
+      "star_delta_30d": 129,
+      "trend_score": 200.31,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "discipline-specific",
+        "zh": "学科专项",
+        "en": "Discipline Specific"
       },
-      "description": "Hundreds of agent skills for medical research, including protocol design, data analysis, evidence insights, and academic writing.",
+      "description": "数学建模技能 - 面向 CUMCM、MCM/ICM 等数学建模竞赛的三阶段工作流：建模分析、Python/MATLAB 编程与 DOCX 论文生成。包含丰富的算法资源库(优化/预测/评价/图论/机器学习等)、角色指导文档、论文模板和实用工具脚本",
       "language": "Python",
       "topics": [
-        "academic-writing",
-        "agent-skills",
-        "ai",
-        "bioinformatics",
-        "biology",
-        "cancer-genomics",
-        "clinical-research",
-        "computational-biology",
-        "data-analysis",
-        "data-visualization",
-        "differential-expression",
-        "genomics",
-        "medical",
-        "medical-research",
-        "protocol-design",
-        "rna-seq-data",
-        "science",
-        "scrna-seq-data",
-        "single-cell",
-        "spatial-transcriptomics"
+        "claude-code",
+        "claude-skills",
+        "codex",
+        "codex-skill",
+        "cumcm",
+        "deepseek-harness",
+        "math-modeling",
+        "mcm-icm",
+        "skills",
+        "vibe-coding"
       ],
-      "created_date": "2026-02-04",
-      "last_push_date": "2026-07-15",
-      "url": "https://github.com/aipoch/medical-research-skills",
-      "homepage": "https://aipoch.com/agent-skills",
+      "created_date": "2026-01-24",
+      "last_push_date": "2026-09-17",
+      "url": "https://github.com/XiaoMaColtAI/math-modeling-skill",
+      "homepage": "https://mms.weseeworld.cn",
+      "agents": [
+        "claude-code",
+        "codex"
+      ],
       "precision_signals": [
-        "academic",
-        "agent skill",
-        "research",
-        "science",
+        "codex",
         "skill",
-        "skills"
+        "skills",
+        "论文"
       ],
-      "forks": 141,
-      "open_issues": 3,
-      "watchers": 1481,
-      "size_kb": 262036,
+      "forks": 84,
+      "open_issues": 2,
+      "watchers": 1594,
+      "size_kb": 69751,
       "default_branch": "main",
       "has_issues": true,
-      "has_wiki": false,
-      "has_discussions": true,
+      "has_wiki": true,
+      "has_discussions": false,
       "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "spdx_id": "MIT"
+        "key": "",
+        "name": "",
+        "spdx_id": ""
       }
     },
     {
-      "rank": 20,
+      "rank": 23,
       "repo": "pedrohcgs/claude-code-my-workflow",
-      "stars": 1413,
+      "stars": 1591,
       "star_delta_1d": 3,
-      "star_delta_7d": 11,
-      "star_delta_30d": 11,
-      "trend_score": 50.73,
+      "star_delta_7d": 21,
+      "star_delta_30d": 82,
+      "trend_score": 65.35,
       "trend": {
-        "id": "rising",
-        "zh": "持续增长",
-        "en": "Rising"
+        "id": "hot",
+        "zh": "热门上升",
+        "en": "Hot"
       },
       "category": {
         "id": "paper-writing",
@@ -1098,9 +1337,12 @@
         "research-workflow"
       ],
       "created_date": "2026-02-06",
-      "last_push_date": "2026-06-10",
+      "last_push_date": "2026-08-24",
       "url": "https://github.com/pedrohcgs/claude-code-my-workflow",
       "homepage": "https://psantanna.com/claude-code-my-workflow/",
+      "agents": [
+        "claude-code"
+      ],
       "precision_signals": [
         "academic",
         "claude code",
@@ -1110,10 +1352,10 @@
         "skill",
         "skills"
       ],
-      "forks": 2800,
-      "open_issues": 2,
-      "watchers": 1413,
-      "size_kb": 5203,
+      "forks": 3042,
+      "open_issues": 7,
+      "watchers": 1591,
+      "size_kb": 7047,
       "default_branch": "main",
       "has_issues": true,
       "has_wiki": true,
@@ -1125,13 +1367,13 @@
       }
     },
     {
-      "rank": 21,
+      "rank": 24,
       "repo": "lishix520/academic-paper-skills",
-      "stars": 1073,
-      "star_delta_1d": 2,
-      "star_delta_7d": 37,
-      "star_delta_30d": 37,
-      "trend_score": 68.65,
+      "stars": 1313,
+      "star_delta_1d": 5,
+      "star_delta_7d": 34,
+      "star_delta_30d": 126,
+      "trend_score": 65.75,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -1155,6 +1397,9 @@
       "last_push_date": "2026-01-04",
       "url": "https://github.com/lishix520/academic-paper-skills",
       "homepage": "",
+      "agents": [
+        "claude-code"
+      ],
       "precision_signals": [
         "academic",
         "claude code",
@@ -1165,9 +1410,9 @@
         "skills",
         "trusted_seed"
       ],
-      "forks": 116,
-      "open_issues": 0,
-      "watchers": 1073,
+      "forks": 142,
+      "open_issues": 1,
+      "watchers": 1313,
       "size_kb": 64,
       "default_branch": "main",
       "has_issues": true,
@@ -1180,123 +1425,13 @@
       }
     },
     {
-      "rank": 22,
-      "repo": "199-biotechnologies/claude-deep-research-skill",
-      "stars": 943,
-      "star_delta_1d": 1,
-      "star_delta_7d": 103,
-      "star_delta_30d": 103,
-      "trend_score": 147.4,
-      "trend": {
-        "id": "hot",
-        "zh": "热门上升",
-        "en": "Hot"
-      },
-      "category": {
-        "id": "deep-research",
-        "zh": "深度研究",
-        "en": "Deep Research"
-      },
-      "description": "Enterprise-grade deep research skill for Claude Code with 8-phase pipeline, source credibility scoring, and automated validation. Outperforms OpenAI, Gemini, and Claude Desktop in quality and verification.",
-      "language": "Python",
-      "topics": [],
-      "created_date": "2025-11-04",
-      "last_push_date": "2026-04-11",
-      "url": "https://github.com/199-biotechnologies/claude-deep-research-skill",
-      "homepage": "",
-      "precision_signals": [
-        "claude code",
-        "pipeline",
-        "research",
-        "skill",
-        "trusted_seed"
-      ],
-      "forks": 99,
-      "open_issues": 7,
-      "watchers": 943,
-      "size_kb": 143,
-      "default_branch": "main",
-      "has_issues": true,
-      "has_wiki": false,
-      "has_discussions": false,
-      "license": {
-        "key": "",
-        "name": "",
-        "spdx_id": ""
-      }
-    },
-    {
-      "rank": 23,
-      "repo": "alephpi/Texo",
-      "stars": 869,
-      "star_delta_1d": 0,
-      "star_delta_7d": 5,
-      "star_delta_30d": 5,
-      "trend_score": 47.29,
-      "trend": {
-        "id": "rising",
-        "zh": "持续增长",
-        "en": "Rising"
-      },
-      "category": {
-        "id": "paper-writing",
-        "zh": "论文写作",
-        "en": "Paper Writing"
-      },
-      "description": "A minimalist SOTA LaTeX OCR model with only 20M parameters, running in browser. Full training pipeline available for self-reproduction. | 超轻量SOTA LaTeX公式识别模型，仅20M参数量，可在浏览器中运行。训练全流程代码开源，以便自学复现。",
-      "language": "Python",
-      "topics": [
-        "computer-vision",
-        "deep-learning",
-        "distillation-model",
-        "formula",
-        "formulanet",
-        "hydra",
-        "latex",
-        "latex-ocr",
-        "machine-learning",
-        "math",
-        "math-formula-recognition",
-        "ocr",
-        "ocr-recognition",
-        "python",
-        "pytorch",
-        "pytorch-lightning",
-        "transformers",
-        "unimernet",
-        "vision-encoder-decoder"
-      ],
-      "created_date": "2025-07-29",
-      "last_push_date": "2026-07-10",
-      "url": "https://github.com/alephpi/Texo",
-      "homepage": "https://texocr.netlify.app/",
-      "precision_signals": [
-        "latex",
-        "pipeline",
-        "复现"
-      ],
-      "forks": 51,
-      "open_issues": 0,
-      "watchers": 869,
-      "size_kb": 4482,
-      "default_branch": "main",
-      "has_issues": true,
-      "has_wiki": false,
-      "has_discussions": false,
-      "license": {
-        "key": "agpl-3.0",
-        "name": "GNU Affero General Public License v3.0",
-        "spdx_id": "AGPL-3.0"
-      }
-    },
-    {
-      "rank": 24,
+      "rank": 25,
       "repo": "brycewang-stanford/Awesome-Journal-Skills",
-      "stars": 837,
-      "star_delta_1d": 5,
-      "star_delta_7d": 63,
-      "star_delta_30d": 63,
-      "trend_score": 126.81,
+      "stars": 1123,
+      "star_delta_1d": 3,
+      "star_delta_7d": 29,
+      "star_delta_30d": 118,
+      "trend_score": 82.66,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -1332,9 +1467,14 @@
         "scholarly-publishing"
       ],
       "created_date": "2026-05-25",
-      "last_push_date": "2026-07-18",
+      "last_push_date": "2026-09-14",
       "url": "https://github.com/brycewang-stanford/Awesome-Journal-Skills",
       "homepage": "https://www.copaper.ai",
+      "agents": [
+        "claude-code",
+        "codex",
+        "mcp"
+      ],
       "precision_signals": [
         "academic",
         "claude code",
@@ -1344,10 +1484,10 @@
         "skill",
         "skills"
       ],
-      "forks": 102,
+      "forks": 149,
       "open_issues": 2,
-      "watchers": 837,
-      "size_kb": 96949,
+      "watchers": 1123,
+      "size_kb": 112405,
       "default_branch": "main",
       "has_issues": true,
       "has_wiki": true,
@@ -1359,13 +1499,63 @@
       }
     },
     {
-      "rank": 25,
+      "rank": 26,
+      "repo": "199-biotechnologies/claude-deep-research-skill",
+      "stars": 1029,
+      "star_delta_1d": 1,
+      "star_delta_7d": 9,
+      "star_delta_30d": 37,
+      "trend_score": 34.9,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "deep-research",
+        "zh": "深度研究",
+        "en": "Deep Research"
+      },
+      "description": "Enterprise-grade deep research skill for Claude Code with 8-phase pipeline, source credibility scoring, and automated validation. Outperforms OpenAI, Gemini, and Claude Desktop in quality and verification.",
+      "language": "Python",
+      "topics": [],
+      "created_date": "2025-11-04",
+      "last_push_date": "2026-04-11",
+      "url": "https://github.com/199-biotechnologies/claude-deep-research-skill",
+      "homepage": "",
+      "agents": [
+        "claude-code",
+        "gemini"
+      ],
+      "precision_signals": [
+        "claude code",
+        "pipeline",
+        "research",
+        "skill",
+        "trusted_seed"
+      ],
+      "forks": 114,
+      "open_issues": 9,
+      "watchers": 1029,
+      "size_kb": 143,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": false,
+      "has_discussions": false,
+      "license": {
+        "key": "",
+        "name": "",
+        "spdx_id": ""
+      }
+    },
+    {
+      "rank": 27,
       "repo": "LigphiDonk/Oh-my--paper",
-      "stars": 693,
-      "star_delta_1d": 3,
-      "star_delta_7d": 10,
-      "star_delta_30d": 10,
-      "trend_score": 37.93,
+      "stars": 729,
+      "star_delta_1d": 0,
+      "star_delta_7d": 6,
+      "star_delta_30d": 16,
+      "trend_score": 30.11,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -1383,6 +1573,9 @@
       "last_push_date": "2026-04-15",
       "url": "https://github.com/LigphiDonk/Oh-my--paper",
       "homepage": "",
+      "agents": [
+        "claude-code"
+      ],
       "precision_signals": [
         "claude code",
         "literature",
@@ -1393,9 +1586,9 @@
         "survey",
         "trusted_seed"
       ],
-      "forks": 49,
+      "forks": 53,
       "open_issues": 8,
-      "watchers": 693,
+      "watchers": 729,
       "size_kb": 268900,
       "default_branch": "main",
       "has_issues": true,
@@ -1408,13 +1601,13 @@
       }
     },
     {
-      "rank": 26,
+      "rank": 28,
       "repo": "Ar9av/PaperOrchestra",
-      "stars": 615,
+      "stars": 659,
       "star_delta_1d": 0,
-      "star_delta_7d": 8,
-      "star_delta_30d": 8,
-      "trend_score": 54.82,
+      "star_delta_7d": 6,
+      "star_delta_30d": 19,
+      "trend_score": 42.17,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -1449,9 +1642,14 @@
         "skill-pack"
       ],
       "created_date": "2026-04-09",
-      "last_push_date": "2026-07-09",
+      "last_push_date": "2026-08-09",
       "url": "https://github.com/Ar9av/PaperOrchestra",
       "homepage": "https://arxiv.org/pdf/2604.05018",
+      "agents": [
+        "claude-code",
+        "cursor",
+        "cline"
+      ],
       "precision_signals": [
         "claude code",
         "literature",
@@ -1462,10 +1660,10 @@
         "skills",
         "trusted_seed"
       ],
-      "forks": 85,
-      "open_issues": 1,
-      "watchers": 615,
-      "size_kb": 3177,
+      "forks": 92,
+      "open_issues": 0,
+      "watchers": 659,
+      "size_kb": 3186,
       "default_branch": "main",
       "has_issues": true,
       "has_wiki": true,
@@ -1477,58 +1675,13 @@
       }
     },
     {
-      "rank": 27,
-      "repo": "jimmc414/Kosmos",
-      "stars": 555,
-      "star_delta_1d": 0,
-      "star_delta_7d": 1,
-      "star_delta_30d": 1,
-      "trend_score": 23.16,
-      "trend": {
-        "id": "rising",
-        "zh": "持续增长",
-        "en": "Rising"
-      },
-      "category": {
-        "id": "deep-research",
-        "zh": "深度研究",
-        "en": "Deep Research"
-      },
-      "description": "Kosmos: An AI Scientist for Autonomous Discovery - An implementation and adaptation to be driven by Claude Code or API - Based on the Kosmos AI Paper -  https://arxiv.org/abs/2511.02824",
-      "language": "Python",
-      "topics": [],
-      "created_date": "2025-11-07",
-      "last_push_date": "2026-04-04",
-      "url": "https://github.com/jimmc414/Kosmos",
-      "homepage": "",
-      "precision_signals": [
-        "arxiv",
-        "claude code",
-        "paper",
-        "trusted_seed"
-      ],
-      "forks": 97,
-      "open_issues": 1,
-      "watchers": 555,
-      "size_kb": 22418,
-      "default_branch": "master",
-      "has_issues": true,
-      "has_wiki": true,
-      "has_discussions": false,
-      "license": {
-        "key": "",
-        "name": "",
-        "spdx_id": ""
-      }
-    },
-    {
-      "rank": 28,
+      "rank": 29,
       "repo": "hanlulong/econ-writing-skill",
-      "stars": 474,
-      "star_delta_1d": 3,
-      "star_delta_7d": 14,
-      "star_delta_30d": 14,
-      "trend_score": 59.91,
+      "stars": 611,
+      "star_delta_1d": 1,
+      "star_delta_7d": 15,
+      "star_delta_30d": 68,
+      "trend_score": 46.89,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -1555,6 +1708,10 @@
       "last_push_date": "2026-07-20",
       "url": "https://github.com/hanlulong/econ-writing-skill",
       "homepage": "https://openecon.ai",
+      "agents": [
+        "claude-code",
+        "codex"
+      ],
       "precision_signals": [
         "academic",
         "agent skill",
@@ -1565,9 +1722,9 @@
         "skills",
         "trusted_seed"
       ],
-      "forks": 78,
+      "forks": 94,
       "open_issues": 0,
-      "watchers": 474,
+      "watchers": 611,
       "size_kb": 229,
       "default_branch": "main",
       "has_issues": true,
@@ -1580,13 +1737,207 @@
       }
     },
     {
-      "rank": 29,
-      "repo": "hkcanan/katmer-code",
-      "stars": 464,
+      "rank": 30,
+      "repo": "jimmc414/Kosmos",
+      "stars": 585,
+      "star_delta_1d": 0,
+      "star_delta_7d": 3,
+      "star_delta_30d": 23,
+      "trend_score": 25.74,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "deep-research",
+        "zh": "深度研究",
+        "en": "Deep Research"
+      },
+      "description": "Kosmos: An AI Scientist for Autonomous Discovery - An implementation and adaptation to be driven by Claude Code or API - Based on the Kosmos AI Paper -  https://arxiv.org/abs/2511.02824",
+      "language": "Python",
+      "topics": [],
+      "created_date": "2025-11-07",
+      "last_push_date": "2026-04-04",
+      "url": "https://github.com/jimmc414/Kosmos",
+      "homepage": "",
+      "agents": [
+        "claude-code"
+      ],
+      "precision_signals": [
+        "arxiv",
+        "claude code",
+        "paper",
+        "trusted_seed"
+      ],
+      "forks": 105,
+      "open_issues": 1,
+      "watchers": 585,
+      "size_kb": 22418,
+      "default_branch": "master",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "",
+        "name": "",
+        "spdx_id": ""
+      }
+    },
+    {
+      "rank": 31,
+      "repo": "ganzhi-black/humanities-thesis-skill",
+      "stars": 576,
+      "star_delta_1d": 4,
+      "star_delta_7d": 30,
+      "star_delta_30d": 119,
+      "trend_score": 60.48,
+      "trend": {
+        "id": "hot",
+        "zh": "热门上升",
+        "en": "Hot"
+      },
+      "category": {
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
+      },
+      "description": "AI skill for humanities thesis writing — from topic selection to publication. 8 academic databases, 21 review rules, anti-hallucination guardrails. 人文社科论文写作 AI Skill",
+      "language": "Python",
+      "topics": [],
+      "created_date": "2026-04-27",
+      "last_push_date": "2026-04-29",
+      "url": "https://github.com/ganzhi-black/humanities-thesis-skill",
+      "homepage": "",
+      "agents": [],
+      "precision_signals": [
+        "academic",
+        "review",
+        "skill",
+        "thesis",
+        "论文"
+      ],
+      "forks": 31,
+      "open_issues": 2,
+      "watchers": 576,
+      "size_kb": 139,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "rank": 32,
+      "repo": "Boom5426/Nature-Paper-Skills",
+      "stars": 501,
+      "star_delta_1d": 3,
+      "star_delta_7d": 11,
+      "star_delta_30d": 60,
+      "trend_score": 53.28,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
+      },
+      "description": "Agent skills for drafting, revising, auditing, and resubmitting Nature-style journal manuscripts.",
+      "language": "Python",
+      "topics": [],
+      "created_date": "2026-04-12",
+      "last_push_date": "2026-09-05",
+      "url": "https://github.com/Boom5426/Nature-Paper-Skills",
+      "homepage": "",
+      "agents": [],
+      "precision_signals": [
+        "agent skill",
+        "journal",
+        "manuscript",
+        "paper",
+        "skill",
+        "skills"
+      ],
+      "forks": 41,
+      "open_issues": 0,
+      "watchers": 501,
+      "size_kb": 1282,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "rank": 33,
+      "repo": "claesbackman/AI-research-feedback",
+      "stars": 481,
       "star_delta_1d": 1,
-      "star_delta_7d": 4,
+      "star_delta_7d": 3,
+      "star_delta_30d": 15,
+      "trend_score": 40.3,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "A collection of Claude Code skills for academic research review. These tools were developed by Claes Bäckman.",
+      "language": "",
+      "topics": [],
+      "created_date": "2026-03-01",
+      "last_push_date": "2026-08-27",
+      "url": "https://github.com/claesbackman/AI-research-feedback",
+      "homepage": "",
+      "agents": [
+        "claude-code"
+      ],
+      "precision_signals": [
+        "academic",
+        "claude code",
+        "research",
+        "review",
+        "skill",
+        "skills",
+        "trusted_seed"
+      ],
+      "forks": 84,
+      "open_issues": 0,
+      "watchers": 481,
+      "size_kb": 86,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": false,
+      "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "rank": 34,
+      "repo": "hkcanan/katmer-code",
+      "stars": 476,
+      "star_delta_1d": 0,
+      "star_delta_7d": 3,
       "star_delta_30d": 4,
-      "trend_score": 37.99,
+      "trend_score": 44.36,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -1612,278 +1963,29 @@
         "obsidian-plugin"
       ],
       "created_date": "2026-03-22",
-      "last_push_date": "2026-05-26",
+      "last_push_date": "2026-09-15",
       "url": "https://github.com/hkcanan/katmer-code",
       "homepage": "",
-      "precision_signals": [
-        "academic",
-        "claude code",
-        "research",
-        "skill",
-        "skills",
-        "trusted_seed"
-      ],
-      "forks": 32,
-      "open_issues": 3,
-      "watchers": 464,
-      "size_kb": 4659,
-      "default_branch": "main",
-      "has_issues": true,
-      "has_wiki": true,
-      "has_discussions": false,
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "spdx_id": "MIT"
-      }
-    },
-    {
-      "rank": 30,
-      "repo": "claesbackman/AI-research-feedback",
-      "stars": 448,
-      "star_delta_1d": 0,
-      "star_delta_7d": 1,
-      "star_delta_30d": 1,
-      "trend_score": 41.84,
-      "trend": {
-        "id": "rising",
-        "zh": "持续增长",
-        "en": "Rising"
-      },
-      "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
-      },
-      "description": "A collection of Claude Code skills for academic research review. These tools were developed by Claes Bäckman.",
-      "language": "",
-      "topics": [],
-      "created_date": "2026-03-01",
-      "last_push_date": "2026-07-05",
-      "url": "https://github.com/claesbackman/AI-research-feedback",
-      "homepage": "",
-      "precision_signals": [
-        "academic",
-        "claude code",
-        "research",
-        "review",
-        "skill",
-        "skills",
-        "trusted_seed"
-      ],
-      "forks": 79,
-      "open_issues": 1,
-      "watchers": 448,
-      "size_kb": 53,
-      "default_branch": "main",
-      "has_issues": true,
-      "has_wiki": false,
-      "has_discussions": false,
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "spdx_id": "MIT"
-      }
-    },
-    {
-      "rank": 31,
-      "repo": "LimHyungTae/awesome-claudecode-paper-proofreading",
-      "stars": 404,
-      "star_delta_1d": 1,
-      "star_delta_7d": 5,
-      "star_delta_30d": 5,
-      "trend_score": 29.99,
-      "trend": {
-        "id": "rising",
-        "zh": "持续增长",
-        "en": "Rising"
-      },
-      "category": {
-        "id": "paper-writing",
-        "zh": "论文写作",
-        "en": "Paper Writing"
-      },
-      "description": "Claude Code-driven research paper proofreading prompt",
-      "language": "",
-      "topics": [],
-      "created_date": "2026-03-09",
-      "last_push_date": "2026-04-19",
-      "url": "https://github.com/LimHyungTae/awesome-claudecode-paper-proofreading",
-      "homepage": "",
-      "precision_signals": [
-        "claude code",
-        "paper",
-        "proofreading",
-        "research",
-        "roo",
-        "trusted_seed"
-      ],
-      "forks": 44,
-      "open_issues": 0,
-      "watchers": 404,
-      "size_kb": 108,
-      "default_branch": "main",
-      "has_issues": true,
-      "has_wiki": true,
-      "has_discussions": false,
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "spdx_id": "MIT"
-      }
-    },
-    {
-      "rank": 32,
-      "repo": "Boom5426/Nature-Paper-Skills",
-      "stars": 373,
-      "star_delta_1d": 1,
-      "star_delta_7d": 16,
-      "star_delta_30d": 16,
-      "trend_score": 64.6,
-      "trend": {
-        "id": "rising",
-        "zh": "持续增长",
-        "en": "Rising"
-      },
-      "category": {
-        "id": "paper-writing",
-        "zh": "论文写作",
-        "en": "Paper Writing"
-      },
-      "description": "Agent skills for drafting, revising, auditing, and resubmitting Nature-style journal manuscripts.",
-      "language": "TeX",
-      "topics": [],
-      "created_date": "2026-04-12",
-      "last_push_date": "2026-07-17",
-      "url": "https://github.com/Boom5426/Nature-Paper-Skills",
-      "homepage": "",
-      "precision_signals": [
-        "agent skill",
-        "journal",
-        "manuscript",
-        "paper",
-        "skill",
-        "skills"
-      ],
-      "forks": 27,
-      "open_issues": 0,
-      "watchers": 373,
-      "size_kb": 994,
-      "default_branch": "main",
-      "has_issues": true,
-      "has_wiki": true,
-      "has_discussions": false,
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "spdx_id": "MIT"
-      }
-    },
-    {
-      "rank": 33,
-      "repo": "modelscope/Awesome-Vibe-Research",
-      "stars": 361,
-      "star_delta_1d": 2,
-      "star_delta_7d": 13,
-      "star_delta_30d": 13,
-      "trend_score": 65.56,
-      "trend": {
-        "id": "rising",
-        "zh": "持续增长",
-        "en": "Rising"
-      },
-      "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
-      },
-      "description": "An open, collaboratively-built repository for AI-assisted scientific research — collecting and curating agents, skills, workflows, tools, and best practices across the full research lifecycle. 面向 AI 辅助科研的开放共建仓库 收集和沉淀科研全流程中的 agents、skills、workflows、tools 与最佳实践",
-      "language": "Python",
-      "topics": [],
-      "created_date": "2026-06-12",
-      "last_push_date": "2026-07-20",
-      "url": "https://github.com/modelscope/Awesome-Vibe-Research",
-      "homepage": "",
-      "precision_signals": [
-        "research",
-        "scientific",
-        "skill",
-        "skills",
-        "workflow",
-        "科研"
-      ],
-      "forks": 34,
-      "open_issues": 4,
-      "watchers": 361,
-      "size_kb": 1058,
-      "default_branch": "main",
-      "has_issues": true,
-      "has_wiki": true,
-      "has_discussions": false,
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "spdx_id": "Apache-2.0"
-      }
-    },
-    {
-      "rank": 34,
-      "repo": "fcakyon/phd-skills",
-      "stars": 335,
-      "star_delta_1d": 2,
-      "star_delta_7d": 10,
-      "star_delta_30d": 10,
-      "trend_score": 51.77,
-      "trend": {
-        "id": "rising",
-        "zh": "持续增长",
-        "en": "Rising"
-      },
-      "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
-      },
-      "description": "PhD Research Skills for Claude Code: paper reproduction, experiment design, paper review, result comparison and more.",
-      "language": "Shell",
-      "topics": [
-        "academic",
-        "agents",
-        "ai",
-        "claude",
+      "agents": [
         "claude-code",
-        "conference",
-        "hooks",
-        "journal",
-        "mcp",
-        "paper-reproduction",
-        "paper-review",
-        "phd",
-        "plugin",
-        "research",
-        "skills"
+        "codex",
+        "gemini"
       ],
-      "created_date": "2026-03-11",
-      "last_push_date": "2026-07-03",
-      "url": "https://github.com/fcakyon/phd-skills",
-      "homepage": "",
       "precision_signals": [
         "academic",
         "claude code",
-        "paper",
         "research",
-        "review",
         "skill",
         "skills",
         "trusted_seed"
       ],
-      "forks": 29,
-      "open_issues": 0,
-      "watchers": 335,
-      "size_kb": 118,
+      "forks": 33,
+      "open_issues": 2,
+      "watchers": 476,
+      "size_kb": 4731,
       "default_branch": "main",
       "has_issues": true,
-      "has_wiki": false,
+      "has_wiki": true,
       "has_discussions": false,
       "license": {
         "key": "mit",
@@ -1893,58 +1995,12 @@
     },
     {
       "rank": 35,
-      "repo": "ganzhi-black/humanities-thesis-skill",
-      "stars": 334,
-      "star_delta_1d": 4,
-      "star_delta_7d": 31,
-      "star_delta_30d": 31,
-      "trend_score": 65.6,
-      "trend": {
-        "id": "hot",
-        "zh": "热门上升",
-        "en": "Hot"
-      },
-      "category": {
-        "id": "paper-writing",
-        "zh": "论文写作",
-        "en": "Paper Writing"
-      },
-      "description": "AI skill for humanities thesis writing — from topic selection to publication. 8 academic databases, 21 review rules, anti-hallucination guardrails. 人文社科论文写作 AI Skill",
-      "language": "Python",
-      "topics": [],
-      "created_date": "2026-04-27",
-      "last_push_date": "2026-04-29",
-      "url": "https://github.com/ganzhi-black/humanities-thesis-skill",
-      "homepage": "",
-      "precision_signals": [
-        "academic",
-        "review",
-        "skill",
-        "thesis",
-        "论文"
-      ],
-      "forks": 23,
-      "open_issues": 0,
-      "watchers": 334,
-      "size_kb": 139,
-      "default_branch": "main",
-      "has_issues": true,
-      "has_wiki": true,
-      "has_discussions": false,
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "spdx_id": "MIT"
-      }
-    },
-    {
-      "rank": 36,
       "repo": "alfonso0512/research-writing-skill",
-      "stars": 325,
+      "stars": 444,
       "star_delta_1d": 1,
-      "star_delta_7d": 17,
-      "star_delta_30d": 17,
-      "trend_score": 63.16,
+      "star_delta_7d": 15,
+      "star_delta_30d": 62,
+      "trend_score": 44.73,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -1973,6 +2029,7 @@
       "last_push_date": "2026-07-15",
       "url": "https://github.com/alfonso0512/research-writing-skill",
       "homepage": "",
+      "agents": [],
       "precision_signals": [
         "academic",
         "paper",
@@ -1980,9 +2037,9 @@
         "scientific",
         "skill"
       ],
-      "forks": 27,
+      "forks": 37,
       "open_issues": 1,
-      "watchers": 325,
+      "watchers": 444,
       "size_kb": 89,
       "default_branch": "main",
       "has_issues": true,
@@ -1995,13 +2052,290 @@
       }
     },
     {
+      "rank": 36,
+      "repo": "modelscope/Awesome-Vibe-Research",
+      "stars": 435,
+      "star_delta_1d": 1,
+      "star_delta_7d": 10,
+      "star_delta_30d": 37,
+      "trend_score": 58.6,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "An open, collaboratively-built repository for AI-assisted scientific research — collecting and curating agents, skills, workflows, tools, and best practices across the full research lifecycle. 面向 AI 辅助科研的开放共建仓库 收集和沉淀科研全流程中的 agents、skills、workflows、tools 与最佳实践",
+      "language": "Python",
+      "topics": [],
+      "created_date": "2026-06-12",
+      "last_push_date": "2026-09-18",
+      "url": "https://github.com/modelscope/Awesome-Vibe-Research",
+      "homepage": "",
+      "agents": [],
+      "precision_signals": [
+        "research",
+        "scientific",
+        "skill",
+        "skills",
+        "workflow",
+        "科研"
+      ],
+      "forks": 50,
+      "open_issues": 6,
+      "watchers": 435,
+      "size_kb": 1095,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0"
+      }
+    },
+    {
       "rank": 37,
+      "repo": "LimHyungTae/awesome-claudecode-paper-proofreading",
+      "stars": 423,
+      "star_delta_1d": 0,
+      "star_delta_7d": 2,
+      "star_delta_30d": 12,
+      "trend_score": 23.42,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
+      },
+      "description": "Claude Code-driven research paper proofreading prompt",
+      "language": "",
+      "topics": [],
+      "created_date": "2026-03-09",
+      "last_push_date": "2026-04-19",
+      "url": "https://github.com/LimHyungTae/awesome-claudecode-paper-proofreading",
+      "homepage": "",
+      "agents": [
+        "claude-code"
+      ],
+      "precision_signals": [
+        "claude code",
+        "paper",
+        "proofreading",
+        "research",
+        "roo",
+        "trusted_seed"
+      ],
+      "forks": 43,
+      "open_issues": 0,
+      "watchers": 423,
+      "size_kb": 108,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "rank": 38,
+      "repo": "fcakyon/phd-skills",
+      "stars": 400,
+      "star_delta_1d": 0,
+      "star_delta_7d": 9,
+      "star_delta_30d": 32,
+      "trend_score": 51.2,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "PhD Research Skills for Claude Code: paper reproduction, experiment design, paper review, result comparison and more.",
+      "language": "Shell",
+      "topics": [
+        "academic",
+        "agents",
+        "ai",
+        "claude",
+        "claude-code",
+        "claude-code-plugin",
+        "claude-skills",
+        "conference",
+        "fable",
+        "hooks",
+        "journal",
+        "mcp",
+        "opus",
+        "paper-reproduction",
+        "paper-review",
+        "phd",
+        "plugin",
+        "research",
+        "research-skills",
+        "skills"
+      ],
+      "created_date": "2026-03-11",
+      "last_push_date": "2026-09-16",
+      "url": "https://github.com/fcakyon/phd-skills",
+      "homepage": "",
+      "agents": [
+        "claude-code",
+        "mcp"
+      ],
+      "precision_signals": [
+        "academic",
+        "claude code",
+        "paper",
+        "research",
+        "review",
+        "skill",
+        "skills",
+        "trusted_seed"
+      ],
+      "forks": 34,
+      "open_issues": 1,
+      "watchers": 400,
+      "size_kb": 122,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": false,
+      "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "rank": 39,
+      "repo": "Lupynow/math-modeling-skills",
+      "stars": 389,
+      "star_delta_1d": 4,
+      "star_delta_7d": 13,
+      "star_delta_30d": 171,
+      "trend_score": 49.59,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
+      },
+      "description": "数学建模竞赛完整工具链：从拿到赛题到交出论文，一条龙解决。  覆盖 国赛 CUMCM（A/B/C） 和 美赛 MCM/ICM（A-F） 全部题型。",
+      "language": "Python",
+      "topics": [
+        "claude-code",
+        "claude-skill",
+        "cumcm",
+        "mathematical-modeling",
+        "mcm-icm",
+        "paper-writing"
+      ],
+      "created_date": "2026-05-23",
+      "last_push_date": "2026-07-31",
+      "url": "https://github.com/Lupynow/math-modeling-skills",
+      "homepage": "",
+      "agents": [
+        "claude-code"
+      ],
+      "precision_signals": [
+        "paper",
+        "skill",
+        "skills",
+        "论文"
+      ],
+      "forks": 14,
+      "open_issues": 0,
+      "watchers": 389,
+      "size_kb": 658,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "rank": 40,
+      "repo": "fakerqwq/social-science-paper-writing-skill",
+      "stars": 326,
+      "star_delta_1d": 7,
+      "star_delta_7d": 29,
+      "star_delta_30d": 106,
+      "trend_score": 59.68,
+      "trend": {
+        "id": "hot",
+        "zh": "热门上升",
+        "en": "Hot"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "social-science-paper-writing 是一个面向社会科学论文写作的 Codex/ChatGPT skill，用于辅助完成选题诊断、研究问题细化、论文大纲搭建、文献综述规划、CNKI/Google Scholar 到 Zotero 的文献工作流、草稿评审、章节修订、引用与证据风险检查，以及投稿前检查。  它的核心目标不是“把文字润色得更像论文”，而是帮助作者把论文写成一个可检验、可论证、证据和方法相匹配的社会科学研究。",
+      "language": "",
+      "topics": [],
+      "created_date": "2026-06-01",
+      "last_push_date": "2026-06-02",
+      "url": "https://github.com/fakerqwq/social-science-paper-writing-skill",
+      "homepage": "",
+      "agents": [
+        "codex"
+      ],
+      "precision_signals": [
+        "codex",
+        "paper",
+        "scholar",
+        "science",
+        "skill",
+        "论文"
+      ],
+      "forks": 16,
+      "open_issues": 1,
+      "watchers": 326,
+      "size_kb": 87,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "",
+        "name": "",
+        "spdx_id": ""
+      }
+    },
+    {
+      "rank": 41,
       "repo": "yipng05-max/-skills",
-      "stars": 247,
-      "star_delta_1d": 2,
-      "star_delta_7d": 1,
-      "star_delta_30d": 1,
-      "trend_score": 21.47,
+      "stars": 288,
+      "star_delta_1d": 0,
+      "star_delta_7d": 2,
+      "star_delta_30d": 15,
+      "trend_score": 22.09,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -2019,6 +2353,7 @@
       "last_push_date": "2026-04-15",
       "url": "https://github.com/yipng05-max/-skills",
       "homepage": "",
+      "agents": [],
       "precision_signals": [
         "skill",
         "skills",
@@ -2027,9 +2362,9 @@
         "科研",
         "论文"
       ],
-      "forks": 20,
+      "forks": 24,
       "open_issues": 1,
-      "watchers": 247,
+      "watchers": 288,
       "size_kb": 1572,
       "default_branch": "main",
       "has_issues": true,
@@ -2042,17 +2377,17 @@
       }
     },
     {
-      "rank": 38,
+      "rank": 42,
       "repo": "yanlin-cheng/skill-thesis-writer",
-      "stars": 176,
-      "star_delta_1d": 0,
-      "star_delta_7d": 0,
-      "star_delta_30d": 0,
-      "trend_score": 18.88,
+      "stars": 204,
+      "star_delta_1d": 1,
+      "star_delta_7d": 5,
+      "star_delta_30d": 13,
+      "trend_score": 24.49,
       "trend": {
-        "id": "steady",
-        "zh": "稳定",
-        "en": "Steady"
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
       },
       "category": {
         "id": "deep-research",
@@ -2066,6 +2401,7 @@
       "last_push_date": "2026-04-13",
       "url": "https://github.com/yanlin-cheng/skill-thesis-writer",
       "homepage": "",
+      "agents": [],
       "precision_signals": [
         "skill",
         "thesis",
@@ -2073,9 +2409,9 @@
         "文献",
         "论文"
       ],
-      "forks": 8,
+      "forks": 11,
       "open_issues": 1,
-      "watchers": 176,
+      "watchers": 204,
       "size_kb": 120,
       "default_branch": "master",
       "has_issues": true,
@@ -2088,13 +2424,13 @@
       }
     },
     {
-      "rank": 39,
+      "rank": 43,
       "repo": "ShZhao27208/Aut_Sci_Write",
-      "stars": 165,
-      "star_delta_1d": 1,
+      "stars": 197,
+      "star_delta_1d": 0,
       "star_delta_7d": 3,
-      "star_delta_30d": 3,
-      "trend_score": 45.12,
+      "star_delta_30d": 15,
+      "trend_score": 35.05,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -2120,9 +2456,14 @@
         "zotero"
       ],
       "created_date": "2026-04-06",
-      "last_push_date": "2026-07-14",
+      "last_push_date": "2026-08-13",
       "url": "https://github.com/ShZhao27208/Aut_Sci_Write",
       "homepage": "https://shzhao27208.github.io/Aut_Sci_Write/",
+      "agents": [
+        "claude-code",
+        "codex",
+        "opencode"
+      ],
       "precision_signals": [
         "academic",
         "codex",
@@ -2132,10 +2473,10 @@
         "skill",
         "skills"
       ],
-      "forks": 22,
-      "open_issues": 3,
-      "watchers": 165,
-      "size_kb": 59277,
+      "forks": 25,
+      "open_issues": 2,
+      "watchers": 197,
+      "size_kb": 59476,
       "default_branch": "main",
       "has_issues": true,
       "has_wiki": false,
@@ -2147,13 +2488,58 @@
       }
     },
     {
-      "rank": 40,
-      "repo": "fakerqwq/social-science-paper-writing-skill",
-      "stars": 162,
-      "star_delta_1d": 1,
-      "star_delta_7d": 9,
-      "star_delta_30d": 9,
-      "trend_score": 46.63,
+      "rank": 44,
+      "repo": "congcongwang0122/zotero-skill",
+      "stars": 193,
+      "star_delta_1d": 0,
+      "star_delta_7d": 7,
+      "star_delta_30d": 36,
+      "trend_score": 43.8,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "literature-review",
+        "zh": "文献综述",
+        "en": "Literature Review"
+      },
+      "description": "「帮我整理总结一下 Zotero 中 XXX 栏所有的文献，并生成一个一万字的综述」**—— 这句话，现在真的可以被实现了。",
+      "language": "Python",
+      "topics": [],
+      "created_date": "2026-06-03",
+      "last_push_date": "2026-08-14",
+      "url": "https://github.com/congcongwang0122/zotero-skill",
+      "homepage": "",
+      "agents": [],
+      "precision_signals": [
+        "skill",
+        "文献",
+        "综述"
+      ],
+      "forks": 4,
+      "open_issues": 1,
+      "watchers": 193,
+      "size_kb": 290,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "",
+        "name": "",
+        "spdx_id": ""
+      }
+    },
+    {
+      "rank": 45,
+      "repo": "brycewang-stanford/Auto-Research-Skills",
+      "stars": 164,
+      "star_delta_1d": 2,
+      "star_delta_7d": 8,
+      "star_delta_30d": 33,
+      "trend_score": 50.92,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -2164,95 +2550,173 @@
         "zh": "综合研究",
         "en": "General Research"
       },
-      "description": "social-science-paper-writing 是一个面向社会科学论文写作的 Codex/ChatGPT skill，用于辅助完成选题诊断、研究问题细化、论文大纲搭建、文献综述规划、CNKI/Google Scholar 到 Zotero 的文献工作流、草稿评审、章节修订、引用与证据风险检查，以及投稿前检查。  它的核心目标不是“把文字润色得更像论文”，而是帮助作者把论文写成一个可检验、可论证、证据和方法相匹配的社会科学研究。",
-      "language": "",
-      "topics": [],
-      "created_date": "2026-06-01",
-      "last_push_date": "2026-06-02",
-      "url": "https://github.com/fakerqwq/social-science-paper-writing-skill",
-      "homepage": "",
-      "precision_signals": [
-        "codex",
-        "paper",
-        "scholar",
-        "science",
-        "skill",
-        "论文"
+      "description": "A curated hub of autonomous-research skills & agents — from idea to paper, on autopilot. | 自主科研技能与智能体精选库 —— 从灵感到论文全文，全程自动完成。",
+      "language": "Python",
+      "topics": [
+        "academic-research",
+        "agent-skills",
+        "ai-agents",
+        "ai-scientist",
+        "anthropic",
+        "auto-research",
+        "autonomous-agents",
+        "awesome-list",
+        "causal-inference",
+        "claude",
+        "claude-code",
+        "data-analysis",
+        "deep-research",
+        "literature-review",
+        "llm-agents",
+        "machine-learning",
+        "paper-writing",
+        "reproducible-research",
+        "research-automation",
+        "scientific-computing"
       ],
-      "forks": 7,
+      "created_date": "2026-05-27",
+      "last_push_date": "2026-09-14",
+      "url": "https://github.com/brycewang-stanford/Auto-Research-Skills",
+      "homepage": "",
+      "agents": [
+        "claude-code"
+      ],
+      "precision_signals": [
+        "academic",
+        "literature",
+        "paper",
+        "research",
+        "skill",
+        "skills"
+      ],
+      "forks": 15,
       "open_issues": 1,
-      "watchers": 162,
-      "size_kb": 87,
+      "watchers": 164,
+      "size_kb": 11847,
       "default_branch": "main",
       "has_issues": true,
       "has_wiki": true,
       "has_discussions": false,
       "license": {
-        "key": "",
-        "name": "",
-        "spdx_id": ""
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0"
       }
     },
     {
-      "rank": 41,
-      "repo": "Lupynow/math-modeling-skills",
-      "stars": 142,
-      "star_delta_1d": 4,
-      "star_delta_7d": 14,
-      "star_delta_30d": 14,
-      "trend_score": 60.29,
+      "rank": 46,
+      "repo": "stephenlzc/AI-Powered-Literature-Review-Skills",
+      "stars": 149,
+      "star_delta_1d": 2,
+      "star_delta_7d": 9,
+      "star_delta_30d": 30,
+      "trend_score": 45.84,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "paper-writing",
-        "zh": "论文写作",
-        "en": "Paper Writing"
+        "id": "literature-review",
+        "zh": "文献综述",
+        "en": "Literature Review"
       },
-      "description": "数学建模竞赛完整工具链：从拿到赛题到交出论文，一条龙解决。  覆盖 国赛 CUMCM（A/B/C） 和 美赛 MCM/ICM（A-F） 全部题型。",
+      "description": "AI驱动的系统性学术文献回顾工具 | AI-Powered Literature Survey Tool with 8-Phase Workflow & Agent Swarm Architecture",
       "language": "Python",
       "topics": [
-        "claude-code",
-        "claude-skill",
-        "cumcm",
-        "mathematical-modeling",
-        "mcm-icm",
-        "paper-writing"
+        "academic-papers",
+        "academic-research",
+        "ai-agent",
+        "bibliography",
+        "citation",
+        "kimi-skill",
+        "literature-review",
+        "python",
+        "research-tools"
       ],
-      "created_date": "2026-05-23",
-      "last_push_date": "2026-07-11",
-      "url": "https://github.com/Lupynow/math-modeling-skills",
+      "created_date": "2026-03-05",
+      "last_push_date": "2026-09-07",
+      "url": "https://github.com/stephenlzc/AI-Powered-Literature-Review-Skills",
       "homepage": "",
+      "agents": [],
       "precision_signals": [
+        "academic",
         "paper",
+        "papers",
+        "research",
         "skill",
         "skills",
-        "论文"
+        "workflow"
       ],
-      "forks": 5,
+      "forks": 19,
       "open_issues": 0,
-      "watchers": 142,
-      "size_kb": 648,
+      "watchers": 149,
+      "size_kb": 449,
       "default_branch": "main",
       "has_issues": true,
       "has_wiki": true,
       "has_discussions": false,
       "license": {
-        "key": "",
-        "name": "",
-        "spdx_id": ""
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
       }
     },
     {
-      "rank": 42,
+      "rank": 47,
+      "repo": "Jesseovo/PaperCash",
+      "stars": 140,
+      "star_delta_1d": 0,
+      "star_delta_7d": 6,
+      "star_delta_30d": 28,
+      "trend_score": 25.45,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "deep-research",
+        "zh": "深度研究",
+        "en": "Deep Research"
+      },
+      "description": "📄 论文全流程辅助 AI Skill — 检索 2 亿+论文、文献综述生成、写作润色、查重预检、降 AI 率改写、参考文献管理，4 源免费即用",
+      "language": "Python",
+      "topics": [],
+      "created_date": "2026-04-07",
+      "last_push_date": "2026-04-07",
+      "url": "https://github.com/Jesseovo/PaperCash",
+      "homepage": "",
+      "agents": [],
+      "precision_signals": [
+        "paper",
+        "skill",
+        "文献",
+        "综述",
+        "论文"
+      ],
+      "forks": 9,
+      "open_issues": 0,
+      "watchers": 140,
+      "size_kb": 72,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "rank": 48,
       "repo": "ThisIsLittleSky/WaterPaper",
       "stars": 115,
-      "star_delta_1d": 0,
-      "star_delta_7d": 1,
-      "star_delta_30d": 1,
-      "trend_score": 43.64,
+      "star_delta_1d": 1,
+      "star_delta_7d": 4,
+      "star_delta_30d": 6,
+      "trend_score": 29.89,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -2278,6 +2742,9 @@
       "last_push_date": "2026-07-01",
       "url": "https://github.com/ThisIsLittleSky/WaterPaper",
       "homepage": "",
+      "agents": [
+        "claude-code"
+      ],
       "precision_signals": [
         "academic",
         "literature",
@@ -2285,7 +2752,7 @@
         "skill",
         "论文"
       ],
-      "forks": 2,
+      "forks": 4,
       "open_issues": 0,
       "watchers": 115,
       "size_kb": 1114,
@@ -2293,6 +2760,77 @@
       "has_issues": true,
       "has_wiki": true,
       "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      }
+    },
+    {
+      "rank": 49,
+      "repo": "csmar432/finai-research",
+      "stars": 102,
+      "star_delta_1d": 2,
+      "star_delta_7d": 2,
+      "star_delta_30d": 0,
+      "trend_score": 43.7,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "Evidence-first AI workflow for economic and financial research: literature → identification → data → econometrics → verifiable LaTeX. 43 data sources, 58 method modules, 18 AI skills, 30 journal templates.",
+      "language": "Python",
+      "topics": [
+        "academic-research",
+        "ai-agents",
+        "causal-inference",
+        "did",
+        "difference-in-differences",
+        "econometrics",
+        "economics",
+        "empirical-finance",
+        "empirical-research",
+        "finance",
+        "latex",
+        "llm",
+        "mcp",
+        "open-science",
+        "panel-data",
+        "python",
+        "reproducible-research",
+        "research-automation",
+        "research-workflow"
+      ],
+      "created_date": "2026-06-15",
+      "last_push_date": "2026-09-16",
+      "url": "https://github.com/csmar432/finai-research",
+      "homepage": "https://csmar432.github.io/finai-research/",
+      "agents": [
+        "mcp"
+      ],
+      "precision_signals": [
+        "academic",
+        "literature",
+        "mcp",
+        "research",
+        "science",
+        "skill",
+        "skills"
+      ],
+      "forks": 3,
+      "open_issues": 3,
+      "watchers": 102,
+      "size_kb": 22567,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": false,
+      "has_discussions": true,
       "license": {
         "key": "mit",
         "name": "MIT License",
