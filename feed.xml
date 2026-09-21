@@ -5,87 +5,87 @@
     <link>https://kael-odin.github.io/awesome-academic-research-skills/</link>
     <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>
     <language>zh-CN</language>
-    <lastBuildDate>2026-09-20T07:45:39Z</lastBuildDate>
+    <lastBuildDate>2026-09-21T07:59:12Z</lastBuildDate>
     <atom:link href="https://kael-odin.github.io/awesome-academic-research-skills/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Drchronx/ai-agent-research-starter-kit (100★, +0/7d)</title>
+      <title>Drchronx/ai-agent-research-starter-kit (102★, +2/7d)</title>
       <link>https://github.com/Drchronx/ai-agent-research-starter-kit</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Drchronx/ai-agent-research-starter-kit</guid>
       <description>AI Agent 科研全流程教学包，能教学生从零部署 Codex、Claude Code、OpenClaw、Hermes 等 Agent，学会使用 Skills、飞书、AMiner、AI4Scholar、Zotero、Obsidian 等工具，完成真实文献检索、文献日报、知识库搭建、选题生成、理论建构、情景实验设计、量表开发、统计分析、因果推断、文本挖掘、EEG/ERP 实验、BCI 脑电智能建…</description>
       <category>General Research</category>
-      <pubDate>2026-09-20T07:45:39Z</pubDate>
+      <pubDate>2026-09-21T07:59:12Z</pubDate>
     </item>
     <item>
-      <title>Yuan1z0825/nature-skills (43,345★, +2195/7d)</title>
+      <title>wycmochi/cn-academic-spark (101★, +0/7d)</title>
+      <link>https://github.com/wycmochi/cn-academic-spark</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#wycmochi/cn-academic-spark</guid>
+      <description>专为中国宝宝设计的可编辑学术 PPT 生成skill。可根据学术汇报场景（论文答辩、组会汇报、课程报告、开题报告、文献综述等），依据上传的论文、报告等材料分析研究框架并输出带讲稿、带技术路线图、可编辑的pptx文件。</description>
+      <category>General Research</category>
+      <pubDate>2026-09-21T07:59:12Z</pubDate>
+    </item>
+    <item>
+      <title>Yuan1z0825/nature-skills (43,612★, +2259/7d)</title>
       <link>https://github.com/Yuan1z0825/nature-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Yuan1z0825/nature-skills</guid>
       <description>符合nature论文学术表达和科研绘图的Skill</description>
       <category>Deep Research</category>
-      <pubDate>2026-09-20T07:45:39Z</pubDate>
+      <pubDate>2026-09-21T07:59:12Z</pubDate>
     </item>
     <item>
-      <title>K-Dense-AI/scientific-agent-skills (45,688★, +1033/7d)</title>
+      <title>K-Dense-AI/scientific-agent-skills (45,848★, +1028/7d)</title>
       <link>https://github.com/K-Dense-AI/scientific-agent-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#K-Dense-AI/scientific-agent-skills</guid>
       <description>Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 190,000+ scientists worldwide. 165 ready-to-use validated skills plus 100+ scientific databases covering biolo…</description>
       <category>Discipline Specific</category>
-      <pubDate>2026-09-20T07:45:39Z</pubDate>
+      <pubDate>2026-09-21T07:59:12Z</pubDate>
     </item>
     <item>
-      <title>Imbad0202/academic-research-skills (48,790★, +987/7d)</title>
+      <title>Imbad0202/academic-research-skills (48,933★, +996/7d)</title>
       <link>https://github.com/Imbad0202/academic-research-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Imbad0202/academic-research-skills</guid>
       <description>Academic Research Skills for Claude Code: research → write → review → revise → finalize</description>
       <category>Paper Writing</category>
-      <pubDate>2026-09-20T07:45:39Z</pubDate>
+      <pubDate>2026-09-21T07:59:12Z</pubDate>
     </item>
     <item>
-      <title>Imbad0202/academic-research-skills-codex (11,262★, +581/7d)</title>
+      <title>Imbad0202/academic-research-skills-codex (11,332★, +571/7d)</title>
       <link>https://github.com/Imbad0202/academic-research-skills-codex</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Imbad0202/academic-research-skills-codex</guid>
       <description>Codex-native Academic Research Skills suite for human-in-the-loop academic research workflows</description>
       <category>General Research</category>
-      <pubDate>2026-09-20T07:45:39Z</pubDate>
+      <pubDate>2026-09-21T07:59:12Z</pubDate>
     </item>
     <item>
-      <title>jihe520/MathModelAgent (5,733★, +527/7d)</title>
-      <link>https://github.com/jihe520/MathModelAgent</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#jihe520/MathModelAgent</guid>
-      <description>🤖📐专为数学建模设计的 Agent &amp; skills ,自动完成数学建模，生成一份完整的可以直接提交的论文。 An Agent Designed for Mathematical Modeling ,Automatically complete mathmodel and generate a complete paper ready for submission.</description>
-      <category>Discipline Specific</category>
-      <pubDate>2026-09-20T07:45:39Z</pubDate>
-    </item>
-    <item>
-      <title>HKUSTDial/Supervisor-Skills (7,281★, +378/7d)</title>
+      <title>HKUSTDial/Supervisor-Skills (7,337★, +385/7d)</title>
       <link>https://github.com/HKUSTDial/Supervisor-Skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#HKUSTDial/Supervisor-Skills</guid>
       <description>将博导十年科研经验炼化为可直接调用的 AI 技能。从 Idea 构思到论文投稿，你的 AI 科研副导师。</description>
       <category>Discipline Specific</category>
-      <pubDate>2026-09-20T07:45:39Z</pubDate>
+      <pubDate>2026-09-21T07:59:12Z</pubDate>
     </item>
     <item>
-      <title>wanshuiyin/Auto-claude-code-research-in-sleep (16,393★, +331/7d)</title>
+      <title>jihe520/MathModelAgent (5,811★, +338/7d)</title>
+      <link>https://github.com/jihe520/MathModelAgent</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#jihe520/MathModelAgent</guid>
+      <description>🤖📐专为数学建模设计的 Agent &amp; skills ,自动完成数学建模，生成一份完整的可以直接提交的论文。 An Agent Designed for Mathematical Modeling ,Automatically complete mathmodel and generate a complete paper ready for submission.</description>
+      <category>Discipline Specific</category>
+      <pubDate>2026-09-21T07:59:12Z</pubDate>
+    </item>
+    <item>
+      <title>wanshuiyin/Auto-claude-code-research-in-sleep (16,431★, +330/7d)</title>
       <link>https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#wanshuiyin/Auto-claude-code-research-in-sleep</guid>
       <description>ARIS ⚔️ (Auto-Research-In-Sleep) — Lightweight Markdown-only skills for autonomous ML research: cross-model review loops, idea discovery, and experiment automation. No framework, no lock-in — works w…</description>
       <category>Discipline Specific</category>
-      <pubDate>2026-09-20T07:45:39Z</pubDate>
+      <pubDate>2026-09-21T07:59:12Z</pubDate>
     </item>
     <item>
-      <title>zLanqing/codex-claude-academic-skills (4,099★, +292/7d)</title>
+      <title>zLanqing/codex-claude-academic-skills (4,145★, +302/7d)</title>
       <link>https://github.com/zLanqing/codex-claude-academic-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#zLanqing/codex-claude-academic-skills</guid>
       <description>本仓库包含三个面向学术科研人员的Skills，覆盖从文献阅读、论文写作到科学计算的完整研究工作流。office-academic-skill 负责论文阅读报告与学术 PPT/Word 文档生成；research-writing-skill 提供论文写作、润色与审稿回复辅助；scientific-toolkit-skill 整合 MATLAB/Python 科学计算与期刊级图表生成。三个 Skil…</description>
       <category>General Research</category>
-      <pubDate>2026-09-20T07:45:39Z</pubDate>
-    </item>
-    <item>
-      <title>Orchestra-Research/AI-Research-SKILLs (12,870★, +277/7d)</title>
-      <link>https://github.com/Orchestra-Research/AI-Research-SKILLs</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Orchestra-Research/AI-Research-SKILLs</guid>
-      <description>Comprehensive open-source library of AI research and engineering skills for any AI model. Package the skills and your claude code/codex/gemini agent will be an AI research agent with full horsepower.…</description>
-      <category>Deep Research</category>
-      <pubDate>2026-09-20T07:45:39Z</pubDate>
+      <pubDate>2026-09-21T07:59:12Z</pubDate>
     </item>
   </channel>
 </rss>
