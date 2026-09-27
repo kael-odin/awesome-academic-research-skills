@@ -22,11 +22,13 @@ jobs:
         id: seeds
         run: |
           BASE="origin/${{ github.base_ref }}"
+          # Single-pass portable ERE: [+] avoids any \+ escaping ambiguity
+          # across grep/sed implementations; the quoted "owner/repo" pattern
+          # cannot match the +++diff header, so no separate exclusion filter.
           ADDED=$(git diff "$BASE"...HEAD -- config/ranking.json \
-            | grep -E '^\+' | grep -v '^\+\+\+' \
-            | sed -E 's/^\+[[:space:]]*"([^"]+)".*/\1/' \
-            | grep -E '^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$' \
+            | sed -n -E 's/^[+][[:space:]]*"([A-Za-z0-9_.-]+[\/][A-Za-z0-9_.-]+)".*/\1/p' \
             | sort -u)
+          echo "extracted: [$ADDED]"
           {
             echo "seeds<<EOF"
             echo "$ADDED"
