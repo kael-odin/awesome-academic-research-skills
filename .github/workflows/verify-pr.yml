@@ -1,0 +1,94 @@
+name: Verify recommended repositories
+
+on:
+  pull_request:
+    paths:
+      - config/ranking.json
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract added seed repositories
+        id: seeds
+        run: |
+          BASE="origin/${{ github.base_ref }}"
+          ADDED=$(git diff "$BASE"...HEAD -- config/ranking.json \
+            | grep -E '^\+' | grep -v '^\+\+\+' \
+            | sed -E 's/^\+[[:space:]]*"([^"]+)".*/\1/' \
+            | grep -E '^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$' \
+            | sort -u)
+          {
+            echo "seeds<<EOF"
+            echo "$ADDED"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Verify candidates and comment on the PR
+        uses: actions/github-script@v7
+        env:
+          SEEDS: ${{ steps.seeds.outputs.seeds }}
+        with:
+          script: |
+            const seeds = process.env.SEEDS.split('\n').map(s => s.trim()).filter(Boolean);
+            if (!seeds.length) {
+              core.notice('No new seed repositories added in this PR.');
+              return;
+            }
+            const rows = [];
+            for (const full of seeds) {
+              const [owner, name] = full.split('/');
+              try {
+                const { data: r } = await github.rest.repos.get({ owner, repo: name });
+                const ok = !r.archived && !r.fork && r.stargazers_count >= 100;
+                const desc = (r.description || '').replace(/\|/g, '\\|').slice(0, 120);
+                rows.push(`| ${ok ? '✅' : '⚠️'} | [${full}](${r.html_url}) | ${r.stargazers_count.toLocaleString()} | ${r.fork ? 'yes' : 'no'} | ${r.archived ? 'yes' : 'no'} | ${(r.pushed_at || '').slice(0, 10)} | ${desc} |`);
+              } catch (e) {
+                rows.push(`| ❌ | ${full} | not found (HTTP ${e.status}) | - | - | - | - |`);
+              }
+            }
+            const body = [
+              '<!-- seeds-verify -->',
+              '## 🤖 Seed repository verification',
+              '',
+              `Checked ${seeds.length} newly added seed(s) against the inclusion criteria (≥100 stars, not a fork, not archived):`,
+              '',
+              '| | Repository | Stars | Fork | Archived | Last push | Description |',
+              '|---|---|---:|---|---|---|---|',
+              ...rows,
+              '',
+              '_Automated check — final inclusion is still a maintainer decision._',
+            ].join('\n');
+            // Update the existing verification comment instead of adding a new
+            // one on every push to the same PR.
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              per_page: 100,
+            });
+            const existing = comments.find(c => c.body && c.body.includes('<!-- seeds-verify -->'));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }

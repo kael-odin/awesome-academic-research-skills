@@ -1,6 +1,6 @@
 {
   "min_stars": 100,
-  "max_results": 100,
+  "max_results": 150,
   "exclude_repositories": [
     "kael-odin/awesome-academic-research-skills"
   ],

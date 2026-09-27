@@ -6,7 +6,7 @@
   const SAFE = (v, d) => (v === undefined || v === null ? d : v);
 
   const state = {
-    lang: localStorage.getItem("ars-lang") || "zh",
+    lang: localStorage.getItem("ars-lang") || window.ARS_DEFAULT_LANG || "zh",
     theme: localStorage.getItem("ars-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"),
     view: localStorage.getItem("ars-view") || (matchMedia("(max-width: 760px)").matches ? "card" : "table"),
     query: "",
@@ -15,7 +15,22 @@
     sort: "rank",
     favorites: JSON.parse(localStorage.getItem("ars-favorites") || "[]"),
     favOnly: false,
+    repo: null, // drawer deep-link (#repo=owner/name)
+    compare: JSON.parse(localStorage.getItem("ars-compare") || "[]").slice(0, 3),
   };
+
+  /* Research-stage ordering of the categories (选题 → 文献 → 实验 → 写作 →
+     评审 → 学科 → 综合); the strip renders in this fixed order. */
+  const STAGE_ORDER = [
+    "deep-research",
+    "literature-review",
+    "experiment-reproducibility",
+    "paper-writing",
+    "peer-review",
+    "discipline-specific",
+    "general-research",
+  ];
+  const STAGE_GLYPHS = ["①", "②", "③", "④", "⑤", "⑥", "⑦"];
 
   /* Agent platform catalog — the order here is the display/sort order. */
   const AGENT_PLATFORMS = [
@@ -66,6 +81,12 @@
       drCopyMd: "复制为 Markdown", drSuggest: "推荐本仓库收录",
       stars: "Stars", noHistory: "暂无历史数据",
       toastCopied: "已复制 Markdown 到剪贴板",
+      subscribeTitle: "RSS 订阅", reportsLink: "月报",
+      copyInstall: "复制安装命令", toastCopiedInstall: "已复制安装命令",
+      skillsCount: "Skills 数", citeCheck: "引用核验", staleTag: "疑似停更",
+      compareFull: "对比列表已满（最多 3 个）",
+      compareTray: "对比", compareTitle: "增长对比", compareClear: "清空",
+      compareHint: "曲线为相对各自窗口起点的 Stars 增长百分比。",
     },
     en: {
       skipToContent: "Skip to content",
@@ -102,6 +123,12 @@
       drCopyMd: "Copy as Markdown", drSuggest: "Suggest this repo",
       stars: "Stars", noHistory: "No history yet",
       toastCopied: "Markdown copied to clipboard",
+      subscribeTitle: "RSS feed", reportsLink: "Reports",
+      copyInstall: "Copy install command", toastCopiedInstall: "Install command copied",
+      skillsCount: "Skills", citeCheck: "Citations verified", staleTag: "Possibly stale",
+      compareFull: "Compare list is full (max 3)",
+      compareTray: "Compare", compareTitle: "Growth comparison", compareClear: "Clear",
+      compareHint: "Lines show star growth in percent from each repo's window start.",
     },
   };
 
@@ -132,6 +159,7 @@
     // HTML-bearing i18n (e.g. hero title with an <em> accent) is applied as
     // innerHTML so the markup survives; values are hardcoded in translations.
     document.querySelectorAll("[data-i18n-html]").forEach((n) => { n.innerHTML = t(n.dataset.i18nHtml); });
+    document.querySelectorAll("[data-i18n-title]").forEach((n) => { n.title = t(n.dataset.i18nTitle); });
     document.querySelectorAll(".lang-button").forEach((b) => {
       const on = b.dataset.lang === lang;
       b.classList.toggle("active", on);
@@ -170,6 +198,102 @@
     }).join("");
   }
 
+  /* ---------- quality badges (skills count / citation check / stale) ---------- */
+  function repoMetaBadges(item) {
+    const parts = [];
+    if (item.skills_count !== undefined && item.skills_count !== null) {
+      parts.push(`<span class="mini-badge skills" title="${esc(t("skillsCount"))}">${fmt(item.skills_count)} skills</span>`);
+    }
+    if (item.verifies_citations) parts.push(`<span class="mini-badge cite">${esc(t("citeCheck"))} ✓</span>`);
+    if (item.stale) parts.push(`<span class="mini-badge stale">${esc(t("staleTag"))}</span>`);
+    return parts.join(" ");
+  }
+
+  /* ---------- install command ---------- */
+  const installCommand = (repo) => `npx skills add ${repo}`;
+  function copyInstall(item) {
+    const cmd = installCommand(item.repo);
+    const fallback = () => {
+      const ta = document.createElement("textarea");
+      ta.value = cmd; document.body.appendChild(ta); ta.select();
+      document.execCommand("copy"); ta.remove(); toast(t("toastCopiedInstall"));
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(cmd).then(() => toast(t("toastCopiedInstall")), fallback);
+    } else { fallback(); }
+  }
+
+  /* ---------- compare ---------- */
+  const isCompared = (repo) => state.compare.includes(repo);
+  function toggleCompare(repo) {
+    const i = state.compare.indexOf(repo);
+    if (i >= 0) state.compare.splice(i, 1);
+    else {
+      if (state.compare.length >= 3) { toast(t("compareFull")); return; }
+      state.compare.push(repo);
+    }
+    localStorage.setItem("ars-compare", JSON.stringify(state.compare));
+    renderCompareTray();
+    render();
+  }
+  const COMPARE_COLORS = ["var(--ars-teal)", "var(--ars-ember)", "var(--ars-gold)"];
+  function renderCompareTray() {
+    const tray = document.getElementById("compareTray");
+    if (!tray) return;
+    tray.hidden = state.compare.length === 0;
+    document.getElementById("compareChips").innerHTML = state.compare.map(esc).join(" · ");
+  }
+  function renderCompareChart() {
+    const host = document.getElementById("compareChart");
+    const repos = state.compare;
+    const series = repos.map((repo) => (hist.series && hist.series[repo]) || []);
+    const w = 640, h = 300, pad = 40;
+    const pctSeries = series.map((points) => {
+      if (!points.length) return [];
+      const base = points[0].stars || 1;
+      return points.map((p) => ((p.stars - base) / base) * 100);
+    });
+    const all = pctSeries.flat();
+    if (!all.length) {
+      host.innerHTML = `<p class="muted">${esc(t("noHistory"))}</p>`;
+      return;
+    }
+    const maxV = Math.max(0, ...all), minV = Math.min(0, ...all);
+    const range = maxV - minV || 1;
+    const nMax = Math.max(...pctSeries.map((p) => p.length), 2);
+    const x = (i, n) => pad + (i / (n - 1)) * (w - pad * 2);
+    const y = (v) => h - pad - ((v - minV) / range) * (h - pad * 2);
+    let svg = `<svg viewBox="0 0 ${w} ${h}" width="100%" role="img" aria-label="${esc(t("compareTitle"))}">`;
+    svg += `<line x1="${pad}" y1="${y(0)}" x2="${w - pad}" y2="${y(0)}" stroke="var(--ars-line)" stroke-dasharray="4 4"/>`;
+    pctSeries.forEach((pct, si) => {
+      if (pct.length < 2) return;
+      const poly = pct.map((v, i) => `${x(i, pct.length).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
+      svg += `<polyline points="${poly}" fill="none" stroke="${COMPARE_COLORS[si % 3]}" stroke-width="2"/>`;
+      svg += `<text x="${w - pad + 4}" y="${y(pct[pct.length - 1])}" font-size="11" fill="${COMPARE_COLORS[si % 3]}">${(si + 1)}</text>`;
+    });
+    svg += "</svg>";
+    const legend = repos.map((repo, i) => `<span class="cmp-legend"><i style="background:${COMPARE_COLORS[i % 3]}"></i>${i + 1}. ${esc(repo)}</span>`).join("");
+    host.innerHTML = svg + `<div class="cmp-legend-row">${legend}</div>`;
+  }
+  function openCompareModal() {
+    renderCompareChart();
+    const modal = document.getElementById("compareModal");
+    modal.hidden = false;
+    requestAnimationFrame(() => modal.classList.add("open"));
+    document.getElementById("compareClose").focus();
+  }
+  function closeCompareModal() {
+    const modal = document.getElementById("compareModal");
+    modal.classList.remove("open");
+    setTimeout(() => { modal.hidden = true; }, 200);
+  }
+  function clearCompare() {
+    state.compare = [];
+    localStorage.setItem("ars-compare", "[]");
+    renderCompareTray();
+    render();
+  }
+
   /* ---------- favorites ---------- */
   const isFav = (repo) => state.favorites.includes(repo);
   function toggleFav(repo) {
@@ -189,7 +313,7 @@
     w = w || 100; h = h || 28;
     const points = (hist.series && hist.series[repo]) || [];
     if (!points.length) {
-      return `<svg width="${w}" height="${h}" role="img" aria-label="${t("noHistory")}"><line x1="0" y1="${h / 2}" x2="${w}" y2="${h / 2}" stroke="var(--ars-line)" stroke-dasharray="3 3"/></svg>`;
+      return `<svg width="${w}" height="${h}" role="img" aria-label="${t("noHistory")}"><line x1="0" y1="${h / 2}" x2="${w}" y2="${h / 2}" stroke="var(--ars-rule)" stroke-dasharray="3 3"/></svg>`;
     }
     const stars = points.map((p) => p.stars);
     const min = Math.min(...stars), max = Math.max(...stars);
@@ -200,7 +324,7 @@
     const last = coords[coords.length - 1];
     const item = (data.items.find((it) => it.repo === repo) || {});
     const trendId = (item.trend || {}).id || "steady";
-    const color = trendId === "hot" ? "var(--ars-trend-hot-fg)" : trendId === "rising" ? "var(--ars-accent)" : "var(--ars-muted)";
+    const color = trendId === "hot" ? "var(--ars-ember)" : trendId === "rising" ? "var(--ars-teal)" : "var(--ars-faint)";
     const label = `${repo}: ${min}→${max} ⭐ (${points.length}d)`;
     return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(label)}">
       <title>${esc(label)}</title>
@@ -231,7 +355,7 @@
     return items;
   }
 
-  /* ---------- category strip ---------- */
+  /* ---------- category strip (research-stage order) ---------- */
   function renderCategoryStrip() {
     const c = document.getElementById("categoryStrip");
     const counts = new Map();
@@ -245,11 +369,17 @@
     all.innerHTML = `<strong>${fmt(data.items.length)}</strong><span>${t("allCategories")}</span>`;
     all.onclick = () => { state.category = "all"; document.getElementById("categoryFilter").value = "all"; syncHash(); render(); };
     c.appendChild(all);
-    Array.from(counts.values()).sort((a, b) => b.count - a.count).forEach(({ category, count }) => {
+    // Fixed research-stage order (选题→文献→实验→写作→评审→学科→综合) instead
+    // of count sorting, so the strip mirrors the actual research pipeline.
+    STAGE_ORDER.forEach((catId, idx) => {
+      const entry = counts.get(catId);
+      if (!entry) return;
+      const glyph = STAGE_GLYPHS[idx] || "";
       const card = document.createElement("button");
-      card.className = "category-card" + (state.category === category.id ? " active" : "");
-      card.innerHTML = `<strong>${fmt(count)}</strong><span>${state.lang === "zh" ? category.zh : category.en}</span>`;
-      card.onclick = () => { state.category = category.id; document.getElementById("categoryFilter").value = category.id; syncHash(); render(); };
+      card.className = "category-card" + (state.category === catId ? " active" : "");
+      card.title = state.lang === "zh" ? "按科研阶段浏览" : "Browse by research stage";
+      card.innerHTML = `<strong>${fmt(entry.count)}</strong><span>${glyph} ${state.lang === "zh" ? entry.category.zh : entry.category.en}</span>`;
+      card.onclick = () => { state.category = catId; document.getElementById("categoryFilter").value = catId; syncHash(); render(); };
       c.appendChild(card);
     });
   }
@@ -295,11 +425,14 @@
       const d7 = SAFE(item.star_delta_7d, SAFE(item.star_delta_1d, 0)) || 0;
       const topics = (item.topics || []).slice(0, 3).join(", ");
       const fav = isFav(item.repo) ? "on" : "";
+      const cmp = isCompared(item.repo) ? "on" : "";
+      const badges = repoMetaBadges(item);
       tr.innerHTML = `
         <td class="rank-cell">${item.rank}</td>
         <td class="repo-cell">
           <a href="${esc(item.url)}" target="_blank" rel="noreferrer">${esc(item.repo)}</a>
           <span class="repo-meta">${esc(item.language || "GitHub")}${topics ? " · " + esc(topics) : ""}</span>
+          ${badges ? `<span class="repo-badges">${badges}</span>` : ""}
         </td>
         <td class="stars">${fmt(item.stars)}${d7 ? `<span class="delta-chip">+${fmt(d7)}</span>` : ""}</td>
         <td><span class="trend-mark ${trendId}"><span class="glyph">${glyph}</span><span class="label">${trendName(item)}</span></span></td>
@@ -307,17 +440,20 @@
         <td><span class="category-pill">${catName(item)}</span></td>
         <td class="description-cell">${esc(item.description || "")}</td>
         <td>${esc(item.last_push_date || "")}</td>
-        <td><button class="fav-star ${fav}" data-fav="${esc(item.repo)}" aria-label="favorite" aria-pressed="${fav === "on"}">★</button></td>`;
+        <td class="row-actions"><button class="fav-star ${fav}" data-fav="${esc(item.repo)}" aria-label="favorite" aria-pressed="${fav === "on"}">★</button><button class="cmp-btn ${cmp}" data-cmp="${esc(item.repo)}" aria-label="compare" aria-pressed="${cmp === "on"}" title="${esc(t("compareTray"))}">⇄</button></td>`;
       tr.addEventListener("click", (e) => {
-        if (e.target.closest(".fav-star") || e.target.closest("a")) return;
+        if (e.target.closest(".fav-star") || e.target.closest(".cmp-btn") || e.target.closest("a")) return;
         openDrawer(item.repo);
       });
       tr.addEventListener("keydown", (e) => { if (e.key === "Enter") openDrawer(item.repo); });
       body.appendChild(tr);
     });
-    // attach favorite handlers
+    // attach favorite / compare handlers
     body.querySelectorAll(".fav-star").forEach((b) => {
       b.addEventListener("click", (e) => { e.stopPropagation(); toggleFav(b.dataset.fav); });
+    });
+    body.querySelectorAll(".cmp-btn").forEach((b) => {
+      b.addEventListener("click", (e) => { e.stopPropagation(); toggleCompare(b.dataset.cmp); });
     });
   }
 
@@ -334,6 +470,7 @@
       const glyph = trendId === "hot" ? "∧" : trendId === "rising" ? "↗" : "—";
       const rankCls = item.rank <= 3 ? "gold" : "";
       const fav = isFav(item.repo) ? "on" : "";
+      const cmp = isCompared(item.repo) ? "on" : "";
       const card = document.createElement("article");
       card.className = "repo-card";
       card.style.animationDelay = (idx % 20) * 0.02 + "s";
@@ -344,7 +481,7 @@
           <div>
             <span class="card-rank ${rankCls}">${item.rank}</span>
           </div>
-          <button class="fav-star ${fav}" data-fav="${esc(item.repo)}" aria-label="favorite" aria-pressed="${fav === "on"}">★</button>
+          <span class="card-actions"><button class="cmp-btn ${cmp}" data-cmp="${esc(item.repo)}" aria-label="compare" aria-pressed="${cmp === "on"}" title="${esc(t("compareTray"))}">⇄</button><button class="fav-star ${fav}" data-fav="${esc(item.repo)}" aria-label="favorite" aria-pressed="${fav === "on"}">★</button></span>
         </div>
         <a class="card-name" href="${esc(item.url)}" target="_blank" rel="noreferrer">${esc(item.repo)}</a>
         <div class="card-pills">
@@ -357,9 +494,10 @@
         <div class="card-meta">
           <span>${esc(item.language || "GitHub")}</span>
           <span>${esc(item.last_push_date || "")}</span>
-        </div>`;
+        </div>
+        ${(() => { const b = repoMetaBadges(item); return b ? `<div class="repo-badges">${b}</div>` : ""; })()}`;
       card.addEventListener("click", (e) => {
-        if (e.target.closest(".fav-star") || e.target.closest("a")) return;
+        if (e.target.closest(".fav-star") || e.target.closest(".cmp-btn") || e.target.closest("a")) return;
         openDrawer(item.repo);
       });
       card.addEventListener("keydown", (e) => { if (e.key === "Enter") openDrawer(item.repo); });
@@ -367,6 +505,9 @@
     });
     grid.querySelectorAll(".fav-star").forEach((b) => {
       b.addEventListener("click", (e) => { e.stopPropagation(); toggleFav(b.dataset.fav); });
+    });
+    grid.querySelectorAll(".cmp-btn").forEach((b) => {
+      b.addEventListener("click", (e) => { e.stopPropagation(); toggleCompare(b.dataset.cmp); });
     });
   }
 
@@ -391,7 +532,12 @@
   }
   function openDrawer(repo) {
     const item = data.items.find((i) => i.repo === repo);
-    if (!item) return;
+    if (!item) {
+      state.repo = null;
+      syncHash();
+      return;
+    }
+    state.repo = repo;
     const d7 = SAFE(item.star_delta_7d, 0) || 0;
     const d1 = SAFE(item.star_delta_1d, 0) || 0;
     const d30 = SAFE(item.star_delta_30d, d7);
@@ -402,17 +548,21 @@
     const foot = [
       `<a class="data-link" href="${esc(item.url)}" target="_blank" rel="noreferrer">${t("drOpenRepo")} ↗</a>`,
       item.homepage ? `<a class="data-link" href="${esc(item.homepage)}" target="_blank" rel="noreferrer">${t("drHomepage")} ↗</a>` : "",
+      `<button class="data-link" type="button" id="copyInstallBtn" title="${esc(installCommand(item.repo))}">${t("copyInstall")}</button>`,
       `<button class="data-link" type="button" id="copyMdBtn">${t("drCopyMd")}</button>`,
       `<a class="data-link" href="${esc(suggestUrl)}" target="_blank" rel="noreferrer">${t("drSuggest")} ↗</a>`,
     ].join("");
     document.getElementById("drawerEyebrow").textContent = `${t("drEyebrow")} #${item.rank} · ${catName(item)}`;
     document.getElementById("drawerTitle").textContent = item.repo;
+    const drawerBadges = repoMetaBadges(item);
     document.getElementById("drawerBody").innerHTML = `
       <div class="drawer-field"><div class="lbl">${t("drDescription")}</div><div class="val serif">${esc(item.description || "")}</div></div>
+      ${drawerBadges ? `<div class="repo-badges">${drawerBadges}</div>` : ""}
       <div class="stat-row">
         <div class="sb"><div class="n">${fmt(item.stars)}</div><div class="k">${t("stars")}</div></div>
         <div class="sb"><div class="n">+${fmt(d7)}</div><div class="k">${t("drDelta7d")}</div></div>
         <div class="sb"><div class="n">+${fmt(d30)}</div><div class="k">${t("drDelta30d")}</div></div>
+        <div class="sb"><div class="n">${item.skills_count === undefined || item.skills_count === null ? "-" : fmt(item.skills_count)}</div><div class="k">${t("skillsCount")}</div></div>
       </div>
       <div class="drawer-field"><div class="lbl">${t("drAgent")}</div><div class="agent-chips">${agentChips(item)}</div></div>
       <div class="drawer-field"><div class="lbl">${t("drTopics")}</div><div class="drawer-topics">${topics || "-"}</div></div>
@@ -430,12 +580,19 @@
     document.getElementById("drawerFoot").innerHTML = foot;
     const copyBtn = document.getElementById("copyMdBtn");
     if (copyBtn) copyBtn.addEventListener("click", () => copyAsMarkdown(item));
+    const installBtn = document.getElementById("copyInstallBtn");
+    if (installBtn) installBtn.addEventListener("click", () => copyInstall(item));
     const drawer = document.getElementById("drawer");
     drawer.hidden = false;
     requestAnimationFrame(() => drawer.classList.add("open"));
     document.getElementById("drawerClose").focus();
+    syncHash();
   }
   function closeDrawer() {
+    if (state.repo) {
+      state.repo = null;
+      syncHash();
+    }
     const drawer = document.getElementById("drawer");
     drawer.classList.remove("open");
     setTimeout(() => { drawer.hidden = true; }, 280);
@@ -469,6 +626,7 @@
     if (state.lang !== "zh") p.set("lang", state.lang);
     if (state.theme !== "light") p.set("theme", state.theme);
     if (state.favOnly) p.set("fav", "1");
+    if (state.repo) p.set("repo", state.repo);
     const h = p.toString();
     history.replaceState(null, "", h ? "#" + h : location.pathname);
   }
@@ -482,6 +640,7 @@
     if (m.has("lang")) state.lang = m.get("lang");
     if (m.has("theme")) state.theme = m.get("theme");
     if (m.has("fav")) state.favOnly = m.get("fav") === "1";
+    state.repo = m.get("repo");
     // reflect into controls
     const si = document.getElementById("searchInput"); if (si) si.value = state.query;
     const cf = document.getElementById("categoryFilter"); if (cf) cf.value = state.category;
@@ -618,6 +777,10 @@
     document.getElementById("sortSelect").addEventListener("change", (e) => { state.sort = e.target.value; render(); });
     document.getElementById("drawerClose").addEventListener("click", closeDrawer);
     document.getElementById("drawerScrim").addEventListener("click", closeDrawer);
+    document.getElementById("compareOpen").addEventListener("click", openCompareModal);
+    document.getElementById("compareClear").addEventListener("click", clearCompare);
+    document.getElementById("compareClose").addEventListener("click", closeCompareModal);
+    document.getElementById("compareScrim").addEventListener("click", closeCompareModal);
     document.getElementById("exportFav").addEventListener("click", () => {
       const favs = data.items.filter((i) => isFav(i.repo)).map((i) => ({ repo: i.repo, stars: i.stars, url: i.url, category: i.category.en }));
       const blob = new Blob([JSON.stringify({ exported_at: new Date().toISOString(), favorites: favs }, null, 2)], { type: "application/json" });
@@ -628,10 +791,14 @@
       URL.revokeObjectURL(a.href);
     });
     window.addEventListener("hashchange", () => {
-      const prevLang = state.lang, prevTheme = state.theme;
+      const prevLang = state.lang, prevTheme = state.theme, prevRepo = state.repo;
       readHash();
       if (state.theme !== prevTheme) { applyTheme(); localStorage.setItem("ars-theme", state.theme); }
       if (state.lang !== prevLang) { setLanguage(state.lang); return; }
+      if (state.repo !== prevRepo) {
+        if (state.repo) openDrawer(state.repo);
+        else closeDrawer();
+      }
       // setView re-renders; calling render() here too would render twice.
       setView(state.view);
     });
@@ -639,7 +806,12 @@
     document.addEventListener("keydown", (e) => {
       const tag = (e.target.tagName || "").toLowerCase();
       const typing = tag === "input" || tag === "select" || tag === "textarea";
-      if (e.key === "Escape") { closeDrawer(); return; }
+      if (e.key === "Escape") {
+        const modal = document.getElementById("compareModal");
+        if (modal && !modal.hidden) { closeCompareModal(); return; }
+        closeDrawer();
+        return;
+      }
       if (typing) return;
       if (e.key === "/") { e.preventDefault(); document.getElementById("searchInput").focus(); }
       else if (e.key === "t") toggleTheme();
@@ -657,4 +829,7 @@
   wire();
   setView(state.view);
   setLanguage(state.lang);
+  renderCompareTray();
+  // Deep link (#repo=owner/name) → open the drawer after first render.
+  if (state.repo) openDrawer(state.repo);
 })();

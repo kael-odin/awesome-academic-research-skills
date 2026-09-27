@@ -26,7 +26,7 @@ python scripts/update_rankings.py
 python -m unittest discover -s tests -v
 ```
 
-4. 提交 PR，说明推荐理由。
+4. 提交 PR，说明推荐理由。CI 会自动核验：PR 机器人会核对每个新增种子仓库的 Stars / fork / 归档状态并评论结果，`ci.yml` 会跑完整测试。
 
 ## 改进规则
 

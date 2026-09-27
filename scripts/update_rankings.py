@@ -32,6 +32,7 @@ HISTORY_JS_PATH = ROOT / "data" / "history.js"
 CSV_PATH = ROOT / "data" / "rankings.csv"
 README_PATH = ROOT / "README.md"
 HISTORY_DIR = ROOT / "data" / "history"
+REPORTS_DIR = ROOT / "reports"
 SITEMAP_PATH = ROOT / "sitemap.xml"
 FEED_PATH = ROOT / "feed.xml"
 OG_COVER_PATH = ROOT / "assets" / "og-cover.svg"
@@ -266,6 +267,31 @@ NEGATIVE_TERMS = [
     "meal",
     "travel",
 ]
+
+# Signals that a repository verifies the citations/references it produces —
+# the single most differentiating quality feature for literature/deep-research
+# skills, where hallucinated references are the dominant failure mode.
+CITATION_VERIFICATION_TERMS = [
+    "citation verif",
+    "verified citation",
+    "citations verified",
+    "citation valid",
+    "reference verif",
+    "references verified",
+    "引用核验",
+    "引用验证",
+    "文献核验",
+    "零幻觉",
+    "zero hallucinat",
+    "no hallucinated",
+    "hallucination-free",
+    "fact-check",
+    "source validation",
+]
+
+# A repository counts as stale (likely unmaintained) when it has not been
+# pushed for this many days AND gained no stars in the 7-day window.
+STALE_PUSH_DAYS = 30
 
 CATEGORIES = [
     {
@@ -568,6 +594,8 @@ def rank_repositories(
                 "agents": agents,
                 "precision_signals": sorted(set(reasons)),
                 # Enrichment (only added, never removed from the legacy set).
+                "stale": is_stale(repo, star_delta_7d, now),
+                "verifies_citations": verifies_citations(repo),
                 "forks": int(repo.get("forksCount") or 0),
                 "open_issues": int(repo.get("openIssuesCount") or 0),
                 "watchers": int(repo.get("watchersCount") or 0),
@@ -860,6 +888,60 @@ def detect_agents(repo: dict[str, Any]) -> list[str]:
     return found
 
 
+def verifies_citations(repo: dict[str, Any]) -> bool:
+    """Whether the repo advertises citation/reference verification."""
+    corpus = text_corpus(repo)
+    return any(term in corpus for term in CITATION_VERIFICATION_TERMS)
+
+
+def is_stale(repo: dict[str, Any], star_delta_7d: int, now: datetime) -> bool:
+    """Likely-unmaintained heuristic: no push in STALE_PUSH_DAYS and zero
+    7-day star growth. Deliberately conservative — both conditions together."""
+    pushed_at = parse_datetime(repo.get("pushedAt"))
+    if not pushed_at:
+        return False
+    days_since_push = (now - pushed_at).total_seconds() / 86400
+    return days_since_push >= STALE_PUSH_DAYS and star_delta_7d <= 0
+
+
+def count_skill_files_in_tree(tree: list[Any]) -> int:
+    """Count SKILL.md entries in a git-tree payload (pure, testable)."""
+    return sum(
+        1
+        for node in tree
+        if isinstance(node, dict)
+        and str(node.get("path", "")).rsplit("/", 1)[-1].lower() == "skill.md"
+    )
+
+
+def count_skill_files(full_name: str, branch: str, token: str | None) -> int | None:
+    """Count SKILL.md files in a repository via the git trees API.
+
+    Returns ``None`` when the tree cannot be fetched (missing repo, network,
+    rate limit after retries). For very large trees GitHub may return
+    ``truncated: true`` — the count is then a lower bound, which is fine for
+    display purposes.
+    """
+    try:
+        data = github_request(
+            f"/repos/{full_name}/git/trees/{branch or 'HEAD'}",
+            token,
+            {"recursive": "1"},
+        )
+    except (urllib.error.HTTPError, urllib.error.URLError) as error:
+        print(f"warning: skill tree fetch failed for {full_name}: {error}", file=sys.stderr)
+        return None
+    return count_skill_files_in_tree(data.get("tree") or [])
+
+
+def enrich_skill_counts(items: list[dict[str, Any]], token: str | None) -> None:
+    """Attach `skills_count` to each ranked item (only-add enrichment)."""
+    for item in items:
+        branch = item.get("default_branch") or ""
+        item["skills_count"] = count_skill_files(item["repo"], branch, token)
+        time.sleep(0.15)
+
+
 # Map a backend platform id to a short human label for README / display.
 _AGENT_LABELS = {
     "claude-code": "Claude",
@@ -948,7 +1030,7 @@ def render_readme(data: dict[str, Any], window_snapshot: dict[str, Any] | None =
 [![License: MIT](https://img.shields.io/badge/license-MIT-22c55e)](LICENSE)
 [![Auto update](https://img.shields.io/badge/auto%20update-daily-6366f1)](.github/workflows/update-rankings.yml)
 
-[English](#english) · [可视化页面](https://kael-odin.github.io/awesome-academic-research-skills/) · [JSON](data/rankings.json) · [CSV](data/rankings.csv) · [RSS](feed.xml) · [Sitemap](sitemap.xml) · [排名方法](docs/methodology.md) · [更新日志](docs/changelog.md) · [贡献指南](CONTRIBUTING.md)
+[English](#english) · [可视化页面](https://kael-odin.github.io/awesome-academic-research-skills/) · [English Dashboard](https://kael-odin.github.io/awesome-academic-research-skills/en/) · [月报](reports/) · [JSON](data/rankings.json) · [CSV](data/rankings.csv) · [RSS](feed.xml) · [Sitemap](sitemap.xml) · [排名方法](docs/methodology.md) · [更新日志](docs/changelog.md) · [贡献指南](CONTRIBUTING.md)
 
 ## 项目特色
 
@@ -1058,6 +1140,9 @@ def render_csv(items: list[dict[str, Any]]) -> None:
                 "forks",
                 "open_issues",
                 "agents",
+                "skills_count",
+                "stale",
+                "verifies_citations",
                 "last_push_date",
                 "url",
             ],
@@ -1082,6 +1167,9 @@ def render_csv(items: list[dict[str, Any]]) -> None:
                     "forks": item.get("forks", 0),
                     "open_issues": item.get("open_issues", 0),
                     "agents": "|".join(item.get("agents", [])),
+                    "skills_count": "" if item.get("skills_count") is None else item["skills_count"],
+                    "stale": bool(item.get("stale", False)),
+                    "verifies_citations": bool(item.get("verifies_citations", False)),
                     "last_push_date": item["last_push_date"],
                     "url": item["url"],
                 }
@@ -1105,12 +1193,18 @@ def write_outputs(data: dict[str, Any], window_snapshot: dict[str, Any] | None =
     DATA_JS_PATH.write_text(render_data_js(data), encoding="utf-8")
     history = load_history_snapshots()
     HISTORY_JS_PATH.write_text(render_history_js(render_history_series(history)), encoding="utf-8")
+    build_monthly_reports(history)
     render_csv(data["items"])
     README_PATH.write_text(render_readme(data, window_snapshot=window_snapshot), encoding="utf-8")
     write_seo_assets(data, window_snapshot=window_snapshot)
 
 
-def build_dataset(config: dict[str, Any], repos: list[dict[str, Any]]) -> tuple[dict[str, Any], dict[str, Any] | None]:
+def build_dataset(
+    config: dict[str, Any],
+    repos: list[dict[str, Any]],
+    token: str | None = None,
+    enrich_skills: bool = True,
+) -> tuple[dict[str, Any], dict[str, Any] | None]:
     min_stars = int(config.get("min_stars", DEFAULT_MIN_STARS))
     now = utc_now()
     previous = load_previous_snapshot()
@@ -1135,6 +1229,9 @@ def build_dataset(config: dict[str, Any], repos: list[dict[str, Any]]) -> tuple[
     items = items[:max_results]
     for index, item in enumerate(items, start=1):
         item["rank"] = index
+
+    if enrich_skills:
+        enrich_skill_counts(items, token)
 
     generated_at = now.replace(microsecond=0).isoformat().replace("+00:00", "Z")
     data = {
@@ -1187,6 +1284,157 @@ def render_history_series(history: dict[str, dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def render_month_report(
+    month: str,
+    history: dict[str, dict[str, dict[str, Any]]],
+    first_seen: dict[str, str],
+    prev_repos: set[str],
+    all_months: list[str],
+) -> str | None:
+    """Render one monthly report page (新星 / 上升 / 停滞 / 跌出) as static HTML."""
+    dates = sorted(key for key in history if key.startswith(month))
+    if not dates:
+        return None
+    first_snap = history[dates[0]]
+    last_snap = history[dates[-1]]
+
+    rows: list[dict[str, Any]] = []
+    for repo, item in last_snap.items():
+        stars_last = previous_stars(item)
+        if stars_last is None:
+            continue
+        stars_first = previous_stars(first_snap.get(repo, {}))
+        base = stars_first if stars_first is not None else stars_last
+        rows.append(
+            {
+                "repo": repo,
+                "stars": stars_last,
+                "delta": stars_last - base,
+                "item": item,
+            }
+        )
+
+    is_newcomer_month = lambda repo: first_seen.get(repo, "")[:7] == month  # noqa: E731
+    newcomers = [r for r in rows if is_newcomer_month(r["repo"])]
+    risers = sorted((r for r in rows if r["delta"] > 0), key=lambda r: -r["delta"])[:10]
+    stalled = [r for r in rows if r["delta"] <= 0 and not is_newcomer_month(r["repo"])]
+    dropped = sorted(prev_repos - set(last_snap))
+
+    def table(entries: list[dict[str, Any]]) -> str:
+        if not entries:
+            return "<p class='muted'>本月无条目。</p>"
+        body = "".join(
+            f"<tr><td>{i}</td><td><a href='{r['item'].get('url', '#')}'>{xml_escape(r['repo'])}</a></td>"
+            f"<td>{r['stars']:,}</td><td>{r['delta']:+d}</td><td>{xml_escape(r['item'].get('category', {}).get('zh', ''))}</td></tr>"
+            for i, r in enumerate(entries, 1)
+        )
+        return (
+            "<table><thead><tr><th>#</th><th>仓库</th><th>月末 Stars</th>"
+            "<th>月增量</th><th>分类</th></tr></thead>"
+            f"<tbody>{body}</tbody></table>"
+        )
+
+    dropped_html = (
+        "<ul>"
+        + "".join(f"<li>{xml_escape(repo)}</li>" for repo in dropped)
+        + "</ul>"
+        if dropped
+        else "<p class='muted'>本月无跌出仓库。</p>"
+    )
+    nav = " · ".join(
+        f"<a href='{m}.html'>{m}</a>" if m != month else f"<b>{m}</b>" for m in all_months
+    )
+    total_stars = sum(r["stars"] for r in rows)
+    return f"""<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{month} 月度报告 · Awesome Academic Research Skills</title>
+<link rel="stylesheet" href="../assets/styles.css" />
+<link rel="canonical" href="{SITE_URL}/reports/{month}.html" />
+</head>
+<body>
+<main style="max-width:960px;margin:0 auto;padding:32px 20px">
+<p><a href="../">← 返回排行榜</a></p>
+<h1>{month} 月度报告</h1>
+<p class="muted">收录 {len(rows)} 个仓库 · 合计 {total_stars:,}★ · 报告期 {dates[0]} → {dates[-1]}</p>
+<nav>{nav}</nav>
+
+<h2>🆕 本月新收录（{len(newcomers)}）</h2>
+{table(newcomers)}
+<h2>📈 月度上升前 10</h2>
+{table(risers)}
+<h2>⏸️ 增长停滞（{len(stalled)}）</h2>
+{table(stalled)}
+<h2>🚪 本月跌出（{len(dropped)}）</h2>
+{dropped_html}
+
+<footer style="margin-top:32px"><a href="../feed.xml">RSS 订阅</a> · <a href="../index.html">可视化榜单</a> · 数据基于每日快照自动生成</footer>
+</main>
+</body>
+</html>
+"""
+
+
+def build_monthly_reports(history: dict[str, dict[str, dict[str, Any]]]) -> None:
+    """Render per-month report pages under ``reports/``.
+
+    Past months are frozen (written once) so the 60-day snapshot retention
+    never degrades an already-published report; only the current month
+    regenerates on every run.
+    """
+    months = sorted({key[:7] for key in history})
+    if not months:
+        return
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    current_month = utc_now().strftime("%Y-%m")
+
+    first_seen: dict[str, str] = {}
+    for date_key in sorted(history):
+        for repo in history[date_key]:
+            first_seen.setdefault(repo, date_key)
+
+    for index, month in enumerate(months):
+        month_page = REPORTS_DIR / f"{month}.html"
+        if month_page.exists() and month != current_month:
+            continue
+        prev_repos: set[str] = set()
+        if index > 0:
+            prev_dates = sorted(key for key in history if key.startswith(months[index - 1]))
+            if prev_dates:
+                prev_repos = set(history[prev_dates[-1]])
+        report = render_month_report(month, history, first_seen, prev_repos, months)
+        if report:
+            month_page.write_text(report, encoding="utf-8")
+
+    links = "".join(f"<li><a href='{m}.html'>{m}</a></li>" for m in reversed(months))
+    (REPORTS_DIR / "index.html").write_text(
+        f"""<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>月度报告 · Awesome Academic Research Skills</title>
+<link rel="stylesheet" href="../assets/styles.css" />
+<link rel="canonical" href="{SITE_URL}/reports/" />
+</head>
+<body>
+<main style="max-width:720px;margin:0 auto;padding:32px 20px">
+<p><a href="../">← 返回排行榜</a></p>
+<h1>月度报告</h1>
+<p class="muted">每月自动总结：新收录、上升、停滞与跌出的仓库。</p>
+<ul>
+{links}
+</ul>
+</main>
+</body>
+</html>
+""",
+        encoding="utf-8",
+    )
+
+
 def xml_escape(value: str) -> str:
     return (
         (value or "")
@@ -1203,6 +1451,8 @@ def render_sitemap(data: dict[str, Any]) -> str:
     lastmod = (data.get("metadata", {}).get("generated_at") or "")[:10]
     urls = [
         ("", lastmod, "1.0", "daily"),
+        ("en/", lastmod, "0.9", "daily"),
+        ("reports/", lastmod, "0.6", "weekly"),
         ("data/rankings.json", lastmod, "0.5", "daily"),
         ("data/rankings.csv", lastmod, "0.4", "daily"),
         ("docs/methodology.md", lastmod, "0.4", "monthly"),
@@ -1355,11 +1605,11 @@ def main() -> int:
     config = load_config(Path(args.config))
     if args.offline_fixture:
         repos = load_json(Path(args.offline_fixture), [])
+        data, window_snapshot = build_dataset(config, repos, enrich_skills=False)
     else:
         token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
         repos = collect_repositories(config, token)
-
-    data, window_snapshot = build_dataset(config, repos)
+        data, window_snapshot = build_dataset(config, repos, token=token)
     write_outputs(data, window_snapshot=window_snapshot)
     print(f"updated {len(data['items'])} repositories at {data['metadata']['generated_at']}")
     return 0

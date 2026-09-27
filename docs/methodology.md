@@ -60,7 +60,8 @@
 
 - 基础：`repo`、`stars`、`star_delta_1d` / `star_delta_7d` / `star_delta_30d`、`trend_score`、`trend`、`category`、`description`、`language`、`topics`、`url`、`homepage`。
 - 丰富：`forks`、`open_issues`、`watchers`、`size_kb`、`default_branch`、`has_issues`、`has_wiki`、`has_discussions`、`license`（含 `key` / `name` / `spdx_id`）。
-- 审计：`precision_signals`（命中的精准过滤信号，便于复现与调试）。
+- 质量：`skills_count`（git trees API 统计的 `SKILL.md` 数量，抓取失败为 `null`）、`stale`（≥30 天无 push 且 7 天零增长）、`verifies_citations`（描述/主题命中引用核验类关键词）。
+- 审计：`precision_signals`（命中的精准过滤信号，便于复现与调试）、`exclude_repositories`（永远不入榜的仓库，如榜单自身）。
 
 所有字段均为**只新增不删除**，旧消费者向前兼容。CSV（`data/rankings.csv`）包含上述基础 + 丰富字段的扁平子集。
 

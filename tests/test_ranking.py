@@ -6,16 +6,20 @@ from email.utils import parsedate_to_datetime
 from scripts.update_rankings import (
     classify_repo,
     compute_trend_score,
+    count_skill_files_in_tree,
     detect_agents,
     agents_to_label,
     find_window_snapshot,
     is_academic_skill_repo,
+    is_stale,
     rank_repositories,
     render_data_js,
     render_feed,
     render_history_series,
+    render_month_report,
     render_readme,
     render_sitemap,
+    verifies_citations,
 )
 
 
@@ -553,6 +557,82 @@ class RankingRulesTest(unittest.TestCase):
 
         self.assertTrue(payload.startswith("window.ACADEMIC_SKILLS_RANKINGS={"))
         self.assertNotIn(": ", payload)
+
+    def test_counts_skill_files_in_tree(self):
+        tree = [
+            {"path": "SKILL.md"},
+            {"path": "skills/writing/SKILL.md"},
+            {"path": "skills/review/Skill.MD"},
+            {"path": "README.md"},
+            {"path": "skills/writing/SKILL.md.bak"},
+            "not-a-dict",
+        ]
+        self.assertEqual(count_skill_files_in_tree(tree), 3)
+
+    def test_stale_requires_old_push_and_zero_growth(self):
+        now = datetime(2026, 9, 27, tzinfo=timezone.utc)
+        old_push = {"pushedAt": "2026-08-01T00:00:00Z"}
+        fresh_push = {"pushedAt": "2026-09-25T00:00:00Z"}
+
+        self.assertTrue(is_stale(old_push, star_delta_7d=0, now=now))
+        self.assertFalse(is_stale(fresh_push, star_delta_7d=0, now=now))
+        # Old push but still growing → not stale.
+        self.assertFalse(is_stale(old_push, star_delta_7d=5, now=now))
+
+    def test_stale_and_citation_fields_in_ranked_output(self):
+        ranked = rank_repositories(
+            [
+                {
+                    "nameWithOwner": "example/old-unverified",
+                    "description": "Academic paper writing skill",
+                    "repositoryTopics": {"nodes": []},
+                    "stargazerCount": 150,
+                    "pushedAt": "2026-05-01T00:00:00Z",
+                    "createdAt": "2026-01-01T00:00:00Z",
+                    "url": "https://github.com/example/old-unverified",
+                },
+                {
+                    "nameWithOwner": "example/verified",
+                    "description": "Literature review skill with verified citations, zero hallucinated references",
+                    "repositoryTopics": {"nodes": []},
+                    "stargazerCount": 160,
+                    "pushedAt": "2026-06-29T00:00:00Z",
+                    "createdAt": "2026-01-01T00:00:00Z",
+                    "url": "https://github.com/example/verified",
+                },
+            ],
+            min_stars=100,
+            previous_snapshot={},
+            now=datetime(2026, 7, 1, tzinfo=timezone.utc),
+        )
+        by_repo = {item["repo"]: item for item in ranked}
+        self.assertTrue(by_repo["example/old-unverified"]["stale"])
+        self.assertFalse(by_repo["example/old-unverified"]["verifies_citations"])
+        self.assertFalse(by_repo["example/verified"]["stale"])
+        self.assertTrue(by_repo["example/verified"]["verifies_citations"])
+
+    def test_verifies_citations_detects_chinese_terms(self):
+        repo = {
+            "nameWithOwner": "example/zh-skill",
+            "description": "文献综述 skill，所有引用逐条核验，零幻觉参考文献",
+            "repositoryTopics": {"nodes": []},
+        }
+        self.assertTrue(verifies_citations(repo))
+
+    def test_month_report_renders_sections(self):
+        history = {
+            "2026-09-01": {"example/a": {"stars": 100}},
+            "2026-09-30": {"example/a": {"stars": 130}, "example/b": {"stars": 60}},
+            "2026-08-31": {"example/gone": {"stars": 200}},
+        }
+        first_seen = {"example/a": "2026-08-01", "example/b": "2026-09-30", "example/gone": "2026-08-01"}
+
+        report = render_month_report("2026-09", history, first_seen, {"example/gone"}, ["2026-09"])
+
+        self.assertIn("本月新收录", report)
+        self.assertIn("example/b", report)  # newcomer
+        self.assertIn("example/a", report)  # riser +30
+        self.assertIn("example/gone", report)  # dropped
 
 
 if __name__ == "__main__":
