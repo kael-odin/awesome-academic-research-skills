@@ -5,15 +5,15 @@
     <link>https://kael-odin.github.io/awesome-academic-research-skills/</link>
     <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 27 Sep 2026 03:03:45 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 27 Sep 2026 03:33:13 +0000</lastBuildDate>
     <atom:link href="https://kael-odin.github.io/awesome-academic-research-skills/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>ChenLiu-1996/figures4papers (7,370★, +1/7d)</title>
+      <title>ChenLiu-1996/figures4papers (7,371★, +1/7d)</title>
       <link>https://github.com/ChenLiu-1996/figures4papers</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#ChenLiu-1996/figures4papers</guid>
       <description>My Python scripts to make high-quality figures for publications in top AI conferences and journals.</description>
       <category>Discipline Specific</category>
-      <pubDate>Sun, 27 Sep 2026 03:03:45 +0000</pubDate>
+      <pubDate>Sun, 27 Sep 2026 03:33:13 +0000</pubDate>
     </item>
     <item>
       <title>yilewang/llm-for-zotero (3,156★, +0/7d)</title>
@@ -21,7 +21,7 @@
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#yilewang/llm-for-zotero</guid>
       <description>An open-source research agent system for your Zotero library.</description>
       <category>General Research</category>
-      <pubDate>Sun, 27 Sep 2026 03:03:45 +0000</pubDate>
+      <pubDate>Sun, 27 Sep 2026 03:33:13 +0000</pubDate>
     </item>
     <item>
       <title>openags/paper-search-mcp (2,706★, +0/7d)</title>
@@ -29,7 +29,7 @@
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#openags/paper-search-mcp</guid>
       <description>MCP, CLI, Skills for searching and downloading academic papers from multiple sources like arXiv, PubMed, bioRxiv, etc.</description>
       <category>General Research</category>
-      <pubDate>Sun, 27 Sep 2026 03:03:45 +0000</pubDate>
+      <pubDate>Sun, 27 Sep 2026 03:33:13 +0000</pubDate>
     </item>
     <item>
       <title>llmsresearch/paperbanana (2,384★, +0/7d)</title>
@@ -37,15 +37,15 @@
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#llmsresearch/paperbanana</guid>
       <description>Open source implementation and extension of Google Research’s PaperBanana for automated academic figures, diagrams, and research visuals, expanded to new domains like slide generation.</description>
       <category>General Research</category>
-      <pubDate>Sun, 27 Sep 2026 03:03:45 +0000</pubDate>
+      <pubDate>Sun, 27 Sep 2026 03:33:13 +0000</pubDate>
     </item>
     <item>
-      <title>yb2460/harness-anything (2,076★, +1/7d)</title>
+      <title>yb2460/harness-anything (2,076★, +0/7d)</title>
       <link>https://github.com/yb2460/harness-anything</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#yb2460/harness-anything</guid>
       <description>Harness Anything - AI agent control hub: WPS, MS Office, Zotero, Photoshop, 47 CLI commands, 27 academic skills, SVG-to-PPTX</description>
       <category>Literature Review</category>
-      <pubDate>Sun, 27 Sep 2026 03:03:45 +0000</pubDate>
+      <pubDate>Sun, 27 Sep 2026 03:33:13 +0000</pubDate>
     </item>
     <item>
       <title>delibae/claude-prism (1,785★, +0/7d)</title>
@@ -53,15 +53,15 @@
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#delibae/claude-prism</guid>
       <description>An offline-first scientific writing workspace powered by Claude. LaTeX + Python + 100+ scientific skills all running locally.</description>
       <category>General Research</category>
-      <pubDate>Sun, 27 Sep 2026 03:03:45 +0000</pubDate>
+      <pubDate>Sun, 27 Sep 2026 03:33:13 +0000</pubDate>
     </item>
     <item>
-      <title>Adkid-Zephyr/anti-defensive-writing-Skill (1,776★, +0/7d)</title>
+      <title>Adkid-Zephyr/anti-defensive-writing-Skill (1,779★, +3/7d)</title>
       <link>https://github.com/Adkid-Zephyr/anti-defensive-writing-Skill</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Adkid-Zephyr/anti-defensive-writing-Skill</guid>
       <description>极致轻量｜阻止论文的防御性写作 | Anti-defensive writing for academic papers — 学术写作原则 Skill + prompt pack (CN/EN)</description>
       <category>Paper Writing</category>
-      <pubDate>Sun, 27 Sep 2026 03:03:45 +0000</pubDate>
+      <pubDate>Sun, 27 Sep 2026 03:33:13 +0000</pubDate>
     </item>
     <item>
       <title>AIScientists-Dev/academic-humanizer (1,707★, +0/7d)</title>
@@ -69,7 +69,7 @@
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#AIScientists-Dev/academic-humanizer</guid>
       <description>Strip AI-writing tells from papers and grant proposals (NSF/NIH), while keeping scholarly voice and tying claims to evidence. A skill for Claude Code, Codex, and MorphMind.</description>
       <category>General Research</category>
-      <pubDate>Sun, 27 Sep 2026 03:03:45 +0000</pubDate>
+      <pubDate>Sun, 27 Sep 2026 03:33:13 +0000</pubDate>
     </item>
   </channel>
 </rss>

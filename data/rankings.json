@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "generated_at": "2026-09-27T03:03:45Z",
+    "generated_at": "2026-09-27T03:33:13Z",
     "min_stars": 100,
-    "total": 100,
+    "total": 117,
     "source": "GitHub REST Search API",
     "ranking": "stars_desc_then_trend_score",
     "trend_window_days": 7,
@@ -13,11 +13,11 @@
     {
       "rank": 1,
       "repo": "Imbad0202/academic-research-skills",
-      "stars": 49566,
-      "star_delta_1d": 0,
-      "star_delta_7d": 776,
-      "star_delta_30d": 5508,
-      "trend_score": 988.4,
+      "stars": 49568,
+      "star_delta_1d": 2,
+      "star_delta_7d": 778,
+      "star_delta_30d": 5510,
+      "trend_score": 990.8,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -57,9 +57,11 @@
         "skills",
         "trusted_seed"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 3835,
       "open_issues": 33,
-      "watchers": 49566,
+      "watchers": 49568,
       "size_kb": 22654,
       "default_branch": "main",
       "has_issues": true,
@@ -69,16 +71,17 @@
         "key": "other",
         "name": "Other",
         "spdx_id": "NOASSERTION"
-      }
+      },
+      "skills_count": 4
     },
     {
       "rank": 2,
       "repo": "K-Dense-AI/scientific-agent-skills",
-      "stars": 46740,
-      "star_delta_1d": 0,
-      "star_delta_7d": 1052,
-      "star_delta_30d": 10799,
-      "trend_score": 1318.48,
+      "stars": 46741,
+      "star_delta_1d": 1,
+      "star_delta_7d": 1053,
+      "star_delta_30d": 10800,
+      "trend_score": 1319.68,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -128,9 +131,11 @@
         "skills",
         "trusted_seed"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 4227,
       "open_issues": 17,
-      "watchers": 46740,
+      "watchers": 46741,
       "size_kb": 258691,
       "default_branch": "main",
       "has_issues": true,
@@ -140,16 +145,17 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 166
     },
     {
       "rank": 3,
       "repo": "Yuan1z0825/nature-skills",
-      "stars": 44686,
-      "star_delta_1d": 2,
-      "star_delta_7d": 1341,
-      "star_delta_30d": 7064,
-      "trend_score": 1667.59,
+      "stars": 44695,
+      "star_delta_1d": 9,
+      "star_delta_7d": 1350,
+      "star_delta_30d": 7073,
+      "trend_score": 1678.38,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -182,9 +188,11 @@
         "科研",
         "论文"
       ],
-      "forks": 2344,
+      "stale": false,
+      "verifies_citations": false,
+      "forks": 2346,
       "open_issues": 2,
-      "watchers": 44686,
+      "watchers": 44695,
       "size_kb": 39851,
       "default_branch": "main",
       "has_issues": true,
@@ -194,7 +202,8 @@
         "key": "apache-2.0",
         "name": "Apache License 2.0",
         "spdx_id": "Apache-2.0"
-      }
+      },
+      "skills_count": 20
     },
     {
       "rank": 4,
@@ -203,7 +212,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 293,
       "star_delta_30d": 1307,
-      "trend_score": 403.52,
+      "trend_score": 403.51,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -257,6 +266,8 @@
         "skills",
         "trusted_seed"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 1417,
       "open_issues": 79,
       "watchers": 16686,
@@ -269,16 +280,17 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 189
     },
     {
       "rank": 5,
       "repo": "Orchestra-Research/AI-Research-SKILLs",
-      "stars": 13062,
+      "stars": 13063,
       "star_delta_1d": 1,
-      "star_delta_7d": 192,
-      "star_delta_30d": 941,
-      "trend_score": 263.33,
+      "star_delta_7d": 193,
+      "star_delta_30d": 942,
+      "trend_score": 264.53,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -323,9 +335,11 @@
         "skills",
         "trusted_seed"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 931,
       "open_issues": 23,
-      "watchers": 13062,
+      "watchers": 13063,
       "size_kb": 21295,
       "default_branch": "main",
       "has_issues": true,
@@ -335,16 +349,17 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 98
     },
     {
       "rank": 6,
       "repo": "Imbad0202/academic-research-skills-codex",
-      "stars": 11685,
-      "star_delta_1d": 0,
-      "star_delta_7d": 423,
-      "star_delta_30d": 2226,
-      "trend_score": 559.42,
+      "stars": 11686,
+      "star_delta_1d": 1,
+      "star_delta_7d": 424,
+      "star_delta_30d": 2227,
+      "trend_score": 560.62,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -385,9 +400,11 @@
         "skill",
         "skills"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 504,
       "open_issues": 0,
-      "watchers": 11685,
+      "watchers": 11686,
       "size_kb": 13577,
       "default_branch": "main",
       "has_issues": true,
@@ -397,7 +414,8 @@
         "key": "other",
         "name": "Other",
         "spdx_id": "NOASSERTION"
-      }
+      },
+      "skills_count": 2
     },
     {
       "rank": 7,
@@ -440,6 +458,8 @@
         "学术",
         "论文"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 1900,
       "open_issues": 0,
       "watchers": 9784,
@@ -452,16 +472,17 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 0
     },
     {
       "rank": 8,
       "repo": "HKUSTDial/Supervisor-Skills",
-      "stars": 7592,
-      "star_delta_1d": 0,
-      "star_delta_7d": 311,
-      "star_delta_30d": 1503,
-      "trend_score": 420.69,
+      "stars": 7593,
+      "star_delta_1d": 1,
+      "star_delta_7d": 312,
+      "star_delta_30d": 1504,
+      "trend_score": 421.89,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -497,9 +518,11 @@
         "科研",
         "论文"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 469,
       "open_issues": 2,
-      "watchers": 7592,
+      "watchers": 7593,
       "size_kb": 64667,
       "default_branch": "main",
       "has_issues": true,
@@ -509,12 +532,13 @@
         "key": "other",
         "name": "Other",
         "spdx_id": "NOASSERTION"
-      }
+      },
+      "skills_count": 12
     },
     {
       "rank": 9,
       "repo": "ChenLiu-1996/figures4papers",
-      "stars": 7370,
+      "stars": 7371,
       "star_delta_1d": 1,
       "star_delta_7d": 1,
       "star_delta_30d": 1,
@@ -564,9 +588,11 @@
         "skill",
         "skills"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 528,
       "open_issues": 1,
-      "watchers": 7370,
+      "watchers": 7371,
       "size_kb": 45082,
       "default_branch": "main",
       "has_issues": true,
@@ -576,7 +602,8 @@
         "key": "other",
         "name": "Other",
         "spdx_id": "NOASSERTION"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 10,
@@ -616,6 +643,8 @@
         "skills",
         "trusted_seed"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 337,
       "open_issues": 1,
       "watchers": 7124,
@@ -628,7 +657,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 11,
@@ -667,6 +697,8 @@
         "skills",
         "论文"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 445,
       "open_issues": 43,
       "watchers": 6164,
@@ -679,16 +711,17 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 10
     },
     {
       "rank": 12,
       "repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
-      "stars": 4389,
-      "star_delta_1d": 0,
-      "star_delta_7d": 499,
-      "star_delta_30d": 802,
-      "trend_score": 647.94,
+      "stars": 4390,
+      "star_delta_1d": 1,
+      "star_delta_7d": 500,
+      "star_delta_30d": 803,
+      "trend_score": 649.14,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -734,9 +767,11 @@
         "skill",
         "skills"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 532,
       "open_issues": 0,
-      "watchers": 4389,
+      "watchers": 4390,
       "size_kb": 43620,
       "default_branch": "main",
       "has_issues": true,
@@ -746,16 +781,17 @@
         "key": "other",
         "name": "Other",
         "spdx_id": "NOASSERTION"
-      }
+      },
+      "skills_count": 1172
     },
     {
       "rank": 13,
       "repo": "zLanqing/codex-claude-academic-skills",
-      "stars": 4324,
-      "star_delta_1d": 0,
-      "star_delta_7d": 225,
-      "star_delta_30d": 1045,
-      "trend_score": 302.02,
+      "stars": 4325,
+      "star_delta_1d": 1,
+      "star_delta_7d": 226,
+      "star_delta_30d": 1046,
+      "trend_score": 303.22,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -786,9 +822,11 @@
         "skills",
         "科研"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 239,
       "open_issues": 2,
-      "watchers": 4324,
+      "watchers": 4325,
       "size_kb": 2674,
       "default_branch": "main",
       "has_issues": true,
@@ -798,7 +836,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 24
     },
     {
       "rank": 14,
@@ -832,6 +871,8 @@
         "skill",
         "科研"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 216,
       "open_issues": 5,
       "watchers": 3276,
@@ -844,7 +885,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 20
     },
     {
       "rank": 15,
@@ -853,7 +895,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 46.59,
+      "trend_score": 46.58,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -894,6 +936,8 @@
         "plugin",
         "research"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 178,
       "open_issues": 188,
       "watchers": 3156,
@@ -906,7 +950,8 @@
         "key": "agpl-3.0",
         "name": "GNU Affero General Public License v3.0",
         "spdx_id": "AGPL-3.0"
-      }
+      },
+      "skills_count": 0
     },
     {
       "rank": 16,
@@ -915,7 +960,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 5,
       "star_delta_30d": 5,
-      "trend_score": 51.84,
+      "trend_score": 51.83,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -962,6 +1007,8 @@
         "review",
         "workflow"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 390,
       "open_issues": 147,
       "watchers": 3039,
@@ -974,7 +1021,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 0
     },
     {
       "rank": 17,
@@ -983,7 +1031,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 41,
       "star_delta_30d": 167,
-      "trend_score": 96.39,
+      "trend_score": 96.38,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -1022,6 +1070,8 @@
         "papers",
         "research"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 266,
       "open_issues": 0,
       "watchers": 2830,
@@ -1034,7 +1084,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 27
     },
     {
       "rank": 18,
@@ -1078,6 +1129,8 @@
         "skill",
         "skills"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 281,
       "open_issues": 31,
       "watchers": 2706,
@@ -1090,7 +1143,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 19,
@@ -1099,7 +1153,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 6,
       "star_delta_30d": 81,
-      "trend_score": 48.37,
+      "trend_score": 48.36,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -1132,6 +1186,8 @@
         "skills",
         "学术"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 154,
       "open_issues": 2,
       "watchers": 2572,
@@ -1144,7 +1200,8 @@
         "key": "other",
         "name": "Other",
         "spdx_id": "NOASSERTION"
-      }
+      },
+      "skills_count": 33
     },
     {
       "rank": 20,
@@ -1179,6 +1236,8 @@
         "科研",
         "论文"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 125,
       "open_issues": 6,
       "watchers": 2465,
@@ -1191,7 +1250,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 2
     },
     {
       "rank": 21,
@@ -1251,6 +1311,8 @@
         "research",
         "scientific"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 338,
       "open_issues": 12,
       "watchers": 2384,
@@ -1263,7 +1325,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 3
     },
     {
       "rank": 22,
@@ -1311,6 +1374,8 @@
         "skills",
         "trusted_seed"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 186,
       "open_issues": 0,
       "watchers": 2243,
@@ -1323,16 +1388,17 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 20
     },
     {
       "rank": 23,
       "repo": "yb2460/harness-anything",
       "stars": 2076,
-      "star_delta_1d": 1,
-      "star_delta_7d": 1,
-      "star_delta_30d": 1,
-      "trend_score": 51.42,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "star_delta_30d": 0,
+      "trend_score": 50.22,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -1366,6 +1432,8 @@
         "skill",
         "skills"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 140,
       "open_issues": 11,
       "watchers": 2076,
@@ -1378,7 +1446,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 3
     },
     {
       "rank": 24,
@@ -1387,7 +1456,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 46,
       "star_delta_30d": 46,
-      "trend_score": 96.07,
+      "trend_score": 96.06,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -1425,6 +1494,8 @@
         "workflow",
         "论文"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 125,
       "open_issues": 0,
       "watchers": 1979,
@@ -1437,7 +1508,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 0
     },
     {
       "rank": 25,
@@ -1446,7 +1518,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 31,
       "star_delta_30d": 154,
-      "trend_score": 81.28,
+      "trend_score": 81.27,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -1487,6 +1559,8 @@
         "skill",
         "skills"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 177,
       "open_issues": 8,
       "watchers": 1925,
@@ -1499,16 +1573,17 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 605
     },
     {
       "rank": 26,
       "repo": "XiaoMaColtAI/math-modeling-skill",
-      "stars": 1845,
-      "star_delta_1d": 0,
-      "star_delta_7d": 209,
-      "star_delta_30d": 209,
-      "trend_score": 296.86,
+      "stars": 1846,
+      "star_delta_1d": 1,
+      "star_delta_7d": 210,
+      "star_delta_30d": 210,
+      "trend_score": 298.05,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -1547,9 +1622,11 @@
         "skills",
         "论文"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 100,
       "open_issues": 2,
-      "watchers": 1845,
+      "watchers": 1846,
       "size_kb": 69637,
       "default_branch": "main",
       "has_issues": true,
@@ -1559,7 +1636,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 20
     },
     {
       "rank": 27,
@@ -1602,6 +1680,8 @@
         "research",
         "workflow"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 186,
       "open_issues": 1,
       "watchers": 1807,
@@ -1614,7 +1694,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 0
     },
     {
       "rank": 28,
@@ -1623,7 +1704,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 39.42,
+      "trend_score": 39.41,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -1671,6 +1752,8 @@
         "skill",
         "skills"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 166,
       "open_issues": 36,
       "watchers": 1785,
@@ -1683,16 +1766,17 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 0
     },
     {
       "rank": 29,
       "repo": "Adkid-Zephyr/anti-defensive-writing-Skill",
-      "stars": 1776,
-      "star_delta_1d": 0,
-      "star_delta_7d": 0,
-      "star_delta_30d": 0,
-      "trend_score": 51.76,
+      "stars": 1779,
+      "star_delta_1d": 3,
+      "star_delta_7d": 3,
+      "star_delta_30d": 3,
+      "trend_score": 55.36,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -1724,9 +1808,11 @@
         "skill",
         "论文"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 40,
       "open_issues": 0,
-      "watchers": 1776,
+      "watchers": 1779,
       "size_kb": 27,
       "default_branch": "main",
       "has_issues": true,
@@ -1736,7 +1822,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 2
     },
     {
       "rank": 30,
@@ -1785,6 +1872,8 @@
         "research",
         "skill"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 145,
       "open_issues": 2,
       "watchers": 1707,
@@ -1797,7 +1886,8 @@
         "key": "other",
         "name": "Other",
         "spdx_id": "NOASSERTION"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 31,
@@ -1806,7 +1896,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 45.73,
+      "trend_score": 45.85,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -1838,7 +1928,7 @@
         "tool-use"
       ],
       "created_date": "2025-03-03",
-      "last_push_date": "2026-09-26",
+      "last_push_date": "2026-09-27",
       "url": "https://github.com/mims-harvard/ToolUniverse",
       "homepage": "https://aiscientist.tools",
       "agents": [
@@ -1851,6 +1941,8 @@
         "scientific",
         "skill"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 258,
       "open_issues": 19,
       "watchers": 1705,
@@ -1863,7 +1955,8 @@
         "key": "apache-2.0",
         "name": "Apache License 2.0",
         "spdx_id": "Apache-2.0"
-      }
+      },
+      "skills_count": 468
     },
     {
       "rank": 32,
@@ -1898,6 +1991,8 @@
         "claude code",
         "论文"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 167,
       "open_issues": 12,
       "watchers": 1679,
@@ -1910,7 +2005,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 5
     },
     {
       "rank": 33,
@@ -1960,10 +2056,12 @@
         "skill",
         "skills"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 3057,
-      "open_issues": 14,
+      "open_issues": 9,
       "watchers": 1598,
-      "size_kb": 7047,
+      "size_kb": 6531,
       "default_branch": "main",
       "has_issues": true,
       "has_wiki": true,
@@ -1972,7 +2070,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 60
     },
     {
       "rank": 34,
@@ -1981,7 +2080,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 26.45,
+      "trend_score": 26.44,
       "trend": {
         "id": "steady",
         "zh": "稳定",
@@ -2026,6 +2125,8 @@
         "plugin",
         "review"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 73,
       "open_issues": 16,
       "watchers": 1541,
@@ -2038,7 +2139,8 @@
         "key": "agpl-3.0",
         "name": "GNU Affero General Public License v3.0",
         "spdx_id": "AGPL-3.0"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 35,
@@ -2084,6 +2186,8 @@
         "skills",
         "trusted_seed"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 147,
       "open_issues": 1,
       "watchers": 1340,
@@ -2096,7 +2200,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 2
     },
     {
       "rank": 36,
@@ -2105,7 +2210,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 42.27,
+      "trend_score": 42.26,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -2131,6 +2236,8 @@
         "skills",
         "论文"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 103,
       "open_issues": 8,
       "watchers": 1260,
@@ -2143,7 +2250,8 @@
         "key": "apache-2.0",
         "name": "Apache License 2.0",
         "spdx_id": "Apache-2.0"
-      }
+      },
+      "skills_count": 7
     },
     {
       "rank": 37,
@@ -2191,6 +2299,8 @@
         "skill",
         "skills"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 80,
       "open_issues": 5,
       "watchers": 1228,
@@ -2203,7 +2313,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 3
     },
     {
       "rank": 38,
@@ -2251,6 +2362,8 @@
         "skill",
         "skills"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 43,
       "open_issues": 1,
       "watchers": 1207,
@@ -2263,7 +2376,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 39,
@@ -2272,7 +2386,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 45,
       "star_delta_30d": 140,
-      "trend_score": 101.94,
+      "trend_score": 101.93,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -2325,6 +2439,8 @@
         "skill",
         "skills"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 154,
       "open_issues": 2,
       "watchers": 1175,
@@ -2337,7 +2453,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 4166
     },
     {
       "rank": 40,
@@ -2375,6 +2492,8 @@
         "skill",
         "trusted_seed"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 122,
       "open_issues": 9,
       "watchers": 1148,
@@ -2387,7 +2506,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 41,
@@ -2396,7 +2516,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 42.38,
+      "trend_score": 42.37,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -2435,6 +2555,8 @@
         "review",
         "trusted_seed"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 131,
       "open_issues": 19,
       "watchers": 1139,
@@ -2447,20 +2569,21 @@
         "key": "other",
         "name": "Other",
         "spdx_id": "NOASSERTION"
-      }
+      },
+      "skills_count": 175
     },
     {
       "rank": 42,
       "repo": "cookjohn/cnki-skills",
-      "stars": 960,
-      "star_delta_1d": 0,
-      "star_delta_7d": 0,
-      "star_delta_30d": 0,
-      "trend_score": 23.86,
+      "stars": 961,
+      "star_delta_1d": 1,
+      "star_delta_7d": 1,
+      "star_delta_30d": 1,
+      "trend_score": 25.07,
       "trend": {
-        "id": "steady",
-        "zh": "稳定",
-        "en": "Steady"
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
       },
       "category": {
         "id": "literature-review",
@@ -2484,9 +2607,11 @@
         "skill",
         "skills"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 81,
       "open_issues": 7,
-      "watchers": 960,
+      "watchers": 961,
       "size_kb": 449,
       "default_branch": "master",
       "has_issues": true,
@@ -2496,7 +2621,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 10
     },
     {
       "rank": 43,
@@ -2505,7 +2631,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 38.36,
+      "trend_score": 38.35,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -2543,6 +2669,8 @@
         "skills",
         "科研"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 47,
       "open_issues": 3,
       "watchers": 953,
@@ -2555,7 +2683,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 44,
@@ -2605,6 +2734,8 @@
         "skill",
         "skills"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 78,
       "open_issues": 0,
       "watchers": 926,
@@ -2617,7 +2748,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 187
     },
     {
       "rank": 45,
@@ -2626,7 +2758,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 41.77,
+      "trend_score": 41.76,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -2670,6 +2802,8 @@
         "pipeline",
         "复现"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 52,
       "open_issues": 0,
       "watchers": 903,
@@ -2682,7 +2816,8 @@
         "key": "agpl-3.0",
         "name": "GNU Affero General Public License v3.0",
         "spdx_id": "AGPL-3.0"
-      }
+      },
+      "skills_count": 0
     },
     {
       "rank": 46,
@@ -2722,6 +2857,8 @@
         "复现",
         "论文"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 36,
       "open_issues": 0,
       "watchers": 841,
@@ -2734,7 +2871,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 2
     },
     {
       "rank": 47,
@@ -2774,6 +2912,8 @@
         "survey",
         "trusted_seed"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 53,
       "open_issues": 8,
       "watchers": 735,
@@ -2786,7 +2926,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 71
     },
     {
       "rank": 48,
@@ -2822,6 +2963,8 @@
         "paper",
         "skill"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 38,
       "open_issues": 0,
       "watchers": 684,
@@ -2834,7 +2977,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 2
     },
     {
       "rank": 49,
@@ -2896,6 +3040,8 @@
         "skills",
         "trusted_seed"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 93,
       "open_issues": 0,
       "watchers": 666,
@@ -2908,7 +3054,8 @@
         "key": "other",
         "name": "Other",
         "spdx_id": "NOASSERTION"
-      }
+      },
+      "skills_count": 9
     },
     {
       "rank": 50,
@@ -2940,6 +3087,8 @@
         "skill",
         "论文"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 21,
       "open_issues": 2,
       "watchers": 650,
@@ -2952,7 +3101,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 51,
@@ -2988,6 +3138,8 @@
         "科研",
         "论文"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 54,
       "open_issues": 0,
       "watchers": 632,
@@ -3000,7 +3152,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 2
     },
     {
       "rank": 52,
@@ -3056,6 +3209,8 @@
         "skill",
         "skills"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 74,
       "open_issues": 1,
       "watchers": 630,
@@ -3068,16 +3223,17 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 23
     },
     {
       "rank": 53,
       "repo": "hanlulong/econ-writing-skill",
-      "stars": 623,
-      "star_delta_1d": 0,
-      "star_delta_7d": 11,
-      "star_delta_30d": 54,
-      "trend_score": 40.2,
+      "stars": 624,
+      "star_delta_1d": 1,
+      "star_delta_7d": 12,
+      "star_delta_30d": 55,
+      "trend_score": 41.4,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -3118,9 +3274,11 @@
         "skills",
         "trusted_seed"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 103,
       "open_issues": 0,
-      "watchers": 623,
+      "watchers": 624,
       "size_kb": 229,
       "default_branch": "main",
       "has_issues": true,
@@ -3130,7 +3288,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 3
     },
     {
       "rank": 54,
@@ -3164,6 +3323,8 @@
         "workflow",
         "论文"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 46,
       "open_issues": 1,
       "watchers": 616,
@@ -3176,13 +3337,14 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 7
     },
     {
       "rank": 55,
       "repo": "ganzhi-black/humanities-thesis-skill",
       "stars": 602,
-      "star_delta_1d": 1,
+      "star_delta_1d": 0,
       "star_delta_7d": 18,
       "star_delta_30d": 103,
       "trend_score": 45.65,
@@ -3211,6 +3373,8 @@
         "thesis",
         "论文"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 32,
       "open_issues": 2,
       "watchers": 602,
@@ -3223,7 +3387,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 56,
@@ -3232,7 +3397,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 26.35,
+      "trend_score": 26.34,
       "trend": {
         "id": "steady",
         "zh": "稳定",
@@ -3261,6 +3426,8 @@
         "skill",
         "论文"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 21,
       "open_issues": 0,
       "watchers": 594,
@@ -3273,7 +3440,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 57,
@@ -3309,6 +3477,8 @@
         "paper",
         "trusted_seed"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 105,
       "open_issues": 2,
       "watchers": 589,
@@ -3321,7 +3491,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 164
     },
     {
       "rank": 58,
@@ -3355,6 +3526,8 @@
         "文献",
         "论文"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 29,
       "open_issues": 1,
       "watchers": 570,
@@ -3367,7 +3540,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 59,
@@ -3376,7 +3550,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 38.97,
+      "trend_score": 38.96,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -3427,6 +3601,8 @@
         "skills",
         "科研"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 23,
       "open_issues": 2,
       "watchers": 558,
@@ -3439,7 +3615,8 @@
         "key": "apache-2.0",
         "name": "Apache License 2.0",
         "spdx_id": "Apache-2.0"
-      }
+      },
+      "skills_count": 3
     },
     {
       "rank": 60,
@@ -3487,6 +3664,8 @@
         "plugin",
         "research"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 17,
       "open_issues": 35,
       "watchers": 541,
@@ -3499,7 +3678,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 0
     },
     {
       "rank": 61,
@@ -3535,6 +3715,8 @@
         "skill",
         "skills"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 41,
       "open_issues": 0,
       "watchers": 512,
@@ -3547,7 +3729,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 27
     },
     {
       "rank": 62,
@@ -3586,6 +3769,8 @@
         "skills",
         "trusted_seed"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 87,
       "open_issues": 0,
       "watchers": 482,
@@ -3598,7 +3783,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 11
     },
     {
       "rank": 63,
@@ -3607,7 +3793,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 2,
-      "trend_score": 38.78,
+      "trend_score": 38.77,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -3649,6 +3835,8 @@
         "skills",
         "trusted_seed"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 33,
       "open_issues": 2,
       "watchers": 475,
@@ -3661,7 +3849,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 0
     },
     {
       "rank": 64,
@@ -3670,7 +3859,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 18,
       "star_delta_30d": 71,
-      "trend_score": 46.56,
+      "trend_score": 46.55,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -3707,6 +3896,8 @@
         "scientific",
         "skill"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 39,
       "open_issues": 1,
       "watchers": 468,
@@ -3719,20 +3910,21 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 65,
       "repo": "TingxiYu/academic-figure-skill",
-      "stars": 451,
-      "star_delta_1d": 0,
-      "star_delta_7d": 0,
-      "star_delta_30d": 0,
-      "trend_score": 30.73,
+      "stars": 452,
+      "star_delta_1d": 1,
+      "star_delta_7d": 1,
+      "star_delta_30d": 1,
+      "trend_score": 31.93,
       "trend": {
-        "id": "steady",
-        "zh": "稳定",
-        "en": "Steady"
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
       },
       "category": {
         "id": "general-research",
@@ -3753,9 +3945,11 @@
         "skill",
         "workflow"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 24,
       "open_issues": 3,
-      "watchers": 451,
+      "watchers": 452,
       "size_kb": 68742,
       "default_branch": "main",
       "has_issues": true,
@@ -3765,7 +3959,8 @@
         "key": "apache-2.0",
         "name": "Apache License 2.0",
         "spdx_id": "Apache-2.0"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 66,
@@ -3774,7 +3969,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 8,
       "star_delta_30d": 39,
-      "trend_score": 55.49,
+      "trend_score": 55.48,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -3801,6 +3996,8 @@
         "workflow",
         "科研"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 52,
       "open_issues": 7,
       "watchers": 443,
@@ -3813,7 +4010,8 @@
         "key": "apache-2.0",
         "name": "Apache License 2.0",
         "spdx_id": "Apache-2.0"
-      }
+      },
+      "skills_count": 0
     },
     {
       "rank": 67,
@@ -3848,6 +4046,8 @@
         "文献",
         "科研"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 7,
       "open_issues": 4,
       "watchers": 434,
@@ -3860,7 +4060,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 68,
@@ -3898,6 +4099,8 @@
         "roo",
         "trusted_seed"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 43,
       "open_issues": 0,
       "watchers": 427,
@@ -3910,7 +4113,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 0
     },
     {
       "rank": 69,
@@ -3919,7 +4123,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 23,
       "star_delta_30d": 151,
-      "trend_score": 59.28,
+      "trend_score": 59.27,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -3953,6 +4157,8 @@
         "skills",
         "论文"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 16,
       "open_issues": 0,
       "watchers": 417,
@@ -3965,7 +4171,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 2
     },
     {
       "rank": 70,
@@ -4027,6 +4234,8 @@
         "skills",
         "trusted_seed"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 35,
       "open_issues": 1,
       "watchers": 409,
@@ -4039,7 +4248,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 12
     },
     {
       "rank": 71,
@@ -4071,6 +4281,8 @@
         "skill",
         "科研"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 24,
       "open_issues": 0,
       "watchers": 391,
@@ -4083,7 +4295,8 @@
         "key": "other",
         "name": "Other",
         "spdx_id": "NOASSERTION"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 72,
@@ -4117,6 +4330,8 @@
         "retrieval",
         "workflow"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 23,
       "open_issues": 11,
       "watchers": 359,
@@ -4129,7 +4344,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 73,
@@ -4138,7 +4354,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 20.79,
+      "trend_score": 20.78,
       "trend": {
         "id": "steady",
         "zh": "稳定",
@@ -4166,6 +4382,8 @@
         "survey",
         "workflow"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 26,
       "open_issues": 1,
       "watchers": 357,
@@ -4178,7 +4396,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 8
     },
     {
       "rank": 74,
@@ -4216,6 +4435,8 @@
         "skill",
         "论文"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 17,
       "open_issues": 1,
       "watchers": 352,
@@ -4228,7 +4449,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 75,
@@ -4264,6 +4486,8 @@
         "skill",
         "skills"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 12,
       "open_issues": 0,
       "watchers": 332,
@@ -4276,7 +4500,8 @@
         "key": "cc0-1.0",
         "name": "Creative Commons Zero v1.0 Universal",
         "spdx_id": "CC0-1.0"
-      }
+      },
+      "skills_count": 0
     },
     {
       "rank": 76,
@@ -4285,7 +4510,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 36.93,
+      "trend_score": 36.92,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -4315,6 +4540,8 @@
         "审稿",
         "论文"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 20,
       "open_issues": 1,
       "watchers": 326,
@@ -4327,7 +4554,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 10
     },
     {
       "rank": 77,
@@ -4336,7 +4564,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 41.36,
+      "trend_score": 41.35,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -4364,6 +4592,8 @@
         "skills",
         "workflow"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 6,
       "open_issues": 0,
       "watchers": 299,
@@ -4376,7 +4606,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 33
     },
     {
       "rank": 78,
@@ -4413,6 +4644,8 @@
         "skill",
         "skills"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 42,
       "open_issues": 0,
       "watchers": 298,
@@ -4425,7 +4658,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 473
     },
     {
       "rank": 79,
@@ -4461,6 +4695,8 @@
         "科研",
         "论文"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 24,
       "open_issues": 1,
       "watchers": 295,
@@ -4473,7 +4709,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 37
     },
     {
       "rank": 80,
@@ -4536,6 +4773,8 @@
         "skill",
         "skills"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 21,
       "open_issues": 2,
       "watchers": 291,
@@ -4548,7 +4787,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 0
     },
     {
       "rank": 81,
@@ -4557,7 +4797,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 31.08,
+      "trend_score": 31.07,
       "trend": {
         "id": "steady",
         "zh": "稳定",
@@ -4593,6 +4833,8 @@
         "复现",
         "科研"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 6,
       "open_issues": 0,
       "watchers": 282,
@@ -4605,7 +4847,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 82,
@@ -4614,7 +4857,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 47.89,
+      "trend_score": 47.88,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -4654,6 +4897,8 @@
         "skills",
         "科研"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 12,
       "open_issues": 0,
       "watchers": 276,
@@ -4666,7 +4911,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 83,
@@ -4675,7 +4921,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 42.09,
+      "trend_score": 42.08,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -4728,6 +4974,8 @@
         "skill",
         "skills"
       ],
+      "stale": false,
+      "verifies_citations": true,
       "forks": 14,
       "open_issues": 6,
       "watchers": 276,
@@ -4740,7 +4988,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 2
     },
     {
       "rank": 84,
@@ -4791,6 +5040,8 @@
         "thesis",
         "论文"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 16,
       "open_issues": 1,
       "watchers": 265,
@@ -4803,7 +5054,8 @@
         "key": "apache-2.0",
         "name": "Apache License 2.0",
         "spdx_id": "Apache-2.0"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 85,
@@ -4838,6 +5090,8 @@
         "pipeline",
         "科研"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 415,
       "open_issues": 1,
       "watchers": 246,
@@ -4850,7 +5104,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 19
     },
     {
       "rank": 86,
@@ -4886,6 +5141,8 @@
         "复现",
         "科研"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 9,
       "open_issues": 0,
       "watchers": 242,
@@ -4898,7 +5155,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 87,
@@ -4907,7 +5165,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 36.12,
+      "trend_score": 36.11,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -4937,6 +5195,8 @@
         "skills",
         "科研"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 16,
       "open_issues": 0,
       "watchers": 237,
@@ -4949,7 +5209,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 2
     },
     {
       "rank": 88,
@@ -4958,7 +5219,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 32.78,
+      "trend_score": 32.77,
       "trend": {
         "id": "steady",
         "zh": "稳定",
@@ -4995,6 +5256,8 @@
         "skill",
         "skills"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 5,
       "open_issues": 0,
       "watchers": 224,
@@ -5007,7 +5270,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 89,
@@ -5052,6 +5316,8 @@
         "research",
         "skill"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 15,
       "open_issues": 2,
       "watchers": 221,
@@ -5064,7 +5330,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 90,
@@ -5097,6 +5364,8 @@
         "review",
         "skill"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 13,
       "open_issues": 0,
       "watchers": 221,
@@ -5109,7 +5378,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 91,
@@ -5144,6 +5414,8 @@
         "文献",
         "论文"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 11,
       "open_issues": 1,
       "watchers": 205,
@@ -5156,7 +5428,8 @@
         "key": "mulanpsl-2.0",
         "name": "Mulan Permissive Software License, Version 2",
         "spdx_id": "MulanPSL-2.0"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 92,
@@ -5165,7 +5438,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 4,
       "star_delta_30d": 16,
-      "trend_score": 33.79,
+      "trend_score": 33.78,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -5208,6 +5481,8 @@
         "skill",
         "skills"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 28,
       "open_issues": 2,
       "watchers": 202,
@@ -5220,7 +5495,8 @@
         "key": "other",
         "name": "Other",
         "spdx_id": "NOASSERTION"
-      }
+      },
+      "skills_count": 9
     },
     {
       "rank": 93,
@@ -5229,7 +5505,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 6,
       "star_delta_30d": 31,
-      "trend_score": 40.16,
+      "trend_score": 40.15,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -5253,6 +5529,8 @@
         "文献",
         "综述"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 4,
       "open_issues": 1,
       "watchers": 199,
@@ -5265,7 +5543,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 94,
@@ -5324,6 +5603,8 @@
         "skill",
         "skills"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 15,
       "open_issues": 1,
       "watchers": 176,
@@ -5336,7 +5617,8 @@
         "key": "cc0-1.0",
         "name": "Creative Commons Zero v1.0 Universal",
         "spdx_id": "CC0-1.0"
-      }
+      },
+      "skills_count": 0
     },
     {
       "rank": 95,
@@ -5371,6 +5653,8 @@
         "skills",
         "论文"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 14,
       "open_issues": 1,
       "watchers": 176,
@@ -5383,7 +5667,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 0
     },
     {
       "rank": 96,
@@ -5416,6 +5701,8 @@
         "thesis",
         "论文"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 18,
       "open_issues": 1,
       "watchers": 169,
@@ -5428,7 +5715,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 97,
@@ -5475,6 +5763,8 @@
         "skills",
         "workflow"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 20,
       "open_issues": 0,
       "watchers": 155,
@@ -5487,7 +5777,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 1
     },
     {
       "rank": 98,
@@ -5496,7 +5787,7 @@
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 29.28,
+      "trend_score": 29.27,
       "trend": {
         "id": "steady",
         "zh": "稳定",
@@ -5522,6 +5813,8 @@
         "skill",
         "skills"
       ],
+      "stale": true,
+      "verifies_citations": false,
       "forks": 31,
       "open_issues": 0,
       "watchers": 154,
@@ -5534,7 +5827,8 @@
         "key": "",
         "name": "",
         "spdx_id": ""
-      }
+      },
+      "skills_count": 18
     },
     {
       "rank": 99,
@@ -5583,6 +5877,8 @@
         "skill",
         "skills"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 27,
       "open_issues": 1,
       "watchers": 144,
@@ -5595,7 +5891,8 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 87
     },
     {
       "rank": 100,
@@ -5630,6 +5927,8 @@
         "综述",
         "论文"
       ],
+      "stale": false,
+      "verifies_citations": false,
       "forks": 10,
       "open_issues": 0,
       "watchers": 144,
@@ -5642,7 +5941,972 @@
         "key": "mit",
         "name": "MIT License",
         "spdx_id": "MIT"
-      }
+      },
+      "skills_count": 3
+    },
+    {
+      "rank": 101,
+      "repo": "wilbert-MD-PhD/medical-illustration",
+      "stars": 143,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "star_delta_30d": 0,
+      "trend_score": 46.41,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "面向 Codex、Claude Code 等 AI Agent 的医学绘图 Skill，基于可信证据制作医学插画、科普漫画与科研示意图，提供可编辑成果与审核记录。 · Evidence-backed medical illustration, comics and research figures for Codex, Claude Code and other AI agents, with editable output and review records.",
+      "language": "Python",
+      "topics": [
+        "agent-skills",
+        "chinese",
+        "claude-code",
+        "codex",
+        "medical-illustration",
+        "science-communication",
+        "svg"
+      ],
+      "created_date": "2026-09-06",
+      "last_push_date": "2026-09-20",
+      "url": "https://github.com/wilbert-MD-PhD/medical-illustration",
+      "homepage": "",
+      "agents": [
+        "claude-code",
+        "codex"
+      ],
+      "precision_signals": [
+        "claude code",
+        "phd",
+        "research",
+        "review",
+        "science",
+        "skill",
+        "skills"
+      ],
+      "stale": false,
+      "verifies_citations": false,
+      "forks": 10,
+      "open_issues": 0,
+      "watchers": 143,
+      "size_kb": 83608,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION"
+      },
+      "skills_count": 1
+    },
+    {
+      "rank": 102,
+      "repo": "0xE1337/thesis-figure-skill",
+      "stars": 141,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "star_delta_30d": 0,
+      "trend_score": 23.1,
+      "trend": {
+        "id": "steady",
+        "zh": "稳定",
+        "en": "Steady"
+      },
+      "category": {
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
+      },
+      "description": "🎓 Claude Skill: Paste your paper text, auto-generate publication-ready LaTeX/TikZ diagrams. 粘贴论文文案，自动生成学术级配图。",
+      "language": "TeX",
+      "topics": [
+        "academic-paper",
+        "ai-tools",
+        "claude-skill",
+        "diagram",
+        "figure-generation",
+        "latex",
+        "thesis",
+        "tikz"
+      ],
+      "created_date": "2026-03-19",
+      "last_push_date": "2026-07-25",
+      "url": "https://github.com/0xE1337/thesis-figure-skill",
+      "homepage": "",
+      "agents": [],
+      "precision_signals": [
+        "academic",
+        "latex",
+        "paper",
+        "skill",
+        "thesis"
+      ],
+      "stale": true,
+      "verifies_citations": false,
+      "forks": 8,
+      "open_issues": 0,
+      "watchers": 141,
+      "size_kb": 19581,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      },
+      "skills_count": 2
+    },
+    {
+      "rank": 103,
+      "repo": "maxwell2732/paper-replicate-agent-demo",
+      "stars": 136,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "star_delta_30d": 0,
+      "trend_score": 17.09,
+      "trend": {
+        "id": "steady",
+        "zh": "稳定",
+        "en": "Steady"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "A structured Claude Code workflow for empirically replicating published research using UK Biobank (UKB) data, created by Chen Zhu 朱晨 | 遗传社科研究.",
+      "language": "R",
+      "topics": [],
+      "created_date": "2026-02-21",
+      "last_push_date": "2026-05-22",
+      "url": "https://github.com/maxwell2732/paper-replicate-agent-demo",
+      "homepage": "",
+      "agents": [
+        "claude-code"
+      ],
+      "precision_signals": [
+        "claude code",
+        "paper",
+        "research",
+        "workflow",
+        "科研"
+      ],
+      "stale": true,
+      "verifies_citations": false,
+      "forks": 94,
+      "open_issues": 1,
+      "watchers": 136,
+      "size_kb": 28009,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "",
+        "name": "",
+        "spdx_id": ""
+      },
+      "skills_count": 11
+    },
+    {
+      "rank": 104,
+      "repo": "Liuxiangjian-ai/reference-checker-skill",
+      "stars": 133,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "star_delta_30d": 0,
+      "trend_score": 18.71,
+      "trend": {
+        "id": "steady",
+        "zh": "稳定",
+        "en": "Steady"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "逐条检查参考文献是否真实 /An exhaustive pre-submission reference verification skill for checking scholarly references item by item.",
+      "language": "",
+      "topics": [],
+      "created_date": "2026-04-25",
+      "last_push_date": "2026-06-03",
+      "url": "https://github.com/Liuxiangjian-ai/reference-checker-skill",
+      "homepage": "",
+      "agents": [],
+      "precision_signals": [
+        "scholar",
+        "skill",
+        "文献"
+      ],
+      "stale": true,
+      "verifies_citations": true,
+      "forks": 7,
+      "open_issues": 0,
+      "watchers": 133,
+      "size_kb": 80,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      },
+      "skills_count": 1
+    },
+    {
+      "rank": 105,
+      "repo": "HaonanAlex/MGMT-Paper-Skills",
+      "stars": 125,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "star_delta_30d": 0,
+      "trend_score": 18.96,
+      "trend": {
+        "id": "steady",
+        "zh": "稳定",
+        "en": "Steady"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "Management research paper skills and MCP workflows for Codex and Claude",
+      "language": "Python",
+      "topics": [],
+      "created_date": "2026-05-02",
+      "last_push_date": "2026-05-02",
+      "url": "https://github.com/HaonanAlex/MGMT-Paper-Skills",
+      "homepage": "",
+      "agents": [
+        "codex",
+        "mcp"
+      ],
+      "precision_signals": [
+        "codex",
+        "paper",
+        "research",
+        "skill",
+        "skills"
+      ],
+      "stale": true,
+      "verifies_citations": false,
+      "forks": 17,
+      "open_issues": 0,
+      "watchers": 125,
+      "size_kb": 542,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION"
+      },
+      "skills_count": 17
+    },
+    {
+      "rank": 106,
+      "repo": "liangdabiao/stem-illustration-skill",
+      "stars": 122,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "star_delta_30d": 0,
+      "trend_score": 28.8,
+      "trend": {
+        "id": "steady",
+        "zh": "稳定",
+        "en": "Steady"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "面向 STEM（科学、技术、工程、数学）领域的 AI 图像生成 Skill。  生成科研示意图、教学插图、技术架构图等概念性图像，覆盖生物医学、化学、物理、工程、数学 6 大学科。  功能特性 24 个场景模板：信号通路、实验流程、细胞结构、概念信息图、学术海报、机制图、质粒图、机器学习架构等 6 大学科适配：生命科学/医学/化学/物理/工程/数学 4 种风格变体：academic / textbook / infographic / 3d-render",
+      "language": "Python",
+      "topics": [
+        "skill"
+      ],
+      "created_date": "2026-07-20",
+      "last_push_date": "2026-07-20",
+      "url": "https://github.com/liangdabiao/stem-illustration-skill",
+      "homepage": "https://stem-illustration.liangdabiao.com/",
+      "agents": [],
+      "precision_signals": [
+        "academic",
+        "skill",
+        "学术",
+        "实验",
+        "科研"
+      ],
+      "stale": true,
+      "verifies_citations": false,
+      "forks": 4,
+      "open_issues": 0,
+      "watchers": 122,
+      "size_kb": 21786,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "",
+        "name": "",
+        "spdx_id": ""
+      },
+      "skills_count": 1
+    },
+    {
+      "rank": 107,
+      "repo": "z-liu-xiugou/research-workbench-assistant",
+      "stars": 121,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "star_delta_30d": 0,
+      "trend_score": 46.01,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "Local-first research memory for Codex: checkpoints, progress ledgers, and Markdown/JSON paper notes. Early alpha.",
+      "language": "Python",
+      "topics": [
+        "academic-workflow",
+        "ai",
+        "codex",
+        "knowledge-graph",
+        "literature-review",
+        "local-first",
+        "research",
+        "research-assistant"
+      ],
+      "created_date": "2026-09-07",
+      "last_push_date": "2026-09-21",
+      "url": "https://github.com/z-liu-xiugou/research-workbench-assistant",
+      "homepage": "",
+      "agents": [
+        "codex"
+      ],
+      "precision_signals": [
+        "academic",
+        "assistant",
+        "codex",
+        "literature",
+        "paper",
+        "research",
+        "workflow"
+      ],
+      "stale": false,
+      "verifies_citations": false,
+      "forks": 0,
+      "open_issues": 2,
+      "watchers": 121,
+      "size_kb": 256,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": false,
+      "has_discussions": true,
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0"
+      },
+      "skills_count": 1
+    },
+    {
+      "rank": 108,
+      "repo": "SmBai1998/sci-ps-skill",
+      "stars": 121,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "star_delta_30d": 0,
+      "trend_score": 40.5,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "科研绘图不再只是 AI 生一张图。这个 Skill 会自动分析参考图、拆解组件、生成素材，再进入 Photoshop 按图层逐步重建，并对位置、大小、形状、透视、色调、阴影、光效和遮挡关系进行逐层校准。最终不是一张扁平图片，而是一份可以继续修改的完整 PSD。Science 封面、Nature 风格机制图、3D 科研示意图都可以按这套流程处理。",
+      "language": "Python",
+      "topics": [],
+      "created_date": "2026-08-29",
+      "last_push_date": "2026-08-29",
+      "url": "https://github.com/SmBai1998/sci-ps-skill",
+      "homepage": "",
+      "agents": [],
+      "precision_signals": [
+        "science",
+        "skill",
+        "科研"
+      ],
+      "stale": false,
+      "verifies_citations": false,
+      "forks": 9,
+      "open_issues": 1,
+      "watchers": 121,
+      "size_kb": 350,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "",
+        "name": "",
+        "spdx_id": ""
+      },
+      "skills_count": 1
+    },
+    {
+      "rank": 109,
+      "repo": "Citrus-bit/Anaxa",
+      "stars": 120,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "star_delta_30d": 0,
+      "trend_score": 32.23,
+      "trend": {
+        "id": "steady",
+        "zh": "稳定",
+        "en": "Steady"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "Anaxa 是一个面向科研工作流的开源智能体系统。它不是单纯的聊天机器人，也不是无人监管的自动发论文机器，而是把文献检索、证据审计、实验执行、论文写作、同行评审式检查和最终产物打包放进同一个可追踪的研究生命周期中。",
+      "language": "Python",
+      "topics": [
+        "agent",
+        "agents",
+        "css",
+        "deepresearch",
+        "fastapi",
+        "harness",
+        "langchain",
+        "langgraph",
+        "llm",
+        "multi-agent",
+        "nextjs",
+        "nginx",
+        "python",
+        "react",
+        "research",
+        "sandbox",
+        "subagents",
+        "superagent",
+        "typescript",
+        "workflow"
+      ],
+      "created_date": "2026-03-30",
+      "last_push_date": "2026-09-07",
+      "url": "https://github.com/Citrus-bit/Anaxa",
+      "homepage": "",
+      "agents": [],
+      "precision_signals": [
+        "research",
+        "workflow",
+        "文献",
+        "科研",
+        "论文"
+      ],
+      "stale": false,
+      "verifies_citations": false,
+      "forks": 10,
+      "open_issues": 0,
+      "watchers": 120,
+      "size_kb": 38156,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      },
+      "skills_count": 29
+    },
+    {
+      "rank": 110,
+      "repo": "ThisIsLittleSky/WaterPaper",
+      "stars": 119,
+      "star_delta_1d": 0,
+      "star_delta_7d": 4,
+      "star_delta_30d": 9,
+      "trend_score": 27.45,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
+      },
+      "description": "水论文skill一句话出论文：多角度选题、真实文献采集、大纲写作、降低AIGC率、降低重复率、绘制图表、DOCX交付",
+      "language": "Python",
+      "topics": [
+        "academic-writing",
+        "anti-ai-detection",
+        "claude-code-skill",
+        "course-paper",
+        "literature-scraper",
+        "paper-generator",
+        "python"
+      ],
+      "created_date": "2026-06-21",
+      "last_push_date": "2026-07-01",
+      "url": "https://github.com/ThisIsLittleSky/WaterPaper",
+      "homepage": "",
+      "agents": [
+        "claude-code"
+      ],
+      "precision_signals": [
+        "academic",
+        "literature",
+        "paper",
+        "skill",
+        "论文"
+      ],
+      "stale": false,
+      "verifies_citations": false,
+      "forks": 4,
+      "open_issues": 0,
+      "watchers": 119,
+      "size_kb": 1114,
+      "default_branch": "master",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      },
+      "skills_count": 1
+    },
+    {
+      "rank": 111,
+      "repo": "Drchronx/ai-agent-research-starter-kit",
+      "stars": 115,
+      "star_delta_1d": 0,
+      "star_delta_7d": 15,
+      "star_delta_30d": 15,
+      "trend_score": 37.79,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "AI Agent 科研全流程教学包，能教学生从零部署 Codex、Claude Code、OpenClaw、Hermes 等 Agent，学会使用 Skills、飞书、AMiner、AI4Scholar、Zotero、Obsidian 等工具，完成真实文献检索、文献日报、知识库搭建、选题生成、理论建构、情景实验设计、量表开发、统计分析、因果推断、文本挖掘、EEG/ERP 实验、BCI 脑电智能建模、论文写作、审稿自查、期刊排版和盲审投稿包制作；学生学完后可以按课程模板一步步让 AI Agent 协助完成从“找文献、定选题、做实验、分析数据”到“写论文、查引用、改格式、准备投稿”的完整科研流程。",
+      "language": "Python",
+      "topics": [],
+      "created_date": "2026-05-19",
+      "last_push_date": "2026-05-19",
+      "url": "https://github.com/Drchronx/ai-agent-research-starter-kit",
+      "homepage": "",
+      "agents": [
+        "claude-code",
+        "codex"
+      ],
+      "precision_signals": [
+        "claude code",
+        "research",
+        "scholar",
+        "skill",
+        "skills",
+        "科研",
+        "论文"
+      ],
+      "stale": false,
+      "verifies_citations": false,
+      "forks": 10,
+      "open_issues": 0,
+      "watchers": 115,
+      "size_kb": 40920,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION"
+      },
+      "skills_count": 355
+    },
+    {
+      "rank": 112,
+      "repo": "MrLee2R/Intelligrapher",
+      "stars": 111,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "star_delta_30d": 0,
+      "trend_score": 20.36,
+      "trend": {
+        "id": "steady",
+        "zh": "稳定",
+        "en": "Steady"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "科研绘图智能助手/Intelligent Assistant for Scientific Research Illustration — Claude Code Skill",
+      "language": "Python",
+      "topics": [],
+      "created_date": "2026-05-29",
+      "last_push_date": "2026-05-29",
+      "url": "https://github.com/MrLee2R/Intelligrapher",
+      "homepage": "",
+      "agents": [
+        "claude-code"
+      ],
+      "precision_signals": [
+        "assistant",
+        "claude code",
+        "research",
+        "scientific",
+        "skill",
+        "科研"
+      ],
+      "stale": true,
+      "verifies_citations": false,
+      "forks": 2,
+      "open_issues": 0,
+      "watchers": 111,
+      "size_kb": 413,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      },
+      "skills_count": 2
+    },
+    {
+      "rank": 113,
+      "repo": "maxwell2732/my-submission-formatting-agent",
+      "stars": 111,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "star_delta_30d": 0,
+      "trend_score": 16.39,
+      "trend": {
+        "id": "steady",
+        "zh": "稳定",
+        "en": "Steady"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "A structured Claude Code workflow to reformat research manuscripts for any journal's submission requirements without altering scientific content, created by Chen Zhu 朱晨 | 遗传社科研究.",
+      "language": "Python",
+      "topics": [],
+      "created_date": "2026-02-24",
+      "last_push_date": "2026-03-15",
+      "url": "https://github.com/maxwell2732/my-submission-formatting-agent",
+      "homepage": "",
+      "agents": [
+        "claude-code"
+      ],
+      "precision_signals": [
+        "claude code",
+        "journal",
+        "manuscript",
+        "research",
+        "scientific",
+        "workflow"
+      ],
+      "stale": true,
+      "verifies_citations": false,
+      "forks": 27,
+      "open_issues": 0,
+      "watchers": 111,
+      "size_kb": 3148,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": false,
+      "has_discussions": false,
+      "license": {
+        "key": "",
+        "name": "",
+        "spdx_id": ""
+      },
+      "skills_count": 12
+    },
+    {
+      "rank": 114,
+      "repo": "cLin-c/paper-skill",
+      "stars": 110,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "star_delta_30d": 0,
+      "trend_score": 41.12,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
+      },
+      "description": "🎓 Claude Code skill — AI prompt library for academic paper writing, polishing, reviewing, translating and submitting to SCI/IEEE/Nature/TRO journals",
+      "language": "Python",
+      "topics": [
+        "academic-writing",
+        "ai",
+        "claude-code",
+        "latex",
+        "llm",
+        "paper",
+        "prompt-engineering",
+        "research"
+      ],
+      "created_date": "2026-06-12",
+      "last_push_date": "2026-09-26",
+      "url": "https://github.com/cLin-c/paper-skill",
+      "homepage": "",
+      "agents": [
+        "claude-code"
+      ],
+      "precision_signals": [
+        "academic",
+        "claude code",
+        "paper",
+        "research",
+        "review",
+        "skill"
+      ],
+      "stale": false,
+      "verifies_citations": false,
+      "forks": 7,
+      "open_issues": 0,
+      "watchers": 110,
+      "size_kb": 15646,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      },
+      "skills_count": 1
+    },
+    {
+      "rank": 115,
+      "repo": "csmar432/finai-research",
+      "stars": 108,
+      "star_delta_1d": 0,
+      "star_delta_7d": 4,
+      "star_delta_30d": 0,
+      "trend_score": 45.08,
+      "trend": {
+        "id": "rising",
+        "zh": "持续增长",
+        "en": "Rising"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "Evidence-first AI workflow for economic and financial research: literature → identification → data → econometrics → verifiable LaTeX. 43 data sources, 58 method modules, 18 AI skills, 30 journal templates.",
+      "language": "Python",
+      "topics": [
+        "academic-research",
+        "ai-agents",
+        "causal-inference",
+        "did",
+        "difference-in-differences",
+        "econometrics",
+        "economics",
+        "empirical-finance",
+        "empirical-research",
+        "finance",
+        "latex",
+        "llm",
+        "mcp",
+        "open-science",
+        "panel-data",
+        "python",
+        "reproducible-research",
+        "research-automation",
+        "research-workflow"
+      ],
+      "created_date": "2026-06-15",
+      "last_push_date": "2026-09-22",
+      "url": "https://github.com/csmar432/finai-research",
+      "homepage": "https://csmar432.github.io/finai-research/",
+      "agents": [
+        "mcp"
+      ],
+      "precision_signals": [
+        "academic",
+        "literature",
+        "mcp",
+        "research",
+        "science",
+        "skill",
+        "skills"
+      ],
+      "stale": false,
+      "verifies_citations": false,
+      "forks": 4,
+      "open_issues": 9,
+      "watchers": 108,
+      "size_kb": 22574,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": false,
+      "has_discussions": true,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      },
+      "skills_count": 35
+    },
+    {
+      "rank": 116,
+      "repo": "wycmochi/cn-academic-spark",
+      "stars": 105,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "star_delta_30d": 0,
+      "trend_score": 32.42,
+      "trend": {
+        "id": "steady",
+        "zh": "稳定",
+        "en": "Steady"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "专为中国宝宝设计的可编辑学术 PPT 生成skill。可根据学术汇报场景（论文答辩、组会汇报、课程报告、开题报告、文献综述等），依据上传的论文、报告等材料分析研究框架并输出带讲稿、带技术路线图、可编辑的pptx文件。",
+      "language": "Python",
+      "topics": [],
+      "created_date": "2026-05-12",
+      "last_push_date": "2026-08-28",
+      "url": "https://github.com/wycmochi/cn-academic-spark",
+      "homepage": "",
+      "agents": [],
+      "precision_signals": [
+        "academic",
+        "skill",
+        "学术",
+        "文献",
+        "论文"
+      ],
+      "stale": false,
+      "verifies_citations": false,
+      "forks": 3,
+      "open_issues": 1,
+      "watchers": 105,
+      "size_kb": 79206,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      },
+      "skills_count": 1
+    },
+    {
+      "rank": 117,
+      "repo": "handsomeZR-netizen/ko5.6sol",
+      "stars": 100,
+      "star_delta_1d": 0,
+      "star_delta_7d": 0,
+      "star_delta_30d": 0,
+      "trend_score": 34.63,
+      "trend": {
+        "id": "steady",
+        "zh": "稳定",
+        "en": "Steady"
+      },
+      "category": {
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
+      },
+      "description": "Master Anti-AI Academic Paper Refactoring & Style Guide Skill to KO GPT-5.6 SOL mechanical phrasing & defensive disclaimers",
+      "language": "",
+      "topics": [],
+      "created_date": "2026-08-11",
+      "last_push_date": "2026-08-11",
+      "url": "https://github.com/handsomeZR-netizen/ko5.6sol",
+      "homepage": "",
+      "agents": [],
+      "precision_signals": [
+        "academic",
+        "paper",
+        "skill"
+      ],
+      "stale": true,
+      "verifies_citations": false,
+      "forks": 4,
+      "open_issues": 0,
+      "watchers": 100,
+      "size_kb": 11,
+      "default_branch": "main",
+      "has_issues": true,
+      "has_wiki": true,
+      "has_discussions": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT"
+      },
+      "skills_count": 2
     }
   ]
 }
