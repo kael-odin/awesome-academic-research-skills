@@ -1282,8 +1282,15 @@ def render_og_cover(data: dict[str, Any]) -> str:
     generated = (metadata.get("generated_at") or "")[:10]
     total_stars = sum(it.get("stars", 0) for it in items)
     top = items[0] if items else None
-    top_name = truncate(top["repo"], 42) if top else "—"
+    # Short enough that a 36px name never collides with the star count below.
+    top_name = truncate(top["repo"], 30) if top else "—"
     top_stars = f"{top['stars']:,}★" if top else ""
+
+    # Single CJK-capable family for every text run: cairo's toy font API does
+    # not do per-glyph fallback, so a Latin-first stack renders Chinese as
+    # tofu. "Noto Sans CJK SC" is installed by fonts-noto-cjk in CI; the
+    # later entries keep local (Windows/macOS) previews readable.
+    font = "Noto Sans CJK SC, Microsoft YaHei, PingFang SC, sans-serif"
 
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
@@ -1300,13 +1307,13 @@ def render_og_cover(data: dict[str, Any]) -> str:
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect x="0" y="0" width="1200" height="8" fill="url(#accent)"/>
-  <text x="80" y="150" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="34" fill="#8a94a6" font-weight="600">Awesome Academic Research Skills</text>
-  <text x="78" y="260" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="84" fill="#e6ebf2" font-weight="800">学术论文 Skill 排行</text>
-  <text x="80" y="330" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="30" fill="#9ee7d8" font-weight="600">{total} repos · {total_stars:,} stars · updated {generated}</text>
+  <text x="80" y="150" font-family="{font}" font-size="34" fill="#8a94a6" font-weight="600">Awesome Academic Research Skills</text>
+  <text x="78" y="260" font-family="{font}" font-size="84" fill="#e6ebf2" font-weight="800">学术论文 Skill 排行</text>
+  <text x="80" y="330" font-family="{font}" font-size="30" fill="#9ee7d8" font-weight="600">{total} repos · {total_stars:,} stars · updated {generated}</text>
   <rect x="80" y="390" width="1040" height="160" rx="20" fill="#161f30" stroke="#25304a" stroke-width="1"/>
-  <text x="112" y="450" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="24" fill="#8a94a6" font-weight="600">#1 TOP</text>
-  <text x="112" y="505" font-family="Inter, Segoe UI, Microsoft YaHei, sans-serif" font-size="42" fill="#e6ebf2" font-weight="700">{xml_escape(top_name)}</text>
-  <text x="1080" y="505" font-family="Inter, Segoe UI, sans-serif" font-size="42" fill="#fbbf24" font-weight="800" text-anchor="end">{xml_escape(top_stars)}</text>
+  <text x="112" y="445" font-family="{font}" font-size="24" fill="#8a94a6" font-weight="600">#1 TOP</text>
+  <text x="112" y="498" font-family="{font}" font-size="38" fill="#e6ebf2" font-weight="700">{xml_escape(top_name)}</text>
+  <text x="112" y="532" font-family="{font}" font-size="26" fill="#fbbf24" font-weight="800">{xml_escape(top_stars)}</text>
 </svg>
 """
 
