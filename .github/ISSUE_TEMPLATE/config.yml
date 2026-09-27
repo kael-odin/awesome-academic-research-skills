@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 推荐新仓库 / Recommend a repository
+    url: https://github.com/kael-odin/awesome-academic-research-skills/issues/new?template=recommend-repo.yml
+    about: 推荐学术/科研 Agent Skill 仓库加入榜单

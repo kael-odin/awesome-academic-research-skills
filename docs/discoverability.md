@@ -56,10 +56,10 @@ Settings → Branches → 给 `main` 加规则：要求 PR 通过测试再合并
 以下资产由 `scripts/update_rankings.py` 每日自动生成 / 维护，无需手动操作：
 
 - `index.html`：`<meta name="description">`、`keywords`、`author`、canonical、Open Graph（`og:title/description/url/image/locale`）、Twitter Card、RSS `<link rel="alternate">`、`<link rel="sitemap">`、内联 SVG favicon、JSON-LD `ItemList`（前端动态填充前 20 名）。
-- `sitemap.xml`：首页 + README + 数据端点 + 文档。
+- `sitemap.xml`：首页 + 数据端点 + 文档（仅规范 URL）。
 - `robots.txt`：允许全部抓取，指向 sitemap。
-- `feed.xml`：RSS 2.0 订阅源（每日新收录 + 趋势上升）。
-- `assets/og-cover.svg`：1200×630 社交分享封面（每日刷新数字）。
+- `feed.xml`：RSS 2.0 订阅源（每日新收录 + 趋势上升，RFC-822 日期）。
+- `assets/og-cover.svg` + `assets/og-cover.png`：1200×630 社交分享封面（每日刷新数字；PNG 由 CI 的 `cairosvg` 生成，Open Graph 抓取器只认 PNG/JPEG）。
 
 如需进一步 SEO，可在 Pages 页面根目录加自定义域名（Settings → Pages → Custom domain）。
 

@@ -1,5 +1,7 @@
 import unittest
+import re
 from datetime import datetime, timedelta, timezone
+from email.utils import parsedate_to_datetime
 
 from scripts.update_rankings import (
     classify_repo,
@@ -9,8 +11,11 @@ from scripts.update_rankings import (
     find_window_snapshot,
     is_academic_skill_repo,
     rank_repositories,
+    render_data_js,
+    render_feed,
     render_history_series,
     render_readme,
+    render_sitemap,
 )
 
 
@@ -475,6 +480,79 @@ class RankingRulesTest(unittest.TestCase):
     def test_agents_to_label_renders_human_labels(self):
         self.assertEqual(agents_to_label(["claude-code", "mcp"]), "Claude/MCP")
         self.assertEqual(agents_to_label([]), "通用")
+
+    def test_excluded_repositories_are_never_ranked(self):
+        """Excluded repos (e.g. the meta-repository itself) must be dropped
+        even when they would otherwise pass every acceptance filter."""
+        repo = {
+            "nameWithOwner": "kael-odin/awesome-academic-research-skills",
+            "description": "Academic research skill ranking with paper writing and literature review skills",
+            "repositoryTopics": {"nodes": [{"topic": {"name": "academic-research"}}]},
+            "stargazerCount": 500,
+            "pushedAt": "2026-06-29T00:00:00Z",
+            "createdAt": "2026-01-01T00:00:00Z",
+            "url": "https://github.com/kael-odin/awesome-academic-research-skills",
+        }
+
+        kept = rank_repositories([repo], min_stars=100, previous_snapshot={})
+        dropped = rank_repositories(
+            [repo],
+            min_stars=100,
+            previous_snapshot={},
+            excluded_repositories={"kael-odin/awesome-academic-research-skills"},
+        )
+
+        self.assertEqual([item["repo"] for item in kept], [repo["nameWithOwner"]])
+        self.assertEqual(dropped, [])
+
+    def _feed_fixture(self):
+        ranked = rank_repositories(
+            [
+                {
+                    "nameWithOwner": "example/feed-skill",
+                    "description": "Academic paper writing skill",
+                    "repositoryTopics": {"nodes": []},
+                    "stargazerCount": 150,
+                    "pushedAt": "2026-06-29T00:00:00Z",
+                    "createdAt": "2026-01-01T00:00:00Z",
+                    "url": "https://github.com/example/feed-skill",
+                }
+            ],
+            min_stars=100,
+            previous_snapshot={},
+        )
+        return {
+            "metadata": {"generated_at": "2026-09-26T07:43:42Z", "min_stars": 100, "total": 1},
+            "items": ranked,
+        }
+
+    def test_feed_pubdate_is_rfc822(self):
+        """RSS 2.0 requires RFC-822 dates (ISO 8601 fails strict validators);
+        every emitted timestamp must round-trip through a real parser."""
+        feed = render_feed(self._feed_fixture(), window_snapshot={"example/other": {"stars": 1}})
+
+        pubdates = re.findall(r"<pubDate>([^<]+)</pubDate>", feed)
+        last_build = re.findall(r"<lastBuildDate>([^<]+)</lastBuildDate>", feed)
+        self.assertTrue(pubdates)
+        for raw in pubdates + last_build:
+            parsed = parsedate_to_datetime(raw)
+            self.assertEqual(parsed.strftime("%Y-%m-%d"), "2026-09-26")
+
+    def test_sitemap_contains_no_url_fragments(self):
+        """Sitemap URLs must be canonical: fragments like '#english' are not
+        allowed by the sitemap protocol and are stripped by crawlers."""
+        sitemap = render_sitemap(self._feed_fixture())
+
+        for loc in re.findall(r"<loc>([^<]+)</loc>", sitemap):
+            self.assertNotIn("#", loc)
+
+    def test_data_js_is_minified(self):
+        """The machine-consumed .js payloads must use compact separators;
+        indentation tripled the transfer size of history.js."""
+        payload = render_data_js(self._feed_fixture())
+
+        self.assertTrue(payload.startswith("window.ACADEMIC_SKILLS_RANKINGS={"))
+        self.assertNotIn(": ", payload)
 
 
 if __name__ == "__main__":

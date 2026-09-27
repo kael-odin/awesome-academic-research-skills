@@ -2,6 +2,30 @@
 
 本项目遵循 [语义化版本](https://semver.org/lang/zh-CN/)。数据型仓库的"功能"指榜单 / 脚本 / 可视化能力，而非仓库数据本身（数据每日自动更新）。
 
+## v2.1 — 2026-09-27
+
+工程质量与发布管道修复，全部改动有测试覆盖（29/29 通过）。
+
+### 排名脚本与数据
+
+- **榜单不再收录自身**：新增 `exclude_repositories` 配置（默认排除本仓库），排行榜不再把自己排进榜。
+- **搜索翻页 + 限流退避**：每个查询最多抓 2 页（per_page 50 → 100），长尾仓库可被发现；`github_request` 对 403/429/5xx 按 `Retry-After` / 指数退避重试，查询间隔放宽以守住 Search API 30 次/分钟上限。
+- **RSS 规范化**：`pubDate` / `lastBuildDate` 从 ISO 8601 改为 RSS 2.0 要求的 RFC-822 格式。
+- **Sitemap 规范化**：移除 `#english` 锚点 URL（sitemap 协议不允许 fragment）。
+- **数据脚本瘦身**：`rankings.js` / `history.js` 改用紧凑 JSON 分隔符（history.js 约 204KB → 约 70KB），并在 `index.html` 中以 `defer` 加载。
+
+### 发布管道（CI/CD）
+
+- **新增 PR CI**：`.github/workflows/ci.yml` 在 pull_request / push 时校验 JSON 并跑全部测试——此前 PR 没有任何机器验证。
+- **update workflow 并发保护**：加 `concurrency` 组，避免手动触发与定时跑的 auto-commit 互相冲突。
+- **失败通知去重**：连续失败时改为在已有 `auto-update-failure` issue 下追加评论，不再每天开新 issue。
+- **Open Graph 封面 PNG 化**：CI 安装 `cairosvg` + Noto CJK 字体，每日把 `og-cover.svg` 栅格化为 `og-cover.png` 并提交（OG / Twitter 抓取器不渲染 SVG）；`index.html` 的 `og:image` / `twitter:image` 改指向 PNG。
+
+### 杂项
+
+- 移除 `renderTable` 中未使用的 `d30` 死代码；修复 `hashchange` 双重渲染；简化 `render_history_series` 中易误读的 `or/and` 复合条件；修正 TOC 渲染注释与实际排序不一致。
+- 新增「反馈 / Bug 报告」issue 模板，并允许空白 issue。
+
 ## v2.0 — 2026-07-10
 
 可视化重做 + 数据增强 + SEO 订阅。一次大版本升级，覆盖四个方向。

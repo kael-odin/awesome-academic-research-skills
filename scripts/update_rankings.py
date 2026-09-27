@@ -19,6 +19,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
+from email.utils import format_datetime
 from pathlib import Path
 from typing import Any
 
@@ -34,6 +35,7 @@ HISTORY_DIR = ROOT / "data" / "history"
 SITEMAP_PATH = ROOT / "sitemap.xml"
 FEED_PATH = ROOT / "feed.xml"
 OG_COVER_PATH = ROOT / "assets" / "og-cover.svg"
+OG_COVER_PNG_PATH = ROOT / "assets" / "og-cover.png"
 
 # Canonical public URL (GitHub Pages). Used for sitemap / RSS / Open Graph.
 SITE_URL = "https://kael-odin.github.io/awesome-academic-research-skills"
@@ -50,6 +52,13 @@ LONG_WINDOW_DAYS = 30
 
 
 DEFAULT_MIN_STARS = 100
+
+# Repositories never listed in the ranking itself. The meta-repository must
+# stay out of its own leaderboard (its description matches every signal by
+# construction), while still being fetched normally when listed as a seed.
+DEFAULT_EXCLUDED_REPOSITORIES = [
+    "kael-odin/awesome-academic-research-skills",
+]
 
 SKILL_TERMS = [
     "skill",
@@ -482,16 +491,21 @@ def rank_repositories(
     trusted_repositories: set[str] | None = None,
     window_snapshot: dict[str, Any] | None = None,
     long_window_snapshot: dict[str, Any] | None = None,
+    excluded_repositories: set[str] | None = None,
     now: datetime | None = None,
 ) -> list[dict[str, Any]]:
     previous_snapshot = previous_snapshot or {}
     trusted_repositories = trusted_repositories or set()
     window_snapshot = window_snapshot or {}
     long_window_snapshot = long_window_snapshot or {}
+    excluded_repositories = excluded_repositories or set()
     now = now or utc_now()
     ranked: list[dict[str, Any]] = []
 
     for repo in repos:
+        name = repo["nameWithOwner"]
+        if name in excluded_repositories:
+            continue
         accepted, reasons = is_academic_skill_repo(
             repo,
             min_stars=min_stars,
@@ -500,7 +514,6 @@ def rank_repositories(
         if not accepted:
             continue
 
-        name = repo["nameWithOwner"]
         previous = previous_snapshot.get(name, {}) if isinstance(previous_snapshot, dict) else {}
         stars = int(repo.get("stargazerCount") or 0)
         old_stars = previous_stars(previous)
@@ -647,7 +660,15 @@ def save_history_snapshot(data: dict[str, Any], today: datetime) -> None:
             entry.unlink(missing_ok=True)
 
 
-def github_request(path: str, token: str | None, params: dict[str, Any] | None = None) -> dict[str, Any]:
+RETRYABLE_STATUS_CODES = {403, 429, 500, 502, 503, 504}
+
+
+def github_request(
+    path: str,
+    token: str | None,
+    params: dict[str, Any] | None = None,
+    retries: int = 3,
+) -> dict[str, Any]:
     if path.startswith("https://"):
         url = path
     else:
@@ -663,9 +684,30 @@ def github_request(path: str, token: str | None, params: dict[str, Any] | None =
     if token:
         headers["Authorization"] = f"Bearer {token}"
 
-    request = urllib.request.Request(url, headers=headers)
-    with urllib.request.urlopen(request, timeout=30) as response:
-        return json.loads(response.read().decode("utf-8"))
+    last_error: Exception | None = None
+    for attempt in range(retries):
+        request = urllib.request.Request(url, headers=headers)
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except urllib.error.HTTPError as error:
+            last_error = error
+            # 403 covers both hard rate limits and secondary abuse limits.
+            transient = error.code in RETRYABLE_STATUS_CODES
+            if not transient or attempt >= retries - 1:
+                raise
+            retry_after = (error.headers or {}).get("Retry-After") if error.headers else None
+            delay = int(retry_after) if retry_after and retry_after.isdigit() else 2**attempt * 2
+            print(f"warning: HTTP {error.code} on {url.split('?')[0]}, retrying in {delay}s", file=sys.stderr)
+            time.sleep(delay)
+        except urllib.error.URLError as error:
+            last_error = error
+            if attempt >= retries - 1:
+                raise
+            delay = 2**attempt * 2
+            print(f"warning: network error on {url.split('?')[0]}: {error.reason}, retrying in {delay}s", file=sys.stderr)
+            time.sleep(delay)
+    raise last_error  # pragma: no cover - retries exhausted above
 
 
 def rest_to_repo(item: dict[str, Any]) -> dict[str, Any]:
@@ -702,24 +744,39 @@ def rest_to_repo(item: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def search_repositories(query: str, min_stars: int, token: str | None) -> list[dict[str, Any]]:
+def search_repositories(
+    query: str,
+    min_stars: int,
+    token: str | None,
+    max_pages: int = 2,
+) -> list[dict[str, Any]]:
     q = f"{query} stars:>={min_stars} fork:false archived:false"
+    items: list[dict[str, Any]] = []
     try:
-        data = github_request(
-            "/search/repositories",
-            token,
-            {
-                "q": q,
-                "sort": "stars",
-                "order": "desc",
-                "per_page": 50,
-            },
-        )
+        for page in range(1, max_pages + 1):
+            data = github_request(
+                "/search/repositories",
+                token,
+                {
+                    "q": q,
+                    "sort": "stars",
+                    "order": "desc",
+                    "per_page": 100,
+                    "page": page,
+                },
+            )
+            page_items = data.get("items", [])
+            items.extend(page_items)
+            # Stop early when the last page is short or search hits the
+            # GitHub-wide 1000-result ceiling.
+            if len(page_items) < 100 or page * 100 >= data.get("total_count", 0):
+                break
+            time.sleep(1.5)
     except urllib.error.HTTPError as error:
         message = error.read().decode("utf-8", errors="replace")
         print(f"warning: search failed for {query!r}: {error.code} {message}", file=sys.stderr)
-        return []
-    return [rest_to_repo(item) for item in data.get("items", [])]
+        return items
+    return [rest_to_repo(item) for item in items]
 
 
 def fetch_repository(full_name: str, token: str | None) -> dict[str, Any] | None:
@@ -746,7 +803,9 @@ def collect_repositories(config: dict[str, Any], token: str | None) -> list[dict
     for query in config.get("search_queries", []):
         for repo in search_repositories(query, min_stars, token):
             repos[repo["nameWithOwner"]] = repo
-        time.sleep(1.8)
+        # Search API allows 30 requests/minute; with up to 2 pages per query
+        # this keeps even the worst case (2 pages every query) under the cap.
+        time.sleep(2.5)
 
     return list(repos.values())
 
@@ -1030,13 +1089,15 @@ def render_csv(items: list[dict[str, Any]]) -> None:
 
 
 def render_data_js(data: dict[str, Any]) -> str:
-    payload = json.dumps(data, ensure_ascii=False, indent=2)
-    return f"window.ACADEMIC_SKILLS_RANKINGS = {payload};\n"
+    # Compact separators: these files are machine-consumed by the dashboard;
+    # indenting them tripled the transfer size of history.js for no benefit.
+    payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+    return f"window.ACADEMIC_SKILLS_RANKINGS={payload};\n"
 
 
 def render_history_js(history_payload: dict[str, Any]) -> str:
-    payload = json.dumps(history_payload, ensure_ascii=False, indent=2)
-    return f"window.ACADEMIC_SKILLS_HISTORY = {payload};\n"
+    payload = json.dumps(history_payload, ensure_ascii=False, separators=(",", ":"))
+    return f"window.ACADEMIC_SKILLS_HISTORY={payload};\n"
 
 
 def write_outputs(data: dict[str, Any], window_snapshot: dict[str, Any] | None = None) -> None:
@@ -1057,6 +1118,9 @@ def build_dataset(config: dict[str, Any], repos: list[dict[str, Any]]) -> tuple[
     window_snapshot = find_window_snapshot(history, now, DELTA_WINDOW_DAYS)
     long_window_snapshot = find_window_snapshot(history, now, LONG_WINDOW_DAYS)
     trusted_repositories = set(config.get("seed_repositories", []))
+    excluded_repositories = set(
+        config.get("exclude_repositories", DEFAULT_EXCLUDED_REPOSITORIES)
+    )
     items = rank_repositories(
         repos,
         min_stars=min_stars,
@@ -1064,6 +1128,7 @@ def build_dataset(config: dict[str, Any], repos: list[dict[str, Any]]) -> tuple[
         trusted_repositories=trusted_repositories,
         window_snapshot=window_snapshot,
         long_window_snapshot=long_window_snapshot,
+        excluded_repositories=excluded_repositories,
         now=now,
     )
     max_results = int(config.get("max_results", 100))
@@ -1105,11 +1170,11 @@ def render_history_series(history: dict[str, dict[str, Any]]) -> dict[str, Any]:
         if not isinstance(snapshot, dict):
             continue
         for repo, item in snapshot.items():
-            if not isinstance(item, dict) or "repo" not in item and "stars" not in item:
-                # Need a stars figure to plot; skip entries without one.
+            if not isinstance(item, dict):
                 continue
             stars = item.get("stars") or item.get("stargazerCount")
             if stars is None:
+                # Need a stars figure to plot.
                 continue
             series.setdefault(repo, []).append({"date": date_key, "stars": int(stars)})
     return {
@@ -1138,7 +1203,6 @@ def render_sitemap(data: dict[str, Any]) -> str:
     lastmod = (data.get("metadata", {}).get("generated_at") or "")[:10]
     urls = [
         ("", lastmod, "1.0", "daily"),
-        ("#english", lastmod, "0.6", "weekly"),
         ("data/rankings.json", lastmod, "0.5", "daily"),
         ("data/rankings.csv", lastmod, "0.4", "daily"),
         ("docs/methodology.md", lastmod, "0.4", "monthly"),
@@ -1161,11 +1225,18 @@ def render_sitemap(data: dict[str, Any]) -> str:
         + "\n".join(entries) + "\n</urlset>\n"
 
 
+def rfc822_timestamp(value: str) -> str:
+    """Render an ISO timestamp as RFC-822 (RSS 2.0 requires it, e.g.
+    ``Sat, 26 Sep 2026 07:43:42 GMT``); ISO 8601 fails strict validators."""
+    parsed = parse_datetime(value)
+    return format_datetime(parsed) if parsed else ""
+
+
 def render_feed(data: dict[str, Any], window_snapshot: dict[str, Any] | None = None) -> str:
     """Generate an RSS 2.0 feed of newcomers + top trending repos for daily订阅."""
     items = data.get("items", [])
     metadata = data.get("metadata", {})
-    generated = metadata.get("generated_at", "")
+    generated = rfc822_timestamp(metadata.get("generated_at", ""))
     newcomers = [it for it in items if is_newcomer(it, window_snapshot)]
     trending = sorted(items, key=lambda i: -(i.get("star_delta_7d") or 0))[:10]
     featured = newcomers[:8] + [it for it in trending if it not in newcomers][: (10 - len(newcomers))]
@@ -1240,11 +1311,32 @@ def render_og_cover(data: dict[str, Any]) -> str:
 """
 
 
+def render_og_cover_png(svg_text: str) -> bytes | None:
+    """Rasterize the OG cover to PNG when the optional ``cairosvg`` extra is
+    installed. Open Graph / Twitter crawlers do not render SVG, so the PNG is
+    the image social platforms actually show; locally (no cairosvg) the SVG
+    remains the only artifact and nothing fails."""
+    try:
+        import cairosvg  # type: ignore[import-not-found]
+    except ImportError:
+        print("info: cairosvg not installed, skipping og-cover.png (pip install cairosvg)", file=sys.stderr)
+        return None
+    return cairosvg.svg2png(
+        bytestring=svg_text.encode("utf-8"),
+        output_width=1200,
+        output_height=630,
+    )
+
+
 def write_seo_assets(data: dict[str, Any], window_snapshot: dict[str, Any] | None = None) -> None:
     SITEMAP_PATH.write_text(render_sitemap(data), encoding="utf-8")
     FEED_PATH.write_text(render_feed(data, window_snapshot=window_snapshot), encoding="utf-8")
     OG_COVER_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OG_COVER_PATH.write_text(render_og_cover(data), encoding="utf-8")
+    svg_text = render_og_cover(data)
+    OG_COVER_PATH.write_text(svg_text, encoding="utf-8")
+    png_bytes = render_og_cover_png(svg_text)
+    if png_bytes:
+        OG_COVER_PNG_PATH.write_bytes(png_bytes)
 
 
 def main() -> int:

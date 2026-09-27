@@ -10,6 +10,12 @@ permissions:
   issues: write
   actions: write
 
+# A manual dispatch racing the scheduled run would make the two
+# git-auto-commit steps fight over the same files.
+concurrency:
+  group: update-rankings
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -21,6 +27,15 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Install OG cover rendering deps
+        # cairosvg rasterizes assets/og-cover.svg into the PNG that social
+        # crawlers actually display (OG/Twitter cards do not render SVG).
+        # Noto CJK fonts are needed or the Chinese headline turns into tofu.
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+          pip install cairosvg
 
       - name: Update ranking data
         env:
@@ -35,7 +50,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update academic research skill rankings"
-          file_pattern: README.md data/rankings.json data/rankings.js data/history.js data/rankings.csv data/history/*.json sitemap.xml feed.xml assets/og-cover.svg
+          file_pattern: README.md data/rankings.json data/rankings.js data/history.js data/rankings.csv data/history/*.json sitemap.xml feed.xml assets/og-cover.svg assets/og-cover.png
 
       - name: Redeploy GitHub Pages
         # The auto-commit uses GITHUB_TOKEN, whose pushes do NOT trigger other
@@ -57,10 +72,30 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            await github.rest.issues.create({
+            const runLink = `[run #${context.runId}](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})`;
+            const body = `The daily update workflow failed at ${new Date().toISOString()}. See ${runLink}.`;
+            // Comment on the existing failure issue instead of opening a new
+            // one per failed day — a multi-day outage would otherwise spam.
+            const existing = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: `Ranking update failed on ${new Date().toISOString().slice(0, 10)}`,
-              body: `The daily update workflow failed. See [run #${context.runId}](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}).`,
-              labels: ["auto-update-failure"]
+              state: 'open',
+              labels: 'auto-update-failure',
+              per_page: 1,
             });
+            if (existing.data.length) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.data[0].number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `Ranking update failed on ${new Date().toISOString().slice(0, 10)}`,
+                body,
+                labels: ['auto-update-failure'],
+              });
+            }

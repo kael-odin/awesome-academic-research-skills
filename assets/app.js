@@ -293,7 +293,6 @@
       const trendId = item.trend.id === "hot" ? "hot" : item.trend.id === "steady" ? "steady" : "rising";
       const glyph = trendId === "hot" ? "∧" : trendId === "rising" ? "↗" : "—";
       const d7 = SAFE(item.star_delta_7d, SAFE(item.star_delta_1d, 0)) || 0;
-      const d30 = SAFE(item.star_delta_30d, d7);
       const topics = (item.topics || []).slice(0, 3).join(", ");
       const fav = isFav(item.repo) ? "on" : "";
       tr.innerHTML = `
@@ -539,7 +538,7 @@
       counts.set(it.category.id, (counts.get(it.category.id) || 0) + 1);
       totalStars += it.stars || 0;
     });
-    // Render in the backend's canonical category order, omitting zero counts.
+    // Render categories by count, descending (zero-count categories omitted).
     const seen = Array.from(counts.entries()).sort((a, b) => b[1] - a[1]);
     list.innerHTML = seen.map(([id, n], i) => {
       const cat = (data.items.find((it) => it.category.id === id) || {}).category || { zh: id, en: id };
@@ -633,7 +632,7 @@
       readHash();
       if (state.theme !== prevTheme) { applyTheme(); localStorage.setItem("ars-theme", state.theme); }
       if (state.lang !== prevLang) { setLanguage(state.lang); return; }
-      render();
+      // setView re-renders; calling render() here too would render twice.
       setView(state.view);
     });
 

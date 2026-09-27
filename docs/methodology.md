@@ -68,9 +68,9 @@
 
 每次更新同步生成（见 `scripts/update_rankings.py` 的 `write_seo_assets`）：
 
-- `sitemap.xml` — 首页 + README + 数据端点 + 文档，带 `lastmod` / `changefreq` / `priority`。
-- `feed.xml` — RSS 2.0，每日条目 = 本周新收录 + 7 天趋势前 10，含 `atom:self` 自引用。
-- `assets/og-cover.svg` — 1200×630 Open Graph 封面，展示当日总量、总 Stars、更新日期与榜首仓库。
+- `sitemap.xml` — 首页 + 数据端点 + 文档，带 `lastmod` / `changefreq` / `priority`（只含规范 URL，不含 `#` 锚点片段）。
+- `feed.xml` — RSS 2.0，每日条目 = 本周新收录 + 7 天趋势前 10，含 `atom:self` 自引用；日期为规范要求的 RFC-822 格式。
+- `assets/og-cover.svg` — 1200×630 Open Graph 封面，展示当日总量、总 Stars、更新日期与榜首仓库；CI 中同时栅格化为 `assets/og-cover.png`（Open Graph / Twitter 抓取器不渲染 SVG，PNG 才是社交平台真正显示的图片；由可选依赖 `cairosvg` 生成，本地缺失时自动跳过，仅保留 SVG）。
 - `robots.txt` — 允许全部抓取并指向 sitemap。
 - `index.html` 内嵌 JSON-LD `ItemList`（前端动态填充前 20 名）。
 
