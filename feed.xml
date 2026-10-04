@@ -5,71 +5,95 @@
     <link>https://kael-odin.github.io/awesome-academic-research-skills/</link>
     <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 03 Oct 2026 08:10:25 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2026 08:30:56 +0000</lastBuildDate>
     <atom:link href="https://kael-odin.github.io/awesome-academic-research-skills/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>ChenLiu-1996/figures4papers (7,966★, +24/7d)</title>
-      <link>https://github.com/ChenLiu-1996/figures4papers</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#ChenLiu-1996/figures4papers</guid>
-      <description>My Python scripts to make high-quality figures for publications in top AI conferences and journals.</description>
-      <category>Discipline Specific</category>
-      <pubDate>Sat, 03 Oct 2026 08:10:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>yilewang/llm-for-zotero (3,183★, +4/7d)</title>
-      <link>https://github.com/yilewang/llm-for-zotero</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#yilewang/llm-for-zotero</guid>
-      <description>An open-source research agent system for your Zotero library.</description>
+      <title>Edwardxlai/easyread (701★, +70/7d)</title>
+      <link>https://github.com/Edwardxlai/easyread</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Edwardxlai/easyread</guid>
+      <description>把英文论文读成舒服的中文：本地 PDF 论文翻译、原文对照、边读边问 AI、文献管理。Read English papers in comfortable Chinese.</description>
       <category>General Research</category>
-      <pubDate>Sat, 03 Oct 2026 08:10:25 +0000</pubDate>
+      <pubDate>Sun, 04 Oct 2026 08:30:56 +0000</pubDate>
     </item>
     <item>
-      <title>openags/paper-search-mcp (2,735★, +4/7d)</title>
-      <link>https://github.com/openags/paper-search-mcp</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#openags/paper-search-mcp</guid>
-      <description>MCP, CLI, Skills for searching and downloading academic papers from multiple sources like arXiv, PubMed, bioRxiv, etc.</description>
+      <title>z-liu-xiugou/research-workbench-assistant (177★, +10/7d)</title>
+      <link>https://github.com/z-liu-xiugou/research-workbench-assistant</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#z-liu-xiugou/research-workbench-assistant</guid>
+      <description>Local-first research memory for Codex: checkpoints, progress ledgers, and Markdown/JSON paper notes. Early alpha.</description>
       <category>General Research</category>
-      <pubDate>Sat, 03 Oct 2026 08:10:25 +0000</pubDate>
+      <pubDate>Sun, 04 Oct 2026 08:30:56 +0000</pubDate>
     </item>
     <item>
-      <title>llmsresearch/paperbanana (2,385★, +0/7d)</title>
-      <link>https://github.com/llmsresearch/paperbanana</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#llmsresearch/paperbanana</guid>
-      <description>Open source implementation and extension of Google Research’s PaperBanana for automated academic figures, diagrams, and research visuals, expanded to new domains like slide generation.</description>
+      <title>wilbert-MD-PhD/medical-illustration (168★, +2/7d)</title>
+      <link>https://github.com/wilbert-MD-PhD/medical-illustration</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#wilbert-MD-PhD/medical-illustration</guid>
+      <description>面向 Codex、Claude Code 等 AI Agent 的医学绘图 Skill，基于可信证据制作医学插画、科普漫画与科研示意图，提供可编辑成果与审核记录。 · Evidence-backed medical illustration, comics and research figures for Codex, Claude Code and other AI agents, with…</description>
       <category>General Research</category>
-      <pubDate>Sat, 03 Oct 2026 08:10:25 +0000</pubDate>
+      <pubDate>Sun, 04 Oct 2026 08:30:56 +0000</pubDate>
     </item>
     <item>
-      <title>yb2460/harness-anything (2,153★, +6/7d)</title>
-      <link>https://github.com/yb2460/harness-anything</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#yb2460/harness-anything</guid>
-      <description>Harness Anything - AI agent control hub: WPS, MS Office, Zotero, Photoshop, 47 CLI commands, 27 academic skills, SVG-to-PPTX</description>
-      <category>Literature Review</category>
-      <pubDate>Sat, 03 Oct 2026 08:10:25 +0000</pubDate>
-    </item>
-    <item>
-      <title>Adkid-Zephyr/anti-defensive-writing-Skill (2,066★, +32/7d)</title>
-      <link>https://github.com/Adkid-Zephyr/anti-defensive-writing-Skill</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Adkid-Zephyr/anti-defensive-writing-Skill</guid>
-      <description>极致轻量｜阻止论文的防御性写作 | Anti-defensive writing for academic papers — 学术写作原则 Skill + prompt pack (CN/EN)</description>
+      <title>0xE1337/thesis-figure-skill (141★, +0/7d)</title>
+      <link>https://github.com/0xE1337/thesis-figure-skill</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#0xE1337/thesis-figure-skill</guid>
+      <description>🎓 Claude Skill: Paste your paper text, auto-generate publication-ready LaTeX/TikZ diagrams. 粘贴论文文案，自动生成学术级配图。</description>
       <category>Paper Writing</category>
-      <pubDate>Sat, 03 Oct 2026 08:10:25 +0000</pubDate>
+      <pubDate>Sun, 04 Oct 2026 08:30:56 +0000</pubDate>
     </item>
     <item>
-      <title>delibae/claude-prism (1,800★, +3/7d)</title>
-      <link>https://github.com/delibae/claude-prism</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#delibae/claude-prism</guid>
-      <description>An offline-first scientific writing workspace powered by Claude. LaTeX + Python + 100+ scientific skills all running locally.</description>
+      <title>Liuxiangjian-ai/reference-checker-skill (137★, +0/7d)</title>
+      <link>https://github.com/Liuxiangjian-ai/reference-checker-skill</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Liuxiangjian-ai/reference-checker-skill</guid>
+      <description>逐条检查参考文献是否真实 /An exhaustive pre-submission reference verification skill for checking scholarly references item by item.</description>
       <category>General Research</category>
-      <pubDate>Sat, 03 Oct 2026 08:10:25 +0000</pubDate>
+      <pubDate>Sun, 04 Oct 2026 08:30:56 +0000</pubDate>
     </item>
     <item>
-      <title>AIScientists-Dev/academic-humanizer (1,767★, +6/7d)</title>
-      <link>https://github.com/AIScientists-Dev/academic-humanizer</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#AIScientists-Dev/academic-humanizer</guid>
-      <description>Strip AI-writing tells from papers and grant proposals (NSF/NIH), while keeping scholarly voice and tying claims to evidence. A skill for Claude Code, Codex, and MorphMind.</description>
+      <title>maxwell2732/paper-replicate-agent-demo (136★, +0/7d)</title>
+      <link>https://github.com/maxwell2732/paper-replicate-agent-demo</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#maxwell2732/paper-replicate-agent-demo</guid>
+      <description>A structured Claude Code workflow for empirically replicating published research using UK Biobank (UKB) data, created by Chen Zhu 朱晨 | 遗传社科研究.</description>
       <category>General Research</category>
-      <pubDate>Sat, 03 Oct 2026 08:10:25 +0000</pubDate>
+      <pubDate>Sun, 04 Oct 2026 08:30:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>SmBai1998/sci-ps-skill (126★, +0/7d)</title>
+      <link>https://github.com/SmBai1998/sci-ps-skill</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#SmBai1998/sci-ps-skill</guid>
+      <description>科研绘图不再只是 AI 生一张图。这个 Skill 会自动分析参考图、拆解组件、生成素材，再进入 Photoshop 按图层逐步重建，并对位置、大小、形状、透视、色调、阴影、光效和遮挡关系进行逐层校准。最终不是一张扁平图片，而是一份可以继续修改的完整 PSD。Science 封面、Nature 风格机制图、3D 科研示意图都可以按这套流程处理。</description>
+      <category>General Research</category>
+      <pubDate>Sun, 04 Oct 2026 08:30:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>HaonanAlex/MGMT-Paper-Skills (126★, +0/7d)</title>
+      <link>https://github.com/HaonanAlex/MGMT-Paper-Skills</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#HaonanAlex/MGMT-Paper-Skills</guid>
+      <description>Management research paper skills and MCP workflows for Codex and Claude</description>
+      <category>General Research</category>
+      <pubDate>Sun, 04 Oct 2026 08:30:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Yuan1z0825/nature-skills (45,807★, +1123/7d)</title>
+      <link>https://github.com/Yuan1z0825/nature-skills</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Yuan1z0825/nature-skills</guid>
+      <description>符合nature论文学术表达和科研绘图的Skill</description>
+      <category>Deep Research</category>
+      <pubDate>Sun, 04 Oct 2026 08:30:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>K-Dense-AI/scientific-agent-skills (47,527★, +787/7d)</title>
+      <link>https://github.com/K-Dense-AI/scientific-agent-skills</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#K-Dense-AI/scientific-agent-skills</guid>
+      <description>Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 250,000+ scientists worldwide. 177 ready-to-use validated skills plus 100+ scientific databases covering biolo…</description>
+      <category>Discipline Specific</category>
+      <pubDate>Sun, 04 Oct 2026 08:30:56 +0000</pubDate>
+    </item>
+    <item>
+      <title>Imbad0202/academic-research-skills (50,332★, +766/7d)</title>
+      <link>https://github.com/Imbad0202/academic-research-skills</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Imbad0202/academic-research-skills</guid>
+      <description>Academic Research Skills for Claude Code: research → write → review → revise → finalize</description>
+      <category>Paper Writing</category>
+      <pubDate>Sun, 04 Oct 2026 08:30:56 +0000</pubDate>
     </item>
   </channel>
 </rss>
