@@ -5,87 +5,87 @@
     <link>https://kael-odin.github.io/awesome-academic-research-skills/</link>
     <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 27 Oct 2026 07:56:28 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2026 08:37:59 +0000</lastBuildDate>
     <atom:link href="https://kael-odin.github.io/awesome-academic-research-skills/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>K-Dense-AI/scientific-agent-skills (54,840★, +1774/7d)</title>
+      <title>K-Dense-AI/scientific-agent-skills (55,021★, +1632/7d)</title>
       <link>https://github.com/K-Dense-AI/scientific-agent-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#K-Dense-AI/scientific-agent-skills</guid>
       <description>Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 250,000+ scientists worldwide. 177 ready-to-use validated skills plus 100+ scientific databases covering biolo…</description>
       <category>Discipline Specific</category>
-      <pubDate>Tue, 27 Oct 2026 07:56:28 +0000</pubDate>
+      <pubDate>Wed, 28 Oct 2026 08:37:59 +0000</pubDate>
     </item>
     <item>
-      <title>Yuan1z0825/nature-skills (50,870★, +1377/7d)</title>
+      <title>Yuan1z0825/nature-skills (51,088★, +1317/7d)</title>
       <link>https://github.com/Yuan1z0825/nature-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Yuan1z0825/nature-skills</guid>
       <description>符合nature论文学术表达和科研绘图的Skill</description>
       <category>Deep Research</category>
-      <pubDate>Tue, 27 Oct 2026 07:56:28 +0000</pubDate>
+      <pubDate>Wed, 28 Oct 2026 08:37:59 +0000</pubDate>
     </item>
     <item>
-      <title>Imbad0202/academic-research-skills (54,091★, +1032/7d)</title>
+      <title>Imbad0202/academic-research-skills (54,249★, +1023/7d)</title>
       <link>https://github.com/Imbad0202/academic-research-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Imbad0202/academic-research-skills</guid>
       <description>Academic Research Skills for Claude Code: research → write → review → revise → finalize</description>
       <category>Paper Writing</category>
-      <pubDate>Tue, 27 Oct 2026 07:56:28 +0000</pubDate>
+      <pubDate>Wed, 28 Oct 2026 08:37:59 +0000</pubDate>
     </item>
     <item>
-      <title>Adkid-Zephyr/anti-defensive-writing-Skill (4,157★, +650/7d)</title>
+      <title>Adkid-Zephyr/anti-defensive-writing-Skill (4,290★, +697/7d)</title>
       <link>https://github.com/Adkid-Zephyr/anti-defensive-writing-Skill</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Adkid-Zephyr/anti-defensive-writing-Skill</guid>
       <description>极致轻量｜阻止论文的防御性写作 | Anti-defensive writing for academic papers — 学术写作原则 Skill + prompt pack (CN/EN)</description>
       <category>Paper Writing</category>
-      <pubDate>Tue, 27 Oct 2026 07:56:28 +0000</pubDate>
+      <pubDate>Wed, 28 Oct 2026 08:37:59 +0000</pubDate>
     </item>
     <item>
-      <title>HKUSTDial/Supervisor-Skills (10,736★, +575/7d)</title>
+      <title>HKUSTDial/Supervisor-Skills (10,854★, +584/7d)</title>
       <link>https://github.com/HKUSTDial/Supervisor-Skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#HKUSTDial/Supervisor-Skills</guid>
       <description>将博导十年科研经验炼化为可直接调用的 AI 技能。从 Idea 构思到论文投稿，你的 AI 科研副导师。</description>
       <category>Discipline Specific</category>
-      <pubDate>Tue, 27 Oct 2026 07:56:28 +0000</pubDate>
+      <pubDate>Wed, 28 Oct 2026 08:37:59 +0000</pubDate>
     </item>
     <item>
-      <title>AIScientists-Dev/academic-humanizer (2,791★, +482/7d)</title>
+      <title>AIScientists-Dev/academic-humanizer (2,913★, +565/7d)</title>
       <link>https://github.com/AIScientists-Dev/academic-humanizer</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#AIScientists-Dev/academic-humanizer</guid>
       <description>Strip AI-writing tells from papers and grant proposals (NSF/NIH), while keeping scholarly voice and tying claims to evidence. A skill for Claude Code, Codex, and MorphMind.</description>
       <category>General Research</category>
-      <pubDate>Tue, 27 Oct 2026 07:56:28 +0000</pubDate>
+      <pubDate>Wed, 28 Oct 2026 08:37:59 +0000</pubDate>
     </item>
     <item>
-      <title>Imbad0202/academic-research-skills-codex (13,579★, +380/7d)</title>
-      <link>https://github.com/Imbad0202/academic-research-skills-codex</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Imbad0202/academic-research-skills-codex</guid>
-      <description>Codex-native Academic Research Skills suite for human-in-the-loop academic research workflows</description>
-      <category>General Research</category>
-      <pubDate>Tue, 27 Oct 2026 07:56:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>wanshuiyin/Auto-claude-code-research-in-sleep (18,134★, +376/7d)</title>
-      <link>https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#wanshuiyin/Auto-claude-code-research-in-sleep</guid>
-      <description>ARIS ⚔️ (Auto-Research-In-Sleep) — Lightweight Markdown-only skills for autonomous ML research: cross-model review loops, idea discovery, and experiment automation. No framework, no lock-in — works w…</description>
-      <category>Discipline Specific</category>
-      <pubDate>Tue, 27 Oct 2026 07:56:28 +0000</pubDate>
-    </item>
-    <item>
-      <title>ChenLiu-1996/figures4papers (9,040★, +296/7d)</title>
+      <title>ChenLiu-1996/figures4papers (9,280★, +497/7d)</title>
       <link>https://github.com/ChenLiu-1996/figures4papers</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#ChenLiu-1996/figures4papers</guid>
       <description>My Python scripts to make high-quality figures for publications in top AI conferences and journals.</description>
       <category>Discipline Specific</category>
-      <pubDate>Tue, 27 Oct 2026 07:56:28 +0000</pubDate>
+      <pubDate>Wed, 28 Oct 2026 08:37:59 +0000</pubDate>
     </item>
     <item>
-      <title>yb2460/harness-anything (2,623★, +289/7d)</title>
+      <title>wanshuiyin/Auto-claude-code-research-in-sleep (18,209★, +398/7d)</title>
+      <link>https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#wanshuiyin/Auto-claude-code-research-in-sleep</guid>
+      <description>ARIS ⚔️ (Auto-Research-In-Sleep) — Lightweight Markdown-only skills for autonomous ML research: cross-model review loops, idea discovery, and experiment automation. No framework, no lock-in — works w…</description>
+      <category>Discipline Specific</category>
+      <pubDate>Wed, 28 Oct 2026 08:37:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>Imbad0202/academic-research-skills-codex (13,651★, +390/7d)</title>
+      <link>https://github.com/Imbad0202/academic-research-skills-codex</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Imbad0202/academic-research-skills-codex</guid>
+      <description>Codex-native Academic Research Skills suite for human-in-the-loop academic research workflows</description>
+      <category>General Research</category>
+      <pubDate>Wed, 28 Oct 2026 08:37:59 +0000</pubDate>
+    </item>
+    <item>
+      <title>yb2460/harness-anything (2,674★, +330/7d)</title>
       <link>https://github.com/yb2460/harness-anything</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#yb2460/harness-anything</guid>
       <description>Harness Anything - AI agent control hub: WPS, MS Office, Zotero, Photoshop, 47 CLI commands, 27 academic skills, SVG-to-PPTX</description>
       <category>Literature Review</category>
-      <pubDate>Tue, 27 Oct 2026 07:56:28 +0000</pubDate>
+      <pubDate>Wed, 28 Oct 2026 08:37:59 +0000</pubDate>
     </item>
   </channel>
 </rss>
