@@ -20,7 +20,7 @@
       <link>https://github.com/Light0305/Light-Science</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Light0305/Light-Science</guid>
       <description>A research workflow skill pack connecting literature, experiments, figures, writing, memory and project coordination.</description>
-      <category>General Research</category>
+      <category>Paper Writing</category>
       <pubDate>Sun, 08 Nov 2026 09:03:10 +0000</pubDate>
     </item>
     <item>
@@ -28,7 +28,7 @@
       <link>https://github.com/duyunzhoudyz/dyz-med-paper-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#duyunzhoudyz/dyz-med-paper-skills</guid>
       <description>医学论文写作与科研助手：面向中国医生和医学研究生的 32 个 Agent Skills，适用于 Claude Code、Codex，覆盖选题、PubMed 文献检索、中英写作、选刊投稿与审稿修回。Medical writing &amp; research skills.</description>
-      <category>General Research</category>
+      <category>Discipline Specific</category>
       <pubDate>Sun, 08 Nov 2026 09:03:10 +0000</pubDate>
     </item>
     <item>
@@ -36,7 +36,7 @@
       <link>https://github.com/YCC-Lover/research-starter-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#YCC-Lover/research-starter-skills</guid>
       <description>面向科研新手的 Codex 科研协作技能集：选题、文献检索与阅读、论文写作、自然润色、审稿返修和可编辑学术汇报。结合 Research-Starter-Kit 原创教程，用 1 个总入口与 6 个专业模块推进研究。 Research training, writing &amp; editable presentations for Codex.</description>
-      <category>General Research</category>
+      <category>Paper Writing</category>
       <pubDate>Sun, 08 Nov 2026 09:03:10 +0000</pubDate>
     </item>
     <item>
@@ -44,7 +44,7 @@
       <link>https://github.com/flonat/flonat-research</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#flonat/flonat-research</guid>
       <description>Shareable Claude Code + Codex infrastructure for PhD researchers — skills, agents, hooks, and rules for academic workflows</description>
-      <category>General Research</category>
+      <category>Paper Writing</category>
       <pubDate>Sun, 08 Nov 2026 09:03:10 +0000</pubDate>
     </item>
     <item>
@@ -52,7 +52,7 @@
       <link>https://github.com/Yuan1z0825/nature-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Yuan1z0825/nature-skills</guid>
       <description>符合nature论文学术表达和科研绘图的Skill</description>
-      <category>Deep Research</category>
+      <category>Discipline Specific</category>
       <pubDate>Sun, 08 Nov 2026 09:03:10 +0000</pubDate>
     </item>
     <item>

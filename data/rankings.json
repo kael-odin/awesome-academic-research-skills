@@ -2,7 +2,7 @@
   "metadata": {
     "generated_at": "2026-11-08T09:03:10Z",
     "min_stars": 100,
-    "total": 117,
+    "total": 113,
     "source": "GitHub REST Search API",
     "ranking": "stars_desc_then_trend_score",
     "trend_window_days": 7,
@@ -17,7 +17,7 @@
       "star_delta_1d": 75,
       "star_delta_7d": 845,
       "star_delta_30d": 8328,
-      "trend_score": 1070.68,
+      "trend_score": 1070.6,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -91,7 +91,7 @@
       "star_delta_1d": 95,
       "star_delta_7d": 968,
       "star_delta_30d": 4761,
-      "trend_score": 1219.12,
+      "trend_score": 1219.04,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -155,16 +155,16 @@
       "star_delta_1d": 98,
       "star_delta_7d": 1053,
       "star_delta_30d": 5910,
-      "trend_score": 1321.09,
+      "trend_score": 1321.07,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "deep-research",
-        "zh": "深度研究",
-        "en": "Deep Research"
+        "id": "discipline-specific",
+        "zh": "学科专项",
+        "en": "Discipline Specific"
       },
       "description": "符合nature论文学术表达和科研绘图的Skill",
       "language": "Python",
@@ -212,16 +212,16 @@
       "star_delta_1d": 43,
       "star_delta_7d": 465,
       "star_delta_30d": 1695,
-      "trend_score": 611.71,
+      "trend_score": 611.68,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "discipline-specific",
-        "zh": "学科专项",
-        "en": "Discipline Specific"
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
       },
       "description": "ARIS ⚔️ (Auto-Research-In-Sleep) — Lightweight Markdown-only skills for autonomous ML research: cross-model review loops, idea discovery, and experiment automation. No framework, no lock-in — works with Claude Code, Codex, OpenClaw, or any LLM agent.",
       "language": "Python",
@@ -290,7 +290,7 @@
       "star_delta_1d": 23,
       "star_delta_7d": 186,
       "star_delta_30d": 968,
-      "trend_score": 270.18,
+      "trend_score": 270.15,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -359,7 +359,7 @@
       "star_delta_1d": 38,
       "star_delta_7d": 335,
       "star_delta_30d": 1785,
-      "trend_score": 454.74,
+      "trend_score": 454.69,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -424,7 +424,7 @@
       "star_delta_1d": 68,
       "star_delta_7d": 709,
       "star_delta_30d": 3346,
-      "trend_score": 902.78,
+      "trend_score": 902.68,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -479,79 +479,21 @@
     },
     {
       "rank": 8,
-      "repo": "hoochanlon/hamuleite",
-      "stars": 10065,
-      "star_delta_1d": 4,
-      "star_delta_7d": 93,
-      "star_delta_30d": 195,
-      "trend_score": 161.12,
-      "trend": {
-        "id": "hot",
-        "zh": "热门上升",
-        "en": "Hot"
-      },
-      "category": {
-        "id": "discipline-specific",
-        "zh": "学科专项",
-        "en": "Discipline Specific"
-      },
-      "description": "🌊深度整合全球顶尖学术、金融与教育资源：学术板块汇聚 JSTOR、Taylor & Francis、剑桥大学出版社等权威平台的论文，并接入 Z-Library 影子图书馆的海量电子书；教育板块收录香港、新加坡从小学到高中以及大学学科教科书；金融板块则聚合香橼、摩根、野村等顶级机构的深度研报，只为打破信息孤岛，构建知识平权普惠知识库。",
-      "language": "Jupyter Notebook",
-      "topics": [
-        "academic",
-        "economics",
-        "humanities",
-        "research",
-        "skills",
-        "sociology"
-      ],
-      "created_date": "2018-02-15",
-      "last_push_date": "2026-10-28",
-      "url": "https://github.com/hoochanlon/hamuleite",
-      "homepage": "",
-      "agents": [],
-      "precision_signals": [
-        "academic",
-        "research",
-        "skill",
-        "skills",
-        "学术",
-        "论文"
-      ],
-      "stale": false,
-      "verifies_citations": false,
-      "forks": 1910,
-      "open_issues": 1,
-      "watchers": 10065,
-      "size_kb": 76832,
-      "default_branch": "master",
-      "has_issues": false,
-      "has_wiki": true,
-      "has_discussions": false,
-      "license": {
-        "key": "",
-        "name": "",
-        "spdx_id": ""
-      },
-      "skills_count": 0
-    },
-    {
-      "rank": 9,
       "repo": "ChenLiu-1996/figures4papers",
       "stars": 9970,
       "star_delta_1d": 299,
       "star_delta_7d": 542,
       "star_delta_30d": 1707,
-      "trend_score": 698.03,
+      "trend_score": 697.86,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "discipline-specific",
-        "zh": "学科专项",
-        "en": "Discipline Specific"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "My Python scripts to make high-quality figures for publications in top AI conferences and journals.",
       "language": "Python",
@@ -606,7 +548,7 @@
       "skills_count": 1
     },
     {
-      "rank": 10,
+      "rank": 9,
       "repo": "Master-cai/Research-Paper-Writing-Skills",
       "stars": 8169,
       "star_delta_1d": 23,
@@ -619,9 +561,9 @@
         "en": "Hot"
       },
       "category": {
-        "id": "discipline-specific",
-        "zh": "学科专项",
-        "en": "Discipline Specific"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "Skill package for ML/CV/NLP paper writing, curated and adapted from Prof. Peng Sida's open notes for Codex, Claude Code, and Gemini.",
       "language": "",
@@ -661,13 +603,13 @@
       "skills_count": 1
     },
     {
-      "rank": 11,
+      "rank": 10,
       "repo": "jihe520/MathModelAgent",
       "stars": 6301,
       "star_delta_1d": 4,
       "star_delta_7d": 31,
       "star_delta_30d": 120,
-      "trend_score": 86.25,
+      "trend_score": 86.18,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -715,22 +657,22 @@
       "skills_count": 11
     },
     {
-      "rank": 12,
+      "rank": 11,
       "repo": "zLanqing/codex-claude-academic-skills",
       "stars": 5759,
       "star_delta_1d": 25,
       "star_delta_7d": 221,
       "star_delta_30d": 1083,
-      "trend_score": 295.4,
+      "trend_score": 295.39,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "本仓库包含三个面向学术科研人员的Skills，覆盖从文献阅读、论文写作到科学计算的完整研究工作流。office-academic-skill 负责论文阅读报告与学术 PPT/Word 文档生成；research-writing-skill 提供论文写作、润色与审稿回复辅助；scientific-toolkit-skill 整合 MATLAB/Python 科学计算与期刊级图表生成。三个 Skill 专为中文科研用户设计，可在 Claude Code 和 codex 中一键调用。",
       "language": "Python",
@@ -770,13 +712,13 @@
       "skills_count": 24
     },
     {
-      "rank": 13,
+      "rank": 12,
       "repo": "Adkid-Zephyr/anti-defensive-writing-Skill",
       "stars": 5462,
       "star_delta_1d": 74,
       "star_delta_7d": 826,
       "star_delta_30d": 3021,
-      "trend_score": 1044.56,
+      "trend_score": 1044.39,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -800,9 +742,12 @@
       "last_push_date": "2026-10-27",
       "url": "https://github.com/Adkid-Zephyr/anti-defensive-writing-Skill",
       "homepage": "",
-      "agents": [],
+      "agents": [
+        "claude-code"
+      ],
       "precision_signals": [
         "academic",
+        "claude-skill",
         "paper",
         "papers",
         "skill",
@@ -826,13 +771,13 @@
       "skills_count": 2
     },
     {
-      "rank": 14,
+      "rank": 13,
       "repo": "brycewang-stanford/Auto-Empirical-Research-Skills",
       "stars": 4951,
       "star_delta_1d": 8,
       "star_delta_7d": 90,
       "star_delta_30d": 407,
-      "trend_score": 156.26,
+      "trend_score": 156.14,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -872,11 +817,11 @@
       "precision_signals": [
         "academic",
         "agent skill",
-        "paper",
         "research",
         "science",
         "skill",
-        "skills"
+        "skills",
+        "论文"
       ],
       "stale": false,
       "verifies_citations": false,
@@ -896,22 +841,22 @@
       "skills_count": 1262
     },
     {
-      "rank": 15,
+      "rank": 14,
       "repo": "AIScientists-Dev/academic-humanizer",
       "stars": 3753,
       "star_delta_1d": 78,
       "star_delta_7d": 630,
       "star_delta_30d": 1848,
-      "trend_score": 787.21,
+      "trend_score": 787.17,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "Strip AI-writing tells from papers and grant proposals (NSF/NIH), while keeping scholarly voice and tying claims to evidence. A skill for Claude Code, Codex, and MorphMind.",
       "language": "",
@@ -960,7 +905,7 @@
       "skills_count": 1
     },
     {
-      "rank": 16,
+      "rank": 15,
       "repo": "Norman-bury/research-writing-skill",
       "stars": 3599,
       "star_delta_1d": 1,
@@ -1009,22 +954,22 @@
       "skills_count": 20
     },
     {
-      "rank": 17,
+      "rank": 16,
       "repo": "yilewang/llm-for-zotero",
       "stars": 3521,
       "star_delta_1d": 6,
       "star_delta_7d": 55,
       "star_delta_30d": 284,
-      "trend_score": 113.11,
+      "trend_score": 112.96,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "literature-review",
+        "zh": "文献综述",
+        "en": "Literature Review"
       },
       "description": "An open-source research agent system for your Zotero library.",
       "language": "TypeScript",
@@ -1074,22 +1019,22 @@
       "skills_count": 0
     },
     {
-      "rank": 18,
+      "rank": 17,
       "repo": "OpenNSWM-Lab/FAROS",
       "stars": 3042,
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 43.97,
+      "trend_score": 43.82,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "A blueprint-driven AutoResearch runtime for orchestrating AI research workflows from idea generation and experiments to paper writing and peer review.",
       "language": "Python",
@@ -1145,13 +1090,13 @@
       "skills_count": 0
     },
     {
-      "rank": 19,
+      "rank": 18,
       "repo": "huangwb8/ChineseResearchLaTeX",
       "stars": 3028,
       "star_delta_1d": 4,
       "star_delta_7d": 36,
       "star_delta_30d": 158,
-      "trend_score": 89.46,
+      "trend_score": 89.41,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -1186,9 +1131,8 @@
       "precision_signals": [
         "codex",
         "latex",
-        "paper",
-        "papers",
-        "research"
+        "research",
+        "科研"
       ],
       "stale": false,
       "verifies_citations": false,
@@ -1208,22 +1152,22 @@
       "skills_count": 26
     },
     {
-      "rank": 20,
+      "rank": 19,
       "repo": "openags/paper-search-mcp",
       "stars": 3019,
       "star_delta_1d": 6,
       "star_delta_7d": 58,
       "star_delta_30d": 250,
-      "trend_score": 109.19,
+      "trend_score": 109.13,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "literature-review",
+        "zh": "文献综述",
+        "en": "Literature Review"
       },
       "description": "MCP, CLI, Skills for searching and downloading academic papers from multiple sources like arXiv, PubMed, bioRxiv, etc.",
       "language": "Python",
@@ -1267,22 +1211,22 @@
       "skills_count": 2
     },
     {
-      "rank": 21,
+      "rank": 20,
       "repo": "yb2460/harness-anything",
       "stars": 2983,
       "star_delta_1d": 18,
       "star_delta_7d": 207,
       "star_delta_30d": 768,
-      "trend_score": 290.61,
+      "trend_score": 290.42,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "literature-review",
-        "zh": "文献综述",
-        "en": "Literature Review"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "Harness Anything - AI agent control hub: WPS, MS Office, Zotero, Photoshop, 47 CLI commands, 27 academic skills, SVG-to-PPTX",
       "language": "Python",
@@ -1325,7 +1269,7 @@
       "skills_count": 3
     },
     {
-      "rank": 22,
+      "rank": 21,
       "repo": "LigphiDonk/academic-figure-generator",
       "stars": 2874,
       "star_delta_1d": 9,
@@ -1338,9 +1282,9 @@
         "en": "Hot"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "AI 驱动的学术论文配图生成平台。上传论文 → AI 分析内容生成 Prompt → 一键生成高质量科研配图，还有配套的skill可在主流agent中使用",
       "language": "Python",
@@ -1375,22 +1319,22 @@
       "skills_count": 2
     },
     {
-      "rank": 23,
+      "rank": 22,
       "repo": "HughYau/AcademicForge",
       "stars": 2634,
       "star_delta_1d": 0,
       "star_delta_7d": 14,
       "star_delta_30d": 44,
-      "trend_score": 62.74,
+      "trend_score": 62.53,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "One Forge, All Skills: A curated skill collection for academic writing and research.  点开即用，按需配置的一站式学术研究skills平台。",
       "language": "Python",
@@ -1432,13 +1376,13 @@
       "skills_count": 33
     },
     {
-      "rank": 24,
+      "rank": 23,
       "repo": "Weizhena/Deep-Research-skills",
       "stars": 2515,
       "star_delta_1d": 5,
       "star_delta_7d": 55,
       "star_delta_30d": 196,
-      "trend_score": 96.04,
+      "trend_score": 96.01,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -1495,22 +1439,22 @@
       "skills_count": 20
     },
     {
-      "rank": 25,
+      "rank": 24,
       "repo": "llmsresearch/paperbanana",
       "stars": 2471,
       "star_delta_1d": 1,
       "star_delta_7d": 27,
       "star_delta_30d": 82,
-      "trend_score": 68.05,
+      "trend_score": 67.91,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "Open source implementation and extension of Google Research’s PaperBanana for automated academic figures, diagrams, and research visuals, expanded to new domains like slide generation.",
       "language": "Python",
@@ -1546,9 +1490,9 @@
       ],
       "precision_signals": [
         "academic",
+        "arxiv",
         "gemini",
         "mcp",
-        "paper",
         "research",
         "scientific"
       ],
@@ -1570,13 +1514,13 @@
       "skills_count": 3
     },
     {
-      "rank": 26,
+      "rank": 25,
       "repo": "bohyy/academic-ai-prompt",
       "stars": 2311,
       "star_delta_1d": 6,
       "star_delta_7d": 48,
       "star_delta_30d": 252,
-      "trend_score": 89.62,
+      "trend_score": 89.54,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -1632,22 +1576,22 @@
       "skills_count": 0
     },
     {
-      "rank": 27,
+      "rank": 26,
       "repo": "aipoch/medical-research-skills",
       "stars": 2026,
       "star_delta_1d": 2,
       "star_delta_7d": 12,
       "star_delta_30d": 48,
-      "trend_score": 49.27,
+      "trend_score": 49.22,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "discipline-specific",
+        "zh": "学科专项",
+        "en": "Discipline Specific"
       },
       "description": "Hundreds of agent skills for medical research, including protocol design, data analysis, evidence insights, and academic writing.",
       "language": "Python",
@@ -1697,13 +1641,13 @@
       "skills_count": 605
     },
     {
-      "rank": 28,
+      "rank": 27,
       "repo": "poco-ai/Agentero",
       "stars": 1937,
       "star_delta_1d": 209,
       "star_delta_7d": 209,
       "star_delta_30d": 209,
-      "trend_score": 300.82,
+      "trend_score": 300.72,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -1768,13 +1712,13 @@
       "skills_count": 12
     },
     {
-      "rank": 29,
+      "rank": 28,
       "repo": "XiaoMaColtAI/math-modeling-skill",
       "stars": 1907,
       "star_delta_1d": 5,
       "star_delta_7d": 15,
       "star_delta_30d": 53,
-      "trend_score": 64.12,
+      "trend_score": 63.94,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -1808,7 +1752,7 @@
         "codex"
       ],
       "precision_signals": [
-        "codex",
+        "claude-skill",
         "skill",
         "skills",
         "论文"
@@ -1831,80 +1775,22 @@
       "skills_count": 20
     },
     {
-      "rank": 30,
-      "repo": "VoltAgent/awesome-ai-agent-papers",
-      "stars": 1892,
-      "star_delta_1d": 0,
-      "star_delta_7d": 13,
-      "star_delta_30d": 59,
-      "trend_score": 60.46,
-      "trend": {
-        "id": "rising",
-        "zh": "持续增长",
-        "en": "Rising"
-      },
-      "category": {
-        "id": "experiment-reproducibility",
-        "zh": "实验复现",
-        "en": "Experiments"
-      },
-      "description": "A curated collection of AI agent research papers released in 2026, covering agent engineering, memory, evaluation, workflows, and autonomous systems.",
-      "language": "",
-      "topics": [
-        "ai-agents",
-        "awesome",
-        "awesome-list",
-        "llm",
-        "llm-agents",
-        "memory",
-        "rag",
-        "research-paper"
-      ],
-      "created_date": "2026-02-10",
-      "last_push_date": "2026-11-02",
-      "url": "https://github.com/VoltAgent/awesome-ai-agent-papers",
-      "homepage": "https://starterkit.getdesign.md/",
-      "agents": [],
-      "precision_signals": [
-        "paper",
-        "papers",
-        "research",
-        "workflow"
-      ],
-      "stale": false,
-      "verifies_citations": false,
-      "forks": 201,
-      "open_issues": 4,
-      "watchers": 1892,
-      "size_kb": 876,
-      "default_branch": "main",
-      "has_issues": true,
-      "has_wiki": false,
-      "has_discussions": false,
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "spdx_id": "MIT"
-      },
-      "skills_count": 0
-    },
-    {
-      "rank": 31,
+      "rank": 29,
       "repo": "delibae/claude-prism",
       "stars": 1846,
       "star_delta_1d": 2,
       "star_delta_7d": 10,
       "star_delta_30d": 39,
-      "trend_score": 42.14,
+      "trend_score": 42.05,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "An offline-first scientific writing workspace powered by Claude. LaTeX + Python + 100+ scientific skills all running locally.",
       "language": "TypeScript",
@@ -1961,22 +1847,22 @@
       "skills_count": 0
     },
     {
-      "rank": 32,
+      "rank": 30,
       "repo": "juliye2025/evil-read-arxiv",
       "stars": 1795,
       "star_delta_1d": 3,
       "star_delta_7d": 20,
       "star_delta_30d": 94,
-      "trend_score": 57.98,
+      "trend_score": 57.95,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "deep-research",
-        "zh": "深度研究",
-        "en": "Deep Research"
+        "id": "literature-review",
+        "zh": "文献综述",
+        "en": "Literature Review"
       },
       "description": "Claude Code+Obsidian，邪修读论文就是快",
       "language": "Python",
@@ -2011,13 +1897,13 @@
       "skills_count": 5
     },
     {
-      "rank": 33,
+      "rank": 31,
       "repo": "Kiterlin/anti-defensive-writing",
       "stars": 1771,
       "star_delta_1d": 15,
       "star_delta_7d": 202,
       "star_delta_30d": 202,
-      "trend_score": 286.33,
+      "trend_score": 286.19,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -2068,22 +1954,22 @@
       "skills_count": 2
     },
     {
-      "rank": 34,
+      "rank": 32,
       "repo": "pedrohcgs/claude-code-my-workflow",
       "stars": 1685,
       "star_delta_1d": 1,
       "star_delta_7d": 10,
       "star_delta_30d": 32,
-      "trend_score": 57.71,
+      "trend_score": 57.51,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "paper-writing",
-        "zh": "论文写作",
-        "en": "Paper Writing"
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
       },
       "description": "A ready-to-fork Claude Code template for academic research — papers, data analysis (R, Stata, Python), slides and teaching — with multi-agent review, enforced quality gates and replication protocols. Codex and Antigravity can use it too.",
       "language": "HTML",
@@ -2137,7 +2023,7 @@
       "skills_count": 105
     },
     {
-      "rank": 35,
+      "rank": 33,
       "repo": "PaperDebugger/paperdebugger",
       "stars": 1555,
       "star_delta_1d": 1,
@@ -2206,7 +2092,7 @@
       "skills_count": 1
     },
     {
-      "rank": 36,
+      "rank": 34,
       "repo": "lishix520/academic-paper-skills",
       "stars": 1468,
       "star_delta_1d": 1,
@@ -2219,9 +2105,9 @@
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "Systematic framework for planning and writing academic papers using Claude Code. Includes strategist (planning) and composer (writing) skills with quality checkpoints.",
       "language": "Python",
@@ -2267,7 +2153,7 @@
       "skills_count": 2
     },
     {
-      "rank": 37,
+      "rank": 35,
       "repo": "zsyggg/paper-craft-skills",
       "stars": 1457,
       "star_delta_1d": 2,
@@ -2280,9 +2166,9 @@
         "en": "Hot"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "literature-review",
+        "zh": "文献综述",
+        "en": "Literature Review"
       },
       "description": "Claude Code skills for academic papers: deep analysis, comics, summaries | 论文工艺：深度解读、漫画生成、速览总结",
       "language": "Python",
@@ -2330,22 +2216,22 @@
       "skills_count": 3
     },
     {
-      "rank": 38,
+      "rank": 36,
       "repo": "brycewang-stanford/Awesome-Journal-Skills",
       "stars": 1389,
       "star_delta_1d": 5,
       "star_delta_7d": 44,
       "star_delta_30d": 161,
-      "trend_score": 89.46,
+      "trend_score": 89.37,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "discipline-specific",
+        "zh": "学科专项",
+        "en": "Discipline Specific"
       },
       "description": "Journal-specific Claude Code/Codex skill packs covering mainstream journals — AER, QJE, Nature, Cell, 管理世界, 经济研究 & 200+ more — your fast track to getting published. ｜ 覆盖主流期刊的 Claude Code/Codex 期刊技能包，从选题、识别策略到表格规范与审稿回复全流程，助你快速发论文。",
       "language": "Stata",
@@ -2407,22 +2293,22 @@
       "skills_count": 4166
     },
     {
-      "rank": 39,
+      "rank": 37,
       "repo": "Spark-To-Paper-Skills/paperjury",
       "stars": 1215,
       "star_delta_1d": 0,
       "star_delta_7d": 1,
       "star_delta_30d": 0,
-      "trend_score": 28.16,
+      "trend_score": 28.06,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "paper-writing",
-        "zh": "论文写作",
-        "en": "Paper Writing"
+        "id": "peer-review",
+        "zh": "评审反馈",
+        "en": "Peer Review"
       },
       "description": "Pre-submission AI review stress-test for research papers. A Claude Code skill: review, verdict, revise, verify.",
       "language": "JavaScript",
@@ -2470,7 +2356,7 @@
       "skills_count": 1
     },
     {
-      "rank": 40,
+      "rank": 38,
       "repo": "199-biotechnologies/claude-deep-research-skill",
       "stars": 1209,
       "star_delta_1d": 0,
@@ -2506,7 +2392,7 @@
         "trusted_seed"
       ],
       "stale": false,
-      "verifies_citations": false,
+      "verifies_citations": true,
       "forks": 130,
       "open_issues": 9,
       "watchers": 1209,
@@ -2523,22 +2409,22 @@
       "skills_count": 1
     },
     {
-      "rank": 41,
+      "rank": 39,
       "repo": "OpenLAIR/dr-claw",
       "stars": 1200,
       "star_delta_1d": 1,
       "star_delta_7d": 27,
       "star_delta_30d": 45,
-      "trend_score": 76.66,
+      "trend_score": 76.51,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "A Super AI Lab with massive AI Doctors as Assistants. Best IDE for Research via AI Power. ",
       "language": "JavaScript",
@@ -2586,22 +2472,22 @@
       "skills_count": 123
     },
     {
-      "rank": 42,
+      "rank": 40,
       "repo": "pengjunchi0/codex-visio-paper-figure-skill",
       "stars": 1168,
       "star_delta_1d": 5,
       "star_delta_7d": 39,
       "star_delta_30d": 165,
-      "trend_score": 73.66,
+      "trend_score": 73.63,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "科研绘图skill、论文绘图skill、图片转visio等可编辑格式，将生成图转化为论文可编辑图，便于作者调整绘图细节",
       "language": "PowerShell",
@@ -2648,22 +2534,22 @@
       "skills_count": 1
     },
     {
-      "rank": 43,
+      "rank": 41,
       "repo": "Edwardxlai/easyread",
       "stars": 1125,
       "star_delta_1d": 8,
       "star_delta_7d": 51,
       "star_delta_30d": 252,
-      "trend_score": 114.82,
+      "trend_score": 114.68,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "literature-review",
+        "zh": "文献综述",
+        "en": "Literature Review"
       },
       "description": "把英文论文读成舒服的中文：本地 PDF 论文翻译、原文对照、边读边问 AI、文献管理。Read English papers in comfortable Chinese.",
       "language": "Python",
@@ -2714,7 +2600,7 @@
       "skills_count": 2
     },
     {
-      "rank": 44,
+      "rank": 42,
       "repo": "cookjohn/cnki-skills",
       "stars": 1051,
       "star_delta_1d": 4,
@@ -2766,7 +2652,7 @@
       "skills_count": 10
     },
     {
-      "rank": 45,
+      "rank": 43,
       "repo": "LeonChaoX/qinyan-academic-skills",
       "stars": 1018,
       "star_delta_1d": 2,
@@ -2831,7 +2717,7 @@
       "skills_count": 187
     },
     {
-      "rank": 46,
+      "rank": 44,
       "repo": "Trae1ounG/paper-plot-skills",
       "stars": 948,
       "star_delta_1d": 1,
@@ -2886,13 +2772,13 @@
       "skills_count": 2
     },
     {
-      "rank": 47,
-      "repo": "alephpi/Texo",
-      "stars": 917,
-      "star_delta_1d": 1,
-      "star_delta_7d": 4,
-      "star_delta_30d": 12,
-      "trend_score": 37.23,
+      "rank": 45,
+      "repo": "Light0305/Light-Science",
+      "stars": 884,
+      "star_delta_1d": 7,
+      "star_delta_7d": 7,
+      "star_delta_30d": 7,
+      "trend_score": 53.6,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -2902,74 +2788,6 @@
         "id": "paper-writing",
         "zh": "论文写作",
         "en": "Paper Writing"
-      },
-      "description": "A minimalist SOTA LaTeX OCR model with only 20M parameters, running in browser. Full training pipeline available for self-reproduction. | 超轻量SOTA LaTeX公式识别模型，仅20M参数量，可在浏览器中运行。训练全流程代码开源，以便自学复现。",
-      "language": "Python",
-      "topics": [
-        "computer-vision",
-        "deep-learning",
-        "distillation-model",
-        "formula",
-        "formulanet",
-        "hydra",
-        "latex",
-        "latex-ocr",
-        "machine-learning",
-        "math",
-        "math-formula-recognition",
-        "ocr",
-        "ocr-recognition",
-        "python",
-        "pytorch",
-        "pytorch-lightning",
-        "transformers",
-        "unimernet",
-        "vision-encoder-decoder"
-      ],
-      "created_date": "2025-07-29",
-      "last_push_date": "2026-09-18",
-      "url": "https://github.com/alephpi/Texo",
-      "homepage": "https://texocr.netlify.app/",
-      "agents": [],
-      "precision_signals": [
-        "latex",
-        "pipeline",
-        "复现"
-      ],
-      "stale": false,
-      "verifies_citations": false,
-      "forks": 56,
-      "open_issues": 0,
-      "watchers": 917,
-      "size_kb": 4494,
-      "default_branch": "main",
-      "has_issues": true,
-      "has_wiki": false,
-      "has_discussions": false,
-      "license": {
-        "key": "agpl-3.0",
-        "name": "GNU Affero General Public License v3.0",
-        "spdx_id": "AGPL-3.0"
-      },
-      "skills_count": 0
-    },
-    {
-      "rank": 48,
-      "repo": "Light0305/Light-Science",
-      "stars": 884,
-      "star_delta_1d": 7,
-      "star_delta_7d": 7,
-      "star_delta_30d": 7,
-      "trend_score": 53.65,
-      "trend": {
-        "id": "rising",
-        "zh": "持续增长",
-        "en": "Rising"
-      },
-      "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
       },
       "description": "A research workflow skill pack connecting literature, experiments, figures, writing, memory and project coordination.",
       "language": "Python",
@@ -3025,7 +2843,7 @@
       "skills_count": 19
     },
     {
-      "rank": 49,
+      "rank": 46,
       "repo": "ganzhi-black/humanities-thesis-skill",
       "stars": 862,
       "star_delta_1d": 7,
@@ -3038,9 +2856,9 @@
         "en": "Hot"
       },
       "category": {
-        "id": "paper-writing",
-        "zh": "论文写作",
-        "en": "Paper Writing"
+        "id": "discipline-specific",
+        "zh": "学科专项",
+        "en": "Discipline Specific"
       },
       "description": "AI skill for humanities thesis writing — from topic selection to publication. 8 academic databases, 21 review rules, anti-hallucination guardrails. 人文社科论文写作 AI Skill",
       "language": "Python",
@@ -3075,22 +2893,22 @@
       "skills_count": 1
     },
     {
-      "rank": 50,
+      "rank": 47,
       "repo": "yjz211/vivid-illustration-skill",
       "stars": 761,
       "star_delta_1d": 18,
       "star_delta_7d": 115,
       "star_delta_30d": 115,
-      "trend_score": 184.23,
+      "trend_score": 184.12,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "deep-research",
-        "zh": "深度研究",
-        "en": "Deep Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "让 AI 用你的数据生成科研图表：108 个配方，鲜艳与稳重两种风格，多套配色，交付图片与源码。仅限个人非商业使用。",
       "language": "Python",
@@ -3122,7 +2940,7 @@
       "skills_count": 3
     },
     {
-      "rank": 51,
+      "rank": 48,
       "repo": "LigphiDonk/Oh-my--paper",
       "stars": 753,
       "star_delta_1d": 0,
@@ -3135,9 +2953,9 @@
         "en": "Rising"
       },
       "category": {
-        "id": "paper-writing",
-        "zh": "论文写作",
-        "en": "Paper Writing"
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
       },
       "description": "A Claude Code plugin that turns your terminal into an autonomous research lab — literature survey, experiment execution, paper writing, all in one pipeline.",
       "language": "TypeScript",
@@ -3177,22 +2995,22 @@
       "skills_count": 71
     },
     {
-      "rank": 52,
+      "rank": 49,
       "repo": "7toCR/paper2patent",
       "stars": 722,
       "star_delta_1d": 1,
       "star_delta_7d": 18,
       "star_delta_30d": 69,
-      "trend_score": 57.97,
+      "trend_score": 57.94,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "deep-research",
-        "zh": "深度研究",
-        "en": "Deep Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "📄→💡 Paper2Patent：面向科研成果转化的论文转专利智能模板库，提供 Flash/Pro Prompt、专利附图生成与 Agent Skills，辅助规范生成中国发明专利申请文本。",
       "language": "Python",
@@ -3228,13 +3046,13 @@
       "skills_count": 2
     },
     {
-      "rank": 53,
+      "rank": 50,
       "repo": "cheneternity/Zotero-Analytical-Workflow-Skills",
       "stars": 722,
       "star_delta_1d": 2,
       "star_delta_7d": 10,
       "star_delta_30d": 79,
-      "trend_score": 46.15,
+      "trend_score": 46.12,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -3277,7 +3095,7 @@
       "skills_count": 7
     },
     {
-      "rank": 54,
+      "rank": 51,
       "repo": "hanlulong/econ-writing-skill",
       "stars": 709,
       "star_delta_1d": 0,
@@ -3342,7 +3160,7 @@
       "skills_count": 3
     },
     {
-      "rank": 55,
+      "rank": 52,
       "repo": "xiaofenggan01/aigc-reduce",
       "stars": 707,
       "star_delta_1d": 5,
@@ -3355,9 +3173,9 @@
         "en": "Hot"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "降低学术论文 AIGC 查重率的 Claude Code Skill | A Claude Code skill for reducing AIGC detection rates in academic papers",
       "language": "Python",
@@ -3395,13 +3213,13 @@
       "skills_count": 1
     },
     {
-      "rank": 56,
+      "rank": 53,
       "repo": "M1n-n9/paper-lifecycle",
       "stars": 705,
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 13,
-      "trend_score": 25.06,
+      "trend_score": 25.03,
       "trend": {
         "id": "steady",
         "zh": "稳定",
@@ -3446,22 +3264,22 @@
       "skills_count": 2
     },
     {
-      "rank": 57,
+      "rank": 54,
       "repo": "Ar9av/PaperOrchestra",
       "stars": 698,
       "star_delta_1d": 1,
       "star_delta_7d": 4,
       "star_delta_30d": 21,
-      "trend_score": 46.65,
+      "trend_score": 46.58,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "paper-writing",
-        "zh": "论文写作",
-        "en": "Paper Writing"
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
       },
       "description": "An automated AI research-paper writer based off Google's PaperOrchestra paper's implementation through a skills -  benchmark + autoraters using any coding agent (Claude Code, Cursor, Antigravity, Cline, Aider). No API keys, no LLM SDKs.",
       "language": "Python",
@@ -3523,22 +3341,22 @@
       "skills_count": 9
     },
     {
-      "rank": 58,
+      "rank": 55,
       "repo": "xiao24bei/xiaobei-skill",
       "stars": 614,
       "star_delta_1d": 2,
       "star_delta_7d": 9,
       "star_delta_30d": 30,
-      "trend_score": 37.89,
+      "trend_score": 37.71,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "小北在读研开源 Codex Skills 合集：Image to VBA、Academic Paper to PPT 等 AI + 科研工作流。",
       "language": "Python",
@@ -3598,13 +3416,13 @@
       "skills_count": 3
     },
     {
-      "rank": 59,
+      "rank": 56,
       "repo": "WenyuChiou/ai-research-skills",
       "stars": 608,
       "star_delta_1d": 2,
       "star_delta_7d": 85,
       "star_delta_30d": 301,
-      "trend_score": 144.15,
+      "trend_score": 143.97,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -3676,13 +3494,13 @@
       "skills_count": 0
     },
     {
-      "rank": 60,
+      "rank": 57,
       "repo": "jimmc414/Kosmos",
       "stars": 605,
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 10,
-      "trend_score": 35.59,
+      "trend_score": 35.51,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -3709,7 +3527,7 @@
         "paper",
         "trusted_seed"
       ],
-      "stale": false,
+      "stale": true,
       "verifies_citations": false,
       "forks": 109,
       "open_issues": 2,
@@ -3727,13 +3545,13 @@
       "skills_count": 164
     },
     {
-      "rank": 61,
+      "rank": 58,
       "repo": "1692775560/dsh-Mimir-Academic-research",
       "stars": 561,
       "star_delta_1d": 0,
       "star_delta_7d": 11,
       "star_delta_30d": 15,
-      "trend_score": 61.02,
+      "trend_score": 60.87,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -3790,22 +3608,22 @@
       "skills_count": 0
     },
     {
-      "rank": 62,
+      "rank": 59,
       "repo": "TingxiYu/academic-figure-skill",
       "stars": 560,
       "star_delta_1d": 3,
       "star_delta_7d": 14,
       "star_delta_30d": 79,
-      "trend_score": 42.52,
+      "trend_score": 42.5,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "A skill for academic research figure generation that autonomously handles the full workflow — data understanding, chart type recommendation, and format-compliant generation.",
       "language": "Python",
@@ -3839,13 +3657,13 @@
       "skills_count": 1
     },
     {
-      "rank": 63,
+      "rank": 60,
       "repo": "Adkid-Zephyr/oral-paper-skill",
       "stars": 559,
       "star_delta_1d": 3,
       "star_delta_7d": 45,
       "star_delta_30d": 207,
-      "trend_score": 92.13,
+      "trend_score": 91.85,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
@@ -3903,7 +3721,7 @@
       "skills_count": 1
     },
     {
-      "rank": 64,
+      "rank": 61,
       "repo": "alfonso0512/research-writing-skill",
       "stars": 543,
       "star_delta_1d": 1,
@@ -3916,9 +3734,9 @@
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "🎓 AI 科研论文写作助手 - 30 个 Prompt 模板覆盖论文写作全流程。支持中英文翻译、润色、文献综述、投稿回复、基金申请等。",
       "language": "Python",
@@ -3964,22 +3782,22 @@
       "skills_count": 1
     },
     {
-      "rank": 65,
+      "rank": 62,
       "repo": "claesbackman/AI-research-feedback",
       "stars": 529,
       "star_delta_1d": 0,
       "star_delta_7d": 6,
       "star_delta_30d": 34,
-      "trend_score": 46.54,
+      "trend_score": 46.47,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "peer-review",
+        "zh": "评审反馈",
+        "en": "Peer Review"
       },
       "description": "A collection of Claude Code skills for academic research review. These tools were developed by Claes Bäckman.",
       "language": "JavaScript",
@@ -4018,13 +3836,13 @@
       "skills_count": 13
     },
     {
-      "rank": 66,
+      "rank": 63,
       "repo": "hkcanan/katmer-code",
       "stars": 477,
       "star_delta_1d": 0,
       "star_delta_7d": 1,
       "star_delta_30d": 3,
-      "trend_score": 30.6,
+      "trend_score": 30.55,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -4054,13 +3872,12 @@
       "url": "https://github.com/hkcanan/katmer-code",
       "homepage": "",
       "agents": [
-        "claude-code",
         "codex",
         "gemini"
       ],
       "precision_signals": [
         "academic",
-        "claude code",
+        "codex",
         "research",
         "skill",
         "skills",
@@ -4084,13 +3901,13 @@
       "skills_count": 0
     },
     {
-      "rank": 67,
+      "rank": 64,
       "repo": "modelscope/Awesome-Vibe-Research",
       "stars": 474,
       "star_delta_1d": 2,
       "star_delta_7d": 6,
       "star_delta_30d": 23,
-      "trend_score": 50.69,
+      "trend_score": 50.57,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -4135,22 +3952,22 @@
       "skills_count": 0
     },
     {
-      "rank": 68,
+      "rank": 65,
       "repo": "fakerqwq/social-science-paper-writing-skill",
       "stars": 467,
       "star_delta_1d": 2,
       "star_delta_7d": 16,
       "star_delta_30d": 89,
-      "trend_score": 41.92,
+      "trend_score": 41.87,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "social-science-paper-writing 是一个面向社会科学论文写作的 Codex/ChatGPT skill，用于辅助完成选题诊断、研究问题细化、论文大纲搭建、文献综述规划、CNKI/Google Scholar 到 Zotero 的文献工作流、草稿评审、章节修订、引用与证据风险检查，以及投稿前检查。  它的核心目标不是“把文字润色得更像论文”，而是帮助作者把论文写成一个可检验、可论证、证据和方法相匹配的社会科学研究。",
       "language": "",
@@ -4188,22 +4005,22 @@
       "skills_count": 1
     },
     {
-      "rank": 69,
+      "rank": 66,
       "repo": "qwwzdyj/AIA-Academic-Illustrator-",
       "stars": 466,
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 38.96,
+      "trend_score": 38.83,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "An AI agent that automates the creation of CVPR/NeurIPS standard academic diagrams. Implements a strict \"Logic (Architect) -> Vision (Renderer)\" workflow to transform paper abstracts into high-fidelity scientific illustrations.",
       "language": "JavaScript",
@@ -4237,22 +4054,22 @@
       "skills_count": 1
     },
     {
-      "rank": 70,
+      "rank": 67,
       "repo": "fcakyon/labrat",
       "stars": 452,
       "star_delta_1d": 0,
       "star_delta_7d": 7,
       "star_delta_30d": 7,
-      "trend_score": 48.2,
+      "trend_score": 48.01,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "experiment-reproducibility",
+        "zh": "实验复现",
+        "en": "Experiments"
       },
       "description": "PhD Research Skills for Claude Code: paper reproduction, experiment design, paper review, result comparison and more.",
       "language": "Shell",
@@ -4313,7 +4130,7 @@
       "skills_count": 11
     },
     {
-      "rank": 71,
+      "rank": 68,
       "repo": "LimHyungTae/awesome-claudecode-paper-proofreading",
       "stars": 436,
       "star_delta_1d": 0,
@@ -4345,7 +4162,6 @@
         "paper",
         "proofreading",
         "research",
-        "roo",
         "trusted_seed"
       ],
       "stale": false,
@@ -4366,13 +4182,13 @@
       "skills_count": 0
     },
     {
-      "rank": 72,
+      "rank": 69,
       "repo": "CloudWave818/ieee-skills",
       "stars": 434,
       "star_delta_1d": 2,
       "star_delta_7d": 13,
       "star_delta_30d": 76,
-      "trend_score": 41.31,
+      "trend_score": 41.24,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -4420,22 +4236,22 @@
       "skills_count": 10
     },
     {
-      "rank": 73,
+      "rank": 70,
       "repo": "Lupynow/math-modeling-skills",
       "stars": 434,
       "star_delta_1d": 0,
       "star_delta_7d": 4,
       "star_delta_30d": 18,
-      "trend_score": 26.65,
+      "trend_score": 26.62,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "paper-writing",
-        "zh": "论文写作",
-        "en": "Paper Writing"
+        "id": "discipline-specific",
+        "zh": "学科专项",
+        "en": "Discipline Specific"
       },
       "description": "数学建模竞赛完整工具链：从拿到赛题到交出论文，一条龙解决。  覆盖 国赛 CUMCM（A/B/C） 和 美赛 MCM/ICM（A-F） 全部题型。",
       "language": "Python",
@@ -4455,6 +4271,7 @@
         "claude-code"
       ],
       "precision_signals": [
+        "claude-skill",
         "paper",
         "skill",
         "skills",
@@ -4478,22 +4295,22 @@
       "skills_count": 2
     },
     {
-      "rank": 74,
+      "rank": 71,
       "repo": "Rimagination/instsci",
       "stars": 411,
       "star_delta_1d": 2,
       "star_delta_7d": 7,
       "star_delta_30d": 33,
-      "trend_score": 40.42,
+      "trend_score": 40.35,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "literature-review",
+        "zh": "文献综述",
+        "en": "Literature Review"
       },
       "description": "InstSci: academic paper retrieval with Open Access fallback and browser-backed institutional access for AI agents and CLI workflows.",
       "language": "Python",
@@ -4527,22 +4344,22 @@
       "skills_count": 1
     },
     {
-      "rank": 75,
+      "rank": 72,
       "repo": "wp-a/nature-academic-search",
       "stars": 377,
       "star_delta_1d": 2,
       "star_delta_7d": 14,
       "star_delta_30d": 76,
-      "trend_score": 51.1,
+      "trend_score": 50.87,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "literature-review",
+        "zh": "文献综述",
+        "en": "Literature Review"
       },
       "description": "Academic Paper Search：中文科研用户的 Codex / Claude Code / DeepSeek Harness Skill + MCP；跨 CrossRef、PubMed、arXiv、OpenAlex、Europe PMC 检索去重，支持 MeSH、引用核验、引文图谱、试验检索与审计导出。",
       "language": "Python",
@@ -4604,7 +4421,7 @@
       "skills_count": 2
     },
     {
-      "rank": 76,
+      "rank": 73,
       "repo": "chtc66/academic-skills",
       "stars": 372,
       "star_delta_1d": 0,
@@ -4617,9 +4434,9 @@
         "en": "Rising"
       },
       "category": {
-        "id": "paper-writing",
-        "zh": "论文写作",
-        "en": "Paper Writing"
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
       },
       "description": "Academic workflow skills for paper reading, survey writing, experiment summarization, rebuttal drafting, and weekly lab updates.",
       "language": "Python",
@@ -4656,22 +4473,22 @@
       "skills_count": 8
     },
     {
-      "rank": 77,
+      "rank": 74,
       "repo": "lzh-phd/topic-feasibility-screener",
       "stars": 335,
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 23.62,
+      "trend_score": 23.59,
       "trend": {
         "id": "steady",
         "zh": "稳定",
         "en": "Steady"
       },
       "category": {
-        "id": "discipline-specific",
-        "zh": "学科专项",
-        "en": "Discipline Specific"
+        "id": "deep-research",
+        "zh": "深度研究",
+        "en": "Deep Research"
       },
       "description": "有大致的想法不知道怎么选题？只要给这个skills扔点数据，他能自动帮你延伸出多个idea，检索文献，并帮你跑初步回归验证实证可行性和理论可行性，最后打分排名，让你的科研第一步不再难堪！",
       "language": "Python",
@@ -4706,73 +4523,22 @@
       "skills_count": 1
     },
     {
-      "rank": 78,
-      "repo": "zheng95z/teach-yourself-research",
-      "stars": 335,
-      "star_delta_1d": 0,
-      "star_delta_7d": 0,
-      "star_delta_30d": 2,
-      "trend_score": 20.21,
-      "trend": {
-        "id": "steady",
-        "zh": "稳定",
-        "en": "Steady"
-      },
-      "category": {
-        "id": "paper-writing",
-        "zh": "论文写作",
-        "en": "Paper Writing"
-      },
-      "description": "This repo is expected to help you develop basic research skills, including technical writing, paper reading, presentation, note-taking, etc.",
-      "language": "",
-      "topics": [
-        "research"
-      ],
-      "created_date": "2021-05-25",
-      "last_push_date": "2024-04-30",
-      "url": "https://github.com/zheng95z/teach-yourself-research",
-      "homepage": "",
-      "agents": [],
-      "precision_signals": [
-        "paper",
-        "research",
-        "skill",
-        "skills"
-      ],
-      "stale": true,
-      "verifies_citations": false,
-      "forks": 12,
-      "open_issues": 0,
-      "watchers": 335,
-      "size_kb": 52,
-      "default_branch": "main",
-      "has_issues": true,
-      "has_wiki": false,
-      "has_discussions": false,
-      "license": {
-        "key": "cc0-1.0",
-        "name": "Creative Commons Zero v1.0 Universal",
-        "spdx_id": "CC0-1.0"
-      },
-      "skills_count": 0
-    },
-    {
-      "rank": 79,
+      "rank": 75,
       "repo": "LMDHQ-0420/ResearchPilot-Skills",
       "stars": 330,
       "star_delta_1d": 0,
       "star_delta_7d": 3,
       "star_delta_30d": 23,
-      "trend_score": 42.62,
+      "trend_score": 42.52,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "paper-writing",
-        "zh": "论文写作",
-        "en": "Paper Writing"
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
       },
       "description": "Automated Academic Research Workflow Skill. From direction exploration, literature review, and idea development to experiment design, code implementation, and paper writing.",
       "language": "Batchfile",
@@ -4809,7 +4575,7 @@
       "skills_count": 49
     },
     {
-      "rank": 80,
+      "rank": 76,
       "repo": "yipng05-max/-skills",
       "stars": 324,
       "star_delta_1d": 0,
@@ -4822,9 +4588,9 @@
         "en": "Rising"
       },
       "category": {
-        "id": "deep-research",
-        "zh": "深度研究",
-        "en": "Deep Research"
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
       },
       "description": "由学术志联合创始人一平博士创立。涵盖学术科研各场景包括选题、文献综述、研究设计、数据收集、数据分析、期刊论文写作、博士论文写作、学术阅读等的高质量skills",
       "language": "Python",
@@ -4860,22 +4626,22 @@
       "skills_count": 37
     },
     {
-      "rank": 81,
+      "rank": 77,
       "repo": "duyunzhoudyz/dyz-med-paper-skills",
       "stars": 317,
       "star_delta_1d": 44,
       "star_delta_7d": 44,
       "star_delta_30d": 44,
-      "trend_score": 102.89,
+      "trend_score": 102.69,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "discipline-specific",
+        "zh": "学科专项",
+        "en": "Discipline Specific"
       },
       "description": "医学论文写作与科研助手：面向中国医生和医学研究生的 32 个 Agent Skills，适用于 Claude Code、Codex，覆盖选题、PubMed 文献检索、中英写作、选刊投稿与审稿修回。Medical writing & research skills.",
       "language": "Python",
@@ -4934,7 +4700,7 @@
       "skills_count": 32
     },
     {
-      "rank": 82,
+      "rank": 78,
       "repo": "wentorai/research-plugins",
       "stars": 310,
       "star_delta_1d": 0,
@@ -4986,22 +4752,22 @@
       "skills_count": 473
     },
     {
-      "rank": 83,
+      "rank": 79,
       "repo": "hrdZhu/modelviz-skill",
       "stars": 295,
       "star_delta_1d": 0,
       "star_delta_7d": 3,
       "star_delta_30d": 9,
-      "trend_score": 27.58,
+      "trend_score": 27.55,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "experiment-reproducibility",
-        "zh": "实验复现",
-        "en": "Experiments"
+        "id": "discipline-specific",
+        "zh": "学科专项",
+        "en": "Discipline Specific"
       },
       "description": "数学建模AI科研skill可视化绘图：ModelViz 是一个面向数学建模竞赛与科研写作场景的可视化 Skill。项目内置上百个覆盖多种建模场景的高质量科研绘图模板，将不同功能的图表按统一类别和编号管理，并确保模板源码可独立运行、稳定输出图片。后续系统将通过结构化模板信息、数据特征分析与检索规则，根据用户上传的数据和自然语言需求，推荐适合的图表类型、字段映射与配色方案，再调用对应模板生成可复现的 PNG、SVG 或 PDF 图像。项目重点解决通用大模型直接生成绘图代码时风格不统一、运行不稳定、参数难复用等问题，强调模板驱动、配置清晰、结果可复现和科研表达规范。",
       "language": "Python",
@@ -5046,22 +4812,22 @@
       "skills_count": 1
     },
     {
-      "rank": 84,
+      "rank": 80,
       "repo": "cpt13-g/clarify-research-idea",
       "stars": 288,
       "star_delta_1d": 0,
       "star_delta_7d": 9,
       "star_delta_30d": 48,
-      "trend_score": 35.51,
+      "trend_score": 35.46,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "deep-research",
+        "zh": "深度研究",
+        "en": "Deep Research"
       },
       "description": "Turn vague research directions into falsifiable, evidence-grounded Research Idea Briefs with a six-stage Codex workflow.",
       "language": "",
@@ -5090,7 +4856,7 @@
         "skills"
       ],
       "stale": false,
-      "verifies_citations": false,
+      "verifies_citations": true,
       "forks": 7,
       "open_issues": 0,
       "watchers": 288,
@@ -5107,7 +4873,7 @@
       "skills_count": 1
     },
     {
-      "rank": 85,
+      "rank": 81,
       "repo": "maxwell2732/codex-stata-for-economists",
       "stars": 285,
       "star_delta_1d": 0,
@@ -5120,9 +4886,9 @@
         "en": "Rising"
       },
       "category": {
-        "id": "deep-research",
-        "zh": "深度研究",
-        "en": "Deep Research"
+        "id": "discipline-specific",
+        "zh": "学科专项",
+        "en": "Discipline Specific"
       },
       "description": "A Codex Stata pipeline for Economists by 朱晨 | 遗传社科研究",
       "language": "Stata",
@@ -5157,7 +4923,7 @@
       "skills_count": 19
     },
     {
-      "rank": 86,
+      "rank": 82,
       "repo": "zouchenzhen/thesis-defense-pptx-skill",
       "stars": 279,
       "star_delta_1d": 0,
@@ -5196,10 +4962,12 @@
       "url": "https://github.com/zouchenzhen/thesis-defense-pptx-skill",
       "homepage": "",
       "agents": [
+        "claude-code",
         "codex"
       ],
       "precision_signals": [
-        "codex",
+        "claude skill",
+        "claude-skill",
         "latex",
         "skill",
         "thesis",
@@ -5223,22 +4991,22 @@
       "skills_count": 1
     },
     {
-      "rank": 87,
+      "rank": 83,
       "repo": "jihe520/sci-box",
       "stars": 275,
       "star_delta_1d": 2,
       "star_delta_7d": 5,
       "star_delta_30d": 26,
-      "trend_score": 30.43,
+      "trend_score": 30.31,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "sci-box 提供一组可直接调用的科研绘图复刻模板，帮助 Agent 快速生成高质量图表。sci-box provides a set of directly callable scientific drawing replication templates to help Agents quickly generate high-quality charts.",
       "language": "Python",
@@ -5277,22 +5045,22 @@
       "skills_count": 2
     },
     {
-      "rank": 88,
+      "rank": 84,
       "repo": "0Antique/Auto-Visio-Helper",
       "stars": 257,
       "star_delta_1d": 1,
       "star_delta_7d": 4,
       "star_delta_30d": 13,
-      "trend_score": 25.68,
+      "trend_score": 25.67,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "experiment-reproducibility",
-        "zh": "实验复现",
-        "en": "Experiments"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "用于帮助Codex操作本地Visio生成可编辑科研绘图的skill，支持自然语言转图、图片复现、JVSDX 生成和预览导出。欢迎大家使用~~",
       "language": "Python",
@@ -5328,22 +5096,22 @@
       "skills_count": 1
     },
     {
-      "rank": 89,
+      "rank": 85,
       "repo": "SNL-UCSB/paper-writing-skill",
       "stars": 249,
       "star_delta_1d": 0,
       "star_delta_7d": 2,
       "star_delta_30d": 15,
-      "trend_score": 41.07,
+      "trend_score": 41.06,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "A Claude Code skill that encodes battle-tested editorial principles, section-specific rhetorical moves, and a structured writing pipeline for research papers. Brainstorm → Draft 0 → Evaluate → Write → Compress.",
       "language": "Shell",
@@ -5388,13 +5156,13 @@
       "skills_count": 1
     },
     {
-      "rank": 90,
+      "rank": 86,
       "repo": "brycewang-stanford/Auto-Research-Skills",
       "stars": 246,
       "star_delta_1d": 1,
       "star_delta_7d": 10,
       "star_delta_30d": 50,
-      "trend_score": 50.88,
+      "trend_score": 50.7,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -5462,13 +5230,13 @@
       "skills_count": 0
     },
     {
-      "rank": 91,
+      "rank": 87,
       "repo": "Haojae/scipilot-writing-skill",
       "stars": 241,
       "star_delta_1d": 0,
       "star_delta_7d": 1,
       "star_delta_30d": 15,
-      "trend_score": 22.52,
+      "trend_score": 22.51,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -5489,7 +5257,6 @@
       "agents": [],
       "precision_signals": [
         "academic",
-        "review",
         "skill"
       ],
       "stale": false,
@@ -5510,13 +5277,13 @@
       "skills_count": 1
     },
     {
-      "rank": 92,
+      "rank": 88,
       "repo": "stephenlzc/AI-Powered-Literature-Review-Skills",
       "stars": 230,
       "star_delta_1d": 1,
       "star_delta_7d": 12,
       "star_delta_30d": 56,
-      "trend_score": 39.59,
+      "trend_score": 39.45,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -5572,13 +5339,13 @@
       "skills_count": 1
     },
     {
-      "rank": 93,
+      "rank": 89,
       "repo": "juliaError/econ-TopJournal-writing-Skill",
       "stars": 219,
       "star_delta_1d": 0,
       "star_delta_7d": 2,
       "star_delta_30d": 2,
-      "trend_score": 40.23,
+      "trend_score": 40.17,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -5619,22 +5386,22 @@
       "skills_count": 5
     },
     {
-      "rank": 94,
+      "rank": 90,
       "repo": "ShZhao27208/Aut_Sci_Write",
       "stars": 217,
       "star_delta_1d": 1,
       "star_delta_7d": 4,
       "star_delta_30d": 8,
-      "trend_score": 24.24,
+      "trend_score": 24.09,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "discipline-specific",
-        "zh": "学科专项",
-        "en": "Discipline Specific"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": " Academic research skills suite for AI Agent — literature search/download (WoS+Elsevier+Springer), PDF   extraction, figure cropping, review writing, Zotero sync, and PPT/Html generation. ",
       "language": "Python",
@@ -5686,7 +5453,7 @@
       "skills_count": 9
     },
     {
-      "rank": 95,
+      "rank": 91,
       "repo": "yanlin-cheng/skill-thesis-writer",
       "stars": 215,
       "star_delta_1d": 1,
@@ -5699,9 +5466,9 @@
         "en": "Rising"
       },
       "category": {
-        "id": "deep-research",
-        "zh": "深度研究",
-        "en": "Deep Research"
+        "id": "general-research",
+        "zh": "综合研究",
+        "en": "General Research"
       },
       "description": " 一个专为本科/研究生论文写作设计的AI技能，支持工科、心理学、教育学、管理学等多学科领域，提供符合中国学术规范（GB/T 7714-2015）的论文写作、数据分析、参考文献管理一体化解决方案。",
       "language": "Python",
@@ -5736,7 +5503,7 @@
       "skills_count": 1
     },
     {
-      "rank": 96,
+      "rank": 92,
       "repo": "STRYXTN/awesome-ai-research-writing",
       "stars": 205,
       "star_delta_1d": 2,
@@ -5786,22 +5553,22 @@
       "skills_count": 0
     },
     {
-      "rank": 97,
+      "rank": 93,
       "repo": "YCC-Lover/research-starter-skills",
       "stars": 204,
       "star_delta_1d": 24,
       "star_delta_7d": 24,
       "star_delta_30d": 24,
-      "trend_score": 75.23,
+      "trend_score": 75.14,
       "trend": {
         "id": "hot",
         "zh": "热门上升",
         "en": "Hot"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "面向科研新手的 Codex 科研协作技能集：选题、文献检索与阅读、论文写作、自然润色、审稿返修和可编辑学术汇报。结合 Research-Starter-Kit 原创教程，用 1 个总入口与 6 个专业模块推进研究。 Research training, writing & editable presentations for Codex.",
       "language": "Python",
@@ -5861,13 +5628,13 @@
       "skills_count": 7
     },
     {
-      "rank": 98,
+      "rank": 94,
       "repo": "congcongwang0122/zotero-skill",
       "stars": 201,
       "star_delta_1d": 0,
       "star_delta_7d": 1,
       "star_delta_30d": 1,
-      "trend_score": 21.99,
+      "trend_score": 21.89,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -5909,7 +5676,7 @@
       "skills_count": 1
     },
     {
-      "rank": 99,
+      "rank": 95,
       "repo": "DQXCJ-a11y/thesis-skill-hub",
       "stars": 193,
       "star_delta_1d": 0,
@@ -5922,9 +5689,9 @@
         "en": "Rising"
       },
       "category": {
-        "id": "deep-research",
-        "zh": "深度研究",
-        "en": "Deep Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "硕士论文审查与写作SKILL聚合项目 | 持续收录GitHub上最优质的论文写作skill并归纳为一份可直接使用的SKILL.md",
       "language": "",
@@ -5957,22 +5724,22 @@
       "skills_count": 1
     },
     {
-      "rank": 100,
+      "rank": 96,
       "repo": "z-liu-xiugou/research-workbench-assistant",
       "stars": 186,
       "star_delta_1d": 0,
       "star_delta_7d": 0,
       "star_delta_30d": 0,
-      "trend_score": 43.83,
+      "trend_score": 43.71,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "literature-review",
+        "zh": "文献综述",
+        "en": "Literature Review"
       },
       "description": "Local-first research memory for Codex: checkpoints, progress ledgers, and Markdown/JSON paper notes. Early alpha.",
       "language": "Python",
@@ -6020,22 +5787,22 @@
       "skills_count": 1
     },
     {
-      "rank": 101,
+      "rank": 97,
       "repo": "wilbert-MD-PhD/medical-illustration",
       "stars": 174,
       "star_delta_1d": 0,
       "star_delta_7d": 2,
       "star_delta_30d": 1,
-      "trend_score": 47.77,
+      "trend_score": 47.59,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "面向 Codex、Claude Code 等 AI Agent 的医学绘图 Skill，基于可信证据制作医学插画、科普漫画与科研示意图，提供可编辑成果与审核记录。 · Evidence-backed medical illustration, comics and research figures for Codex, Claude Code and other AI agents, with editable output and review records.",
       "language": "Python",
@@ -6057,15 +5824,15 @@
       ],
       "precision_signals": [
         "claude code",
-        "phd",
         "research",
         "review",
         "science",
         "skill",
-        "skills"
+        "skills",
+        "科研"
       ],
       "stale": false,
-      "verifies_citations": false,
+      "verifies_citations": true,
       "forks": 13,
       "open_issues": 0,
       "watchers": 174,
@@ -6082,13 +5849,13 @@
       "skills_count": 1
     },
     {
-      "rank": 102,
+      "rank": 98,
       "repo": "Drchronx/ai-agent-research-starter-kit",
       "stars": 174,
       "star_delta_1d": 0,
       "star_delta_7d": 6,
       "star_delta_30d": 37,
-      "trend_score": 25.6,
+      "trend_score": 25.59,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -6137,7 +5904,7 @@
       "skills_count": 355
     },
     {
-      "rank": 103,
+      "rank": 99,
       "repo": "Liuxiangjian-ai/reference-checker-skill",
       "stars": 165,
       "star_delta_1d": 0,
@@ -6150,9 +5917,9 @@
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "literature-review",
+        "zh": "文献综述",
+        "en": "Literature Review"
       },
       "description": "逐条检查参考文献是否真实 /An exhaustive pre-submission reference verification skill for checking scholarly references item by item.",
       "language": "",
@@ -6163,7 +5930,6 @@
       "homepage": "",
       "agents": [],
       "precision_signals": [
-        "scholar",
         "skill",
         "文献"
       ],
@@ -6185,7 +5951,7 @@
       "skills_count": 1
     },
     {
-      "rank": 104,
+      "rank": 100,
       "repo": "aspi6246/Claude-Code-Skills-for-Academics",
       "stars": 163,
       "star_delta_1d": 0,
@@ -6235,22 +6001,22 @@
       "skills_count": 18
     },
     {
-      "rank": 105,
+      "rank": 101,
       "repo": "SmBai1998/sci-ps-skill",
       "stars": 162,
       "star_delta_1d": 1,
       "star_delta_7d": 4,
       "star_delta_30d": 32,
-      "trend_score": 34.11,
+      "trend_score": 33.88,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "科研绘图不再只是 AI 生一张图。这个 Skill 会自动分析参考图、拆解组件、生成素材，再进入 Photoshop 按图层逐步重建，并对位置、大小、形状、透视、色调、阴影、光效和遮挡关系进行逐层校准。最终不是一张扁平图片，而是一份可以继续修改的完整 PSD。Science 封面、Nature 风格机制图、3D 科研示意图都可以按这套流程处理。",
       "language": "Python",
@@ -6283,22 +6049,22 @@
       "skills_count": 1
     },
     {
-      "rank": 106,
+      "rank": 102,
       "repo": "wycmochi/cn-academic-spark",
       "stars": 161,
       "star_delta_1d": 1,
       "star_delta_7d": 5,
       "star_delta_30d": 41,
-      "trend_score": 27.7,
+      "trend_score": 27.59,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "专为中国宝宝设计的可编辑学术 PPT 生成skill。可根据学术汇报场景（论文答辩、组会汇报、课程报告、开题报告、文献综述等），依据上传的论文、报告等材料分析研究框架并输出带讲稿、带技术路线图、可编辑的pptx文件。",
       "language": "Python",
@@ -6333,7 +6099,7 @@
       "skills_count": 1
     },
     {
-      "rank": 107,
+      "rank": 103,
       "repo": "0xE1337/thesis-figure-skill",
       "stars": 151,
       "star_delta_1d": 0,
@@ -6366,9 +6132,13 @@
       "last_push_date": "2026-07-25",
       "url": "https://github.com/0xE1337/thesis-figure-skill",
       "homepage": "",
-      "agents": [],
+      "agents": [
+        "claude-code"
+      ],
       "precision_signals": [
         "academic",
+        "claude skill",
+        "claude-skill",
         "latex",
         "paper",
         "skill",
@@ -6392,22 +6162,22 @@
       "skills_count": 2
     },
     {
-      "rank": 108,
+      "rank": 104,
       "repo": "flonat/flonat-research",
       "stars": 150,
       "star_delta_1d": 1,
       "star_delta_7d": 1,
       "star_delta_30d": 4,
-      "trend_score": 37.53,
+      "trend_score": 37.44,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "paper-writing",
+        "zh": "论文写作",
+        "en": "Paper Writing"
       },
       "description": "Shareable Claude Code + Codex infrastructure for PhD researchers — skills, agents, hooks, and rules for academic workflows",
       "language": "Python",
@@ -6456,13 +6226,13 @@
       "skills_count": 87
     },
     {
-      "rank": 109,
+      "rank": 105,
       "repo": "xujingchen1996/research-app-toolkit",
       "stars": 143,
       "star_delta_1d": 1,
       "star_delta_7d": 2,
       "star_delta_30d": 2,
-      "trend_score": 34.07,
+      "trend_score": 34.03,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -6507,22 +6277,22 @@
       "skills_count": 27
     },
     {
-      "rank": 110,
+      "rank": 106,
       "repo": "liangdabiao/stem-illustration-skill",
       "stars": 142,
       "star_delta_1d": 3,
       "star_delta_7d": 9,
       "star_delta_30d": 17,
-      "trend_score": 51.74,
+      "trend_score": 51.64,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "discipline-specific",
+        "zh": "学科专项",
+        "en": "Discipline Specific"
       },
       "description": "面向 STEM（科学、技术、工程、数学）领域的 AI 图像生成 Skill。  生成科研示意图、教学插图、技术架构图等概念性图像，覆盖生物医学、化学、物理、工程、数学 6 大学科。  功能特性 24 个场景模板：信号通路、实验流程、细胞结构、概念信息图、学术海报、机制图、质粒图、机器学习架构等 6 大学科适配：生命科学/医学/化学/物理/工程/数学 4 种风格变体：academic / textbook / infographic / 3d-render",
       "language": "Python",
@@ -6559,13 +6329,13 @@
       "skills_count": 1
     },
     {
-      "rank": 111,
+      "rank": 107,
       "repo": "cLin-c/paper-skill",
       "stars": 142,
       "star_delta_1d": 1,
       "star_delta_7d": 6,
       "star_delta_30d": 23,
-      "trend_score": 43.84,
+      "trend_score": 43.73,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -6598,9 +6368,9 @@
       "precision_signals": [
         "academic",
         "claude code",
+        "latex",
         "paper",
         "research",
-        "review",
         "skill"
       ],
       "stale": false,
@@ -6621,22 +6391,22 @@
       "skills_count": 1
     },
     {
-      "rank": 112,
+      "rank": 108,
       "repo": "anon-research-tools/academic-literature-route",
       "stars": 140,
       "star_delta_1d": 2,
       "star_delta_7d": 16,
       "star_delta_30d": 16,
-      "trend_score": 39.34,
+      "trend_score": 39.3,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "literature-review",
+        "zh": "文献综述",
+        "en": "Literature Review"
       },
       "description": "用于建立可追溯文献检索路线的 Codex 学术论文搜索 Skill",
       "language": "",
@@ -6657,7 +6427,7 @@
         "论文"
       ],
       "stale": false,
-      "verifies_citations": false,
+      "verifies_citations": true,
       "forks": 4,
       "open_issues": 0,
       "watchers": 140,
@@ -6674,7 +6444,7 @@
       "skills_count": 1
     },
     {
-      "rank": 113,
+      "rank": 109,
       "repo": "maxwell2732/paper-replicate-agent-demo",
       "stars": 138,
       "star_delta_1d": 0,
@@ -6687,9 +6457,9 @@
         "en": "Steady"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "experiment-reproducibility",
+        "zh": "实验复现",
+        "en": "Experiments"
       },
       "description": "A structured Claude Code workflow for empirically replicating published research using UK Biobank (UKB) data, created by Chen Zhu 朱晨 | 遗传社科研究.",
       "language": "R",
@@ -6726,7 +6496,7 @@
       "skills_count": 11
     },
     {
-      "rank": 114,
+      "rank": 110,
       "repo": "HaonanAlex/MGMT-Paper-Skills",
       "stars": 132,
       "star_delta_1d": 0,
@@ -6739,9 +6509,9 @@
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "discipline-specific",
+        "zh": "学科专项",
+        "en": "Discipline Specific"
       },
       "description": "Management research paper skills and MCP workflows for Codex and Claude",
       "language": "Python",
@@ -6751,6 +6521,7 @@
       "url": "https://github.com/HaonanAlex/MGMT-Paper-Skills",
       "homepage": "",
       "agents": [
+        "claude-code",
         "codex",
         "mcp"
       ],
@@ -6779,13 +6550,13 @@
       "skills_count": 17
     },
     {
-      "rank": 115,
+      "rank": 111,
       "repo": "yrui-cmd/Cell",
       "stars": 125,
       "star_delta_1d": 4,
       "star_delta_7d": 6,
       "star_delta_30d": 19,
-      "trend_score": 53.17,
+      "trend_score": 53.09,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -6828,13 +6599,13 @@
       "skills_count": 18
     },
     {
-      "rank": 116,
+      "rank": 112,
       "repo": "Citrus-bit/Anaxa",
       "stars": 125,
       "star_delta_1d": 0,
       "star_delta_7d": 2,
       "star_delta_30d": 5,
-      "trend_score": 25.39,
+      "trend_score": 25.34,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
@@ -6882,7 +6653,7 @@
         "论文"
       ],
       "stale": false,
-      "verifies_citations": false,
+      "verifies_citations": true,
       "forks": 10,
       "open_issues": 0,
       "watchers": 125,
@@ -6899,22 +6670,22 @@
       "skills_count": 29
     },
     {
-      "rank": 117,
+      "rank": 113,
       "repo": "csmar432/finai-research",
       "stars": 109,
       "star_delta_1d": 0,
       "star_delta_7d": 1,
       "star_delta_30d": 0,
-      "trend_score": 38.65,
+      "trend_score": 38.58,
       "trend": {
         "id": "rising",
         "zh": "持续增长",
         "en": "Rising"
       },
       "category": {
-        "id": "general-research",
-        "zh": "综合研究",
-        "en": "General Research"
+        "id": "discipline-specific",
+        "zh": "学科专项",
+        "en": "Discipline Specific"
       },
       "description": "Evidence-first AI workflow for economic and financial research: literature → identification → data → econometrics → verifiable LaTeX. 43 data sources, 58 method modules, 18 AI skills, 30 journal templates.",
       "language": "Python",
@@ -6956,7 +6727,7 @@
         "skills"
       ],
       "stale": false,
-      "verifies_citations": false,
+      "verifies_citations": true,
       "forks": 4,
       "open_issues": 14,
       "watchers": 109,

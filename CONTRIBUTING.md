@@ -22,7 +22,13 @@
 3. 本地验证：
 
 ```bash
+# 在线完整拉取（需 GITHUB_TOKEN 以避免限流）
 python scripts/update_rankings.py
+
+# 或基于本地已有数据秒级离线重算分类/过滤/README/月报
+python scripts/update_rankings.py --recompute
+
+# 运行单元测试
 python -m unittest discover -s tests -v
 ```
 

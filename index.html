@@ -131,9 +131,11 @@
           <select id="sortSelect">
             <option value="rank" data-i18n="sortRank">综合排名</option>
             <option value="trend" data-i18n="sortTrend">趋势优先</option>
+            <option value="delta7" data-i18n="sortDelta7">7 天增量</option>
+            <option value="delta30" data-i18n="sortDelta30">30 天增量</option>
+            <option value="skills" data-i18n="sortSkills">Skills 数量</option>
             <option value="stars" data-i18n="sortStars">Stars 优先</option>
             <option value="updated" data-i18n="sortUpdated">最近更新</option>
-            <option value="delta30" data-i18n="sortDelta30">30 天增量</option>
           </select>
         </label>
         <div class="seg seg-view" role="group" aria-label="View mode">
@@ -156,7 +158,10 @@
       <section class="table-section">
         <div class="table-header">
           <div>
-            <h2 data-i18n="tableTitle">完整榜单</h2>
+            <div class="table-title-row">
+              <h2 data-i18n="tableTitle">完整榜单</h2>
+              <span class="result-count" id="resultCount" aria-live="polite"></span>
+            </div>
             <p data-i18n="tableHint">精准过滤：必须同时命中学术研究信号与 Skill/Agent/Workflow 信号。点击任意行查看详情。</p>
           </div>
           <div class="table-actions">
@@ -165,6 +170,7 @@
             <a class="data-link" href="data/rankings.csv" data-i18n="downloadCsv">下载 CSV</a>
           </div>
         </div>
+        <div class="quick-filter-bar" id="quickFilterBar" role="group" aria-label="Quick quality filters"></div>
         <div class="table-wrap" id="rankingView">
           <table id="rankingTable">
             <thead>

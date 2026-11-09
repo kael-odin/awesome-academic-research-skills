@@ -12,6 +12,7 @@ from scripts.update_rankings import (
     find_window_snapshot,
     is_academic_skill_repo,
     is_stale,
+    item_to_repo_input,
     rank_repositories,
     render_data_js,
     render_feed,
@@ -633,6 +634,131 @@ class RankingRulesTest(unittest.TestCase):
         self.assertIn("example/b", report)  # newcomer
         self.assertIn("example/a", report)  # riser +30
         self.assertIn("example/gone", report)  # dropped
+
+    def test_word_boundary_prevents_substring_false_hits(self):
+        """Short ASCII tokens like 'roo' must not match inside 'proofreading'."""
+        repo = {
+            "nameWithOwner": "example/paper-proofreading",
+            "description": "Claude Code-driven research paper proofreading prompt",
+            "repositoryTopics": {"nodes": []},
+            "stargazerCount": 400,
+        }
+        accepted, reasons = is_academic_skill_repo(repo, min_stars=100)
+        self.assertTrue(accepted)
+        self.assertNotIn("roo", reasons)
+
+    def test_rejects_ocr_training_pipeline_without_skill_signal(self):
+        """A model training pipeline (only matching 'pipeline') is not an agent skill."""
+        repo = {
+            "nameWithOwner": "example/Texo",
+            "description": "A minimalist SOTA LaTeX OCR model with only 20M parameters. Full training pipeline available for self-reproduction.",
+            "repositoryTopics": {"nodes": [{"topic": {"name": "latex-ocr"}}]},
+            "stargazerCount": 900,
+        }
+        accepted, reasons = is_academic_skill_repo(repo, min_stars=100)
+        self.assertFalse(accepted)
+        self.assertIn("missing_strong_skill_signal", reasons)
+
+    def test_rejects_paper_reading_list_and_shadow_library(self):
+        paper_list = {
+            "nameWithOwner": "VoltAgent/awesome-ai-agent-papers",
+            "description": "A curated collection of AI agent research papers released in 2026, covering agent engineering, memory, evaluation, workflows",
+            "repositoryTopics": {"nodes": [{"topic": {"name": "research-paper"}}]},
+            "stargazerCount": 1800,
+        }
+        accepted_list, reasons_list = is_academic_skill_repo(paper_list, min_stars=100)
+        self.assertFalse(accepted_list)
+        self.assertTrue(any(r.startswith("negative:") for r in reasons_list))
+
+        shadow_lib = {
+            "nameWithOwner": "example/hamuleite",
+            "description": "学术板块汇聚论文，并接入 Z-Library 影子图书馆的海量电子书",
+            "repositoryTopics": {"nodes": [{"topic": {"name": "skills"}}]},
+            "stargazerCount": 5000,
+        }
+        accepted_lib, reasons_lib = is_academic_skill_repo(shadow_lib, min_stars=100)
+        self.assertFalse(accepted_lib)
+        self.assertTrue(any(r.startswith("negative:") for r in reasons_lib))
+
+    def test_classifies_zero_match_repo_as_general_research(self):
+        """A repository with zero specific category keyword hits must fall back
+        to general-research, never deep-research."""
+        repo = {
+            "nameWithOwner": "example/generic-scholar-agent",
+            "description": "面向高校学者的通用学术智能体",
+            "repositoryTopics": {"nodes": []},
+        }
+        self.assertEqual(classify_repo(repo)["id"], "general-research")
+
+    def test_classifies_peer_review_and_specific_categories(self):
+        peer_repo = {
+            "nameWithOwner": "example/AI-research-feedback",
+            "description": "A collection of Claude Code skills for academic research review and referee feedback.",
+            "repositoryTopics": {"nodes": [{"topic": {"name": "academic"}}, {"topic": {"name": "research"}}]},
+        }
+        self.assertEqual(classify_repo(peer_repo)["id"], "peer-review")
+
+        writing_repo = {
+            "nameWithOwner": "example/paper-writing-skill",
+            "description": "A Claude Code skill for academic research paper writing.",
+            "repositoryTopics": {"nodes": [{"topic": {"name": "academic-writing"}}, {"topic": {"name": "research"}}]},
+        }
+        self.assertEqual(classify_repo(writing_repo)["id"], "paper-writing")
+
+        med_repo = {
+            "nameWithOwner": "example/dyz-med-paper-skills",
+            "description": "医学论文写作与科研助手：面向中国临床医生的 Agent Skills",
+            "repositoryTopics": {"nodes": []},
+        }
+        self.assertEqual(classify_repo(med_repo)["id"], "discipline-specific")
+
+    def test_detect_agents_recognizes_claude_skill_variants(self):
+        repo = {
+            "nameWithOwner": "example/thesis-defense-pptx-skill",
+            "description": "Codex / Claude Skill for editable thesis-defense PPTX",
+            "repositoryTopics": {"nodes": [{"topic": {"name": "claude-skill"}}]},
+        }
+        self.assertEqual(detect_agents(repo), ["claude-code", "codex"])
+
+    def test_month_report_computes_mid_month_newcomer_delta(self):
+        history = {
+            "2026-09-01": {"example/a": {"stars": 100}},
+            "2026-09-10": {"example/a": {"stars": 110}, "example/new": {"stars": 200}},
+            "2026-09-30": {"example/a": {"stars": 130}, "example/new": {"stars": 275}},
+        }
+        first_seen = {"example/a": "2026-08-01", "example/new": "2026-09-10"}
+        report = render_month_report("2026-09", history, first_seen, set(), ["2026-09"])
+        self.assertIsNotNone(report)
+        self.assertIn("+75", report)
+
+    def test_item_to_repo_input_round_trips_for_recompute(self):
+        item = {
+            "repo": "example/academic-paper-skills",
+            "stars": 320,
+            "description": "Claude Code skill for literature review and paper writing",
+            "language": "Python",
+            "topics": ["academic-writing", "claude-skill"],
+            "created_date": "2026-03-01",
+            "last_push_date": "2026-11-05",
+            "url": "https://github.com/example/academic-paper-skills",
+            "homepage": "",
+            "forks": 12,
+            "open_issues": 2,
+            "watchers": 320,
+            "size_kb": 128,
+            "default_branch": "main",
+            "has_issues": True,
+            "has_wiki": False,
+            "has_discussions": False,
+            "license": {"key": "mit", "name": "MIT License", "spdx_id": "MIT"},
+            "skills_count": 8,
+        }
+        repo_input = item_to_repo_input(item)
+        ranked = rank_repositories([repo_input], min_stars=100, previous_snapshot={})
+        self.assertEqual(len(ranked), 1)
+        self.assertEqual(ranked[0]["skills_count"], 8)
+        self.assertEqual(ranked[0]["stars"], 320)
+        self.assertIn("claude-code", ranked[0]["agents"])
 
 
 if __name__ == "__main__":

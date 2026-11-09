@@ -137,9 +137,11 @@
           <select id="sortSelect">
             <option value="rank" data-i18n="sortRank">Ranking</option>
             <option value="trend" data-i18n="sortTrend">Trend first</option>
+            <option value="delta7" data-i18n="sortDelta7">7-day growth</option>
+            <option value="delta30" data-i18n="sortDelta30">30-day growth</option>
+            <option value="skills" data-i18n="sortSkills">Skills count</option>
             <option value="stars" data-i18n="sortStars">Stars first</option>
             <option value="updated" data-i18n="sortUpdated">Recently updated</option>
-            <option value="delta30" data-i18n="sortDelta30">30-day growth</option>
           </select>
         </label>
         <div class="seg seg-view" role="group" aria-label="View mode">
@@ -162,7 +164,10 @@
       <section class="table-section">
         <div class="table-header">
           <div>
-            <h2 data-i18n="tableTitle">Full Ranking</h2>
+            <div class="table-title-row">
+              <h2 data-i18n="tableTitle">Full Ranking</h2>
+              <span class="result-count" id="resultCount" aria-live="polite"></span>
+            </div>
             <p data-i18n="tableHint">Precision filter: must match both academic research and skill/agent/workflow signals. Click any row for details.</p>
           </div>
           <div class="table-actions">
@@ -171,6 +176,7 @@
             <a class="data-link" href="../data/rankings.csv" data-i18n="downloadCsv">Download CSV</a>
           </div>
         </div>
+        <div class="quick-filter-bar" id="quickFilterBar" role="group" aria-label="Quick quality filters"></div>
         <div class="table-wrap" id="rankingView">
           <table id="rankingTable">
             <thead>

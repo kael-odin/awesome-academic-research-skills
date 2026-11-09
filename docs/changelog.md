@@ -2,6 +2,30 @@
 
 本项目遵循 [语义化版本](https://semver.org/lang/zh-CN/)。数据型仓库的"功能"指榜单 / 脚本 / 可视化能力，而非仓库数据本身（数据每日自动更新）。
 
+## v2.3 — 2026-11-09
+
+精准分类重塑、假阳性剔除、月报与英文站 Bug 修复，以及看板快速筛选与轨迹可视化升级（42/42 测试通过）。
+
+### 排名脚本与数据质量
+
+- **词边界与驼峰切分匹配（`_term_in_corpus`）**：纯 ASCII 关键词改为词边界 + 可选复数匹配（`(?<![a-z])term s?(?![a-z])`），并对仓库名做驼峰切分（`TopJournal` → `Top Journal`），彻底消除 `"roo"` 误匹配 `"p[roo]freading"`、`"law"` 误匹配 `"dr-claw"`、`"ml"` 误匹配 `"html"` 等子串碰撞，同时保留 `journals` / `workflows` / `academics` 等复数命中。
+- **剔除 4 个假阳性仓库**：将 `"pipeline"` 从强技能信号移除（避免 `alephpi/Texo` 等仅含训练 pipeline 的 OCR 模型入榜），并扩充排除规则拦截论文阅读清单（`VoltAgent/awesome-ai-agent-papers`）、影子图书馆资源站（`hoochanlon/hamuleite`）与非 AI 自学指南（`zheng95z/teach-yourself-research`）。
+- **分类算法修复与中英双语词表**：
+  - 修复 `classify_repo` 初始 `best_score = -1` 导致零命中中文仓库全部落入 `deep-research`（`CATEGORIES[0]`）而非 `general-research`（`CATEGORIES[-1]`）的 Bug。
+  - 为全部 7 个分类补齐中英双语关键词，引入仓库名权重加成与多阶段（≥3 个科研阶段）归入「综合研究」机制，解决了此前 `general-research` 吞噬专类仓库（54 → 17）及「评审反馈」长期为 0 的问题。
+- **Agent 识别与引用核验扩充**：识别 `claude-skill` / `Claude Skill` / `Codex / Claude` 等写法（找回 4 个漏标仓库）；扩充 `CITATION_VERIFICATION_TERMS`（覆盖 `reference-checker`、`source credibility`、`evidence-grounded`、`可追溯文献`、`证据审计` 等，核验仓库从 2 个增至 9 个）。
+- **新增 `--recompute` 离线重算模式与同日快照幂等**：支持不消耗 GitHub API 配额直接基于本地 `data/rankings.json` 与 `data/history/` 秒级重算并刷新全套产物；`build_dataset` 优先读取前一自然日快照计算 `star_delta_1d`，避免同日重跑将日增量清零。
+- **月报与 Sitemap 修复**：修复月中新收录仓库因 `dates[0]` 缺失而月增量恒为 `+0` 的 Bug；合并磁盘已冻结历史月报（`2026-07`、`2026-08`）到 `reports/index.html`、月报导航栏与 `sitemap.xml`，防止 60 天快照回收后旧月报入口丢失；月报页同步支持深色模式与响应式表格。
+
+### 可视化与交互（前端）
+
+- **快速质量筛选栏 + 实时结果计数**：表格上方新增 `🔥 热门上升`、`✓ 引用核验`、`📦 含 SKILL.md`、`✨ 排除停更` 一键筛选胶囊、一键 `↺ 重置筛选` 与 `显示 X / Y 个仓库` 实时计数，全部状态同步至 URL `#hash`。
+- **新增排序维度**：支持按 `7 天增量`（`delta7`）与 `Skills 数量`（`skills`）直接排序。
+- **可交互目录（Hero TOC）与统计条**：点击「本期目录」任意分类或统计条分类分布可直接筛选并平滑滚动至主榜；点击「最热仓库」卡片直接打开该仓库详情抽屉并显示 7d 增量。
+- **详情抽屉 60 天星标轨迹图**：抽屉内新增带起止日期与区间增量的完整星标历史曲线卡片。
+- **增长对比图按真实日历对齐**：修复新旧仓库按数组下标强行拉伸至同一宽度的失真问题，改为按真实日期轴对齐并标注起止日期、Y 轴百分比刻度及图例总增幅。
+- **修复 `/en/` 英文站默认语言覆盖与 JSON-LD URL**：访问中文主站不再污染 `/en/` 的默认英文语言设置，`/en/` 的 JSON-LD `url` 保持独立规范地址。
+
 ## v2.2 — 2026-09-27
 
 从"发现"走向"信任与使用"：新增质量信号、月度报告、独立英文页与一批让榜单可以直接用的交互。

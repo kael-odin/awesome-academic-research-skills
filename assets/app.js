@@ -6,7 +6,7 @@
   const SAFE = (v, d) => (v === undefined || v === null ? d : v);
 
   const state = {
-    lang: localStorage.getItem("ars-lang") || window.ARS_DEFAULT_LANG || "zh",
+    lang: window.ARS_DEFAULT_LANG || localStorage.getItem("ars-lang") || "zh",
     theme: localStorage.getItem("ars-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"),
     view: localStorage.getItem("ars-view") || (matchMedia("(max-width: 760px)").matches ? "card" : "table"),
     query: "",
@@ -15,6 +15,10 @@
     sort: "rank",
     favorites: JSON.parse(localStorage.getItem("ars-favorites") || "[]"),
     favOnly: false,
+    hotOnly: false,
+    citeOnly: false,
+    hasSkillsOnly: false,
+    activeOnly: false,
     repo: null, // drawer deep-link (#repo=owner/name)
     compare: JSON.parse(localStorage.getItem("ars-compare") || "[]").slice(0, 3),
   };
@@ -34,7 +38,21 @@
 
   /* Agent platform catalog — the order here is the display/sort order. */
   const AGENT_PLATFORMS = [
-    { id: "claude-code", label: "Claude Code", match: ["claude code", "claude-code", "claude code skill"] },
+    {
+      id: "claude-code",
+      label: "Claude Code",
+      match: [
+        "claude code",
+        "claude-code",
+        "claude code skill",
+        "claude-skill",
+        "claude-skills",
+        "claude skill",
+        "claude skills",
+        "for claude",
+        "and claude",
+      ],
+    },
     { id: "codex", label: "Codex", match: ["codex"] },
     { id: "opencode", label: "OpenCode", match: ["opencode", "open code", "open-code"] },
     { id: "cursor", label: "Cursor", match: ["cursor"] },
@@ -55,12 +73,12 @@
       searchLabel: "搜索仓库、简介、分类", categoryLabel: "分类", allCategories: "全部分类",
       agentLabel: "平台", allAgents: "全部平台", agentGeneral: "通用",
       sortLabel: "排序", sortRank: "综合排名", sortTrend: "趋势优先", sortStars: "Stars 优先",
-      sortUpdated: "最近更新", sortDelta30: "30 天增量",
+      sortUpdated: "最近更新", sortDelta7: "7 天增量", sortDelta30: "30 天增量", sortSkills: "Skills 数量",
       viewTable: "表格", viewCard: "卡片",
       favoritesOnly: "仅看收藏", exportFav: "导出收藏",
       tableTitle: "完整榜单", tableHint: "精准过滤：必须同时命中学术研究信号与 Skill/Agent/Workflow 信号。点击任意行查看详情。",
       downloadJson: "下载 JSON", downloadCsv: "下载 CSV",
-      repo: "仓库", trend: "趋势", spark: "7d 趋势", category: "分类",
+      repo: "仓库", trend: "趋势", spark: "30d 趋势", category: "分类",
       description: "简介", updatedCol: "更新", empty: "没有匹配当前筛选条件的仓库。",
       methodTitle: "排名方法",
       methodCopy: "榜单按 Stars 主排序，并展示趋势分。趋势分综合近期新增 Stars、最近 push、新仓库加权和总体规模；低星、fork、归档及明显非学术仓库会被排除。",
@@ -71,10 +89,12 @@
       // stat strip
       statTotalStars: "总 Stars", statAvgStars: "平均 Stars", statNet7d: "近 7d 净增",
       statHotRepo: "最热仓库", statCats: "分类分布",
+      // quick filters
+      qfHot: "🔥 热门上升", qfCite: "✓ 引用核验", qfSkills: "📦 含 SKILL.md", qfActive: "✨ 排除停更", qfReset: "↺ 重置筛选",
       // drawer
       drEyebrow: "收录条目",
       drDescription: "简介", drTopics: "Topics", drLanguage: "主要语言", drCreated: "创建时间",
-      drPushed: "最近更新", drTrend: "趋势分", drSignals: "精准信号",
+      drPushed: "最近更新", drTrend: "趋势分", drSignals: "精准信号", drHistory: "星标历史轨迹",
       drDelta1d: "日增量", drDelta7d: "7d 增量", drDelta30d: "30d 增量",
       drLicense: "许可证", drForks: "Forks", drIssues: "Open Issues",
       drAgent: "适用 Agent", drOpenRepo: "在 GitHub 打开", drHomepage: "访问主页",
@@ -86,7 +106,7 @@
       skillsCount: "Skills 数", citeCheck: "引用核验", staleTag: "疑似停更",
       compareFull: "对比列表已满（最多 3 个）",
       compareTray: "对比", compareTitle: "增长对比", compareClear: "清空",
-      compareHint: "曲线为相对各自窗口起点的 Stars 增长百分比。",
+      compareHint: "曲线按真实日期对齐，展示相对各自窗口起点的 Stars 增长百分比。",
     },
     en: {
       skipToContent: "Skip to content",
@@ -99,12 +119,12 @@
       searchLabel: "Search repositories, descriptions, categories", categoryLabel: "Category", allCategories: "All categories",
       agentLabel: "Platform", allAgents: "All platforms", agentGeneral: "General",
       sortLabel: "Sort", sortRank: "Ranking", sortTrend: "Trend first", sortStars: "Stars first",
-      sortUpdated: "Recently updated", sortDelta30: "30-day growth",
+      sortUpdated: "Recently updated", sortDelta7: "7-day growth", sortDelta30: "30-day growth", sortSkills: "Skills count",
       viewTable: "Table", viewCard: "Cards",
       favoritesOnly: "Favorites only", exportFav: "Export favorites",
       tableTitle: "Full Ranking", tableHint: "Precision filter: must match both academic research and skill/agent/workflow signals. Click any row for details.",
       downloadJson: "Download JSON", downloadCsv: "Download CSV",
-      repo: "Repository", trend: "Trend", spark: "7d trend", category: "Category",
+      repo: "Repository", trend: "Trend", spark: "30d trend", category: "Category",
       description: "Description", updatedCol: "Updated", empty: "No repositories match the current filters.",
       methodTitle: "Ranking Method",
       methodCopy: "Repositories are ranked mainly by Stars and enriched with a trend score. The trend score combines recent star growth, recent pushes, new-repository weighting, and overall scale.",
@@ -114,9 +134,10 @@
       shortcuts: "Shortcuts: / search · t theme · l language · v view · f favorites · Esc close",
       statTotalStars: "Total Stars", statAvgStars: "Avg Stars", statNet7d: "Net 7d growth",
       statHotRepo: "Hottest repo", statCats: "Category mix",
+      qfHot: "🔥 Hot 7d", qfCite: "✓ Citations verified", qfSkills: "📦 Has SKILL.md", qfActive: "✨ Active only", qfReset: "↺ Reset",
       drEyebrow: "Entry",
       drDescription: "Description", drTopics: "Topics", drLanguage: "Language", drCreated: "Created",
-      drPushed: "Last push", drTrend: "Trend score", drSignals: "Precision signals",
+      drPushed: "Last push", drTrend: "Trend score", drSignals: "Precision signals", drHistory: "Star trajectory",
       drDelta1d: "1d delta", drDelta7d: "7d delta", drDelta30d: "30d delta",
       drLicense: "License", drForks: "Forks", drIssues: "Open issues",
       drAgent: "Target agent", drOpenRepo: "Open on GitHub", drHomepage: "Visit homepage",
@@ -128,7 +149,7 @@
       skillsCount: "Skills", citeCheck: "Citations verified", staleTag: "Possibly stale",
       compareFull: "Compare list is full (max 3)",
       compareTray: "Compare", compareTitle: "Growth comparison", compareClear: "Clear",
-      compareHint: "Lines show star growth in percent from each repo's window start.",
+      compareHint: "Lines are aligned by calendar date and show star growth in percent from each repo's window start.",
     },
   };
 
@@ -151,9 +172,9 @@
   }
 
   /* ---------- i18n ---------- */
-  function setLanguage(lang) {
+  function setLanguage(lang, persist) {
     state.lang = lang;
-    localStorage.setItem("ars-lang", lang);
+    if (persist) localStorage.setItem("ars-lang", lang);
     document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
     document.querySelectorAll("[data-i18n]").forEach((n) => { n.textContent = t(n.dataset.i18n); });
     // HTML-bearing i18n (e.g. hero title with an <em> accent) is applied as
@@ -246,33 +267,57 @@
   function renderCompareChart() {
     const host = document.getElementById("compareChart");
     const repos = state.compare;
-    const series = repos.map((repo) => (hist.series && hist.series[repo]) || []);
-    const w = 640, h = 300, pad = 40;
-    const pctSeries = series.map((points) => {
+    const rawSeries = repos.map((repo) => (hist.series && hist.series[repo]) || []);
+    const allDates = Array.from(new Set(rawSeries.flatMap((pts) => pts.map((p) => p.date)))).sort();
+    const w = 640, h = 300, padL = 48, padR = 36, padT = 24, padB = 34;
+    const pctSeries = rawSeries.map((points) => {
       if (!points.length) return [];
       const base = points[0].stars || 1;
-      return points.map((p) => ((p.stars - base) / base) * 100);
+      return points.map((p) => ({
+        date: p.date,
+        stars: p.stars,
+        pct: ((p.stars - base) / base) * 100,
+        delta: p.stars - points[0].stars,
+      }));
     });
-    const all = pctSeries.flat();
-    if (!all.length) {
+    const allPct = pctSeries.flatMap((s) => s.map((p) => p.pct));
+    if (!allPct.length || !allDates.length) {
       host.innerHTML = `<p class="muted">${esc(t("noHistory"))}</p>`;
       return;
     }
-    const maxV = Math.max(0, ...all), minV = Math.min(0, ...all);
+    const maxV = Math.max(0.5, ...allPct), minV = Math.min(0, ...allPct);
     const range = maxV - minV || 1;
-    const nMax = Math.max(...pctSeries.map((p) => p.length), 2);
-    const x = (i, n) => pad + (i / (n - 1)) * (w - pad * 2);
-    const y = (v) => h - pad - ((v - minV) / range) * (h - pad * 2);
+    const dateIdx = new Map(allDates.map((d, i) => [d, i]));
+    const nDates = Math.max(allDates.length, 2);
+    const x = (d) => padL + ((dateIdx.get(d) || 0) / (nDates - 1)) * (w - padL - padR);
+    const y = (v) => h - padB - ((v - minV) / range) * (h - padT - padB);
     let svg = `<svg viewBox="0 0 ${w} ${h}" width="100%" role="img" aria-label="${esc(t("compareTitle"))}">`;
-    svg += `<line x1="${pad}" y1="${y(0)}" x2="${w - pad}" y2="${y(0)}" stroke="var(--ars-line)" stroke-dasharray="4 4"/>`;
-    pctSeries.forEach((pct, si) => {
-      if (pct.length < 2) return;
-      const poly = pct.map((v, i) => `${x(i, pct.length).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
-      svg += `<polyline points="${poly}" fill="none" stroke="${COMPARE_COLORS[si % 3]}" stroke-width="2"/>`;
-      svg += `<text x="${w - pad + 4}" y="${y(pct[pct.length - 1])}" font-size="11" fill="${COMPARE_COLORS[si % 3]}">${(si + 1)}</text>`;
+    // Y-axis reference lines (0% and max%)
+    svg += `<line x1="${padL}" y1="${y(0)}" x2="${w - padR}" y2="${y(0)}" stroke="var(--ars-rule)" stroke-dasharray="4 4"/>`;
+    svg += `<line x1="${padL}" y1="${y(maxV)}" x2="${w - padR}" y2="${y(maxV)}" stroke="var(--ars-rule-soft)"/>`;
+    svg += `<text x="${padL - 6}" y="${y(0) + 4}" text-anchor="end" font-size="10" fill="var(--ars-muted)">0%</text>`;
+    svg += `<text x="${padL - 6}" y="${y(maxV) + 4}" text-anchor="end" font-size="10" fill="var(--ars-muted)">+${maxV.toFixed(1)}%</text>`;
+    // X-axis start/end dates
+    svg += `<text x="${padL}" y="${h - 10}" text-anchor="start" font-size="10" fill="var(--ars-muted)">${esc(allDates[0])}</text>`;
+    svg += `<text x="${w - padR}" y="${h - 10}" text-anchor="end" font-size="10" fill="var(--ars-muted)">${esc(allDates[allDates.length - 1])}</text>`;
+    pctSeries.forEach((pts, si) => {
+      if (!pts.length) return;
+      const color = COMPARE_COLORS[si % 3];
+      if (pts.length >= 2) {
+        const poly = pts.map((p) => `${x(p.date).toFixed(1)},${y(p.pct).toFixed(1)}`).join(" ");
+        svg += `<polyline points="${poly}" fill="none" stroke="${color}" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>`;
+      }
+      const last = pts[pts.length - 1];
+      svg += `<circle cx="${x(last.date).toFixed(1)}" cy="${y(last.pct).toFixed(1)}" r="3.2" fill="${color}"/>`;
+      svg += `<text x="${x(last.date) + 6}" y="${y(last.pct) + 4}" font-size="11" font-weight="700" fill="${color}">${si + 1}</text>`;
     });
     svg += "</svg>";
-    const legend = repos.map((repo, i) => `<span class="cmp-legend"><i style="background:${COMPARE_COLORS[i % 3]}"></i>${i + 1}. ${esc(repo)}</span>`).join("");
+    const legend = repos.map((repo, i) => {
+      const pts = pctSeries[i] || [];
+      const last = pts[pts.length - 1];
+      const summary = last ? ` (+${last.pct.toFixed(1)}% · +${fmt(last.delta)}★)` : "";
+      return `<span class="cmp-legend"><i style="background:${COMPARE_COLORS[i % 3]}"></i>${i + 1}. ${esc(repo)}<b>${esc(summary)}</b></span>`;
+    }).join("");
     host.innerHTML = svg + `<div class="cmp-legend-row">${legend}</div>`;
   }
   function openCompareModal() {
@@ -340,6 +385,10 @@
       if (state.category !== "all" && item.category.id !== state.category) return false;
       if (state.agent !== "all" && !detectAgents(item).includes(state.agent)) return false;
       if (state.favOnly && !isFav(item.repo)) return false;
+      if (state.hotOnly && (item.trend || {}).id !== "hot") return false;
+      if (state.citeOnly && !item.verifies_citations) return false;
+      if (state.hasSkillsOnly && !(item.skills_count > 0)) return false;
+      if (state.activeOnly && item.stale) return false;
       if (!q) return true;
       return [item.repo, item.description, item.category.zh, item.category.en,
         item.trend.zh, item.trend.en, (item.topics || []).join(" "),
@@ -350,9 +399,78 @@
     if (state.sort === "trend") items.sort((a, b) => b.trend_score - a.trend_score || b.stars - a.stars);
     else if (state.sort === "stars") items.sort((a, b) => b.stars - a.stars || a.rank - b.rank);
     else if (state.sort === "updated") items.sort((a, b) => (b.last_push_date || "").localeCompare(a.last_push_date || "") || a.rank - b.rank);
+    else if (state.sort === "delta7") items.sort((a, b) => (SAFE(b.star_delta_7d, 0) || 0) - (SAFE(a.star_delta_7d, 0) || 0) || b.stars - a.stars);
     else if (state.sort === "delta30") items.sort((a, b) => (SAFE(b.star_delta_30d, b.star_delta_7d) || 0) - (SAFE(a.star_delta_30d, a.star_delta_7d) || 0) || b.stars - a.stars);
+    else if (state.sort === "skills") items.sort((a, b) => (SAFE(b.skills_count, -1)) - (SAFE(a.skills_count, -1)) || b.stars - a.stars);
     else items.sort((a, b) => a.rank - b.rank);
     return items;
+  }
+
+  function hasActiveFilters() {
+    return Boolean(
+      state.query.trim() ||
+      state.category !== "all" ||
+      state.agent !== "all" ||
+      state.favOnly ||
+      state.hotOnly ||
+      state.citeOnly ||
+      state.hasSkillsOnly ||
+      state.activeOnly
+    );
+  }
+
+  function resetFilters() {
+    state.query = "";
+    state.category = "all";
+    state.agent = "all";
+    state.favOnly = false;
+    state.hotOnly = false;
+    state.citeOnly = false;
+    state.hasSkillsOnly = false;
+    state.activeOnly = false;
+    const si = document.getElementById("searchInput"); if (si) si.value = "";
+    const cf = document.getElementById("categoryFilter"); if (cf) cf.value = "all";
+    const af = document.getElementById("agentFilter"); if (af) af.value = "all";
+    render();
+  }
+
+  function updateResultCount(shownCount) {
+    const el = document.getElementById("resultCount");
+    if (!el) return;
+    const total = data.items.length;
+    el.textContent = state.lang === "zh"
+      ? `${fmt(shownCount)} / ${fmt(total)} 个仓库`
+      : `${fmt(shownCount)} of ${fmt(total)} repos`;
+  }
+
+  function renderQuickFilters() {
+    const bar = document.getElementById("quickFilterBar");
+    if (!bar) return;
+    const items = data.items;
+    const nHot = items.filter((i) => (i.trend || {}).id === "hot").length;
+    const nCite = items.filter((i) => i.verifies_citations).length;
+    const nSkills = items.filter((i) => i.skills_count > 0).length;
+    const nActive = items.filter((i) => !i.stale).length;
+    const chips = [
+      { key: "hotOnly", label: `${t("qfHot")} (${nHot})`, on: state.hotOnly },
+      { key: "citeOnly", label: `${t("qfCite")} (${nCite})`, on: state.citeOnly },
+      { key: "hasSkillsOnly", label: `${t("qfSkills")} (${nSkills})`, on: state.hasSkillsOnly },
+      { key: "activeOnly", label: `${t("qfActive")} (${nActive})`, on: state.activeOnly },
+    ];
+    bar.innerHTML = chips.map((c) => (
+      `<button type="button" class="qf-chip${c.on ? " active" : ""}" data-qf="${c.key}" aria-pressed="${c.on}">${esc(c.label)}</button>`
+    )).join("") + (hasActiveFilters()
+      ? `<button type="button" class="qf-chip qf-reset" id="qfResetBtn">${esc(t("qfReset"))}</button>`
+      : "");
+    bar.querySelectorAll("[data-qf]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const k = btn.dataset.qf;
+        state[k] = !state[k];
+        render();
+      });
+    });
+    const resetBtn = document.getElementById("qfResetBtn");
+    if (resetBtn) resetBtn.addEventListener("click", resetFilters);
   }
 
   /* ---------- category strip (research-stage order) ---------- */
@@ -395,18 +513,37 @@
     const hot = items.slice().sort((a, b) => (SAFE(b.star_delta_7d, 0) || 0) - (SAFE(a.star_delta_7d, 0) || 0))[0];
     const counts = new Map();
     items.forEach((i) => counts.set(i.category.id, (counts.get(i.category.id) || 0) + 1));
-    const maxC = Math.max(...counts.values());
-    const catRows = Array.from(counts.entries()).map(([id, n]) => {
+    const maxC = Math.max(...counts.values(), 1);
+    const catRows = STAGE_ORDER.filter((id) => counts.has(id)).map((id) => {
+      const n = counts.get(id) || 0;
       const cat = (data.items.find((i) => i.category.id === id) || {}).category || { zh: id, en: id };
       const lbl = state.lang === "zh" ? cat.zh : cat.en;
-      return `<div class="cat-bar-row"><span>${esc(lbl)}</span><span class="cat-bar-track"><span class="cat-bar-fill" style="width:${(n / maxC * 100).toFixed(0)}%"></span></span><b>${n}</b></div>`;
+      return `<div class="cat-bar-row" data-cat="${esc(id)}" role="button" tabindex="0"><span>${esc(lbl)}</span><span class="cat-bar-track"><span class="cat-bar-fill" style="width:${(n / maxC * 100).toFixed(0)}%"></span></span><b>${n}</b></div>`;
     }).join("");
+    const hotName = hot ? hot.repo.split("/").pop() : "-";
+    const hotDelta = hot && hot.star_delta_7d ? ` <small class="hot-delta">+${fmt(hot.star_delta_7d)}/7d</small>` : "";
     c.innerHTML = `
       <div class="stat-card"><div class="sv">${fmt(totalStars)}</div><div class="sl">${t("statTotalStars")}</div></div>
       <div class="stat-card"><div class="sv">${fmt(avg)}</div><div class="sl">${t("statAvgStars")}</div></div>
       <div class="stat-card"><div class="sv">+${fmt(net7)}</div><div class="sl">${t("statNet7d")}</div></div>
-      <div class="stat-card"><div class="sv" style="font-size:14px;line-height:1.3">${esc(hot ? hot.repo.split("/").pop() : "-")}</div><div class="sl">${t("statHotRepo")}</div></div>
+      <div class="stat-card stat-card-interactive" id="hotRepoCard" role="button" tabindex="0"><div class="sv" style="font-size:14px;line-height:1.3">${esc(hotName)}${hotDelta}</div><div class="sl">${t("statHotRepo")}</div></div>
       <div class="stat-card"><div class="cat-bar">${catRows}</div><div class="sl" style="margin-top:8px">${t("statCats")}</div></div>`;
+    if (hot) {
+      const hc = document.getElementById("hotRepoCard");
+      if (hc) {
+        hc.addEventListener("click", () => openDrawer(hot.repo));
+        hc.addEventListener("keydown", (e) => { if (e.key === "Enter") openDrawer(hot.repo); });
+      }
+    }
+    c.querySelectorAll(".cat-bar-row[data-cat]").forEach((row) => {
+      const pick = () => {
+        state.category = row.dataset.cat;
+        const cf = document.getElementById("categoryFilter"); if (cf) cf.value = state.category;
+        render();
+      };
+      row.addEventListener("click", pick);
+      row.addEventListener("keydown", (e) => { if (e.key === "Enter") pick(); });
+    });
   }
 
   /* ---------- table view ---------- */
@@ -414,6 +551,7 @@
     const body = document.getElementById("rankingBody");
     const empty = document.getElementById("emptyState");
     const items = filteredItems();
+    updateResultCount(items.length);
     empty.hidden = items.length > 0;
     body.innerHTML = "";
     items.forEach((item) => {
@@ -462,6 +600,7 @@
     const grid = document.getElementById("cardGrid");
     const empty = document.getElementById("emptyState");
     const items = filteredItems();
+    updateResultCount(items.length);
     empty.hidden = items.length > 0;
     grid.innerHTML = "";
     items.forEach((item, idx) => {
@@ -530,6 +669,19 @@
       navigator.clipboard.writeText(md).then(() => toast(t("toastCopied")), fallback);
     } else { fallback(); }
   }
+  function drawerHistoryBlock(repo) {
+    const points = (hist.series && hist.series[repo]) || [];
+    if (points.length < 2) return "";
+    const first = points[0], last = points[points.length - 1];
+    return `<div class="drawer-field">
+      <div class="lbl">${t("drHistory")} (${esc(first.date)} → ${esc(last.date)})</div>
+      <div class="drawer-spark-box">
+        ${sparkline(repo, 410, 56)}
+        <div class="drawer-spark-meta"><span>${fmt(first.stars)} ★</span><span>→</span><b>${fmt(last.stars)} ★ (+${fmt(Math.max(0, last.stars - first.stars))})</b></div>
+      </div>
+    </div>`;
+  }
+
   function openDrawer(repo) {
     const item = data.items.find((i) => i.repo === repo);
     if (!item) {
@@ -557,13 +709,14 @@
     const drawerBadges = repoMetaBadges(item);
     document.getElementById("drawerBody").innerHTML = `
       <div class="drawer-field"><div class="lbl">${t("drDescription")}</div><div class="val serif">${esc(item.description || "")}</div></div>
-      ${drawerBadges ? `<div class="repo-badges">${drawerBadges}</div>` : ""}
+      ${drawerBadges ? `<div class="repo-badges" style="margin:0 0 14px 0">${drawerBadges}</div>` : ""}
       <div class="stat-row">
         <div class="sb"><div class="n">${fmt(item.stars)}</div><div class="k">${t("stars")}</div></div>
         <div class="sb"><div class="n">+${fmt(d7)}</div><div class="k">${t("drDelta7d")}</div></div>
         <div class="sb"><div class="n">+${fmt(d30)}</div><div class="k">${t("drDelta30d")}</div></div>
         <div class="sb"><div class="n">${item.skills_count === undefined || item.skills_count === null ? "-" : fmt(item.skills_count)}</div><div class="k">${t("skillsCount")}</div></div>
       </div>
+      ${drawerHistoryBlock(item.repo)}
       <div class="drawer-field"><div class="lbl">${t("drAgent")}</div><div class="agent-chips">${agentChips(item)}</div></div>
       <div class="drawer-field"><div class="lbl">${t("drTopics")}</div><div class="drawer-topics">${topics || "-"}</div></div>
       <div class="drawer-field"><div class="lbl">${t("drSignals")}</div><div class="sig-list">${sigs || "-"}</div></div>
@@ -618,28 +771,37 @@
   /* ---------- URL hash state ---------- */
   function syncHash() {
     const p = new URLSearchParams();
+    const defaultLang = window.ARS_DEFAULT_LANG || "zh";
     if (state.query) p.set("q", state.query);
     if (state.category !== "all") p.set("cat", state.category);
     if (state.agent !== "all") p.set("agent", state.agent);
     if (state.sort !== "rank") p.set("sort", state.sort);
     if (state.view !== "table") p.set("view", state.view);
-    if (state.lang !== "zh") p.set("lang", state.lang);
+    if (state.lang !== defaultLang) p.set("lang", state.lang);
     if (state.theme !== "light") p.set("theme", state.theme);
     if (state.favOnly) p.set("fav", "1");
+    if (state.hotOnly) p.set("hot", "1");
+    if (state.citeOnly) p.set("cite", "1");
+    if (state.hasSkillsOnly) p.set("sk", "1");
+    if (state.activeOnly) p.set("act", "1");
     if (state.repo) p.set("repo", state.repo);
     const h = p.toString();
     history.replaceState(null, "", h ? "#" + h : location.pathname);
   }
   function readHash() {
     const m = new URLSearchParams(location.hash.slice(1));
-    if (m.has("q")) state.query = m.get("q");
-    if (m.has("cat")) state.category = m.get("cat");
-    if (m.has("agent")) state.agent = m.get("agent");
-    if (m.has("sort")) state.sort = m.get("sort");
+    state.query = m.get("q") || "";
+    state.category = m.get("cat") || "all";
+    state.agent = m.get("agent") || "all";
+    state.sort = m.get("sort") || "rank";
     if (m.has("view")) state.view = m.get("view");
     if (m.has("lang")) state.lang = m.get("lang");
     if (m.has("theme")) state.theme = m.get("theme");
-    if (m.has("fav")) state.favOnly = m.get("fav") === "1";
+    state.favOnly = m.get("fav") === "1";
+    state.hotOnly = m.get("hot") === "1";
+    state.citeOnly = m.get("cite") === "1";
+    state.hasSkillsOnly = m.get("sk") === "1";
+    state.activeOnly = m.get("act") === "1";
     state.repo = m.get("repo");
     // reflect into controls
     const si = document.getElementById("searchInput"); if (si) si.value = state.query;
@@ -697,18 +859,31 @@
       counts.set(it.category.id, (counts.get(it.category.id) || 0) + 1);
       totalStars += it.stars || 0;
     });
-    // Render categories by count, descending (zero-count categories omitted).
-    const seen = Array.from(counts.entries()).sort((a, b) => b[1] - a[1]);
+    // Render categories in research-stage order and make each row clickable to filter.
+    const seen = STAGE_ORDER.filter((id) => counts.has(id)).map((id) => [id, counts.get(id)]);
     list.innerHTML = seen.map(([id, n], i) => {
       const cat = (data.items.find((it) => it.category.id === id) || {}).category || { zh: id, en: id };
       const label = state.lang === "zh" ? cat.zh : cat.en;
-      return `<div class="toc-row">
+      const active = state.category === id ? " active" : "";
+      return `<div class="toc-row${active}" data-toc-cat="${esc(id)}" role="button" tabindex="0">
         <span class="num">${String(i + 1).padStart(2, "0")}</span>
         <span class="name">${esc(label)}</span>
         <span class="leader"></span>
         <span class="count">${fmt(n)}</span>
       </div>`;
     }).join("");
+    list.querySelectorAll(".toc-row[data-toc-cat]").forEach((row) => {
+      const pick = () => {
+        const picked = row.dataset.tocCat;
+        state.category = state.category === picked ? "all" : picked;
+        const cf = document.getElementById("categoryFilter"); if (cf) cf.value = state.category;
+        render();
+        const mainEl = document.getElementById("main");
+        if (mainEl) mainEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      };
+      row.addEventListener("click", pick);
+      row.addEventListener("keydown", (e) => { if (e.key === "Enter") pick(); });
+    });
     document.getElementById("tocRepos").textContent = fmt(data.items.length);
     document.getElementById("tocStars").textContent = fmt(totalStars);
   }
@@ -736,12 +911,15 @@
     const el = document.getElementById("ld-json");
     if (!el) return;
     const top = data.items.slice(0, 20);
+    const pageUrl = window.ARS_DEFAULT_LANG === "en"
+      ? "https://kael-odin.github.io/awesome-academic-research-skills/en/"
+      : "https://kael-odin.github.io/awesome-academic-research-skills/";
     const payload = {
       "@context": "https://schema.org",
       "@type": "ItemList",
       "name": "Awesome Academic Research Skills",
       "description": "Daily ranking of academic & research agent skills on GitHub.",
-      "url": "https://kael-odin.github.io/awesome-academic-research-skills/",
+      "url": pageUrl,
       "itemListElement": top.map((it, i) => ({
         "@type": "ListItem",
         "position": i + 1,
@@ -759,6 +937,7 @@
     renderToc();
     renderStatStrip();
     renderCategoryStrip();
+    renderQuickFilters();
     if (state.view === "card") { renderCards(); } else { renderTable(); }
     renderLdJson();
     updateFavUI();
@@ -767,11 +946,16 @@
 
   /* ---------- events ---------- */
   function wire() {
-    document.querySelectorAll(".lang-button").forEach((b) => b.addEventListener("click", () => setLanguage(b.dataset.lang)));
+    document.querySelectorAll(".lang-button").forEach((b) => b.addEventListener("click", () => setLanguage(b.dataset.lang, true)));
     document.getElementById("themeToggle").addEventListener("click", toggleTheme);
     document.querySelectorAll(".view-button").forEach((b) => b.addEventListener("click", () => setView(b.dataset.view)));
     document.getElementById("favToggle").addEventListener("click", () => { state.favOnly = !state.favOnly; updateFavUI(); syncHash(); render(); });
-    document.getElementById("searchInput").addEventListener("input", (e) => { state.query = e.target.value; if (state.view === "card") renderCards(); else renderTable(); syncHash(); });
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+      state.query = e.target.value;
+      renderQuickFilters();
+      if (state.view === "card") renderCards(); else renderTable();
+      syncHash();
+    });
     document.getElementById("categoryFilter").addEventListener("change", (e) => { state.category = e.target.value; render(); });
     document.getElementById("agentFilter").addEventListener("change", (e) => { state.agent = e.target.value; syncHash(); render(); });
     document.getElementById("sortSelect").addEventListener("change", (e) => { state.sort = e.target.value; render(); });
@@ -815,7 +999,7 @@
       if (typing) return;
       if (e.key === "/") { e.preventDefault(); document.getElementById("searchInput").focus(); }
       else if (e.key === "t") toggleTheme();
-      else if (e.key === "l") setLanguage(state.lang === "zh" ? "en" : "zh");
+      else if (e.key === "l") setLanguage(state.lang === "zh" ? "en" : "zh", true);
       else if (e.key === "v") setView(state.view === "table" ? "card" : "table");
       else if (e.key === "f") { state.favOnly = !state.favOnly; updateFavUI(); syncHash(); render(); }
     });

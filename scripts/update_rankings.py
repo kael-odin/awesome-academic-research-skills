@@ -13,6 +13,7 @@ import html
 import json
 import math
 import os
+import re
 import sys
 import time
 import urllib.error
@@ -67,6 +68,10 @@ SKILL_TERMS = [
     "agent skill",
     "agent skills",
     "claude code",
+    "claude-skill",
+    "claude-skills",
+    "claude skill",
+    "claude skills",
     "codex",
     "open code",
     "opencode",
@@ -84,7 +89,7 @@ SKILL_TERMS = [
     "auggie",
     "roo",
     "cline",
-    "continue",
+    "continue.dev",
     "agent skill standard",
     "agent skills standard",
 ]
@@ -95,11 +100,15 @@ STRONG_SKILL_TERMS = [
     "agent skill",
     "agent skills",
     "claude code",
+    "claude-skill",
+    "claude-skills",
+    "claude skill",
+    "claude skills",
     "codex",
     "open code",
     "opencode",
+    "mcp",
     "workflow",
-    "pipeline",
     "plugin",
     "cursor rules",
     "gemini",
@@ -256,6 +265,13 @@ NEGATIVE_TERMS = [
     "desktop app",
     "prompt engineering guide",
     "curated list of chatgpt prompts",
+    "collection of ai agent research papers",
+    "curated list of papers",
+    "awesome-ai-agent-papers",
+    "z-library",
+    "影子图书馆",
+    "teach-yourself-research",
+    "develop basic research skills",
     "developer-tools",
     "game mod",
     "minecraft",
@@ -278,9 +294,23 @@ CITATION_VERIFICATION_TERMS = [
     "citation valid",
     "reference verif",
     "references verified",
+    "reference check",
+    "reference-checker",
+    "check references",
+    "checking scholarly ref",
+    "source credibility",
+    "evidence-grounded",
+    "evidence-backed",
+    "evidence-first",
     "引用核验",
     "引用验证",
     "文献核验",
+    "参考文献是否真实",
+    "检查参考文献",
+    "核验参考文献",
+    "可追溯文献",
+    "证据审计",
+    "可信证据",
     "零幻觉",
     "zero hallucinat",
     "no hallucinated",
@@ -298,43 +328,242 @@ CATEGORIES = [
         "id": "deep-research",
         "zh": "深度研究",
         "en": "Deep Research",
-        "keywords": ["deep research", "research agent", "autonomous research", "source validation", "discovery"],
+        "keywords": [
+            "deep research",
+            "deep-research",
+            "research agent",
+            "autonomous research",
+            "source validation",
+            "autonomous discovery",
+            "discovery",
+            "kosmos",
+            "idea generation",
+            "research idea",
+            "clarify-research-idea",
+            "topic-feasibility",
+            "深度研究",
+            "深研",
+            "自主科研",
+            "自主研究",
+            "选题",
+            "可行性",
+        ],
     },
     {
         "id": "paper-writing",
         "zh": "论文写作",
         "en": "Paper Writing",
-        "keywords": ["paper writing", "manuscript", "latex", "beamer", "overleaf", "bibtex", "proofreading", "revise", "abstract", "introduction", "writing"],
+        "keywords": [
+            "paper writing",
+            "paper-writing",
+            "academic writing",
+            "academic-writing",
+            "manuscript",
+            "latex",
+            "beamer",
+            "overleaf",
+            "bibtex",
+            "proofreading",
+            "revise",
+            "abstract",
+            "introduction",
+            "writing",
+            "humanizer",
+            "anti-defensive",
+            "defensive writing",
+            "aigc",
+            "pptx",
+            "presentation",
+            "figure",
+            "figures",
+            "figures4papers",
+            "illustration",
+            "illustrator",
+            "diagram",
+            "diagrams",
+            "visio",
+            "tikz",
+            "patent",
+            "paper2patent",
+            "论文写作",
+            "学术写作",
+            "写作",
+            "润色",
+            "改写",
+            "降重",
+            "防御性写作",
+            "配图",
+            "科研绘图",
+            "论文绘图",
+            "图表",
+            "插画",
+            "示意图",
+            "答辩",
+            "开题",
+            "毕业论文",
+            "学位论文",
+            "专利",
+        ],
     },
     {
         "id": "literature-review",
         "zh": "文献综述",
         "en": "Literature Review",
-        "keywords": ["literature review", "literature survey", "systematic review", "citation", "bibliography", "zotero"],
+        "keywords": [
+            "literature review",
+            "literature-review",
+            "literature survey",
+            "systematic review",
+            "citation",
+            "citations",
+            "bibliography",
+            "zotero",
+            "paper search",
+            "paper-search",
+            "paper retrieval",
+            "reference check",
+            "reference-checker",
+            "reference verification",
+            "cnki",
+            "arxiv",
+            "read-arxiv",
+            "easyread",
+            "literature-route",
+            "agentero",
+            "文献综述",
+            "文献检索",
+            "文献阅读",
+            "文献管理",
+            "文献回顾",
+            "知网",
+            "读论文",
+            "论文精读",
+            "论文翻译",
+            "参考文献",
+            "引用核验",
+        ],
     },
     {
         "id": "peer-review",
         "zh": "评审反馈",
         "en": "Peer Review",
-        "keywords": ["peer review", "reviewer", "feedback", "critique", "referee", "审稿"],
+        "keywords": [
+            "peer review",
+            "peer-review",
+            "paper review",
+            "paper-review",
+            "research-feedback",
+            "research feedback",
+            "paperjury",
+            "paperdebugger",
+            "reviewer",
+            "feedback",
+            "critique",
+            "referee",
+            "rebuttal",
+            "stress-test",
+            "审稿",
+            "评审",
+            "同行评审",
+            "审稿意见",
+            "回复审稿",
+            "返修",
+            "审查",
+        ],
     },
     {
         "id": "experiment-reproducibility",
         "zh": "实验复现",
         "en": "Experiments",
-        "keywords": ["experiment", "experiments", "benchmark", "reproduce", "reproducibility", "evaluation", "复现"],
+        "keywords": [
+            "experiment",
+            "experiments",
+            "experiment design",
+            "experiment automation",
+            "benchmark",
+            "reproduce",
+            "reproducibility",
+            "paper reproduction",
+            "replicate",
+            "replication",
+            "paper-replicate",
+            "evaluation",
+            "ablation",
+            "paper-plot",
+            "labrat",
+            "实验",
+            "复现",
+        ],
     },
     {
         "id": "discipline-specific",
         "zh": "学科专项",
         "en": "Discipline Specific",
-        "keywords": ["economics", "biology", "biotech", "chemistry", "medicine", "phd", "physics", "math", "statistics", "law", "education", "psychology", "sociology", "cv", "nlp", "ml", "drug discovery"],
+        "keywords": [
+            "economics",
+            "econ",
+            "econometrics",
+            "stata",
+            "finance",
+            "financial",
+            "finai",
+            "biology",
+            "biotech",
+            "biomedical",
+            "chemistry",
+            "medicine",
+            "medical",
+            "med-paper",
+            "clinical",
+            "phd",
+            "physics",
+            "math",
+            "mathematics",
+            "mathematical",
+            "mathmodel",
+            "math-modeling",
+            "modelviz",
+            "cumcm",
+            "mcm",
+            "icm",
+            "statistics",
+            "law",
+            "education",
+            "psychology",
+            "sociology",
+            "social-science",
+            "social science",
+            "empirical",
+            "humanities",
+            "management",
+            "mgmt",
+            "stem",
+            "cv",
+            "nlp",
+            "ml",
+            "drug discovery",
+            "nature-skills",
+            "数学建模",
+            "医学",
+            "临床",
+            "经济学",
+            "金融",
+            "社科",
+            "社会科学",
+            "人文",
+            "生物",
+            "化学",
+            "物理",
+            "心理学",
+            "教育学",
+            "管理学",
+        ],
     },
     {
         "id": "general-research",
         "zh": "综合研究",
         "en": "General Research",
-        "keywords": ["academic", "research", "scientific", "science", "scholar"],
+        "keywords": ["academic", "research", "scientific", "science", "scholar", "科研", "学术"],
     },
 ]
 
@@ -364,6 +593,10 @@ def date_only(value: str | None) -> str:
     return parsed.date().isoformat()
 
 
+def _split_camel_case(value: str) -> str:
+    return re.sub(r"([a-z0-9])([A-Z])", r"\1 \2", value or "")
+
+
 def text_corpus(repo: dict[str, Any]) -> str:
     topics = repo.get("repositoryTopics", {}).get("nodes", [])
     topic_names = []
@@ -374,16 +607,31 @@ def text_corpus(repo: dict[str, Any]) -> str:
             topic_names.append(name)
 
     parts = [
-        repo.get("nameWithOwner", ""),
-        repo.get("name", ""),
+        _split_camel_case(repo.get("nameWithOwner", "")),
+        _split_camel_case(repo.get("name", "")),
         repo.get("description") or "",
         " ".join(topic_names),
     ]
     return " ".join(parts).lower()
 
 
+def _term_in_corpus(term: str, corpus: str) -> bool:
+    """Match a keyword against a lowercased text corpus.
+
+    Pure-ASCII keywords use ASCII-letter boundaries (allowing an optional
+    trailing plural ``s``) so short tokens like ``roo``, ``law``, ``ml``, or
+    ``cv`` never match inside unrelated English words (e.g. ``p[roo]freading``,
+    ``dr-c[law]``, ``ht[ml]``), while still matching plurals (``journals``,
+    ``workflows``, ``academics``) and across hyphens, slashes, or CJK text.
+    """
+    t = term.lower()
+    if t.isascii():
+        return re.search(rf"(?<![a-z]){re.escape(t)}s?(?![a-z])", corpus) is not None
+    return t in corpus
+
+
 def term_hits(corpus: str, terms: list[str]) -> list[str]:
-    return [term for term in terms if term.lower() in corpus]
+    return [term for term in terms if _term_in_corpus(term, corpus)]
 
 
 def is_academic_skill_repo(
@@ -448,15 +696,37 @@ def is_academic_skill_repo(
 
 
 def classify_repo(repo: dict[str, Any]) -> dict[str, str]:
-    corpus = text_corpus(repo)
-    best = CATEGORIES[-1]
-    best_score = -1
-    for category in CATEGORIES:
-        score = sum(1 for keyword in category["keywords"] if keyword.lower() in corpus)
-        if score > best_score:
-            best = category
-            best_score = score
-    return {"id": best["id"], "zh": best["zh"], "en": best["en"]}
+    full_corpus = text_corpus(repo)
+    name_corpus = _split_camel_case(
+        f"{repo.get('nameWithOwner', '')} {repo.get('name', '')}"
+    ).lower()
+
+    scores: list[tuple[int, int, dict[str, Any]]] = []
+    name_hits: dict[str, int] = {}
+    for category in CATEGORIES[:-1]:
+        nh = sum(1 for kw in category["keywords"] if _term_in_corpus(kw, name_corpus))
+        fh = sum(1 for kw in category["keywords"] if _term_in_corpus(kw, full_corpus))
+        name_hits[category["id"]] = nh
+        scores.append((fh + nh * 2, fh, category))
+
+    scores.sort(key=lambda item: -item[0])
+    best_total, _best_fh, best_cat = scores[0]
+    fallback = CATEGORIES[-1]
+    if best_total <= 0:
+        return {"id": fallback["id"], "zh": fallback["zh"], "en": fallback["en"]}
+
+    # If the repository name explicitly signals the top specific category,
+    # keep that specific category.
+    if name_hits.get(best_cat["id"], 0) > 0:
+        return {"id": best_cat["id"], "zh": best_cat["zh"], "en": best_cat["en"]}
+
+    # Repositories that span 3+ distinct research stages without a single
+    # dominant stage belong in the multi-stage General Research category.
+    matched_stages = sum(1 for _total, fh, _cat in scores if fh > 0)
+    if matched_stages >= 3 and best_total <= scores[1][0] + 1:
+        return {"id": fallback["id"], "zh": fallback["zh"], "en": fallback["en"]}
+
+    return {"id": best_cat["id"], "zh": best_cat["zh"], "en": best_cat["en"]}
 
 
 def previous_stars(previous: dict[str, Any] | None) -> int | None:
@@ -573,40 +843,41 @@ def rank_repositories(
             if node.get("topic", {}).get("name")
         ]
 
-        ranked.append(
-            {
-                "rank": 0,
-                "repo": name,
-                "stars": stars,
-                "star_delta_1d": star_delta_1d,
-                "star_delta_7d": star_delta_7d,
-                "star_delta_30d": star_delta_30d,
-                "trend_score": score,
-                "trend": trend,
-                "category": category,
-                "description": repo.get("description") or "",
-                "language": (repo.get("primaryLanguage") or {}).get("name") or repo.get("language") or "",
-                "topics": topics,
-                "created_date": date_only(repo.get("createdAt")),
-                "last_push_date": date_only(repo.get("pushedAt") or repo.get("updatedAt")),
-                "url": repo.get("url") or repo.get("html_url") or "",
-                "homepage": repo.get("homepageUrl") or repo.get("homepage") or "",
-                "agents": agents,
-                "precision_signals": sorted(set(reasons)),
-                # Enrichment (only added, never removed from the legacy set).
-                "stale": is_stale(repo, star_delta_7d, now),
-                "verifies_citations": verifies_citations(repo),
-                "forks": int(repo.get("forksCount") or 0),
-                "open_issues": int(repo.get("openIssuesCount") or 0),
-                "watchers": int(repo.get("watchersCount") or 0),
-                "size_kb": int(repo.get("sizeKb") or 0),
-                "default_branch": repo.get("defaultBranch") or "",
-                "has_issues": bool(repo.get("hasIssues", False)),
-                "has_wiki": bool(repo.get("hasWiki", False)),
-                "has_discussions": bool(repo.get("hasDiscussions", False)),
-                "license": repo.get("license") or {"key": "", "name": "", "spdx_id": ""},
-            }
-        )
+        ranked_item: dict[str, Any] = {
+            "rank": 0,
+            "repo": name,
+            "stars": stars,
+            "star_delta_1d": star_delta_1d,
+            "star_delta_7d": star_delta_7d,
+            "star_delta_30d": star_delta_30d,
+            "trend_score": score,
+            "trend": trend,
+            "category": category,
+            "description": repo.get("description") or "",
+            "language": (repo.get("primaryLanguage") or {}).get("name") or repo.get("language") or "",
+            "topics": topics,
+            "created_date": date_only(repo.get("createdAt")),
+            "last_push_date": date_only(repo.get("pushedAt") or repo.get("updatedAt")),
+            "url": repo.get("url") or repo.get("html_url") or "",
+            "homepage": repo.get("homepageUrl") or repo.get("homepage") or "",
+            "agents": agents,
+            "precision_signals": sorted(set(reasons)),
+            # Enrichment (only added, never removed from the legacy set).
+            "stale": is_stale(repo, star_delta_7d, now),
+            "verifies_citations": verifies_citations(repo),
+            "forks": int(repo.get("forksCount") or 0),
+            "open_issues": int(repo.get("openIssuesCount") or 0),
+            "watchers": int(repo.get("watchersCount") or 0),
+            "size_kb": int(repo.get("sizeKb") or 0),
+            "default_branch": repo.get("defaultBranch") or "",
+            "has_issues": bool(repo.get("hasIssues", False)),
+            "has_wiki": bool(repo.get("hasWiki", False)),
+            "has_discussions": bool(repo.get("hasDiscussions", False)),
+            "license": repo.get("license") or {"key": "", "name": "", "spdx_id": ""},
+        }
+        if "skillsCount" in repo:
+            ranked_item["skills_count"] = repo["skillsCount"]
+        ranked.append(ranked_item)
 
     ranked.sort(key=lambda item: (-item["stars"], -item["trend_score"], item["repo"].lower()))
     for index, item in enumerate(ranked, start=1):
@@ -670,12 +941,66 @@ def find_window_snapshot(
     return None
 
 
-def save_history_snapshot(data: dict[str, Any], today: datetime) -> None:
+def item_to_repo_input(item: dict[str, Any]) -> dict[str, Any]:
+    """Convert an already-ranked item (from ``rankings.json`` or ``history/*.json``)
+    back into the canonical repository input dict consumed by ``rank_repositories``.
+    """
+    full_name = item.get("repo") or item.get("nameWithOwner") or ""
+    topics = item.get("topics") or []
+    result: dict[str, Any] = {
+        "nameWithOwner": full_name,
+        "name": full_name.split("/")[-1] if full_name else "",
+        "description": item.get("description") or "",
+        "stargazerCount": int(item.get("stars") or item.get("stargazerCount") or 0),
+        "createdAt": item.get("created_date") or item.get("createdAt") or "",
+        "updatedAt": item.get("last_push_date") or item.get("updatedAt") or "",
+        "pushedAt": item.get("last_push_date") or item.get("pushedAt") or "",
+        "url": item.get("url") or f"https://github.com/{full_name}",
+        "homepageUrl": item.get("homepage") or item.get("homepageUrl") or "",
+        "isArchived": bool(item.get("isArchived", False)),
+        "isFork": bool(item.get("isFork", False)),
+        "primaryLanguage": {"name": item.get("language") or ""},
+        "repositoryTopics": {
+            "nodes": [{"topic": {"name": t}} for t in topics if isinstance(t, str)]
+        },
+        "forksCount": int(item.get("forks") or 0),
+        "openIssuesCount": int(item.get("open_issues") or 0),
+        "sizeKb": int(item.get("size_kb") or 0),
+        "defaultBranch": item.get("default_branch") or "",
+        "hasIssues": bool(item.get("has_issues", False)),
+        "hasWiki": bool(item.get("has_wiki", False)),
+        "hasDiscussions": bool(item.get("has_discussions", False)),
+        "watchersCount": int(item.get("watchers") or 0),
+        "license": item.get("license") or {"key": "", "name": "", "spdx_id": ""},
+    }
+    if "skills_count" in item:
+        result["skillsCount"] = item["skills_count"]
+    return result
+
+
+def find_previous_day_snapshot(
+    history: dict[str, dict[str, Any]],
+    today: datetime,
+) -> dict[str, Any] | None:
+    """Return the most recent history snapshot strictly before ``today``."""
+    today_key = today.date().isoformat()
+    prior_keys = sorted(key for key in history if key < today_key)
+    if not prior_keys:
+        return None
+    return history[prior_keys[-1]]
+
+
+def save_history_snapshot(
+    data: dict[str, Any],
+    today: datetime,
+    overwrite: bool = False,
+) -> None:
     """Persist today's ranking as a dated snapshot and prune old entries."""
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
     snapshot_path = _history_path(today)
-    # Only write once per day to keep history idempotent under re-runs.
-    if not snapshot_path.exists():
+    # Only write once per day by default to keep history idempotent under re-runs,
+    # unless overwrite=True (e.g. --recompute refreshing derived categories/signals).
+    if overwrite or not snapshot_path.exists():
         snapshot_path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     cutoff = today - timedelta(days=HISTORY_RETENTION_DAYS)
@@ -868,7 +1193,24 @@ def agent_badge(corpus: str) -> str:
 # JSON `agents` field and CSV `agents` column; the frontend maps it to a
 # human label. Keeping the ids stable lets old snapshots filter correctly.
 AGENT_PLATFORMS = [
-    ("claude-code", ["claude code", "claude-code", "claude code skill"]),
+    (
+        "claude-code",
+        [
+            "claude code",
+            "claude-code",
+            "claude code skill",
+            "claude-skill",
+            "claude-skills",
+            "claude skill",
+            "claude skills",
+            "for claude",
+            "and claude",
+            "claude/codex",
+            "codex/claude",
+            "codex / claude",
+            "claude / codex",
+        ],
+    ),
     ("codex", ["codex"]),
     ("opencode", ["opencode", "open code", "open-code"]),
     ("cursor", ["cursor"]),
@@ -883,7 +1225,7 @@ def detect_agents(repo: dict[str, Any]) -> list[str]:
     corpus = text_corpus(repo)
     found: list[str] = []
     for platform_id, terms in AGENT_PLATFORMS:
-        if any(term in corpus for term in terms):
+        if any(_term_in_corpus(term, corpus) for term in terms):
             found.append(platform_id)
     return found
 
@@ -1204,11 +1546,13 @@ def build_dataset(
     repos: list[dict[str, Any]],
     token: str | None = None,
     enrich_skills: bool = True,
+    now: datetime | None = None,
+    overwrite_today_snapshot: bool = False,
 ) -> tuple[dict[str, Any], dict[str, Any] | None]:
     min_stars = int(config.get("min_stars", DEFAULT_MIN_STARS))
-    now = utc_now()
-    previous = load_previous_snapshot()
+    now = now or utc_now()
     history = load_history_snapshots()
+    previous = find_previous_day_snapshot(history, now) or load_previous_snapshot()
     window_snapshot = find_window_snapshot(history, now, DELTA_WINDOW_DAYS)
     long_window_snapshot = find_window_snapshot(history, now, LONG_WINDOW_DAYS)
     trusted_repositories = set(config.get("seed_repositories", []))
@@ -1249,7 +1593,7 @@ def build_dataset(
     }
 
     # Persist today's snapshot so future runs can compute the 7-day delta.
-    save_history_snapshot(data, now)
+    save_history_snapshot(data, now, overwrite=overwrite_today_snapshot)
     return data, window_snapshot
 
 
@@ -1295,7 +1639,6 @@ def render_month_report(
     dates = sorted(key for key in history if key.startswith(month))
     if not dates:
         return None
-    first_snap = history[dates[0]]
     last_snap = history[dates[-1]]
 
     rows: list[dict[str, Any]] = []
@@ -1303,7 +1646,12 @@ def render_month_report(
         stars_last = previous_stars(item)
         if stars_last is None:
             continue
-        stars_first = previous_stars(first_snap.get(repo, {}))
+        stars_first: int | None = None
+        for d in dates:
+            if repo in history[d]:
+                stars_first = previous_stars(history[d][repo])
+                if stars_first is not None:
+                    break
         base = stars_first if stars_first is not None else stars_last
         rows.append(
             {
@@ -1315,9 +1663,15 @@ def render_month_report(
         )
 
     is_newcomer_month = lambda repo: first_seen.get(repo, "")[:7] == month  # noqa: E731
-    newcomers = [r for r in rows if is_newcomer_month(r["repo"])]
-    risers = sorted((r for r in rows if r["delta"] > 0), key=lambda r: -r["delta"])[:10]
-    stalled = [r for r in rows if r["delta"] <= 0 and not is_newcomer_month(r["repo"])]
+    newcomers = sorted(
+        (r for r in rows if is_newcomer_month(r["repo"])),
+        key=lambda r: (-r["stars"], r["repo"].lower()),
+    )
+    risers = sorted((r for r in rows if r["delta"] > 0), key=lambda r: (-r["delta"], -r["stars"]))[:10]
+    stalled = sorted(
+        (r for r in rows if r["delta"] <= 0 and not is_newcomer_month(r["repo"])),
+        key=lambda r: (-r["stars"], r["repo"].lower()),
+    )
     dropped = sorted(prev_repos - set(last_snap))
 
     def table(entries: list[dict[str, Any]]) -> str:
@@ -1329,9 +1683,9 @@ def render_month_report(
             for i, r in enumerate(entries, 1)
         )
         return (
-            "<table><thead><tr><th>#</th><th>仓库</th><th>月末 Stars</th>"
+            "<div class='report-table-wrap'><table class='report-table'><thead><tr><th>#</th><th>仓库</th><th>月末 Stars</th>"
             "<th>月增量</th><th>分类</th></tr></thead>"
-            f"<tbody>{body}</tbody></table>"
+            f"<tbody>{body}</tbody></table></div>"
         )
 
     dropped_html = (
@@ -1351,12 +1705,13 @@ def render_month_report(
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{month} 月度报告 · Awesome Academic Research Skills</title>
+<script>try{{var t=localStorage.getItem("ars-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;}}catch(e){{}}</script>
 <link rel="stylesheet" href="../assets/styles.css" />
 <link rel="canonical" href="{SITE_URL}/reports/{month}.html" />
 </head>
 <body>
 <main style="max-width:960px;margin:0 auto;padding:32px 20px">
-<p><a href="../">← 返回排行榜</a></p>
+<p><a href="../">← 返回排行榜</a> · <a href="index.html">全部月报</a></p>
 <h1>{month} 月度报告</h1>
 <p class="muted">收录 {len(rows)} 个仓库 · 合计 {total_stars:,}★ · 报告期 {dates[0]} → {dates[-1]}</p>
 <nav>{nav}</nav>
@@ -1382,12 +1737,21 @@ def build_monthly_reports(history: dict[str, dict[str, dict[str, Any]]]) -> None
 
     Past months are frozen (written once) so the 60-day snapshot retention
     never degrades an already-published report; only the current month
-    regenerates on every run.
+    regenerates on every run. Frozen report filenames on disk are merged into
+    the month navigation and index so pruned snapshot months never disappear.
     """
-    months = sorted({key[:7] for key in history})
-    if not months:
-        return
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    existing_months = {
+        entry.stem
+        for entry in REPORTS_DIR.glob("*.html")
+        if re.fullmatch(r"\d{4}-\d{2}", entry.stem)
+    }
+    history_months = sorted({key[:7] for key in history})
+    all_months = sorted(set(history_months) | existing_months)
+    if not all_months:
+        return
+    # Re-render the active month in `history` (typically the latest month on disk).
+    latest_history_month = history_months[-1] if history_months else utc_now().strftime("%Y-%m")
     current_month = utc_now().strftime("%Y-%m")
 
     first_seen: dict[str, str] = {}
@@ -1395,20 +1759,43 @@ def build_monthly_reports(history: dict[str, dict[str, dict[str, Any]]]) -> None
         for repo in history[date_key]:
             first_seen.setdefault(repo, date_key)
 
-    for index, month in enumerate(months):
+    for index, month in enumerate(history_months):
         month_page = REPORTS_DIR / f"{month}.html"
-        if month_page.exists() and month != current_month:
+        if month_page.exists() and month not in {current_month, latest_history_month}:
+            # Keep frozen report content, but ensure its <nav> includes all known months.
+            existing_html = month_page.read_text(encoding="utf-8")
+            nav = " · ".join(
+                f"<a href='{m}.html'>{m}</a>" if m != month else f"<b>{m}</b>"
+                for m in all_months
+            )
+            updated_html = re.sub(r"<nav>.*?</nav>", f"<nav>{nav}</nav>", existing_html, count=1)
+            if updated_html != existing_html:
+                month_page.write_text(updated_html, encoding="utf-8")
             continue
         prev_repos: set[str] = set()
         if index > 0:
-            prev_dates = sorted(key for key in history if key.startswith(months[index - 1]))
+            prev_dates = sorted(key for key in history if key.startswith(history_months[index - 1]))
             if prev_dates:
                 prev_repos = set(history[prev_dates[-1]])
-        report = render_month_report(month, history, first_seen, prev_repos, months)
+        report = render_month_report(month, history, first_seen, prev_repos, all_months)
         if report:
             month_page.write_text(report, encoding="utf-8")
 
-    links = "".join(f"<li><a href='{m}.html'>{m}</a></li>" for m in reversed(months))
+    # Also refresh <nav> on any older frozen month pages outside the active history window.
+    for month in existing_months - set(history_months):
+        month_page = REPORTS_DIR / f"{month}.html"
+        if not month_page.exists():
+            continue
+        existing_html = month_page.read_text(encoding="utf-8")
+        nav = " · ".join(
+            f"<a href='{m}.html'>{m}</a>" if m != month else f"<b>{m}</b>"
+            for m in all_months
+        )
+        updated_html = re.sub(r"<nav>.*?</nav>", f"<nav>{nav}</nav>", existing_html, count=1)
+        if updated_html != existing_html:
+            month_page.write_text(updated_html, encoding="utf-8")
+
+    links = "".join(f"<li><a href='{m}.html'>{m} 月度报告</a></li>" for m in reversed(all_months))
     (REPORTS_DIR / "index.html").write_text(
         f"""<!doctype html>
 <html lang="zh-CN">
@@ -1416,6 +1803,7 @@ def build_monthly_reports(history: dict[str, dict[str, dict[str, Any]]]) -> None
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>月度报告 · Awesome Academic Research Skills</title>
+<script>try{{var t=localStorage.getItem("ars-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;}}catch(e){{}}</script>
 <link rel="stylesheet" href="../assets/styles.css" />
 <link rel="canonical" href="{SITE_URL}/reports/" />
 </head>
@@ -1447,7 +1835,7 @@ def xml_escape(value: str) -> str:
 
 
 def render_sitemap(data: dict[str, Any]) -> str:
-    """Generate sitemap.xml covering the dashboard, README, and data endpoints."""
+    """Generate sitemap.xml covering the dashboard, README, monthly reports, and data endpoints."""
     lastmod = (data.get("metadata", {}).get("generated_at") or "")[:10]
     urls = [
         ("", lastmod, "1.0", "daily"),
@@ -1459,6 +1847,14 @@ def render_sitemap(data: dict[str, Any]) -> str:
         ("docs/discoverability.md", lastmod, "0.3", "monthly"),
         ("CONTRIBUTING.md", lastmod, "0.3", "monthly"),
     ]
+    if REPORTS_DIR.exists():
+        report_months = sorted(
+            entry.stem
+            for entry in REPORTS_DIR.glob("*.html")
+            if re.fullmatch(r"\d{4}-\d{2}", entry.stem)
+        )
+        for month in reversed(report_months):
+            urls.append((f"reports/{month}.html", lastmod, "0.5", "monthly"))
     entries = []
     for path, lm, prio, freq in urls:
         loc = f"{SITE_URL}/{path}".rstrip("/") if path else SITE_URL + "/"
@@ -1600,10 +1996,27 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Update academic research skill rankings")
     parser.add_argument("--config", default=str(CONFIG_PATH), help="Path to ranking config JSON")
     parser.add_argument("--offline-fixture", help="Use a local JSON list of repository objects instead of GitHub API")
+    parser.add_argument(
+        "--recompute",
+        action="store_true",
+        help="Re-apply filtering, classification, and rendering to existing data/rankings.json without calling GitHub API",
+    )
     args = parser.parse_args()
 
     config = load_config(Path(args.config))
-    if args.offline_fixture:
+    if args.recompute:
+        existing = load_json(DATA_PATH, {})
+        existing_items = existing.get("items", []) if isinstance(existing, dict) else []
+        repos = [item_to_repo_input(item) for item in existing_items]
+        gen_ts = parse_datetime((existing.get("metadata") or {}).get("generated_at"))
+        data, window_snapshot = build_dataset(
+            config,
+            repos,
+            enrich_skills=False,
+            now=gen_ts,
+            overwrite_today_snapshot=True,
+        )
+    elif args.offline_fixture:
         repos = load_json(Path(args.offline_fixture), [])
         data, window_snapshot = build_dataset(config, repos, enrich_skills=False)
     else:
