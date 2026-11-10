@@ -6,13 +6,16 @@
   const SAFE = (v, d) => (v === undefined || v === null ? d : v);
 
   const state = {
-    lang: window.ARS_DEFAULT_LANG || localStorage.getItem("ars-lang") || "zh",
+    lang: localStorage.getItem("ars-lang") || window.ARS_DEFAULT_LANG || "zh",
     theme: localStorage.getItem("ars-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"),
-    view: localStorage.getItem("ars-view") || (matchMedia("(max-width: 760px)").matches ? "card" : "table"),
+    // A persisted desktop table preference must not follow a phone or a portrait
+    // tablet: below 900px the ranking always starts in cards.
+    view: matchMedia("(max-width: 900px)").matches ? "card" : (localStorage.getItem("ars-view") || "table"),
     query: "",
     category: "all",
     agent: "all",
     sort: "rank",
+    page: 1,
     favorites: JSON.parse(localStorage.getItem("ars-favorites") || "[]"),
     favOnly: false,
     hotOnly: false,
@@ -22,6 +25,8 @@
     repo: null, // drawer deep-link (#repo=owner/name)
     compare: JSON.parse(localStorage.getItem("ars-compare") || "[]").slice(0, 3),
   };
+
+  const PAGE_SIZE = 25;
 
   /* Research-stage ordering of the categories (选题 → 文献 → 实验 → 写作 →
      评审 → 学科 → 综合); the strip renders in this fixed order. */
@@ -69,7 +74,7 @@
       heroSubtitle: "每天自动发现、过滤并排名 GitHub 上服务论文写作、文献综述、深度研究、评审反馈和实验复现的 Agent Skill 仓库。",
       heroHint: "提示：按 <b>/</b> 聚焦搜索 · <b>t</b> 主题 · <b>l</b> 语言 · <b>v</b> 视图",
       tocTitle: "本期目录",
-      repos: "收录仓库", minStars: "最低 Stars", updated: "最近更新",
+      repos: "收录仓库", minStars: "最低 Stars", updated: "最近更新", repoUnit: "个仓库", starsUnit: "★ 总数",
       searchLabel: "搜索仓库、简介、分类", categoryLabel: "分类", allCategories: "全部分类",
       agentLabel: "平台", allAgents: "全部平台", agentGeneral: "通用",
       sortLabel: "排序", sortRank: "综合排名", sortTrend: "趋势优先", sortStars: "Stars 优先",
@@ -91,6 +96,8 @@
       statHotRepo: "最热仓库", statCats: "分类分布",
       // quick filters
       qfHot: "🔥 热门上升", qfCite: "✓ 引用核验", qfSkills: "📦 含 SKILL.md", qfActive: "✨ 排除停更", qfReset: "↺ 重置筛选",
+      pagePrev: "上一页", pageNext: "下一页", pageJump: "跳转页码", skillsUnit: "个 Skills",
+      showingRange: (s, e, total) => `显示 ${s}–${e} / ${total} 个仓库`,
       // drawer
       drEyebrow: "收录条目",
       drDescription: "简介", drTopics: "Topics", drLanguage: "主要语言", drCreated: "创建时间",
@@ -115,7 +122,7 @@
       heroSubtitle: "A daily updated ranking of GitHub repositories for paper writing, literature review, deep research, peer review, and experiment reproducibility agent skills.",
       heroHint: "Tip: press <b>/</b> to search · <b>t</b> theme · <b>l</b> language · <b>v</b> view",
       tocTitle: "In this issue",
-      repos: "Repositories", minStars: "Min Stars", updated: "Updated",
+      repos: "Repositories", minStars: "Min Stars", updated: "Updated", repoUnit: "repos", starsUnit: "★ total",
       searchLabel: "Search repositories, descriptions, categories", categoryLabel: "Category", allCategories: "All categories",
       agentLabel: "Platform", allAgents: "All platforms", agentGeneral: "General",
       sortLabel: "Sort", sortRank: "Ranking", sortTrend: "Trend first", sortStars: "Stars first",
@@ -135,6 +142,8 @@
       statTotalStars: "Total Stars", statAvgStars: "Avg Stars", statNet7d: "Net 7d growth",
       statHotRepo: "Hottest repo", statCats: "Category mix",
       qfHot: "🔥 Hot 7d", qfCite: "✓ Citations verified", qfSkills: "📦 Has SKILL.md", qfActive: "✨ Active only", qfReset: "↺ Reset",
+      pagePrev: "Previous", pageNext: "Next", pageJump: "Jump to page", skillsUnit: "skills",
+      showingRange: (s, e, total) => `Showing ${s}–${e} of ${total}`,
       drEyebrow: "Entry",
       drDescription: "Description", drTopics: "Topics", drLanguage: "Language", drCreated: "Created",
       drPushed: "Last push", drTrend: "Trend score", drSignals: "Precision signals", drHistory: "Star trajectory",
@@ -162,6 +171,7 @@
   /* ---------- theme ---------- */
   function applyTheme() {
     document.documentElement.dataset.theme = state.theme;
+    document.documentElement.style.colorScheme = state.theme;
     const btn = document.getElementById("themeToggle");
     if (btn) btn.setAttribute("aria-label", state.theme === "dark" ? "Switch to light" : "Switch to dark");
   }
@@ -223,7 +233,7 @@
   function repoMetaBadges(item) {
     const parts = [];
     if (item.skills_count !== undefined && item.skills_count !== null) {
-      parts.push(`<span class="mini-badge skills" title="${esc(t("skillsCount"))}">${fmt(item.skills_count)} skills</span>`);
+      parts.push(`<span class="mini-badge skills" title="${esc(t("skillsCount"))}">${fmt(item.skills_count)} ${esc(t("skillsUnit"))}</span>`);
     }
     if (item.verifies_citations) parts.push(`<span class="mini-badge cite">${esc(t("citeCheck"))} ✓</span>`);
     if (item.stale) parts.push(`<span class="mini-badge stale">${esc(t("staleTag"))}</span>`);
@@ -323,14 +333,23 @@
   function openCompareModal() {
     renderCompareChart();
     const modal = document.getElementById("compareModal");
+    lastFocusedElement = document.activeElement;
+    if (modalHideTimer) { clearTimeout(modalHideTimer); modalHideTimer = null; }
     modal.hidden = false;
-    requestAnimationFrame(() => modal.classList.add("open"));
+    void modal.offsetHeight;
+    modal.classList.add("open");
+    document.body.classList.add("modal-open");
+    setBackgroundInert(true);
     document.getElementById("compareClose").focus();
+    releaseTrap();
+    activeTrapRelease = trapFocus(modal);
   }
   function closeCompareModal() {
     const modal = document.getElementById("compareModal");
     modal.classList.remove("open");
-    setTimeout(() => { modal.hidden = true; }, 200);
+    closeDialogChrome();
+    modalHideTimer = setTimeout(() => { modal.hidden = true; modalHideTimer = null; }, 200);
+    restoreFocus();
   }
   function clearCompare() {
     state.compare = [];
@@ -428,19 +447,74 @@
     state.citeOnly = false;
     state.hasSkillsOnly = false;
     state.activeOnly = false;
+    state.page = 1;
     const si = document.getElementById("searchInput"); if (si) si.value = "";
     const cf = document.getElementById("categoryFilter"); if (cf) cf.value = "all";
     const af = document.getElementById("agentFilter"); if (af) af.value = "all";
     render();
   }
 
-  function updateResultCount(shownCount) {
+  function updateResultCount(total, start, end) {
     const el = document.getElementById("resultCount");
     if (!el) return;
-    const total = data.items.length;
-    el.textContent = state.lang === "zh"
-      ? `${fmt(shownCount)} / ${fmt(total)} 个仓库`
-      : `${fmt(shownCount)} of ${fmt(total)} repos`;
+    el.textContent = total ? t("showingRange")(fmt(start + 1), fmt(end), fmt(total)) : "0";
+  }
+
+  function pagedItems(items) {
+    const totalPages = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
+    if (state.page > totalPages) state.page = totalPages;
+    if (state.page < 1) state.page = 1;
+    const start = (state.page - 1) * PAGE_SIZE;
+    return { items: items.slice(start, start + PAGE_SIZE), totalPages, startIndex: start, total: items.length };
+  }
+
+  function renderPagination(totalPages, total) {
+    const nav = document.getElementById("pagination");
+    if (!nav) return;
+    if (totalPages <= 1) {
+      nav.hidden = true;
+      nav.innerHTML = "";
+      return;
+    }
+    const cur = state.page;
+    const tokens = [];
+    tokens.push(1);
+    const lo = Math.max(2, cur - 1);
+    const hi = Math.min(totalPages - 1, cur + 1);
+    if (lo > 2) tokens.push("gap-start");
+    for (let p = lo; p <= hi; p += 1) tokens.push(p);
+    if (hi < totalPages - 1) tokens.push("gap-end");
+    if (totalPages > 1) tokens.push(totalPages);
+
+    const btn = (label, page, extra) =>
+      `<button type="button" class="page-btn${extra || ""}" data-page="${page}">${label}</button>`;
+    let html = `<button type="button" class="page-btn page-step" data-page="${cur - 1}" ${
+      cur === 1 ? "disabled" : ""
+    } aria-label="${esc(t("pagePrev"))}">‹ ${esc(t("pagePrev"))}</button>`;
+    tokens.forEach((tok) => {
+      if (typeof tok === "string") {
+        html += `<span class="page-gap" aria-hidden="true">…</span>`;
+      } else {
+        html += `<button type="button" class="page-btn${tok === cur ? " active" : ""}" data-page="${tok}" ${
+          tok === cur ? 'aria-current="page"' : ""
+        }>${tok}</button>`;
+      }
+    });
+    html += `<button type="button" class="page-btn page-step" data-page="${cur + 1}" ${
+      cur === totalPages ? "disabled" : ""
+    } aria-label="${esc(t("pageNext"))}">${esc(t("pageNext"))} ›</button>`;
+    html += `<span class="page-status" aria-live="polite">${fmt(cur)} / ${fmt(totalPages)} · ${fmt(total)}</span>`;
+    nav.innerHTML = html;
+    nav.querySelectorAll("[data-page]").forEach((b) => {
+      b.addEventListener("click", () => {
+        const p = Number(b.dataset.page);
+        if (!p || p < 1 || p > totalPages || p === state.page) return;
+        state.page = p;
+        render();
+        const section = document.querySelector(".table-section");
+        if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
   }
 
   function renderQuickFilters() {
@@ -466,6 +540,7 @@
       btn.addEventListener("click", () => {
         const k = btn.dataset.qf;
         state[k] = !state[k];
+        state.page = 1;
         render();
       });
     });
@@ -485,7 +560,7 @@
     const all = document.createElement("button");
     all.className = "category-card" + (state.category === "all" ? " active" : "");
     all.innerHTML = `<strong>${fmt(data.items.length)}</strong><span>${t("allCategories")}</span>`;
-    all.onclick = () => { state.category = "all"; document.getElementById("categoryFilter").value = "all"; syncHash(); render(); };
+    all.onclick = () => { state.category = "all"; state.page = 1; document.getElementById("categoryFilter").value = "all"; syncHash(); render(); };
     c.appendChild(all);
     // Fixed research-stage order (选题→文献→实验→写作→评审→学科→综合) instead
     // of count sorting, so the strip mirrors the actual research pipeline.
@@ -497,7 +572,7 @@
       card.className = "category-card" + (state.category === catId ? " active" : "");
       card.title = state.lang === "zh" ? "按科研阶段浏览" : "Browse by research stage";
       card.innerHTML = `<strong>${fmt(entry.count)}</strong><span>${glyph} ${state.lang === "zh" ? entry.category.zh : entry.category.en}</span>`;
-      card.onclick = () => { state.category = catId; document.getElementById("categoryFilter").value = catId; syncHash(); render(); };
+      card.onclick = () => { state.category = catId; state.page = 1; document.getElementById("categoryFilter").value = catId; syncHash(); render(); };
       c.appendChild(card);
     });
   }
@@ -532,17 +607,18 @@
       const hc = document.getElementById("hotRepoCard");
       if (hc) {
         hc.addEventListener("click", () => openDrawer(hot.repo));
-        hc.addEventListener("keydown", (e) => { if (e.key === "Enter") openDrawer(hot.repo); });
+        hc.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openDrawer(hot.repo); } });
       }
     }
     c.querySelectorAll(".cat-bar-row[data-cat]").forEach((row) => {
       const pick = () => {
         state.category = row.dataset.cat;
+        state.page = 1;
         const cf = document.getElementById("categoryFilter"); if (cf) cf.value = state.category;
         render();
       };
       row.addEventListener("click", pick);
-      row.addEventListener("keydown", (e) => { if (e.key === "Enter") pick(); });
+      row.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); } });
     });
   }
 
@@ -550,9 +626,11 @@
   function renderTable() {
     const body = document.getElementById("rankingBody");
     const empty = document.getElementById("emptyState");
-    const items = filteredItems();
-    updateResultCount(items.length);
-    empty.hidden = items.length > 0;
+    const all = filteredItems();
+    const { items, totalPages, startIndex } = pagedItems(all);
+    updateResultCount(all.length, startIndex, startIndex + items.length);
+    renderPagination(totalPages, all.length);
+    empty.hidden = all.length > 0;
     body.innerHTML = "";
     items.forEach((item) => {
       const tr = document.createElement("tr");
@@ -583,7 +661,7 @@
         if (e.target.closest(".fav-star") || e.target.closest(".cmp-btn") || e.target.closest("a")) return;
         openDrawer(item.repo);
       });
-      tr.addEventListener("keydown", (e) => { if (e.key === "Enter") openDrawer(item.repo); });
+      tr.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openDrawer(item.repo); } });
       body.appendChild(tr);
     });
     // attach favorite / compare handlers
@@ -599,9 +677,11 @@
   function renderCards() {
     const grid = document.getElementById("cardGrid");
     const empty = document.getElementById("emptyState");
-    const items = filteredItems();
-    updateResultCount(items.length);
-    empty.hidden = items.length > 0;
+    const all = filteredItems();
+    const { items, totalPages, startIndex } = pagedItems(all);
+    updateResultCount(all.length, startIndex, startIndex + items.length);
+    renderPagination(totalPages, all.length);
+    empty.hidden = all.length > 0;
     grid.innerHTML = "";
     items.forEach((item, idx) => {
       const d7 = SAFE(item.star_delta_7d, SAFE(item.star_delta_1d, 0)) || 0;
@@ -639,7 +719,7 @@
         if (e.target.closest(".fav-star") || e.target.closest(".cmp-btn") || e.target.closest("a")) return;
         openDrawer(item.repo);
       });
-      card.addEventListener("keydown", (e) => { if (e.key === "Enter") openDrawer(item.repo); });
+      card.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openDrawer(item.repo); } });
       grid.appendChild(card);
     });
     grid.querySelectorAll(".fav-star").forEach((b) => {
@@ -680,6 +760,64 @@
         <div class="drawer-spark-meta"><span>${fmt(first.stars)} ★</span><span>→</span><b>${fmt(last.stars)} ★ (+${fmt(Math.max(0, last.stars - first.stars))})</b></div>
       </div>
     </div>`;
+  }
+
+  /* ---------- dialog focus management ---------- */
+  let activeTrapRelease = null;
+  let lastFocusedElement = null;
+  let drawerHideTimer = null;
+  let modalHideTimer = null;
+
+  function focusablesIn(container) {
+    return Array.from(
+      container.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    ).filter((el) => el.offsetParent !== null && el.getClientRects().length > 0);
+  }
+
+  function setBackgroundInert(on) {
+    ["#main", ".site-header", ".footer", ".compare-tray"].forEach((sel) => {
+      const el = document.querySelector(sel);
+      if (el) el.inert = on;
+    });
+  }
+
+  function releaseTrap() {
+    if (typeof activeTrapRelease === "function") activeTrapRelease();
+    activeTrapRelease = null;
+  }
+
+  function trapFocus(container) {
+    const onKey = (e) => {
+      if (e.key !== "Tab") return;
+      const nodes = focusablesIn(container);
+      if (!nodes.length) return;
+      const first = nodes[0];
+      const last = nodes[nodes.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    container.addEventListener("keydown", onKey);
+    return () => container.removeEventListener("keydown", onKey);
+  }
+
+  function closeDialogChrome() {
+    releaseTrap();
+    setBackgroundInert(false);
+    document.body.classList.remove("modal-open");
+  }
+
+  function restoreFocus() {
+    if (lastFocusedElement && document.contains(lastFocusedElement)) {
+      lastFocusedElement.focus();
+    }
+    lastFocusedElement = null;
   }
 
   function openDrawer(repo) {
@@ -736,9 +874,18 @@
     const installBtn = document.getElementById("copyInstallBtn");
     if (installBtn) installBtn.addEventListener("click", () => copyInstall(item));
     const drawer = document.getElementById("drawer");
+    lastFocusedElement = document.activeElement;
+    if (drawerHideTimer) { clearTimeout(drawerHideTimer); drawerHideTimer = null; }
     drawer.hidden = false;
-    requestAnimationFrame(() => drawer.classList.add("open"));
+    // Force a reflow so the transform transition starts from the closed state,
+    // then focus synchronously: the drawer is visible now, so focus cannot fail.
+    void drawer.offsetHeight;
+    drawer.classList.add("open");
+    document.body.classList.add("modal-open");
+    setBackgroundInert(true);
     document.getElementById("drawerClose").focus();
+    releaseTrap();
+    activeTrapRelease = trapFocus(drawer);
     syncHash();
   }
   function closeDrawer() {
@@ -748,7 +895,9 @@
     }
     const drawer = document.getElementById("drawer");
     drawer.classList.remove("open");
-    setTimeout(() => { drawer.hidden = true; }, 280);
+    closeDialogChrome();
+    drawerHideTimer = setTimeout(() => { drawer.hidden = true; drawerHideTimer = null; }, 280);
+    restoreFocus();
   }
 
   /* ---------- view switching ---------- */
@@ -762,8 +911,10 @@
     });
     const table = document.getElementById("rankingTable");
     const cards = document.getElementById("cardGrid");
+    const wrap = document.getElementById("rankingView");
     table.hidden = v !== "table";
     cards.hidden = v !== "card";
+    if (wrap) wrap.classList.toggle("table-mode", v === "table");
     syncHash();
     render();
   }
@@ -876,13 +1027,14 @@
       const pick = () => {
         const picked = row.dataset.tocCat;
         state.category = state.category === picked ? "all" : picked;
+        state.page = 1;
         const cf = document.getElementById("categoryFilter"); if (cf) cf.value = state.category;
         render();
         const mainEl = document.getElementById("main");
         if (mainEl) mainEl.scrollIntoView({ behavior: "smooth", block: "start" });
       };
       row.addEventListener("click", pick);
-      row.addEventListener("keydown", (e) => { if (e.key === "Enter") pick(); });
+      row.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); } });
     });
     document.getElementById("tocRepos").textContent = fmt(data.items.length);
     document.getElementById("tocStars").textContent = fmt(totalStars);
@@ -949,16 +1101,17 @@
     document.querySelectorAll(".lang-button").forEach((b) => b.addEventListener("click", () => setLanguage(b.dataset.lang, true)));
     document.getElementById("themeToggle").addEventListener("click", toggleTheme);
     document.querySelectorAll(".view-button").forEach((b) => b.addEventListener("click", () => setView(b.dataset.view)));
-    document.getElementById("favToggle").addEventListener("click", () => { state.favOnly = !state.favOnly; updateFavUI(); syncHash(); render(); });
+    document.getElementById("favToggle").addEventListener("click", () => { state.favOnly = !state.favOnly; state.page = 1; updateFavUI(); syncHash(); render(); });
     document.getElementById("searchInput").addEventListener("input", (e) => {
       state.query = e.target.value;
+      state.page = 1;
       renderQuickFilters();
       if (state.view === "card") renderCards(); else renderTable();
       syncHash();
     });
-    document.getElementById("categoryFilter").addEventListener("change", (e) => { state.category = e.target.value; render(); });
-    document.getElementById("agentFilter").addEventListener("change", (e) => { state.agent = e.target.value; syncHash(); render(); });
-    document.getElementById("sortSelect").addEventListener("change", (e) => { state.sort = e.target.value; render(); });
+    document.getElementById("categoryFilter").addEventListener("change", (e) => { state.category = e.target.value; state.page = 1; render(); });
+    document.getElementById("agentFilter").addEventListener("change", (e) => { state.agent = e.target.value; state.page = 1; syncHash(); render(); });
+    document.getElementById("sortSelect").addEventListener("change", (e) => { state.sort = e.target.value; state.page = 1; render(); });
     document.getElementById("drawerClose").addEventListener("click", closeDrawer);
     document.getElementById("drawerScrim").addEventListener("click", closeDrawer);
     document.getElementById("compareOpen").addEventListener("click", openCompareModal);
@@ -990,24 +1143,28 @@
     document.addEventListener("keydown", (e) => {
       const tag = (e.target.tagName || "").toLowerCase();
       const typing = tag === "input" || tag === "select" || tag === "textarea";
+      const drawerEl = document.getElementById("drawer");
+      const modalEl = document.getElementById("compareModal");
       if (e.key === "Escape") {
-        const modal = document.getElementById("compareModal");
-        if (modal && !modal.hidden) { closeCompareModal(); return; }
-        closeDrawer();
+        if (modalEl && !modalEl.hidden) { closeCompareModal(); return; }
+        if (drawerEl && drawerEl.classList.contains("open")) { closeDrawer(); return; }
         return;
       }
+      // While a dialog is open, keep global shortcuts from acting on the page behind it.
+      if ((drawerEl && drawerEl.classList.contains("open")) || (modalEl && !modalEl.hidden)) return;
       if (typing) return;
       if (e.key === "/") { e.preventDefault(); document.getElementById("searchInput").focus(); }
       else if (e.key === "t") toggleTheme();
       else if (e.key === "l") setLanguage(state.lang === "zh" ? "en" : "zh", true);
       else if (e.key === "v") setView(state.view === "table" ? "card" : "table");
-      else if (e.key === "f") { state.favOnly = !state.favOnly; updateFavUI(); syncHash(); render(); }
+      else if (e.key === "f") { state.favOnly = !state.favOnly; state.page = 1; updateFavUI(); syncHash(); render(); }
     });
   }
 
   /* ---------- init ---------- */
-  applyTheme();
   readHash();
+  applyTheme();
+  window.addEventListener("load", () => document.documentElement.classList.remove("preload"));
   populateCategoryFilter();
   populateAgentFilter();
   wire();

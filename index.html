@@ -3,6 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Theme bootstrap: run before the stylesheet so dark-mode visitors never get a light first paint. -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("ars-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          document.documentElement.dataset.theme = t;
+          document.documentElement.style.colorScheme = t;
+          document.documentElement.classList.add("preload");
+        } catch (e) {}
+      })();
+    </script>
     <meta
       name="description"
       content="面向中文用户的学术论文与科研 Agent Skill 每日排行榜 — 自动发现、过滤并排名 GitHub 上的 Claude Code / Codex / OpenCode 科研 Skill 仓库。A daily ranking of academic & research agent skills on GitHub."
@@ -98,8 +109,8 @@
           <div class="toc-title" data-i18n="tocTitle">本期目录</div>
           <div class="toc-list" id="tocList"></div>
           <div class="toc-foot">
-            <span><b id="tocRepos">0</b> repos</span>
-            <span><b id="tocStars">0</b> ★ total</span>
+            <span><b id="tocRepos">0</b> <span data-i18n="repoUnit">个仓库</span></span>
+            <span><b id="tocStars">0</b> <span data-i18n="starsUnit">★ 总数</span></span>
             <span><b id="tocUpdated">—</b></span>
           </div>
         </div>
@@ -190,6 +201,7 @@
           </table>
           <div class="card-grid" id="cardGrid" hidden></div>
         </div>
+        <nav class="pagination" id="pagination" aria-label="分页"></nav>
         <p class="empty-state" id="emptyState" hidden data-i18n="empty">没有匹配当前筛选条件的仓库。</p>
       </section>
 

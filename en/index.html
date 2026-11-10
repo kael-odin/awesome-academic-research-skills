@@ -3,6 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Theme bootstrap: run before the stylesheet so dark-mode visitors never get a light first paint. -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("ars-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          document.documentElement.dataset.theme = t;
+          document.documentElement.style.colorScheme = t;
+          document.documentElement.classList.add("preload");
+        } catch (e) {}
+      })();
+    </script>
     <meta
       name="description"
       content="A daily-updated ranking of GitHub repositories providing academic, paper-writing, literature-review, deep-research, and peer-review skills for AI coding agents. 面向中文用户的学术论文 Skill 排行榜英文版。"
@@ -104,8 +115,8 @@
           <div class="toc-title" data-i18n="tocTitle">In this issue</div>
           <div class="toc-list" id="tocList"></div>
           <div class="toc-foot">
-            <span><b id="tocRepos">0</b> repos</span>
-            <span><b id="tocStars">0</b> ★ total</span>
+            <span><b id="tocRepos">0</b> <span data-i18n="repoUnit">repos</span></span>
+            <span><b id="tocStars">0</b> <span data-i18n="starsUnit">★ total</span></span>
             <span><b id="tocUpdated">—</b></span>
           </div>
         </div>
@@ -196,6 +207,7 @@
           </table>
           <div class="card-grid" id="cardGrid" hidden></div>
         </div>
+        <nav class="pagination" id="pagination" aria-label="Pagination"></nav>
         <p class="empty-state" id="emptyState" hidden data-i18n="empty">No repositories match the current filters.</p>
       </section>
 

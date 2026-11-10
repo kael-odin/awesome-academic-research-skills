@@ -1628,6 +1628,60 @@ def render_history_series(history: dict[str, dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+REPORT_THEME_BOOTSTRAP = (
+    '<script>try{var t=localStorage.getItem("ars-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");'
+    'document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t;}catch(e){}</script>'
+)
+REPORT_FONTS_LINK = (
+    '<link rel="preconnect" href="https://fonts.googleapis.com" />\n'
+    '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />\n'
+    '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" />'
+)
+REPORT_THEME_SCRIPT = (
+    "<script>(function(){var b=document.getElementById('reportTheme');if(!b)return;"
+    "b.addEventListener('click',function(){var d=document.documentElement;"
+    "var n=d.dataset.theme==='dark'?'light':'dark';d.dataset.theme=n;d.style.colorScheme=n;"
+    "try{localStorage.setItem('ars-theme',n);}catch(e){}});})();</script>"
+)
+REPORT_HEADER = """<header class="report-header">
+  <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">ARS</span><span class="brand-text">Academic Research Skills</span></a>
+  <div class="report-actions">
+    <a href="../">榜单</a>
+    <a href="index.html">全部月报</a>
+    <button type="button" id="reportTheme" aria-label="切换主题">◐ 主题</button>
+  </div>
+</header>"""
+REPORT_FOOTER = """<footer class="report-footer">
+  <span>MIT · kael-odin/awesome-academic-research-skills</span>
+  <a href="../feed.xml">RSS 订阅</a>
+  <a href="../">可视化榜单</a>
+  <span>数据基于每日快照自动生成</span>
+</footer>"""
+
+
+def _upgrade_report_page(html: str) -> str:
+    """Bring already-frozen month pages onto the current journal chrome."""
+    if REPORT_FONTS_LINK not in html:
+        html = html.replace(
+            '<link rel="stylesheet" href="../assets/styles.css" />',
+            REPORT_FONTS_LINK + '\n<link rel="stylesheet" href="../assets/styles.css" />',
+            1,
+        )
+    if 'class="report-header"' not in html:
+        html = html.replace("<body>", "<body>\n" + REPORT_HEADER, 1)
+    html = html.replace(
+        '<main style="max-width:960px;margin:0 auto;padding:32px 20px">',
+        '<main class="report-main">',
+    )
+    if 'class="report-footer"' not in html:
+        html = html.replace("</body>", REPORT_FOOTER + "\n" + REPORT_THEME_SCRIPT + "\n</body>", 1)
+    html = re.sub(r"<h2>🆕\s*", "<h2>", html)
+    html = re.sub(r"<h2>📈\s*", "<h2>", html)
+    html = re.sub(r"<h2>⏸️\s*", "<h2>", html)
+    html = re.sub(r"<h2>🚪\s*", "<h2>", html)
+    return html
+
+
 def render_month_report(
     month: str,
     history: dict[str, dict[str, dict[str, Any]]],
@@ -1705,28 +1759,29 @@ def render_month_report(
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{month} 月度报告 · Awesome Academic Research Skills</title>
-<script>try{{var t=localStorage.getItem("ars-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;}}catch(e){{}}</script>
-<link rel="stylesheet" href="../assets/styles.css" />
+{REPORT_THEME_BOOTSTRAP}
 <link rel="canonical" href="{SITE_URL}/reports/{month}.html" />
+{REPORT_FONTS_LINK}
+<link rel="stylesheet" href="../assets/styles.css" />
 </head>
 <body>
-<main style="max-width:960px;margin:0 auto;padding:32px 20px">
-<p><a href="../">← 返回排行榜</a> · <a href="index.html">全部月报</a></p>
+{REPORT_HEADER}
+<main class="report-main">
 <h1>{month} 月度报告</h1>
 <p class="muted">收录 {len(rows)} 个仓库 · 合计 {total_stars:,}★ · 报告期 {dates[0]} → {dates[-1]}</p>
 <nav>{nav}</nav>
 
-<h2>🆕 本月新收录（{len(newcomers)}）</h2>
+<h2>本月新收录（{len(newcomers)}）</h2>
 {table(newcomers)}
-<h2>📈 月度上升前 10</h2>
+<h2>月度上升前 10</h2>
 {table(risers)}
-<h2>⏸️ 增长停滞（{len(stalled)}）</h2>
+<h2>增长停滞（{len(stalled)}）</h2>
 {table(stalled)}
-<h2>🚪 本月跌出（{len(dropped)}）</h2>
+<h2>本月跌出（{len(dropped)}）</h2>
 {dropped_html}
-
-<footer style="margin-top:32px"><a href="../feed.xml">RSS 订阅</a> · <a href="../index.html">可视化榜单</a> · 数据基于每日快照自动生成</footer>
 </main>
+{REPORT_FOOTER}
+{REPORT_THEME_SCRIPT}
 </body>
 </html>
 """
@@ -1795,6 +1850,16 @@ def build_monthly_reports(history: dict[str, dict[str, dict[str, Any]]]) -> None
         if updated_html != existing_html:
             month_page.write_text(updated_html, encoding="utf-8")
 
+    # Bring every month page — frozen or fresh — onto the journal chrome.
+    for month in all_months:
+        month_page = REPORTS_DIR / f"{month}.html"
+        if not month_page.exists():
+            continue
+        html = month_page.read_text(encoding="utf-8")
+        upgraded = _upgrade_report_page(html)
+        if upgraded != html:
+            month_page.write_text(upgraded, encoding="utf-8")
+
     links = "".join(f"<li><a href='{m}.html'>{m} 月度报告</a></li>" for m in reversed(all_months))
     (REPORTS_DIR / "index.html").write_text(
         f"""<!doctype html>
@@ -1803,19 +1868,22 @@ def build_monthly_reports(history: dict[str, dict[str, dict[str, Any]]]) -> None
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>月度报告 · Awesome Academic Research Skills</title>
-<script>try{{var t=localStorage.getItem("ars-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;}}catch(e){{}}</script>
-<link rel="stylesheet" href="../assets/styles.css" />
+{REPORT_THEME_BOOTSTRAP}
 <link rel="canonical" href="{SITE_URL}/reports/" />
+{REPORT_FONTS_LINK}
+<link rel="stylesheet" href="../assets/styles.css" />
 </head>
 <body>
-<main style="max-width:720px;margin:0 auto;padding:32px 20px">
-<p><a href="../">← 返回排行榜</a></p>
+{REPORT_HEADER}
+<main class="report-main">
 <h1>月度报告</h1>
 <p class="muted">每月自动总结：新收录、上升、停滞与跌出的仓库。</p>
 <ul>
 {links}
 </ul>
 </main>
+{REPORT_FOOTER}
+{REPORT_THEME_SCRIPT}
 </body>
 </html>
 """,

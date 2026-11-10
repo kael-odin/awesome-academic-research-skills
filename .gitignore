@@ -7,3 +7,4 @@ Thumbs.db
 .venv/
 node_modules/
 .claude/
+.impeccable/

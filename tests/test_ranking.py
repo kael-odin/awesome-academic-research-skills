@@ -2,6 +2,7 @@ import unittest
 import re
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
+from pathlib import Path
 
 from scripts.update_rankings import (
     classify_repo,
@@ -759,6 +760,25 @@ class RankingRulesTest(unittest.TestCase):
         self.assertEqual(ranked[0]["skills_count"], 8)
         self.assertEqual(ranked[0]["stars"], 320)
         self.assertIn("claude-code", ranked[0]["agents"])
+
+    def test_month_report_uses_journal_chrome(self):
+        history = {"2026-09-01": {"example/a": {"stars": 100}}}
+        report = render_month_report("2026-09", history, {"example/a": "2026-08-01"}, set(), ["2026-09"])
+        self.assertIn('class="report-header"', report)
+        self.assertIn('class="report-main"', report)
+        self.assertIn('class="report-footer"', report)
+        self.assertNotIn("🆕", report)
+
+    def test_dashboard_theme_bootstrap_runs_before_stylesheet(self):
+        """Dark-mode visitors must not get a light first paint: the inline
+        bootstrap has to execute before assets/styles.css applies."""
+        root = Path(__file__).resolve().parents[1]
+        for rel in ("index.html", "en/index.html"):
+            html = (root / rel).read_text(encoding="utf-8")
+            bootstrap = html.find("ars-theme")
+            stylesheet = html.find("assets/styles.css")
+            self.assertGreater(bootstrap, 0, rel)
+            self.assertLess(bootstrap, stylesheet, rel)
 
 
 if __name__ == "__main__":
