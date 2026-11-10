@@ -5,6 +5,9 @@
 
   const SAFE = (v, d) => (v === undefined || v === null ? d : v);
 
+  const PAGE_SIZE = 25;
+  const PAGE_SIZES = [25, 50, 100, "all"];
+
   const state = {
     lang: localStorage.getItem("ars-lang") || window.ARS_DEFAULT_LANG || "zh",
     theme: localStorage.getItem("ars-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"),
@@ -16,6 +19,10 @@
     agent: "all",
     sort: "rank",
     page: 1,
+    pageSize: (function () {
+      const stored = localStorage.getItem("ars-page-size");
+      return stored === "all" ? "all" : PAGE_SIZES.includes(Number(stored)) ? Number(stored) : PAGE_SIZE;
+    })(),
     favorites: JSON.parse(localStorage.getItem("ars-favorites") || "[]"),
     favOnly: false,
     hotOnly: false,
@@ -25,8 +32,6 @@
     repo: null, // drawer deep-link (#repo=owner/name)
     compare: JSON.parse(localStorage.getItem("ars-compare") || "[]").slice(0, 3),
   };
-
-  const PAGE_SIZE = 25;
 
   /* Research-stage ordering of the categories (选题 → 文献 → 实验 → 写作 →
      评审 → 学科 → 综合); the strip renders in this fixed order. */
@@ -97,6 +102,7 @@
       // quick filters
       qfHot: "🔥 热门上升", qfCite: "✓ 引用核验", qfSkills: "📦 含 SKILL.md", qfActive: "✨ 排除停更", qfReset: "↺ 重置筛选",
       pagePrev: "上一页", pageNext: "下一页", pageJump: "跳转页码", skillsUnit: "个 Skills",
+      pageSizeLabel: "每页", pageSizeAll: "全部", allShown: "已显示全部",
       showingRange: (s, e, total) => `显示 ${s}–${e} / ${total} 个仓库`,
       // drawer
       drEyebrow: "收录条目",
@@ -143,6 +149,7 @@
       statHotRepo: "Hottest repo", statCats: "Category mix",
       qfHot: "🔥 Hot 7d", qfCite: "✓ Citations verified", qfSkills: "📦 Has SKILL.md", qfActive: "✨ Active only", qfReset: "↺ Reset",
       pagePrev: "Previous", pageNext: "Next", pageJump: "Jump to page", skillsUnit: "skills",
+      pageSizeLabel: "Per page", pageSizeAll: "All", allShown: "All shown",
       showingRange: (s, e, total) => `Showing ${s}–${e} of ${total}`,
       drEyebrow: "Entry",
       drDescription: "Description", drTopics: "Topics", drLanguage: "Language", drCreated: "Created",
@@ -461,50 +468,81 @@
   }
 
   function pagedItems(items) {
-    const totalPages = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
+    const size = state.pageSize === "all" ? Math.max(items.length, 1) : Number(state.pageSize) || PAGE_SIZE;
+    const totalPages = Math.max(1, Math.ceil(items.length / size));
     if (state.page > totalPages) state.page = totalPages;
     if (state.page < 1) state.page = 1;
-    const start = (state.page - 1) * PAGE_SIZE;
-    return { items: items.slice(start, start + PAGE_SIZE), totalPages, startIndex: start, total: items.length };
+    const all = state.pageSize === "all";
+    const start = all ? 0 : (state.page - 1) * size;
+    return {
+      items: all ? items.slice() : items.slice(start, start + size),
+      totalPages,
+      startIndex: start,
+      total: items.length,
+    };
   }
 
   function renderPagination(totalPages, total) {
     const nav = document.getElementById("pagination");
     if (!nav) return;
-    if (totalPages <= 1) {
+    if (!total) {
       nav.hidden = true;
       nav.innerHTML = "";
       return;
     }
+    nav.hidden = false;
     const cur = state.page;
-    const tokens = [];
-    tokens.push(1);
-    const lo = Math.max(2, cur - 1);
-    const hi = Math.min(totalPages - 1, cur + 1);
-    if (lo > 2) tokens.push("gap-start");
-    for (let p = lo; p <= hi; p += 1) tokens.push(p);
-    if (hi < totalPages - 1) tokens.push("gap-end");
-    if (totalPages > 1) tokens.push(totalPages);
+    const options = PAGE_SIZES.map((size) => {
+      const value = size === "all" ? "all" : String(size);
+      const label = size === "all" ? esc(t("pageSizeAll")) : String(size);
+      const selected = String(state.pageSize) === value ? " selected" : "";
+      return `<option value="${value}"${selected}>${label}</option>`;
+    }).join("");
+    let html = `<label class="page-size"><span>${esc(t("pageSizeLabel"))}</span>`
+      + `<select id="pageSizeSelect" aria-label="${esc(t("pageSizeLabel"))}">${options}</select></label>`;
 
-    const btn = (label, page, extra) =>
-      `<button type="button" class="page-btn${extra || ""}" data-page="${page}">${label}</button>`;
-    let html = `<button type="button" class="page-btn page-step" data-page="${cur - 1}" ${
-      cur === 1 ? "disabled" : ""
-    } aria-label="${esc(t("pagePrev"))}">‹ ${esc(t("pagePrev"))}</button>`;
-    tokens.forEach((tok) => {
-      if (typeof tok === "string") {
-        html += `<span class="page-gap" aria-hidden="true">…</span>`;
-      } else {
-        html += `<button type="button" class="page-btn${tok === cur ? " active" : ""}" data-page="${tok}" ${
-          tok === cur ? 'aria-current="page"' : ""
-        }>${tok}</button>`;
-      }
-    });
-    html += `<button type="button" class="page-btn page-step" data-page="${cur + 1}" ${
-      cur === totalPages ? "disabled" : ""
-    } aria-label="${esc(t("pageNext"))}">${esc(t("pageNext"))} ›</button>`;
-    html += `<span class="page-status" aria-live="polite">${fmt(cur)} / ${fmt(totalPages)} · ${fmt(total)}</span>`;
+    if (totalPages > 1) {
+      const tokens = [];
+      tokens.push(1);
+      const lo = Math.max(2, cur - 1);
+      const hi = Math.min(totalPages - 1, cur + 1);
+      if (lo > 2) tokens.push("gap-start");
+      for (let p = lo; p <= hi; p += 1) tokens.push(p);
+      if (hi < totalPages - 1) tokens.push("gap-end");
+      if (totalPages > 1) tokens.push(totalPages);
+
+      html += `<button type="button" class="page-btn page-step" data-page="${cur - 1}" ${
+        cur === 1 ? "disabled" : ""
+      } aria-label="${esc(t("pagePrev"))}">‹ ${esc(t("pagePrev"))}</button>`;
+      tokens.forEach((tok) => {
+        if (typeof tok === "string") {
+          html += `<span class="page-gap" aria-hidden="true">…</span>`;
+        } else {
+          html += `<button type="button" class="page-btn${tok === cur ? " active" : ""}" data-page="${tok}" ${
+            tok === cur ? 'aria-current="page"' : ""
+          }>${tok}</button>`;
+        }
+      });
+      html += `<button type="button" class="page-btn page-step" data-page="${cur + 1}" ${
+        cur === totalPages ? "disabled" : ""
+      } aria-label="${esc(t("pageNext"))}">${esc(t("pageNext"))} ›</button>`;
+      html += `<span class="page-status" aria-live="polite">${fmt(cur)} / ${fmt(totalPages)} · ${fmt(total)}</span>`;
+    } else {
+      html += `<span class="page-status">${esc(t("allShown"))} · ${fmt(total)}</span>`;
+    }
     nav.innerHTML = html;
+
+    const select = document.getElementById("pageSizeSelect");
+    if (select) {
+      select.addEventListener("change", () => {
+        const value = select.value;
+        state.pageSize = value === "all" ? "all" : Number(value);
+        state.page = 1;
+        try { localStorage.setItem("ars-page-size", String(state.pageSize)); } catch (e) {}
+        syncHash();
+        render();
+      });
+    }
     nav.querySelectorAll("[data-page]").forEach((b) => {
       b.addEventListener("click", () => {
         const p = Number(b.dataset.page);
@@ -927,6 +965,7 @@
     if (state.category !== "all") p.set("cat", state.category);
     if (state.agent !== "all") p.set("agent", state.agent);
     if (state.sort !== "rank") p.set("sort", state.sort);
+    if (state.pageSize !== PAGE_SIZE) p.set("per", String(state.pageSize));
     if (state.view !== "table") p.set("view", state.view);
     if (state.lang !== defaultLang) p.set("lang", state.lang);
     if (state.theme !== "light") p.set("theme", state.theme);
@@ -945,6 +984,10 @@
     state.category = m.get("cat") || "all";
     state.agent = m.get("agent") || "all";
     state.sort = m.get("sort") || "rank";
+    if (m.has("per")) {
+      const per = m.get("per");
+      state.pageSize = per === "all" ? "all" : PAGE_SIZES.includes(Number(per)) ? Number(per) : PAGE_SIZE;
+    }
     if (m.has("view")) state.view = m.get("view");
     if (m.has("lang")) state.lang = m.get("lang");
     if (m.has("theme")) state.theme = m.get("theme");

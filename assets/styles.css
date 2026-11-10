@@ -626,6 +626,15 @@ tbody tr:nth-child(-n+3) .rank-cell { color: var(--ars-ember); }
   margin-left: 8px; font-family: var(--ars-mono); font-size: 11px;
   color: var(--ars-muted); font-variant-numeric: tabular-nums;
 }
+.page-size {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-right: 8px; font-family: var(--ars-mono);
+  font-size: 11px; color: var(--ars-muted);
+}
+.page-size select {
+  width: auto; min-height: 32px; padding: 0 8px;
+  font-family: var(--ars-mono); font-size: 12px;
+}
 
 .muted { color: var(--ars-muted); }
 
