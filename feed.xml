@@ -5,79 +5,87 @@
     <link>https://kael-odin.github.io/awesome-academic-research-skills/</link>
     <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 10 Nov 2026 09:55:29 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2026 09:30:51 +0000</lastBuildDate>
     <atom:link href="https://kael-odin.github.io/awesome-academic-research-skills/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>akfamily/akshare (23,279★, +15/7d)</title>
+      <title>akfamily/akshare (23,290★, +11/7d)</title>
       <link>https://github.com/akfamily/akshare</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#akfamily/akshare</guid>
       <description>AKShare is an elegant and simple financial data interface library for Python, built for human beings! 开源财经数据接口库</description>
       <category>Discipline Specific</category>
-      <pubDate>Tue, 10 Nov 2026 09:55:29 +0000</pubDate>
+      <pubDate>Wed, 11 Nov 2026 09:30:51 +0000</pubDate>
     </item>
     <item>
-      <title>blazickjp/arxiv-mcp-server (3,270★, +7/7d)</title>
+      <title>blazickjp/arxiv-mcp-server (3,271★, +1/7d)</title>
       <link>https://github.com/blazickjp/arxiv-mcp-server</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#blazickjp/arxiv-mcp-server</guid>
       <description>A local MCP server for agent literature work. Original-LaTeX section reads, BibTeX from arXiv metadata, and topic watches. Papers stay on disk. Search is optional.</description>
       <category>Literature Review</category>
-      <pubDate>Tue, 10 Nov 2026 09:55:29 +0000</pubDate>
+      <pubDate>Wed, 11 Nov 2026 09:30:51 +0000</pubDate>
     </item>
     <item>
-      <title>917Dhj/DeepPaperNote (1,332★, +0/7d)</title>
+      <title>917Dhj/DeepPaperNote (1,348★, +16/7d)</title>
       <link>https://github.com/917Dhj/DeepPaperNote</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#917Dhj/DeepPaperNote</guid>
       <description>Turn one dense paper into an Obsidian note worth keeping: read the way its field reads it, linked to the papers already in your vault, and aimed at your own research. Agent skills for Claude Code, Co…</description>
       <category>Literature Review</category>
-      <pubDate>Tue, 10 Nov 2026 09:55:29 +0000</pubDate>
+      <pubDate>Wed, 11 Nov 2026 09:30:51 +0000</pubDate>
     </item>
     <item>
-      <title>P1kaj1uu/ChattyPlay-Agent (985★, +4/7d)</title>
+      <title>P1kaj1uu/ChattyPlay-Agent (986★, +1/7d)</title>
       <link>https://github.com/P1kaj1uu/ChattyPlay-Agent</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#P1kaj1uu/ChattyPlay-Agent</guid>
       <description>🚀 告别多个App！本项目主要基于Python+React+TypeScript+Hono+SQLite3+Redis，打造“All in One”智能工具集。免会员播放爱奇艺、腾讯视频、优酷、抖音、B站、小红书等20+平台视频，支持4K在线解析与无水印高速下载。集成Cloudflare Turnstile防机器人和爬虫、Google、GitHub授权登录及OpenAI SDK、埋点SDK、MC…</description>
       <category>Paper Writing</category>
-      <pubDate>Tue, 10 Nov 2026 09:55:29 +0000</pubDate>
+      <pubDate>Wed, 11 Nov 2026 09:30:51 +0000</pubDate>
     </item>
     <item>
-      <title>Light0305/Light-Science (908★, +13/7d)</title>
+      <title>Light0305/Light-Science (921★, +13/7d)</title>
       <link>https://github.com/Light0305/Light-Science</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Light0305/Light-Science</guid>
       <description>A research workflow skill pack connecting literature, experiments, figures, writing, memory and project coordination.</description>
       <category>Paper Writing</category>
-      <pubDate>Tue, 10 Nov 2026 09:55:29 +0000</pubDate>
+      <pubDate>Wed, 11 Nov 2026 09:30:51 +0000</pubDate>
     </item>
     <item>
-      <title>bahayonghang/academic-writing-skills (544★, +0/7d)</title>
+      <title>bahayonghang/academic-writing-skills (546★, +2/7d)</title>
       <link>https://github.com/bahayonghang/academic-writing-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#bahayonghang/academic-writing-skills</guid>
       <description>AI-powered post-writing toolkit for academic papers — format validation, grammar/style polishing, de-AI editing, reference checking, and reviewer-style paper audits. 5 skills for LaTeX, Typst &amp; PDF.…</description>
       <category>Paper Writing</category>
-      <pubDate>Tue, 10 Nov 2026 09:55:29 +0000</pubDate>
+      <pubDate>Wed, 11 Nov 2026 09:30:51 +0000</pubDate>
     </item>
     <item>
-      <title>duyunzhoudyz/dyz-med-paper-skills (367★, +35/7d)</title>
-      <link>https://github.com/duyunzhoudyz/dyz-med-paper-skills</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#duyunzhoudyz/dyz-med-paper-skills</guid>
-      <description>医学论文写作与科研助手：面向中国医生和医学研究生的 32 个 Agent Skills，适用于 Claude Code、Codex，覆盖选题、PubMed 文献检索、中英写作、选刊投稿与审稿修回。Medical writing &amp; research skills.</description>
-      <category>Discipline Specific</category>
-      <pubDate>Tue, 10 Nov 2026 09:55:29 +0000</pubDate>
-    </item>
-    <item>
-      <title>YCC-Lover/research-starter-skills (237★, +12/7d)</title>
+      <title>YCC-Lover/research-starter-skills (254★, +17/7d)</title>
       <link>https://github.com/YCC-Lover/research-starter-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#YCC-Lover/research-starter-skills</guid>
       <description>面向科研新手的 Codex 科研协作技能集：选题、文献检索与阅读、论文写作、自然润色、审稿返修和可编辑学术汇报。结合 Research-Starter-Kit 原创教程，用 1 个总入口与 6 个专业模块推进研究。 Research training, writing &amp; editable presentations for Codex.</description>
       <category>Paper Writing</category>
-      <pubDate>Tue, 10 Nov 2026 09:55:29 +0000</pubDate>
+      <pubDate>Wed, 11 Nov 2026 09:30:51 +0000</pubDate>
     </item>
     <item>
-      <title>poco-ai/Agentero (2,270★, +1196/7d)</title>
+      <title>flonat/flonat-research (151★, +1/7d)</title>
+      <link>https://github.com/flonat/flonat-research</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#flonat/flonat-research</guid>
+      <description>Shareable Claude Code + Codex infrastructure for PhD researchers — skills, agents, hooks, and rules for academic workflows</description>
+      <category>Paper Writing</category>
+      <pubDate>Wed, 11 Nov 2026 09:30:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>ChenLiu-1996/figures4papers (10,951★, +1363/7d)</title>
+      <link>https://github.com/ChenLiu-1996/figures4papers</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#ChenLiu-1996/figures4papers</guid>
+      <description>My Python scripts to make high-quality figures for publications in top AI conferences and journals.</description>
+      <category>Paper Writing</category>
+      <pubDate>Wed, 11 Nov 2026 09:30:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>poco-ai/Agentero (2,344★, +1266/7d)</title>
       <link>https://github.com/poco-ai/Agentero</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#poco-ai/Agentero</guid>
       <description>Unified research workspace for humans &amp; agents — PDF Q&amp;A with citations, Vault, writing. 为人与 Agent 协作的科研工作台；补齐 Zotero 时代的人机上下文断点。</description>
       <category>Literature Review</category>
-      <pubDate>Tue, 10 Nov 2026 09:55:29 +0000</pubDate>
+      <pubDate>Wed, 11 Nov 2026 09:30:51 +0000</pubDate>
     </item>
   </channel>
 </rss>
