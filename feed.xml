@@ -5,31 +5,31 @@
     <link>https://kael-odin.github.io/awesome-academic-research-skills/</link>
     <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 13 Nov 2026 09:35:12 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2026 09:02:24 +0000</lastBuildDate>
     <atom:link href="https://kael-odin.github.io/awesome-academic-research-skills/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>akfamily/akshare (23,326★, +14/7d)</title>
+      <title>akfamily/akshare (23,335★, +9/7d)</title>
       <link>https://github.com/akfamily/akshare</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#akfamily/akshare</guid>
       <description>AKShare is an elegant and simple financial data interface library for Python, built for human beings! 开源财经数据接口库</description>
       <category>Discipline Specific</category>
-      <pubDate>Fri, 13 Nov 2026 09:35:12 +0000</pubDate>
+      <pubDate>Sat, 14 Nov 2026 09:02:24 +0000</pubDate>
     </item>
     <item>
-      <title>blazickjp/arxiv-mcp-server (3,276★, +3/7d)</title>
+      <title>blazickjp/arxiv-mcp-server (3,278★, +2/7d)</title>
       <link>https://github.com/blazickjp/arxiv-mcp-server</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#blazickjp/arxiv-mcp-server</guid>
       <description>A local MCP server for agent literature work. Original-LaTeX section reads, BibTeX from arXiv metadata, and topic watches. Papers stay on disk. Search is optional.</description>
       <category>Literature Review</category>
-      <pubDate>Fri, 13 Nov 2026 09:35:12 +0000</pubDate>
+      <pubDate>Sat, 14 Nov 2026 09:02:24 +0000</pubDate>
     </item>
     <item>
-      <title>917Dhj/DeepPaperNote (1,362★, +9/7d)</title>
+      <title>917Dhj/DeepPaperNote (1,365★, +3/7d)</title>
       <link>https://github.com/917Dhj/DeepPaperNote</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#917Dhj/DeepPaperNote</guid>
       <description>Turn one dense paper into an Obsidian note worth keeping: read the way its field reads it, linked to the papers already in your vault, and aimed at your own research. Agent skills for Claude Code, Co…</description>
       <category>Literature Review</category>
-      <pubDate>Fri, 13 Nov 2026 09:35:12 +0000</pubDate>
+      <pubDate>Sat, 14 Nov 2026 09:02:24 +0000</pubDate>
     </item>
     <item>
       <title>P1kaj1uu/ChattyPlay-Agent (989★, +0/7d)</title>
@@ -37,55 +37,55 @@
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#P1kaj1uu/ChattyPlay-Agent</guid>
       <description>🚀 告别多个App！本项目主要基于Python+React+TypeScript+Hono+SQLite3+Redis，打造“All in One”智能工具集。免会员播放爱奇艺、腾讯视频、优酷、抖音、B站、小红书等20+平台视频，支持4K在线解析与无水印高速下载。集成Cloudflare Turnstile防机器人和爬虫、Google、GitHub授权登录及OpenAI SDK、埋点SDK、MC…</description>
       <category>Paper Writing</category>
-      <pubDate>Fri, 13 Nov 2026 09:35:12 +0000</pubDate>
+      <pubDate>Sat, 14 Nov 2026 09:02:24 +0000</pubDate>
     </item>
     <item>
-      <title>Light0305/Light-Science (942★, +9/7d)</title>
-      <link>https://github.com/Light0305/Light-Science</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Light0305/Light-Science</guid>
-      <description>A research workflow skill pack connecting literature, experiments, figures, writing, memory and project coordination.</description>
-      <category>Paper Writing</category>
-      <pubDate>Fri, 13 Nov 2026 09:35:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>bahayonghang/academic-writing-skills (549★, +0/7d)</title>
+      <title>bahayonghang/academic-writing-skills (551★, +2/7d)</title>
       <link>https://github.com/bahayonghang/academic-writing-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#bahayonghang/academic-writing-skills</guid>
       <description>AI-powered post-writing toolkit for academic papers — format validation, grammar/style polishing, de-AI editing, reference checking, and reviewer-style paper audits. 5 skills for LaTeX, Typst &amp; PDF.…</description>
       <category>Paper Writing</category>
-      <pubDate>Fri, 13 Nov 2026 09:35:12 +0000</pubDate>
+      <pubDate>Sat, 14 Nov 2026 09:02:24 +0000</pubDate>
     </item>
     <item>
-      <title>ChenLiu-1996/figures4papers (11,190★, +1542/7d)</title>
+      <title>ChenLiu-1996/figures4papers (11,255★, +1584/7d)</title>
       <link>https://github.com/ChenLiu-1996/figures4papers</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#ChenLiu-1996/figures4papers</guid>
       <description>My Python scripts to make high-quality figures for publications in top AI conferences and journals.</description>
       <category>Paper Writing</category>
-      <pubDate>Fri, 13 Nov 2026 09:35:12 +0000</pubDate>
+      <pubDate>Sat, 14 Nov 2026 09:02:24 +0000</pubDate>
     </item>
     <item>
-      <title>poco-ai/Agentero (2,465★, +1258/7d)</title>
-      <link>https://github.com/poco-ai/Agentero</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#poco-ai/Agentero</guid>
-      <description>Unified research workspace for humans &amp; agents — PDF Q&amp;A with citations, Vault, writing. 为人与 Agent 协作的科研工作台；补齐 Zotero 时代的人机上下文断点。</description>
-      <category>Literature Review</category>
-      <pubDate>Fri, 13 Nov 2026 09:35:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>Imbad0202/academic-research-skills (56,735★, +1167/7d)</title>
-      <link>https://github.com/Imbad0202/academic-research-skills</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Imbad0202/academic-research-skills</guid>
-      <description>Academic Research Skills for Claude Code: research → write → review → revise → finalize</description>
-      <category>Paper Writing</category>
-      <pubDate>Fri, 13 Nov 2026 09:35:12 +0000</pubDate>
-    </item>
-    <item>
-      <title>AIScientists-Dev/academic-humanizer (4,752★, +1145/7d)</title>
+      <title>AIScientists-Dev/academic-humanizer (4,918★, +1243/7d)</title>
       <link>https://github.com/AIScientists-Dev/academic-humanizer</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#AIScientists-Dev/academic-humanizer</guid>
       <description>Strip AI-writing tells from papers and grant proposals (NSF/NIH), while keeping scholarly voice and tying claims to evidence. A skill for Claude Code, Codex, and MorphMind.</description>
       <category>Paper Writing</category>
-      <pubDate>Fri, 13 Nov 2026 09:35:12 +0000</pubDate>
+      <pubDate>Sat, 14 Nov 2026 09:02:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>Imbad0202/academic-research-skills (56,846★, +1160/7d)</title>
+      <link>https://github.com/Imbad0202/academic-research-skills</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Imbad0202/academic-research-skills</guid>
+      <description>Academic Research Skills for Claude Code: research → write → review → revise → finalize</description>
+      <category>Paper Writing</category>
+      <pubDate>Sat, 14 Nov 2026 09:02:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>Yuan1z0825/nature-skills (53,501★, +901/7d)</title>
+      <link>https://github.com/Yuan1z0825/nature-skills</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Yuan1z0825/nature-skills</guid>
+      <description>符合nature论文学术表达和科研绘图的Skill</description>
+      <category>Discipline Specific</category>
+      <pubDate>Sat, 14 Nov 2026 09:02:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>Adkid-Zephyr/anti-defensive-writing-Skill (6,226★, +838/7d)</title>
+      <link>https://github.com/Adkid-Zephyr/anti-defensive-writing-Skill</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Adkid-Zephyr/anti-defensive-writing-Skill</guid>
+      <description>极致轻量｜阻止论文的防御性写作 | Anti-defensive writing for academic papers — 学术写作原则 Skill + prompt pack (CN/EN)</description>
+      <category>Paper Writing</category>
+      <pubDate>Sat, 14 Nov 2026 09:02:24 +0000</pubDate>
     </item>
   </channel>
 </rss>
