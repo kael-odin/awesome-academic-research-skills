@@ -5,23 +5,39 @@
     <link>https://kael-odin.github.io/awesome-academic-research-skills/</link>
     <description>每日自动更新的学术论文与科研 Agent Skill 排行榜 · Daily ranking of academic research agent skills on GitHub</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 26 Nov 2026 10:59:10 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 10:56:13 +0000</lastBuildDate>
     <atom:link href="https://kael-odin.github.io/awesome-academic-research-skills/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Haozhe-Xing/agent_learning (820★, +3/7d)</title>
+      <title>Haozhe-Xing/agent_learning (822★, +2/7d)</title>
       <link>https://github.com/Haozhe-Xing/agent_learning</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Haozhe-Xing/agent_learning</guid>
       <description>A systematic AI Agent development tutorial covering LLM agents, RAG, tool use, memory systems, multi-agent systems, LangChain, LangGraph, MCP, and agentic RL.｜从零开始学 AI Agent 开发 | 系统、全面、实战导向的 Agent 开发…</description>
       <category>Literature Review</category>
-      <pubDate>Thu, 26 Nov 2026 10:59:10 +0000</pubDate>
+      <pubDate>Fri, 27 Nov 2026 10:56:13 +0000</pubDate>
     </item>
     <item>
-      <title>huh7i5/AI-prompts-writing (158★, +3/7d)</title>
+      <title>WildDataX/suppr-mcp (257★, +0/7d)</title>
+      <link>https://github.com/WildDataX/suppr-mcp</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#WildDataX/suppr-mcp</guid>
+      <description>超能文献|AI驱动的文档翻译与学术搜索服务。支持PDF、DOCX、PPTX等多格式文档的高质量翻译（支持11种语言），特别优化了数学公式翻译。同时提供PubMed学术文献智能搜索功能。更多访问：https://suppr.wilddata.cn</description>
+      <category>Paper Writing</category>
+      <pubDate>Fri, 27 Nov 2026 10:56:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>huh7i5/AI-prompts-writing (160★, +2/7d)</title>
       <link>https://github.com/huh7i5/AI-prompts-writing</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#huh7i5/AI-prompts-writing</guid>
       <description>自动判断写作状态、给出写作建议，并辅助AI写作与论文写作（全流程写稿改稿/去AI味/查真文献/画图/导出Word，含43项提示词+Agent Skills）。Auto-diagnose writing stage, advise revisions &amp; draft grounded papers.</description>
       <category>Paper Writing</category>
-      <pubDate>Thu, 26 Nov 2026 10:59:10 +0000</pubDate>
+      <pubDate>Fri, 27 Nov 2026 10:56:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>xingtaxueshu/literature-review-skills (100★, +0/7d)</title>
+      <link>https://github.com/xingtaxueshu/literature-review-skills</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#xingtaxueshu/literature-review-skills</guid>
+      <description>五个开源文献综述 agent skills：问题提炼、综述模块、方法比较、矛盾梳理、研究空白发现 | Five open agent skills for literature reviews: question refinement, review modules, method comparison, contradiction mapping, research gap discovery</description>
+      <category>Literature Review</category>
+      <pubDate>Fri, 27 Nov 2026 10:56:13 +0000</pubDate>
     </item>
     <item>
       <title>ZehChou/cn-economics-thesis-workflow-skill (100★, +0/7d)</title>
@@ -29,63 +45,47 @@
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#ZehChou/cn-economics-thesis-workflow-skill</guid>
       <description>交互式中文经济学实证论文自动化工作流 — 从选题到排版成文的全流程 Skill</description>
       <category>Discipline Specific</category>
-      <pubDate>Thu, 26 Nov 2026 10:59:10 +0000</pubDate>
+      <pubDate>Fri, 27 Nov 2026 10:56:13 +0000</pubDate>
     </item>
     <item>
-      <title>Imbad0202/academic-research-skills (58,629★, +950/7d)</title>
-      <link>https://github.com/Imbad0202/academic-research-skills</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Imbad0202/academic-research-skills</guid>
-      <description>Academic Research Skills for Claude Code: research → write → review → revise → finalize</description>
-      <category>Paper Writing</category>
-      <pubDate>Thu, 26 Nov 2026 10:59:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>Yuan1z0825/nature-skills (55,124★, +946/7d)</title>
+      <title>Yuan1z0825/nature-skills (55,283★, +989/7d)</title>
       <link>https://github.com/Yuan1z0825/nature-skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Yuan1z0825/nature-skills</guid>
       <description>符合nature论文学术表达和科研绘图的Skill</description>
       <category>Discipline Specific</category>
-      <pubDate>Thu, 26 Nov 2026 10:59:10 +0000</pubDate>
+      <pubDate>Fri, 27 Nov 2026 10:56:13 +0000</pubDate>
     </item>
     <item>
-      <title>K-Dense-AI/scientific-agent-skills (58,526★, +734/7d)</title>
-      <link>https://github.com/K-Dense-AI/scientific-agent-skills</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#K-Dense-AI/scientific-agent-skills</guid>
-      <description>Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 250,000+ scientists worldwide. 177 ready-to-use validated skills plus 100+ scientific databases covering biolo…</description>
-      <category>Discipline Specific</category>
-      <pubDate>Thu, 26 Nov 2026 10:59:10 +0000</pubDate>
+      <title>Imbad0202/academic-research-skills (58,783★, +945/7d)</title>
+      <link>https://github.com/Imbad0202/academic-research-skills</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Imbad0202/academic-research-skills</guid>
+      <description>Academic Research Skills for Claude Code: research → write → review → revise → finalize</description>
+      <category>Paper Writing</category>
+      <pubDate>Fri, 27 Nov 2026 10:56:13 +0000</pubDate>
     </item>
     <item>
-      <title>AIScientists-Dev/academic-humanizer (6,293★, +711/7d)</title>
+      <title>AIScientists-Dev/academic-humanizer (6,435★, +772/7d)</title>
       <link>https://github.com/AIScientists-Dev/academic-humanizer</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#AIScientists-Dev/academic-humanizer</guid>
       <description>Strip AI-writing tells from papers and grant proposals (NSF/NIH), while keeping scholarly voice and tying claims to evidence. A skill for Claude Code, Codex, and MorphMind.</description>
       <category>Paper Writing</category>
-      <pubDate>Thu, 26 Nov 2026 10:59:10 +0000</pubDate>
+      <pubDate>Fri, 27 Nov 2026 10:56:13 +0000</pubDate>
     </item>
     <item>
-      <title>HKUSTDial/Supervisor-Skills (13,648★, +675/7d)</title>
+      <title>K-Dense-AI/scientific-agent-skills (58,650★, +754/7d)</title>
+      <link>https://github.com/K-Dense-AI/scientific-agent-skills</link>
+      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#K-Dense-AI/scientific-agent-skills</guid>
+      <description>Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 250,000+ scientists worldwide. 177 ready-to-use validated skills plus 100+ scientific databases covering biolo…</description>
+      <category>Discipline Specific</category>
+      <pubDate>Fri, 27 Nov 2026 10:56:13 +0000</pubDate>
+    </item>
+    <item>
+      <title>HKUSTDial/Supervisor-Skills (13,743★, +699/7d)</title>
       <link>https://github.com/HKUSTDial/Supervisor-Skills</link>
       <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#HKUSTDial/Supervisor-Skills</guid>
       <description>将博导十年科研经验炼化为可直接调用的 AI 技能。从 Idea 构思到论文投稿，你的 AI 科研副导师。</description>
       <category>Discipline Specific</category>
-      <pubDate>Thu, 26 Nov 2026 10:59:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>Adkid-Zephyr/anti-defensive-writing-Skill (7,304★, +539/7d)</title>
-      <link>https://github.com/Adkid-Zephyr/anti-defensive-writing-Skill</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#Adkid-Zephyr/anti-defensive-writing-Skill</guid>
-      <description>极致轻量｜阻止论文的防御性写作 | Anti-defensive writing for academic papers — 学术写作原则 Skill + prompt pack (CN/EN)</description>
-      <category>Paper Writing</category>
-      <pubDate>Thu, 26 Nov 2026 10:59:10 +0000</pubDate>
-    </item>
-    <item>
-      <title>wanshuiyin/Auto-claude-code-research-in-sleep (19,926★, +467/7d)</title>
-      <link>https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep</link>
-      <guid isPermaLink="false">https://kael-odin.github.io/awesome-academic-research-skills/#wanshuiyin/Auto-claude-code-research-in-sleep</guid>
-      <description>ARIS ⚔️ (Auto-Research-In-Sleep) — Lightweight Markdown-only skills for autonomous ML research: cross-model review loops, idea discovery, and experiment automation. No framework, no lock-in — works w…</description>
-      <category>General Research</category>
-      <pubDate>Thu, 26 Nov 2026 10:59:10 +0000</pubDate>
+      <pubDate>Fri, 27 Nov 2026 10:56:13 +0000</pubDate>
     </item>
   </channel>
 </rss>
